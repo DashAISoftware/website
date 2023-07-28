@@ -3108,6 +3108,11 @@
   }
   .home-text03 {
     color: rgb(255, 255, 255);
+    font-size: 90px;
+    font-style: normal;
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    line-height: 1.1;
   }
   .home-image01 {
     display: none;
