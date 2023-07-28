@@ -306,26 +306,24 @@
   display: flex;
   align-self: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
 }
 .home-text02 {
+  color: rgb(173, 169, 169);
+  font-size: 70px;
+  align-self: flex-start;
+}
+.home-text03 {
+  color: rgb(255, 255, 255);
   width: auto;
-  font-size: 120px;
+  font-size: 110px;
   align-self: center;
   font-style: normal;
   text-align: left;
   font-family: Source Sans Pro;
   font-weight: 600;
   line-height: 1.1;
-}
-.home-text03 {
-  color: #c7c5c5;
-  font-size: 60px;
-}
-.home-text05 {
-  color: #ffffff;
-  font-size: 110px;
 }
 .home-container03 {
   flex: 1;
@@ -398,7 +396,7 @@
   align-items: flex-start;
   flex-direction: row;
 }
-.home-text08 {
+.home-text06 {
   width: 100%;
   font-size: 18px;
   margin-top: var(--dl-space-space-twounits);
@@ -459,7 +457,7 @@
   flex-direction: row;
   background-color: var(--dl-color-gray-black);
 }
-.home-text09 {
+.home-text07 {
   width: 100%;
   font-size: 18px;
   line-height: 27px;
@@ -480,7 +478,7 @@
   flex-direction: row;
   background-color: var(--dl-color-gray-black);
 }
-.home-text10 {
+.home-text08 {
   width: 100%;
   font-size: 18px;
   line-height: 27px;
@@ -551,7 +549,7 @@
   flex-direction: row;
   background-color: var(--dl-color-gray-black);
 }
-.home-text11 {
+.home-text09 {
   width: 100%;
   font-size: 18px;
   line-height: 27px;
@@ -572,7 +570,7 @@
   flex-direction: row;
   background-color: var(--dl-color-gray-black);
 }
-.home-text12 {
+.home-text10 {
   width: 100%;
   font-size: 18px;
   line-height: 27px;
@@ -669,7 +667,7 @@
   font-weight: 600;
   line-height: 60px;
 }
-.home-text15 {
+.home-text13 {
   color: rgb(255, 255, 255);
   font-size: 24px;
   text-align: center;
@@ -841,7 +839,7 @@
   flex-direction: row;
   background-color: #ffffff;
 }
-.home-text20 {
+.home-text18 {
   color: rgb(255, 255, 255);
 }
 .home-heading1 {
@@ -878,19 +876,19 @@
   flex-direction: row;
   border-bottom-width: 1px;
 }
+.home-text19 {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+}
+.home-text20 {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+}
 .home-text21 {
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 21px;
-}
-.home-text22 {
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 21px;
-}
-.home-text23 {
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -1789,7 +1787,7 @@
   font-weight: 600;
   line-height: 100px;
 }
-.home-text55 {
+.home-text53 {
   font-size: 90px;
   font-style: normal;
   font-weight: 600;
@@ -2836,7 +2834,7 @@
   padding-bottom: var(--dl-space-space-oneandhalfunits);
   border-bottom-width: 1px;
 }
-.home-text62 {
+.home-text60 {
   font-size: 14px;
 }
 .home-button14 {
@@ -2911,25 +2909,15 @@
     flex: 1;
     width: auto;
   }
-  .home-text02 {
+  .home-text03 {
+    color: rgb(255, 255, 255);
     width: 100%;
-    font-size: 120px;
+    font-size: 110px;
     max-width: 100%;
     font-style: normal;
+    font-family: Source Sans Pro;
     font-weight: 600;
     line-height: 1.1;
-  }
-  .home-text03 {
-    color: #c7c5c5;
-    font-size: 30px;
-  }
-  .home-text04 {
-    color: #ffffff;
-    font-size: 110px;
-  }
-  .home-text05 {
-    color: #ffffff;
-    font-size: 80px;
   }
   .home-cero {
     flex-direction: column;
@@ -3114,6 +3102,13 @@
     margin-left: 0px;
     padding-left: var(--dl-space-space-twounits);
   }
+  .home-text02 {
+    color: rgb(173, 169, 169);
+    font-size: 50px;
+  }
+  .home-text03 {
+    color: rgb(255, 255, 255);
+  }
   .home-image01 {
     display: none;
   }
@@ -3156,7 +3151,7 @@
     font-size: 20px;
     line-height: 24px;
   }
-  .home-text13 {
+  .home-text11 {
     font-size: 20px;
     line-height: 24px;
   }
@@ -3229,19 +3224,19 @@
   .home-tab {
     padding-bottom: var(--dl-space-space-unit);
   }
-  .home-text21 {
+  .home-text19 {
     font-size: 16px;
   }
   .home-tab1 {
     padding-bottom: var(--dl-space-space-unit);
   }
-  .home-text22 {
+  .home-text20 {
     font-size: 16px;
   }
   .home-tab2 {
     padding-bottom: var(--dl-space-space-unit);
   }
-  .home-text23 {
+  .home-text21 {
     font-size: 16px;
   }
   .home-main01 {
@@ -3541,7 +3536,7 @@
     font-size: 30px;
     line-height: 33px;
   }
-  .home-text54 {
+  .home-text52 {
     font-size: 30px;
     line-height: 33px;
   }
@@ -3919,7 +3914,7 @@
     line-height: 24px;
     padding-bottom: var(--dl-space-space-unit);
   }
-  .home-text62 {
+  .home-text60 {
     font-size: 10px;
   }
   .home-button14 {
@@ -3972,7 +3967,17 @@
     width: 100%;
   }
   .home-text02 {
-    font-size: 50px;
+    color: rgb(173, 169, 169);
+    font-size: 35px;
+  }
+  .home-text03 {
+    color: rgb(255, 255, 255);
+    height: 362px;
+    font-size: 90px;
+    font-style: normal;
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    line-height: 1.1;
   }
   .home-cero {
     padding-left: var(--dl-space-space-unit);
@@ -3988,7 +3993,7 @@
   .home-list {
     gap: var(--dl-space-space-unit);
   }
-  .home-text08 {
+  .home-text06 {
     font-size: 16px;
     line-height: 24px;
   }
@@ -4003,7 +4008,7 @@
     width: 100%;
     max-width: 20px;
   }
-  .home-text09 {
+  .home-text07 {
     font-size: 16px;
     line-height: 24px;
   }
@@ -4011,7 +4016,7 @@
     width: 100%;
     max-width: 20px;
   }
-  .home-text10 {
+  .home-text08 {
     font-size: 16px;
     line-height: 24px;
   }
@@ -4026,7 +4031,7 @@
     width: 100%;
     max-width: 20px;
   }
-  .home-text11 {
+  .home-text09 {
     font-size: 16px;
     line-height: 24px;
   }
@@ -4034,7 +4039,7 @@
     width: 100%;
     max-width: 20px;
   }
-  .home-text12 {
+  .home-text10 {
     font-size: 16px;
     line-height: 24px;
   }
@@ -4054,13 +4059,13 @@
   .home-docs {
     width: 40%;
   }
-  .home-text17 {
+  .home-text15 {
     margin-left: var(--dl-space-space-unit);
   }
   .home-divide {
     width: 20px;
   }
-  .home-text20 {
+  .home-text18 {
     font-size: 12px;
     line-height: 13px;
   }
@@ -4230,21 +4235,21 @@
   .home-divide2 {
     width: 20px;
   }
-  .home-text56 {
+  .home-text54 {
     font-size: 16px;
     line-height: 24px;
   }
   .home-divide3 {
     width: 20px;
   }
-  .home-text57 {
+  .home-text55 {
     font-size: 16px;
     line-height: 24px;
   }
   .home-divide4 {
     width: 20px;
   }
-  .home-text61 {
+  .home-text59 {
     font-size: 16px;
     line-height: 24px;
   }
