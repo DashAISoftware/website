@@ -1,0 +1,12 @@
+services:
+  frontend:
+    build: .
+    container_name: dashai-website
+    ports:
+      - '3003:3000'
+    volumes:
+      - ./app:/app/app
+      - ./components:/app/components
+      - ./lib:/app/lib
+      - ./styles:/app/styles
+      - ./public:/app/public
