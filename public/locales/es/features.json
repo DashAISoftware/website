@@ -1,0 +1,26 @@
+{
+  "heading": "<0>Funcionalidades <1>potentes</1></0>",
+  "description": "Descubre las potentes funcionalidades que hacen de DashAI la plataforma definitiva para la experimentación con IA",
+  "items": {
+    "dataExplorer": {
+      "title": "Explorador de Datos",
+      "description": "Explora, limpia y prepara tus datos en un entorno visual intuitivo: realiza análisis exploratorios dinámicos y guiados directamente dentro de DashAI."
+    },
+    "mlExperimentation": {
+      "title": "Experimentación ML",
+      "description": "Configura y gestiona tus experimentos de ML con una interfaz intuitiva. Selecciona modelos, ajusta hiperparámetros y define métricas de evaluación sin escribir una sola línea de código."
+    },
+    "resultsVisualization": {
+      "title": "Visualización de Resultados",
+      "description": "Compara el rendimiento de modelos a lo largo de múltiples experimentos. Los paneles interactivos te ayudan a identificar los mejores modelos y comprender su comportamiento mediante métricas y visualizaciones completas."
+    },
+    "modelExplainability": {
+      "title": "Explicabilidad del Modelo",
+      "description": "Comprende cómo toman decisiones tus modelos. Genera gráficos de importancia de variables, valores SHAP y visualizaciones interpretables que te ayudan a confiar y depurar tus modelos de IA."
+    },
+    "generativeModule": {
+      "title": "Módulo Generativo",
+      "description": "Experimenta con modelos de IA generativa sin fricciones. Genera texto, imágenes y otros contenidos mientras visualizas el proceso de generación y ajustas parámetros en tiempo real."
+    }
+  }
+}

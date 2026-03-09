@@ -2,8 +2,10 @@
 
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { useTranslation } from 'react-i18next'
 
 export function ContactSection() {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -67,10 +69,12 @@ export function ContactSection() {
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Contact Us
+            {t('contact:title', { defaultValue: 'Contact Us' })}
           </h2>
           <p className="text-muted-foreground text-lg">
-          Have questions or feedback about DashAI? Feel free to get in touch — we’d love to hear from you.
+            {t('contact:description', {
+              defaultValue: 'Have questions or feedback about DashAI? Feel free to get in touch — we’d love to hear from you.',
+            })}
           </p>
         </div>
 
@@ -79,7 +83,7 @@ export function ContactSection() {
             <input
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder={t('contact:fields.name', { defaultValue: 'Name' })}
               value={formData.name}
               onChange={handleChange}
               required
@@ -91,7 +95,7 @@ export function ContactSection() {
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder={t('contact:fields.email', { defaultValue: 'Email' })}
               value={formData.email}
               onChange={handleChange}
               required
@@ -102,7 +106,7 @@ export function ContactSection() {
           <div>
             <textarea
               name="message"
-              placeholder="Message"
+              placeholder={t('contact:fields.message', { defaultValue: 'Message' })}
               value={formData.message}
               onChange={handleChange}
               required
@@ -116,18 +120,24 @@ export function ContactSection() {
             disabled={status === 'sending'}
             className="w-full py-6 text-lg font-medium cursor-pointer"
           >
-            {status === 'sending' ? 'Sending...' : status === 'success' ? 'Sent!' : 'Send message'}
+            {status === 'sending'
+              ? t('contact:status.sending', { defaultValue: 'Sending...' })
+              : status === 'success'
+              ? t('contact:status.sent', { defaultValue: 'Sent!' })
+              : t('contact:status.idle', { defaultValue: 'Send message' })}
           </Button>
 
           {status === 'success' && (
             <p className="text-center text-primary animate-in fade-in duration-300">
-              Thank you for contacting us! We will get back to you soon.
+              {t('contact:feedback.success', {
+                defaultValue: 'Thank you for contacting us! We will get back to you soon.',
+              })}
             </p>
           )}
 
           {status === 'error' && (
             <p className="text-center text-red-500 animate-in fade-in duration-300">
-              There was an error. Please try again.
+              {t('contact:feedback.error', { defaultValue: 'There was an error. Please try again.' })}
             </p>
           )}
         </form>

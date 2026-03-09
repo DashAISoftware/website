@@ -1,61 +1,53 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Trans, useTranslation } from "react-i18next"
 
-const features = [
+const featureItems = [
   {
     id: 1,
-    title: "Data Explorer",
-    description:
-      "Explore, clean, and prepare your data in an intuitive visual environment: perform dynamic, visual, and guided exploratory data analyses (EDA) directly within DashAI.",
+    key: "dataExplorer",
     image: "features/eda_module.png",
-    features: [
-      "Manage all your datasets in one place",
-      "Apply different conversions to your datasets easily",
-      "Generate customizable charts",
-    ],
+    defaultTitle: "Data Explorer",
+    defaultDescription:
+      "Explore, clean, and prepare your data in an intuitive visual environment: perform dynamic, visual, and guided exploratory data analyses (EDA) directly within DashAI.",
   },
   {
     id: 2,
-    title: "ML Experimentation",
-    description:
-      "Set up and manage your ML experiments with an intuitive interface. Select models, configure its hyperparameters, and define evaluation metrics without writing a single line of code.",
+    key: "mlExperimentation",
     image: "features/ml_experimentation.png",
-    features: ["Model selection by task", "Experiment tracking", "One-click experiment runs"],
+    defaultTitle: "ML Experimentation",
+    defaultDescription:
+      "Set up and manage your ML experiments with an intuitive interface. Select models, configure its hyperparameters, and define evaluation metrics without writing a single line of code.",
   },
   {
     id: 3,
-    title: "Results Visualization",
-    description:
-      "Compare model performance across multiple experiments. Interactive dashboards help you identify the best performing models and understand their behavior through comprehensive metrics and visualizations.",
+    key: "resultsVisualization",
     image: "features/results.png",
-    features: ["Performance comparison", "Interactive dashboards", "Custom visualizations"],
+    defaultTitle: "Results Visualization",
+    defaultDescription:
+      "Compare model performance across multiple experiments. Interactive dashboards help you identify the best performing models and understand their behavior through comprehensive metrics and visualizations.",
   },
   {
     id: 4,
-    title: "Model Explanability",
-    description:
-      "Understand how your models make decisions. Generate feature importance plots, SHAP values, and interpretable visualizations that help you trust and debug your AI models.",
+    key: "modelExplainability",
     image: "features/explainability_module.png",
-    features: [
-      "Visual Explanations",
-      "Global y Local explicadores",
-      "Model inspection and analysis"
-    ],
+    defaultTitle: "Model Explainability",
+    defaultDescription:
+      "Understand how your models make decisions. Generate feature importance plots, SHAP values, and interpretable visualizations that help you trust and debug your AI models.",
   },
   {
     id: 5,
-    title: "Generative Module",
-    description:
-      "Experiment with generative AI models seamlessly. Generate text, images, and other content while visualizing the generation process and fine-tuning parameters in real-time.",
+    key: "generativeModule",
     image: "features/generative_module.png",
-    features: ["Multi-modal generation", "Real-time preview", "Parameter control"],
+    defaultTitle: "Generative Module",
+    defaultDescription:
+      "Experiment with generative AI models seamlessly. Generate text, images, and other content while visualizing the generation process and fine-tuning parameters in real-time.",
   },
 ]
 
 export function FeaturesSection() {
+  const { t } = useTranslation()
   const [visibleFeatures, setVisibleFeatures] = useState<Set<number>>(new Set())
   const featureRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -87,22 +79,33 @@ export function FeaturesSection() {
     <section id="features" className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-balance text-white">
-            Powerful <span className="text-primary">Features</span>
-          </h2>
+          <Trans i18nKey="features:heading">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-balance text-white">
+              Powerful <span className="text-primary">Features</span>
+            </h2>
+          </Trans>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Discover the powerful features that make DashAI the ultimate platform for AI experimentation
+            {t("features:description", {
+              defaultValue:
+                "Discover the powerful features that make DashAI the ultimate platform for AI experimentation",
+            })}
           </p>
         </div>
 
         <div className="space-y-32">
-          {features.map((feature, index) => {
+          {featureItems.map((feature, index) => {
             const isEven = index % 2 === 0
             const isVisible = visibleFeatures.has(index)
+            const title = t(`features:items.${feature.key}.title`, {
+              defaultValue: feature.defaultTitle,
+            })
+            const description = t(`features:items.${feature.key}.description`, {
+              defaultValue: feature.defaultDescription,
+            })
 
             return (
               <div
-                key={index}
+                key={feature.id}
                 ref={(el) => {
                   featureRefs.current[index] = el
                 }}
@@ -113,9 +116,9 @@ export function FeaturesSection() {
                 }`}
               >
                 <div className="flex-1 space-y-4">
-                  <h3 className="text-3xl md:text-4xl font-bold">{feature.title}</h3>
+                  <h3 className="text-3xl md:text-4xl font-bold">{title}</h3>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    {feature.description}
+                    {description}
                   </p>
                 </div>
 
@@ -123,7 +126,7 @@ export function FeaturesSection() {
                   <div className="relative rounded-xl overflow-hidden border border-border shadow-2xl">
                     <img
                       src={feature.image || "/placeholder.svg"}
-                      alt={feature.title}
+                      alt={feature.defaultTitle}
                       className="w-full h-auto"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />

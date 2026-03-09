@@ -1,0 +1,18 @@
+{
+  "title": "Construido y ampliado por la comunidad",
+  "description": "La arquitectura de plugins de DashAI permite que cualquiera aporte nuevas capacidades. Crea plugins, mejora el núcleo y da forma al futuro de las herramientas de IA de código abierto.",
+  "cards": {
+    "github": {
+      "title": "GitHub",
+      "description": "Explora el código fuente"
+    },
+    "docs": {
+      "title": "Documentación",
+      "description": "Visita la documentación técnica"
+    },
+    "contribute": {
+      "title": "Contribuye",
+      "description": "Mejora el proyecto"
+    }
+  }
+}
