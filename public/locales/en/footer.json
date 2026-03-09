@@ -1,0 +1,29 @@
+{
+  "brand": {
+    "title": "DashAI",
+    "description": "Open source platform to democratize access to artificial intelligence."
+  },
+  "sections": {
+    "product": {
+      "title": "Product",
+      "links": {
+        "features": "Features",
+        "changelog": "Changelog"
+      }
+    },
+    "resources": {
+      "title": "Resources",
+      "links": {
+        "documentation": "Documentation"
+      }
+    },
+    "community": {
+      "title": "Community",
+      "links": {
+        "github": "GitHub",
+        "contribute": "Contribute"
+      }
+    }
+  },
+  "copyright": "© 2025 DashAI"
+}

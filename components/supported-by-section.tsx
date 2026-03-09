@@ -1,6 +1,7 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
+import { useTranslation } from "react-i18next";
 
 const participatingInstitutions = [
   {
@@ -45,13 +46,15 @@ const partnerOrganizations = [
 ]
 
 export function SupportedBySection() {
+
+  const { t } = useTranslation();
   return (
     <section id="support" className="py-24 px-4 bg-secondary/30">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-balance">Supported By</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-balance">{t("supportedBy:title")}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            DashAI is made possible thanks to the collaboration and support of leading institutions and organizations
+            {t("supportedBy:description")}
           </p>
         </div>
 

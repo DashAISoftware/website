@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button"
 import { Github, BookOpen, Download } from "lucide-react"
 import Image from "next/image"
 import { siteConfig } from "@/lib/config"
+import { useTranslation, Trans } from "react-i18next"
 
 export function HeroSection() {
+  const { t } = useTranslation()
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
@@ -37,15 +39,17 @@ export function HeroSection() {
             />
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-balance leading-tight">
-            {"The "}
-            <span className="text-primary">open source</span>
-            {" platform for AI experimentation"}
-          </h1>
+          <Trans i18nKey="hero:title" >
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-balance leading-tight">
+              {"The "}
+              <span className="text-primary">open source</span>
+              {" platform for AI experimentation"}
+            </h1>
+          </Trans>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
             {
-              "Integrate, experiment, and visualize AI model results through an intuitive visual interface. Built with an extensible plugin architecture for limitless customization."
+              t("hero:description", "Integrate, experiment, and visualize AI model results through an intuitive visual interface. Built with an extensible plugin architecture for limitless customization.")
             }
           </p>
 
@@ -56,7 +60,7 @@ export function HeroSection() {
               onClick={() => scrollToSection("download")}
             >
               <Download className="mr-2 h-5 w-5" />
-              {"Download Now"}
+              {t("hero:download")}
             </Button>
             <Button
               size="lg"
@@ -66,7 +70,7 @@ export function HeroSection() {
             >
               <a href={siteConfig.github.url} target="_blank" rel="noopener noreferrer">
                 <Github className="mr-2 h-5 w-5" />
-                {"View on GitHub"}
+                {t("hero:viewOnGithub", "View on GitHub")}
               </a>
             </Button>
             <Button 
@@ -77,7 +81,7 @@ export function HeroSection() {
             >
               <a href={siteConfig.docs.url} target="_blank" rel="noopener noreferrer">
                 <BookOpen className="mr-2 h-5 w-5" />
-                {"Documentation"}
+                {t("hero:documentation", "Documentation")}
               </a>
             </Button>
           </div>
