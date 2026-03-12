@@ -1,9 +1,12 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Download, Terminal, Package } from "lucide-react"
+import { Download, Package } from "lucide-react"
 
 const downloads = [
   {
+    id: "mac_intel",
     icon: Package,
     platform: "macOS Intel processors",
     version: "v0.1.15",
@@ -12,6 +15,7 @@ const downloads = [
     link: "https://dashai.nyc3.cdn.digitaloceanspaces.com/executables/DashAI-launcher-cpu-x86_64",
   },
   {
+    id: "mac_arm",
     icon: Package,
     platform: "macOS ARM processors",
     version: "v0.1.15",
@@ -20,6 +24,7 @@ const downloads = [
     link: "https://dashai.nyc3.cdn.digitaloceanspaces.com/executables/DashAI-launcher-cpu-arm64",
   },
   {
+    id: "windows",
     icon: Package,
     platform: "Windows",
     version: "v0.1.15",
@@ -27,15 +32,20 @@ const downloads = [
     format: ".exe",
     link: "https://dashai.nyc3.cdn.digitaloceanspaces.com/executables/DashAI-launcher-cpu.exe",
   },
-  // {
-  //   icon: Package,
-  //   platform: "Docker",
-  //   version: "latest",
-  //   size: "~300 MB",
-  //   format: "container",
-  //   link: "#",
-  // },
 ]
+
+const TRACKER_URL = process.env.NEXT_PUBLIC_TRACKER_URL
+
+async function trackClick(buttonId: string) {
+  if (!TRACKER_URL) return
+  try {
+    await fetch(`${TRACKER_URL}/click/${buttonId}`, {
+      method: "POST",
+    })
+  } catch {
+    // non-blocking — don't let tracking errors affect the download
+  }
+}
 
 export function DownloadSection() {
   return (
@@ -45,17 +55,18 @@ export function DownloadSection() {
           <h2 className="text-3xl md:text-5xl font-bold mb-2 text-balance">Download DashAI</h2>
           <span className="block text-base text-primary font-semibold mb-4">Beta Version</span>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          This early version lets you explore DashAI’s main features. We appreciate your feedback to help us improve before the official release.
+            This early version lets you explore DashAI&apos;s main features. We appreciate your feedback to help us
+            improve before the official release.
           </p>
         </div>
 
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {downloads.map((download, index) => {
+            {downloads.map((download) => {
               const Icon = download.icon
               return (
                 <Card
-                  key={index}
+                  key={download.id}
                   className="bg-card border-border hover:border-primary/50 transition-all duration-300 group cursor-pointer"
                 >
                   <CardContent className="p-6">
@@ -69,12 +80,12 @@ export function DownloadSection() {
                       </p>
                       <p className="text-xs text-muted-foreground font-mono">{download.format}</p>
                     </div>
-                    <Button 
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer" 
+                    <Button
+                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer"
                       size="sm"
                       asChild
                     >
-                      <a href={download.link} download>
+                      <a href={download.link} download onClick={() => trackClick(download.id)}>
                         <Download className="mr-2 h-4 w-4" />
                         Download
                       </a>
