@@ -1,0 +1,18 @@
+{
+  "title": "Built and extended by the community",
+  "description": "DashAI's plugin architecture enables anyone to contribute new capabilities. Build plugins, improve the core, and shape the future of open source AI tools.",
+  "cards": {
+    "github": {
+      "title": "GitHub",
+      "description": "Explore the source code"
+    },
+    "docs": {
+      "title": "Docs",
+      "description": "Visit the technical documentation"
+    },
+    "contribute": {
+      "title": "Contribute",
+      "description": "Improve the project"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "heading": "<0>Powerful <1>Features</1></0>",
+  "description": "Discover the powerful features that make DashAI the ultimate platform for AI experimentation",
+  "items": {
+    "dataExplorer": {
+      "title": "Data Explorer",
+      "description": "Explore, clean, and prepare your data in an intuitive visual environment: perform dynamic, visual, and guided exploratory data analyses (EDA) directly within DashAI."
+    },
+    "mlExperimentation": {
+      "title": "ML Experimentation",
+      "description": "Set up and manage your ML experiments with an intuitive interface. Select models, configure hyperparameters, and define evaluation metrics without writing a single line of code."
+    },
+    "resultsVisualization": {
+      "title": "Results Visualization",
+      "description": "Compare model performance across multiple experiments. Interactive dashboards help you identify the best performing models and understand their behavior through comprehensive metrics and visualizations."
+    },
+    "modelExplainability": {
+      "title": "Model Explainability",
+      "description": "Understand how your models make decisions. Generate feature importance plots, SHAP values, and interpretable visualizations that help you trust and debug your AI models."
+    },
+    "generativeModule": {
+      "title": "Generative Module",
+      "description": "Experiment with generative AI models seamlessly. Generate text, images, and other content while visualizing the generation process and fine-tuning parameters in real-time."
+    }
+  }
+}

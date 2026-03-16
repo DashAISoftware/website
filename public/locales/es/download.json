@@ -1,0 +1,25 @@
+{
+  "title": "Descarga DashAI",
+  "badge": "Versión Beta",
+  "description": "Esta versión temprana te permite explorar las principales funciones de DashAI. Agradecemos tus comentarios para ayudarnos a mejorar antes del lanzamiento oficial.",
+  "button": "Descargar",
+  "cards": {
+    "macIntel": {
+      "platform": "macOS con Intel",
+      "format": "binario"
+    },
+    "macArm": {
+      "platform": "macOS con ARM",
+      "format": "binario"
+    },
+    "windows": {
+      "platform": "Windows",
+      "format": ".exe"
+    }
+  },
+  "pip": {
+    "title": "Instala con pip",
+    "subtitle": "Para desarrolladores que prefieren la instalación por línea de comandos",
+    "command": "pip install dashai"
+  }
+}
