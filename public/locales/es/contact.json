@@ -1,0 +1,18 @@
+{
+  "title": "Contáctanos",
+  "description": "¿Tienes preguntas o comentarios sobre DashAI? Ponte en contacto, nos encantará saber de ti.",
+  "fields": {
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "message": "Mensaje"
+  },
+  "status": {
+    "idle": "Enviar mensaje",
+    "sending": "Enviando...",
+    "sent": "¡Enviado!"
+  },
+  "feedback": {
+    "success": "¡Gracias por contactarnos! Te responderemos pronto.",
+    "error": "Ocurrió un error. Inténtalo nuevamente."
+  }
+}

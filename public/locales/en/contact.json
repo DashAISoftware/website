@@ -1,0 +1,18 @@
+{
+  "title": "Contact Us",
+  "description": "Have questions or feedback about DashAI? Feel free to get in touch — we’d love to hear from you.",
+  "fields": {
+    "name": "Name",
+    "email": "Email",
+    "message": "Message"
+  },
+  "status": {
+    "idle": "Send message",
+    "sending": "Sending...",
+    "sent": "Sent!"
+  },
+  "feedback": {
+    "success": "Thank you for contacting us! We will get back to you soon.",
+    "error": "There was an error. Please try again."
+  }
+}

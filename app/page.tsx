@@ -1,3 +1,5 @@
+"use client"
+
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
 import { FeaturesSection } from "@/components/features-section"
@@ -7,6 +9,7 @@ import { SupportedBySection } from "@/components/supported-by-section"
 import { CommunitySection } from "@/components/community-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
+import "./i18n"
 
 export default function Home() {
   return (
