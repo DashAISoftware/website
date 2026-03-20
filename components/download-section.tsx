@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next"
 
 const downloads = [
   {
+    id: "mac_intel",
     icon: Package,
     key: "macIntel",
     defaultPlatform: "macOS Intel processors",
@@ -16,6 +17,7 @@ const downloads = [
     link: "https://dashai.nyc3.cdn.digitaloceanspaces.com/executables/DashAI-launcher-cpu-x86_64",
   },
   {
+    id: "mac_arm",
     icon: Package,
     key: "macArm",
     defaultPlatform: "macOS ARM processors",
@@ -25,6 +27,7 @@ const downloads = [
     link: "https://dashai.nyc3.cdn.digitaloceanspaces.com/executables/DashAI-launcher-cpu-arm64",
   },
   {
+    id: "windows",
     icon: Package,
     key: "windows",
     defaultPlatform: "Windows",
@@ -34,6 +37,19 @@ const downloads = [
     link: "https://dashai.nyc3.cdn.digitaloceanspaces.com/executables/DashAI-launcher-cpu.exe",
   },
 ]
+
+const TRACKER_URL = process.env.NEXT_PUBLIC_TRACKER_URL
+
+async function trackClick(buttonId: string) {
+  if (!TRACKER_URL) return
+  try {
+    await fetch(`${TRACKER_URL}/click/${buttonId}`, {
+      method: "POST",
+    })
+  } catch {
+    // non-blocking — don't let tracking errors affect the download
+  }
+}
 
 export function DownloadSection() {
   const { t } = useTranslation()
@@ -57,7 +73,7 @@ export function DownloadSection() {
 
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {downloads.map((download, index) => {
+            {downloads.map((download) => {
               const Icon = download.icon
               const platform = t(`download:cards.${download.key}.platform`, {
                 defaultValue: download.defaultPlatform,
@@ -81,12 +97,12 @@ export function DownloadSection() {
                       </p>
                       <p className="text-xs text-muted-foreground font-mono">{format}</p>
                     </div>
-                    <Button 
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer" 
+                    <Button
+                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer"
                       size="sm"
                       asChild
                     >
-                      <a href={download.link} download>
+                      <a href={download.link} download onClick={() => trackClick(download.id)}>
                         <Download className="mr-2 h-4 w-4" />
                         {t("download:button", { defaultValue: "Download" })}
                       </a>
