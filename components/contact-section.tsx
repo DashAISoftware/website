@@ -13,50 +13,6 @@ export function ContactSection() {
   })
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus('sending')
-
-    try {
-      const formPayload = {
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-        _subject: `Nuevo mensaje de contacto de DashAI - ${formData.name}`,
-      }
-
-      console.log('Sending form data:', formPayload)
-
-      const response = await fetch(`https://formspree.io/f/mnnwakle`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify(formPayload),
-      })
-
-      const responseData = await response.json()
-      console.log('Formspree response:', response.status, responseData)
-
-      if (response.ok) {
-        setStatus('success')
-        setFormData({ name: '', email: '', message: '' })
-        setTimeout(() => setStatus('idle'), 5000)
-      } else {
-        // Mostrar error más específico
-        const errorMessage = responseData.error || responseData.message || 'Error al enviar el mensaje'
-        console.error('Formspree error:', responseData)
-        setStatus('error')
-        setTimeout(() => setStatus('idle'), 5000)
-      }
-    } catch (error) {
-      console.error('Form submission error:', error)
-      setStatus('error')
-      setTimeout(() => setStatus('idle'), 3000)
-    }
-  }
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
       ...prev,
@@ -78,7 +34,7 @@ export function ContactSection() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form className="space-y-6" method='Post' action={"https://formsubmit.co/f3a0c12371fc03abba59a65a3db14338"}>
           <div>
             <input
               type="text"
@@ -102,6 +58,8 @@ export function ContactSection() {
               className="w-full px-6 py-4 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
             />
           </div>
+          
+          <input type="hidden" name="_subject" value={`Nuevo mensaje de contacto de DashAI - ${formData.name}`} />
 
           <div>
             <textarea
