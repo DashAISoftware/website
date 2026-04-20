@@ -24,6 +24,11 @@ const participatingInstitutions = [
     logo: "supported-by/imfd-logo.png",
     url: "https://www.imfd.cl/",
   },
+  {
+    name: "Agencia Nacional de Investigación y Desarrollo (ANID)",
+    logo: "supported-by/anid-logo.png",
+    url: "https://www.anid.cl/",
+  }
 ]
 
 const fundingInstitution = {
@@ -64,7 +69,7 @@ export function SupportedBySection() {
             <h3 className="text-xl font-semibold mb-8 text-center text-muted-foreground">
               Participating Institutions
             </h3> */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
               {participatingInstitutions.map((institution, index) => {
                 const isSmallLogo = institution.logo.includes("dcc-logo") || institution.logo.includes("utfsm-logo")
                 return (
