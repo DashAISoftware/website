@@ -3,38 +3,53 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Download, Package } from "lucide-react"
+import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
+import { findAsset, formatBytes, getLatestRelease } from "@/lib/github"
 
-const downloads = [
+const SOURCEFORGE_URL = "https://sourceforge.net/projects/dashai/files/latest/download"
+
+type DownloadEntry = {
+  id: "mac_intel" | "mac_arm" | "windows"
+  icon: typeof Package
+  key: string
+  defaultPlatform: string
+  version: string
+  size: string
+  defaultFormat: string
+  link: string
+}
+
+const FALLBACK_DOWNLOADS: DownloadEntry[] = [
   {
     id: "mac_intel",
     icon: Package,
     key: "macIntel",
     defaultPlatform: "macOS Intel processors",
-    version: "v0.1.15",
-    size: "487 MB",
-    defaultFormat: "binary",
-    link: "https://dashai.nyc3.cdn.digitaloceanspaces.com/executables/DashAI-launcher-cpu-x86_64",
+    version: "",
+    size: "",
+    defaultFormat: ".dmg",
+    link: SOURCEFORGE_URL,
   },
   {
     id: "mac_arm",
     icon: Package,
     key: "macArm",
     defaultPlatform: "macOS ARM processors",
-    version: "v0.1.15",
-    size: "381 MB",
-    defaultFormat: "binary",
-    link: "https://dashai.nyc3.cdn.digitaloceanspaces.com/executables/DashAI-launcher-cpu-arm64",
+    version: "",
+    size: "",
+    defaultFormat: ".dmg",
+    link: SOURCEFORGE_URL,
   },
   {
     id: "windows",
     icon: Package,
     key: "windows",
     defaultPlatform: "Windows",
-    version: "v0.1.15",
-    size: "434 MB",
+    version: "",
+    size: "",
     defaultFormat: ".exe",
-    link: "https://dashai.nyc3.cdn.digitaloceanspaces.com/executables/DashAI-launcher-cpu.exe",
+    link: SOURCEFORGE_URL,
   },
 ]
 
@@ -53,6 +68,26 @@ async function trackClick(buttonId: string) {
 
 export function DownloadSection() {
   const { t } = useTranslation()
+  const [downloads, setDownloads] = useState<DownloadEntry[]>(FALLBACK_DOWNLOADS)
+
+  useEffect(() => {
+    getLatestRelease().then((release) => {
+      if (!release) return
+      setDownloads(
+        FALLBACK_DOWNLOADS.map((entry) => {
+          const asset = findAsset(release.assets, entry.id)
+          if (!asset) return entry
+          return {
+            ...entry,
+            version: release.tag_name,
+            size: formatBytes(asset.size),
+            link: asset.browser_download_url,
+          }
+        })
+      )
+    })
+  }, [])
+
   return (
     <section id="download" className="py-24 px-4 bg-secondary/30">
       <div className="container mx-auto">
@@ -66,7 +101,7 @@ export function DownloadSection() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t("download:description", {
               defaultValue:
-                "This early version lets you explore DashAI’s main features. We appreciate your feedback to help us improve before the official release.",
+                "This early version lets you explore DashAI's main features. We appreciate your feedback to help us improve before the official release.",
             })}
           </p>
         </div>
@@ -92,9 +127,11 @@ export function DownloadSection() {
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{platform}</h3>
                     <div className="space-y-1 mb-4">
-                      <p className="text-sm text-muted-foreground">
-                        {download.version} • {download.size}
-                      </p>
+                      {download.version && (
+                        <p className="text-sm text-muted-foreground">
+                          {download.version} • {download.size}
+                        </p>
+                      )}
                       <p className="text-xs text-muted-foreground font-mono">{format}</p>
                     </div>
                     <Button
@@ -102,7 +139,7 @@ export function DownloadSection() {
                       size="sm"
                       asChild
                     >
-                      <a href={download.link} download onClick={() => trackClick(download.id)}>
+                      <a href={download.link} onClick={() => trackClick(download.id)}>
                         <Download className="mr-2 h-4 w-4" />
                         {t("download:button", { defaultValue: "Download" })}
                       </a>
