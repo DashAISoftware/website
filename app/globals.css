@@ -4,78 +4,88 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.98 0 0);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.12 0 0);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.12 0 0);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.75 0.18 195);
-  --primary-foreground: oklch(0.1 0 0);
-  --secondary: oklch(0.28 0 0);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.22 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.65 0.18 45);
-  --accent-foreground: oklch(0.1 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
+  /* ── DashAI Brand v2 · Neutral Dark (May 2026) ── */
+  --background:             #191817;
+  --foreground:             #FEFEFF;
+  --card:                   #1F1E1D;
+  --card-foreground:        #FEFEFF;
+  --popover:                #1F1E1D;
+  --popover-foreground:     #FEFEFF;
+  --primary:                #2C7AFF;
+  --primary-foreground:     #191817;
+  --secondary:              #25231F;
+  --secondary-foreground:   #FEFEFF;
+  --muted:                  #1B1A19;
+  --muted-foreground:       #B5B0A8;
+  --accent:                 #FFA578;
+  --accent-foreground:      #191817;
+  --destructive:            oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.28 0 0);
-  --input: oklch(0.28 0 0);
-  --ring: oklch(0.75 0.18 195);
-  --chart-1: oklch(0.75 0.18 195);
-  --chart-2: oklch(0.65 0.18 45);
-  --chart-3: oklch(0.6 0.15 240);
-  --chart-4: oklch(0.7 0.15 280);
-  --chart-5: oklch(0.55 0.12 210);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --border:                 #2E2C29;
+  --input:                  #2E2C29;
+  --ring:                   #2C7AFF;
+  --chart-1:                #2C7AFF;
+  --chart-2:                #FFA578;
+  --chart-3:                #90F1C4;
+  --chart-4:                #A54DA9;
+  --chart-5:                #A7C7FF;
+  --radius: 0.375rem;
+  --sidebar:                #131211;
+  --sidebar-foreground:     #FEFEFF;
+  --sidebar-primary:        #2C7AFF;
+  --sidebar-primary-foreground: #FEFEFF;
+  --sidebar-accent:         #25231F;
+  --sidebar-accent-foreground: #FEFEFF;
+  --sidebar-border:         #2E2C29;
+  --sidebar-ring:           #2C7AFF;
+
+  /* Module accent palette */
+  --color-datasets:   #FFA578;
+  --color-models:     #2C7AFF;
+  --color-generative: #90F1C4;
+  --color-plugins:    #A54DA9;
+  --brand-light:      #A7C7FF;
 }
 
 .dark {
-  --background: oklch(0.08 0 0);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.12 0 0);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.12 0 0);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.75 0.18 195);
-  --primary-foreground: oklch(0.1 0 0);
-  --secondary: oklch(0.28 0 0);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.22 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.65 0.18 45);
-  --accent-foreground: oklch(0.1 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.28 0 0);
-  --input: oklch(0.28 0 0);
-  --ring: oklch(0.75 0.18 195);
-  --chart-1: oklch(0.75 0.18 195);
-  --chart-2: oklch(0.65 0.18 45);
-  --chart-3: oklch(0.6 0.15 240);
-  --chart-4: oklch(0.7 0.15 280);
-  --chart-5: oklch(0.55 0.12 210);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  /* same palette — site is always dark */
+  --background:             #191817;
+  --foreground:             #FEFEFF;
+  --card:                   #1F1E1D;
+  --card-foreground:        #FEFEFF;
+  --popover:                #1F1E1D;
+  --popover-foreground:     #FEFEFF;
+  --primary:                #2C7AFF;
+  --primary-foreground:     #191817;
+  --secondary:              #25231F;
+  --secondary-foreground:   #FEFEFF;
+  --muted:                  #1B1A19;
+  --muted-foreground:       #B5B0A8;
+  --accent:                 #FFA578;
+  --accent-foreground:      #191817;
+  --destructive:            oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border:                 #2E2C29;
+  --input:                  #2E2C29;
+  --ring:                   #2C7AFF;
+  --chart-1:                #2C7AFF;
+  --chart-2:                #FFA578;
+  --chart-3:                #90F1C4;
+  --chart-4:                #A54DA9;
+  --chart-5:                #A7C7FF;
+  --sidebar:                #131211;
+  --sidebar-foreground:     #FEFEFF;
+  --sidebar-primary:        #2C7AFF;
+  --sidebar-primary-foreground: #FEFEFF;
+  --sidebar-accent:         #25231F;
+  --sidebar-accent-foreground: #FEFEFF;
+  --sidebar-border:         #2E2C29;
+  --sidebar-ring:           #2C7AFF;
 }
 
 @theme inline {
-  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
+  --font-sans: 'Geist', 'Geist Fallback', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', ui-monospace, Menlo, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -112,7 +122,65 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Module palette — usable as bg-datasets, text-generative, etc. */
+  --color-datasets:   var(--color-datasets);
+  --color-models:     var(--color-models);
+  --color-generative: var(--color-generative);
+  --color-plugins:    var(--color-plugins);
+  --color-brand-light: var(--brand-light);
 }
+
+/* ── Light-section paper palette ── */
+:root {
+  --paper:           #FEFEFF;
+  --paper-deep:      #F4F4F2;
+  --paper-line:      #E3E2DF;
+  --on-light:        #191817;
+  --on-light-mute:   #4A4744;
+  --on-light-faint:  #6C685F;
+  --ink-deep:        #131211;
+  --ink-line:        #2E2C29;
+  --ease-out-bold:   cubic-bezier(.16,1,.3,1);
+}
+
+/* ── Marquee ── */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee-scroll 32s linear infinite;
+  white-space: nowrap;
+  display: flex;
+  width: max-content;
+}
+
+/* ── Subtle grid (hero bg) ── */
+.bg-grid-subtle {
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 80px, rgba(255,255,255,.022) 80px 81px),
+    repeating-linear-gradient(0deg, transparent 0 40px, rgba(255,255,255,.015) 40px 41px);
+  mask-image: linear-gradient(180deg, black 0%, black 74%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, black 0%, black 74%, transparent 100%);
+}
+
+/* ── Hero visual entrance ── */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(20px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.hero-visual-in {
+  animation: heroIn 1s cubic-bezier(.16,1,.3,1) .15s both;
+}
+
+/* ── Code syntax colors ── */
+.code-kw   { color: #A7C7FF; }
+.code-fn   { color: #90F1C4; }
+.code-str  { color: #FFA578; }
+.code-num  { color: #FEE8FF; }
+.code-com  { color: #8C877F; font-style: italic; }
+.code-cls  { color: #FEE8FF; }
 
 @layer base {
   * {
@@ -120,5 +188,8 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "ss01","ss03","cv09","cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 }
