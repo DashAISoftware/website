@@ -79,22 +79,20 @@ export function FeaturesSection() {
               ? "Toda extensión oficial comparte la licencia del núcleo. Auditable, modificable, forkeable bajo los mismos términos."
               : "Every official extension shares the core license. Auditable, modifiable, forkable under the same terms.",
           },
-          {
-            num: "04", sub: lang === "es" ? "Ejecución" : "Execution",
-            title: lang === "es" ? <>Sin <span style={{ color: BRAND_ON_LIGHT }}>claves API externas requeridas</span>.</> : <>No <span style={{ color: BRAND_ON_LIGHT }}>external API keys required</span>.</>,
-            body: lang === "es"
-              ? "Los modelos del núcleo corren con pesos abiertos. El sistema de plugins te permite agregar cualquier modelo —local o vía API— pero el núcleo nunca exige dependencias externas."
-              : "Core models run entirely on open weights. The plugin system lets you add any model — local or API-backed — but nothing external is ever required.",
-          },
+          { num: "04", sub: "", title: <></>, body: "" },
         ].map(p => (
           <div key={p.num} className="p-9 min-h-[220px] flex flex-col" style={{ background: PAPER }}>
-            <div className="font-mono text-[11px] tracking-[.12em]" style={{ color: ON_LIGHT_FAINT }}>
-              {p.num} / {p.sub}
-            </div>
-            <h3 className="font-medium mt-3.5 mb-3" style={{ fontSize: "clamp(22px,2vw,30px)", letterSpacing: "-.02em", lineHeight: 1.1, color: ON_LIGHT }}>
-              {p.title}
-            </h3>
-            <p className="text-sm leading-[1.55] max-w-[46ch]" style={{ color: ON_LIGHT_MUTE }}>{p.body}</p>
+            {p.sub && (
+              <>
+                <div className="font-mono text-[11px] tracking-[.12em]" style={{ color: ON_LIGHT_FAINT }}>
+                  {p.num} / {p.sub}
+                </div>
+                <h3 className="font-medium mt-3.5 mb-3" style={{ fontSize: "clamp(22px,2vw,30px)", letterSpacing: "-.02em", lineHeight: 1.1, color: ON_LIGHT }}>
+                  {p.title}
+                </h3>
+                <p className="text-sm leading-[1.55] max-w-[46ch]" style={{ color: ON_LIGHT_MUTE }}>{p.body}</p>
+              </>
+            )}
           </div>
         ))}
       </div>
