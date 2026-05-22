@@ -9,6 +9,9 @@ const ON_LIGHT_MUTE = "#4A4744"
 const ON_LIGHT_FAINT = "#6C685F"
 const PLUGINS_COLOR = "#1E63D8"
 const BRAND_ON_LIGHT = "#1E63D8"
+const CODE_BG = "#131211"
+const CODE_HEADER_BG = "#191817"
+const CODE_BORDER = "#2E2C29"
 
 const MODULES = [
   { num: "01", name: "BaseTask",             role: { es: "Tarea",            en: "Task"            }, desc: { es: "Paradigmas extensibles: clasificación, regresión, NLP, traducción, generación.", en: "Extensible paradigms: classification, regression, NLP, translation, generation." } },
@@ -121,17 +124,17 @@ export function ExtensibleSection() {
         {/* Code block */}
         <div
           className="rounded-lg overflow-hidden border"
-          style={{ background: "var(--ink-deep)", borderColor: "var(--border)", fontFamily: "var(--font-mono)" }}
+          style={{ background: CODE_BG, borderColor: CODE_BORDER, fontFamily: "var(--font-mono)" }}
         >
-          <div className="flex items-center justify-between px-4.5 py-3 border-b" style={{ background: "var(--background)", borderColor: "var(--border)" }}>
+          <div className="flex items-center justify-between px-4.5 py-3 border-b" style={{ background: CODE_HEADER_BG, borderColor: CODE_BORDER }}>
             <div className="flex gap-1.5">
               <span className="w-[9px] h-[9px] rounded-full bg-primary" />
-              <span className="w-[9px] h-[9px] rounded-full" style={{ background: "var(--border)" }} />
-              <span className="w-[9px] h-[9px] rounded-full" style={{ background: "var(--border)" }} />
+              <span className="w-[9px] h-[9px] rounded-full" style={{ background: CODE_BORDER }} />
+              <span className="w-[9px] h-[9px] rounded-full" style={{ background: CODE_BORDER }} />
             </div>
-            <span className="font-mono text-[11px] text-muted-foreground">my_classifier.py</span>
+            <span className="font-mono text-[11px]" style={{ color: ON_LIGHT_FAINT }}>my_classifier.py</span>
           </div>
-          <pre className="m-0 px-5 py-4.5 overflow-x-auto text-[13px] leading-[1.7]" style={{ background: "var(--ink-deep)", color: "var(--foreground)" }}>
+          <pre className="m-0 px-5 py-4.5 overflow-x-auto text-[13px] leading-[1.7]" style={{ background: CODE_BG, color: "#FEFEFF" }}>
             <code>{`\
 `}<span className="code-com"># {lang === "es" ? "Un clasificador completo en dashAI" : "A complete classifier in dashAI"}</span>{`
 `}<span className="code-kw">from</span>{` dashai.base `}<span className="code-kw">import</span>{` `}<span className="code-cls">BaseModel</span>{`
@@ -167,7 +170,7 @@ export function ExtensibleSection() {
     `}<span className="code-kw">def</span>{` `}<span className="code-fn">predict</span>{`(`}<span className="code-kw">self</span>{`, X):
         `}<span className="code-kw">return</span>{` `}<span className="code-kw">self</span>{`.model.predict(X)`}</code>
           </pre>
-          <div className="flex justify-between px-4.5 py-2.5 border-t font-mono text-[11px] text-muted-foreground" style={{ background: "var(--background)", borderColor: "var(--border)" }}>
+          <div className="flex justify-between px-4.5 py-2.5 border-t font-mono text-[11px]" style={{ background: CODE_HEADER_BG, borderColor: CODE_BORDER, color: ON_LIGHT_FAINT }}>
             <span>{lang === "es" ? "33 líneas · UI auto-generada" : "33 lines · UI auto-generated"}</span>
             <span>python ≥ 3.10</span>
           </div>
