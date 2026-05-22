@@ -1,208 +1,141 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Download, Github, Menu, X, Globe, ChevronDown } from "lucide-react"
-import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { siteConfig } from "@/lib/config"
 import { useTranslation } from "react-i18next"
 
-const LANGUAGES = [
-  { code: "en", label: "English", flag: "🇺🇸" },
-  { code: "es", label: "Español", flag: "🇨🇱" },
-]
-
-function LanguageSwitcher() {
-  const { i18n } = useTranslation()
-  const [isOpen, setIsOpen] = useState(false)
-
-  const currentLang = LANGUAGES.find((l) => l.code === i18n.language) ?? LANGUAGES[0]
-
-  const changeLanguage = (code: string) => {
-    i18n.changeLanguage(code)
-    setIsOpen(false)
-  }
-
-  // Close on outside click
-  useEffect(() => {
-    if (!isOpen) return
-    const handler = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
-      if (!target.closest("[data-lang-switcher]")) setIsOpen(false)
-    }
-    document.addEventListener("mousedown", handler)
-    return () => document.removeEventListener("mousedown", handler)
-  }, [isOpen])
-
-  return (
-    <div className="relative" data-lang-switcher>
-      <button
-        onClick={() => setIsOpen((v) => !v)}
-        className={cn(
-          "flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-sm font-medium",
-          "border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-150",
-          isOpen && "border-primary/50 bg-primary/5",
-        )}
-        aria-label="Change language"
-      >
-        <Globe className="h-3.5 w-3.5 text-muted-foreground" />
-        <span>{currentLang.flag}</span>
-        <span className="hidden sm:inline text-xs">{currentLang.code.toUpperCase()}</span>
-        <ChevronDown
-          className={cn(
-            "h-3 w-3 text-muted-foreground transition-transform duration-150",
-            isOpen && "rotate-180",
-          )}
-        />
-      </button>
-
-      {isOpen && (
-        <div className="absolute right-0 mt-1.5 w-40 rounded-lg border border-border bg-background/95 backdrop-blur-md shadow-lg py-1 z-50">
-          {LANGUAGES.map((lang) => (
-            <button
-              key={lang.code}
-              onClick={() => changeLanguage(lang.code)}
-              className={cn(
-                "w-full flex items-center gap-2.5 px-3 py-1.5 text-sm hover:bg-primary/10 transition-colors text-left",
-                i18n.language === lang.code && "text-primary font-medium bg-primary/5",
-              )}
-            >
-              <span>{lang.flag}</span>
-              <span>{lang.label}</span>
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  )
-}
-
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { t } = useTranslation()
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const { i18n, t } = useTranslation("navbar")
+
+  const lang = i18n.language?.startsWith("es") ? "es" : "en"
+  const setLang = (l: string) => { i18n.changeLanguage(l); setMobileOpen(false) }
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    const h = () => setIsScrolled(window.scrollY > 10)
+    window.addEventListener("scroll", h)
+    return () => window.removeEventListener("scroll", h)
   }, [])
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-      setIsMobileMenuOpen(false)
-    }
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+    setMobileOpen(false)
   }
+
+  const navLinks = ["manifesto", "open", "showcase", "extensible", "download"]
 
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled || isMobileMenuOpen
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-lg"
-          : "bg-transparent",
+        "fixed top-0 left-0 right-0 z-50 flex items-center justify-between",
+        "px-5 md:px-24 py-[18px] transition-all duration-300",
+        "border-b backdrop-saturate-[160%] backdrop-blur-[14px]",
+        isScrolled || mobileOpen
+          ? "bg-background/90 border-primary/20"
+          : "bg-background/75 border-primary/15",
       )}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center cursor-pointer" onClick={() => scrollToSection("hero")}>
-            <Image src="/images/dashai-logo.png" alt="DashAI" width={120} height={40} className="h-8 w-auto" />
-          </div>
+      {/* Logo */}
+      <a href="#" onClick={e => { e.preventDefault(); scrollTo("hero") }} className="flex items-center">
+        <img src="/images/dashai-logo.svg" alt="dash.AI" height={26} style={{ height: 26, width: "auto" }} />
+      </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollToSection("features")} className="text-sm font-medium hover:text-primary transition-colors cursor-pointer">
-              {t("navbar:features")}
-            </button>
-            <button onClick={() => scrollToSection("download")} className="text-sm font-medium hover:text-primary transition-colors cursor-pointer">
-              {t("navbar:download")}
-            </button>
-            <button onClick={() => scrollToSection("community")} className="text-sm font-medium hover:text-primary transition-colors cursor-pointer">
-              {t("navbar:community")}
-            </button>
-            <button onClick={() => scrollToSection("support")} className="text-sm font-medium hover:text-primary transition-colors cursor-pointer">
-              {t("navbar:support")}
-            </button>
-            <button onClick={() => scrollToSection("contact")} className="text-sm font-medium hover:text-primary transition-colors cursor-pointer">
-              {t("navbar:contact")}
-            </button>
-          </div>
+      {/* Desktop nav links */}
+      <div className="hidden md:flex gap-7 items-center text-sm">
+        {navLinks.map(l => (
+          <button
+            key={l}
+            onClick={() => scrollTo(l)}
+            className="text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
+          >
+            {t(l)}
+          </button>
+        ))}
+      </div>
 
-          {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            <LanguageSwitcher />
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-primary text-foreground hover:bg-primary/10 hover:text-foreground dark:hover:bg-primary/20 dark:hover:text-foreground bg-transparent"
-              asChild
+      {/* Tools */}
+      <div className="flex items-center gap-3">
+        {/* Lang toggle */}
+        <div
+          className="flex items-center font-mono text-xs rounded-full p-[3px]"
+          style={{ border: "1px solid var(--ink-line)", background: "rgba(10,19,34,.6)" }}
+        >
+          {["es", "en"].map(l => (
+            <button
+              key={l}
+              onClick={() => setLang(l)}
+              className={cn(
+                "px-[11px] py-[5px] rounded-full font-medium transition-all duration-200",
+                lang === l
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground",
+              )}
             >
-              <a href={siteConfig.github.url} target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-4 w-4" />
-                {t("navbar:github")}
-              </a>
-            </Button>
-            <Button
-              size="sm"
-              className="bg-primary hover:bg-primary/80 hover:scale-102 hover:shadow-lg transition-all duration-100 text-primary-foreground cursor-pointer"
-              onClick={() => scrollToSection("download")}
-            >
-              <Download className="mr-2 h-4 w-4" />
-              {t("navbar:download")}
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
-            <LanguageSwitcher />
-            <button className="p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {l.toUpperCase()}
             </button>
-          </div>
+          ))}
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col gap-4">
-              <button onClick={() => scrollToSection("features")} className="text-left text-sm font-medium hover:text-primary transition-colors cursor-pointer">
-                {t("navbar:features")}
-              </button>
-              <button onClick={() => scrollToSection("download")} className="text-left text-sm font-medium hover:text-primary transition-colors cursor-pointer">
-                {t("navbar:download")}
-              </button>
-              <button onClick={() => scrollToSection("community")} className="text-left text-sm font-medium hover:text-primary transition-colors cursor-pointer">
-                {t("navbar:community")}
-              </button>
-              <button onClick={() => scrollToSection("support")} className="text-left text-sm font-medium hover:text-primary transition-colors cursor-pointer">
-                {t("navbar:support")}
-              </button>
-              <button onClick={() => scrollToSection("contact")} className="text-left text-sm font-medium hover:text-primary transition-colors cursor-pointer">
-                {t("navbar:contact")}
-              </button>
-              <div className="flex flex-col gap-2 pt-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-primary text-foreground hover:bg-primary/10 hover:text-foreground dark:hover:bg-primary/20 dark:hover:text-foreground bg-transparent w-full justify-start"
-                  asChild
-                >
-                  <a href={siteConfig.github.url} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-4 w-4" />
-                    {t("navbar:github")}
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        )}
+        <a
+          href={siteConfig.docs.url}
+          target="_blank"
+          rel="noopener"
+          className="hidden md:flex items-center gap-2 font-mono text-xs px-[13px] py-[7px] border border-border rounded-md text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all duration-200"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Docs
+        </a>
+
+        <a
+          href={siteConfig.github.url}
+          target="_blank"
+          rel="noopener"
+          className="flex items-center gap-2 font-mono text-xs px-[13px] py-[7px] border border-border rounded-md text-foreground hover:border-primary transition-all duration-200"
+          style={{ transition: "border-color .2s, background .2s" }}
+          onMouseEnter={e => (e.currentTarget.style.background = "color-mix(in oklab, var(--primary) 16%, transparent)")}
+          onMouseLeave={e => (e.currentTarget.style.background = "")}
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.4.5 0 5.9 0 12.5c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.3-3.3-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.4 1.3 1-.3 2-.4 3-.4s2 .1 3 .4c2.4-1.6 3.4-1.3 3.4-1.3.7 1.7.2 3 .1 3.3.8.9 1.3 2 1.3 3.3 0 4.7-2.9 5.7-5.6 6 .4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6 4.8-1.6 8.2-6.1 8.2-11.4C24 5.9 18.6.5 12 .5z"/></svg>
+          GitHub
+        </a>
+
+        {/* Mobile hamburger */}
+        <button
+          className="md:hidden p-1.5 text-muted-foreground hover:text-foreground transition-colors"
+          onClick={() => setMobileOpen(v => !v)}
+          aria-label="Menu"
+        >
+          {mobileOpen
+            ? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            : <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          }
+        </button>
       </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border py-5 px-5 flex flex-col gap-4">
+          {navLinks.map(l => (
+            <button
+              key={l}
+              onClick={() => scrollTo(l)}
+              className="text-left text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {t(l)}
+            </button>
+          ))}
+          <div className="flex gap-3 pt-2 border-t border-border">
+            <a href={siteConfig.docs.url} target="_blank" rel="noopener" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Docs ↗
+            </a>
+            <a href={siteConfig.github.url} target="_blank" rel="noopener" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   )
 }
