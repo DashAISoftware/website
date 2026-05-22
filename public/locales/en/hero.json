@@ -3,5 +3,11 @@
   "documentation": "Documentation",
   "download": "hero:download",
   "title": "<0>The <1>open source</1> platform for AI experimentation</0>",
-  "viewOnGithub": "View on GitHub"
+  "viewOnGithub": "View on GitHub",
+  "modules": {
+    "datasets": "Datasets",
+    "models": "Models",
+    "generative": "Generative",
+    "plugins": "Plugins"
+  }
 }

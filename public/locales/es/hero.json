@@ -3,5 +3,11 @@
   "documentation": "Documentación",
   "download": "Descargar",
   "title": "<0>La plataforma de <1>codigo abierto</1> para experimentación con IA</0>",
-  "viewOnGithub": "Ver en GitHub"
+  "viewOnGithub": "Ver en GitHub",
+  "modules": {
+    "datasets": "Datasets",
+    "models": "Modelos",
+    "generative": "Generativo",
+    "plugins": "Plugins"
+  }
 }
