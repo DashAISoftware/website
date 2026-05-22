@@ -8,22 +8,13 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "DashAI - Plataforma Open Source de IA",
+  title: "dashAI - Full Open. Full Extensible.",
   description:
-    "Integra, experimenta y visualiza modelos de IA mediante una interfaz visual intuitiva. Democratizando el acceso al machine learning.",
+    "An open-source no-code Visual ML platform. No paywall, no closed components, no external API keys required.",
   generator: "v0.app",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-    ],
-    apple: "/apple-icon.png",
+    icon: "/images/dashai-isotype.svg",
+    apple: "/images/dashai-isotype.svg",
   },
 }
 

@@ -1,143 +1,129 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"
 
-const participatingInstitutions = [
+const PAPER = "#FEFEFF"
+const PAPER_LINE = "#E3E2DF"
+const PAPER_DEEP = "#F4F4F2"
+const ON_LIGHT = "#191817"
+const ON_LIGHT_MUTE = "#4A4744"
+const ON_LIGHT_FAINT = "#6C685F"
+const BRAND_ON_LIGHT = "#1E63D8"
+
+const COLLABS = [
   {
-    name: "DCC Universidad de Chile",
-    logo: "supported-by/dcc-logo.png",
-    url: "https://dcc.uchile.cl/",
-  },
-  {
-    name: "Universidad Técnica Federico Santa María",
-    logo: "supported-by/utfsm-logo.jpg",
-    url: "https://www.usm.cl/",
-  },
-  {
-    name: "Centro Nacional de Inteligencia Artificial",
-    logo: "supported-by/cenia-logo.png",
+    acro: "CENIA",
+    name: { es: "Centro Nacional de Inteligencia Artificial", en: "National Center for Artificial Intelligence" },
+    role: { es: "Institución líder", en: "Lead institution" },
+    meta: "Chile",
     url: "https://www.cenia.cl/",
   },
   {
-    name: "Instituto Milenio Fundamentos de los Datos",
-    logo: "supported-by/imfd-logo.png",
+    acro: "UCHILE",
+    name: { es: "Universidad de Chile · DCC, FCFM", en: "University of Chile · DCC, FCFM" },
+    role: { es: "Investigación y desarrollo", en: "Research & development" },
+    meta: "DCC",
+    url: "https://dcc.uchile.cl/",
+  },
+  {
+    acro: "USM",
+    name: { es: "Universidad Técnica Federico Santa María", en: "Federico Santa María Technical University" },
+    role: { es: "Investigación y desarrollo", en: "Research & development" },
+    meta: "Chile",
+    url: "https://www.usm.cl/",
+  },
+  {
+    acro: "IMFD",
+    name: { es: "Instituto Milenio Fundamentos de los Datos", en: "Millennium Institute for Foundational Research on Data" },
+    role: { es: "Colaboración científica", en: "Scientific collaboration" },
+    meta: "ICN17_002",
     url: "https://www.imfd.cl/",
   },
   {
-    name: "Agencia Nacional de Investigación y Desarrollo (ANID)",
-    logo: "supported-by/anid-logo.png",
-    url: "https://www.anid.cl/",
-  }
-]
-
-const fundingInstitution = {
-  name: "Institución Financiadora",
-  logo: "supported-by/idea-logo.png",
-  url: "#",
-}
-
-const partnerOrganizations = [
-  {
-    name: "Organización Asociada 1",
-    logo: "/placeholder-logo.png",
-    url: "#",
-  },
-  {
-    name: "Organización Asociada 2",
-    logo: "/placeholder-logo.png",
-    url: "#",
+    acro: "ANID",
+    name: { es: "Agencia Nacional de Investigación y Desarrollo", en: "National Agency for Research and Development" },
+    role: { es: "Financiamiento público", en: "Public funding" },
+    meta: "Fondef IDEA",
+    url: "https://anid.cl/",
   },
 ]
 
 export function SupportedBySection() {
+  const { i18n } = useTranslation()
+  const lang = i18n.language?.startsWith("es") ? "es" : "en"
 
-  const { t } = useTranslation();
   return (
-    <section id="support" className="py-24 px-4 bg-secondary/30">
-      <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-balance">{t("supportedBy:title")}</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {t("supportedBy:description")}
+    <section
+      id="colaboradores"
+      className="border-b"
+      style={{ padding: "clamp(80px,11vw,160px) clamp(20px,5vw,96px)", background: PAPER, color: ON_LIGHT, borderColor: PAPER_LINE }}
+    >
+      {/* Head */}
+      <div className="grid gap-8 md:gap-20 mb-14" style={{ gridTemplateColumns: "min(240px,100%) 1fr" }}>
+        <div>
+          <div className="font-mono text-xs tracking-[.1em] uppercase pt-2" style={{ color: BRAND_ON_LIGHT }}>
+            <span className="block w-12 h-[3px] mb-[18px]" style={{ background: BRAND_ON_LIGHT }} />
+            [ 06 ] {lang === "es" ? "Colaboradores" : "Collaborators"}
+          </div>
+        </div>
+        <div>
+          <h2
+            className="font-medium leading-[.96] mb-5"
+            style={{ fontSize: "clamp(48px,7vw,96px)", letterSpacing: "-.04em", color: ON_LIGHT }}
+          >
+            {lang === "es"
+              ? <>Construido entre <span style={{ color: BRAND_ON_LIGHT }}>instituciones</span>.</>
+              : <>Built across <span style={{ color: BRAND_ON_LIGHT }}>institutions</span>.</>}
+          </h2>
+          <p style={{ fontSize: "clamp(15px,1.3vw,20px)", maxWidth: "58ch", lineHeight: 1.5, color: ON_LIGHT_MUTE }}>
+            {lang === "es"
+              ? "dashAI es un proyecto académico chileno mantenido por una red de instituciones de investigación y financiamiento público."
+              : "dashAI is a Chilean academic project maintained by a network of research institutions and public funding bodies."}
           </p>
         </div>
+      </div>
 
-        <div className="max-w-6xl mx-auto space-y-16">
-          {/* Participating Institutions */}
-          {/* <div>
-            <h3 className="text-xl font-semibold mb-8 text-center text-muted-foreground">
-              Participating Institutions
-            </h3> */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {participatingInstitutions.map((institution, index) => {
-                const isSmallLogo = institution.logo.includes("dcc-logo") || institution.logo.includes("utfsm-logo")
-                return (
-                  <Card
-                    key={index}
-                    className="bg-white border-border hover:border-primary/50 transition-all duration-300 group cursor-pointer"
-                    onClick={() => window.open(institution.url, "_blank", "noopener,noreferrer")}
-                  >
-                    <CardContent className="p-6 flex items-center justify-center h-32">
-                      <img
-                        src={institution.logo}
-                        alt={institution.name}
-                        className={`max-w-full object-contain opacity-70 group-hover:opacity-100 transition-opacity ${
-                          isSmallLogo ? "max-h-28" : "max-h-20"
-                        }`}
-                      />
-                    </CardContent>
-                  </Card>
-                )
-              })}
+      {/* Grid */}
+      <div
+        className="grid"
+        style={{
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))",
+          gap: "1px",
+          background: PAPER_LINE,
+          border: `1px solid ${PAPER_LINE}`,
+        }}
+      >
+        {COLLABS.map(c => (
+          <a
+            key={c.acro}
+            href={c.url}
+            target="_blank"
+            rel="noopener"
+            className="flex flex-col p-7 min-h-[230px] transition-colors duration-200 group no-underline"
+            style={{ background: PAPER }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = PAPER_DEEP }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = PAPER }}
+          >
+            <div
+              className="font-mono font-medium leading-none"
+              style={{ fontSize: "clamp(28px,3.4vw,42px)", letterSpacing: "-.03em", color: ON_LIGHT }}
+            >
+              {c.acro}
             </div>
-          {/* </div> */}
-
-          {/* Funding Institution */}
-          {/* <div>
-            <h3 className="text-xl font-semibold mb-8 text-center text-muted-foreground">Funding</h3>
-            <div className="flex justify-center">
-              <Card
-                className="bg-card border-border hover:border-primary/50 transition-all duration-300 group cursor-pointer max-w-md w-full"
-                onClick={() => window.open(fundingInstitution.url, "_blank", "noopener,noreferrer")}
-              >
-                <CardContent className="p-8 flex items-center justify-center">
-                  <img
-                    src={fundingInstitution.logo}
-                    alt={fundingInstitution.name}
-                    className="w-full h-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity"
-                  />
-                </CardContent>
-              </Card>
+            <div className="mt-[18px] font-medium leading-[1.35] tracking-tight" style={{ fontSize: 15.5, color: ON_LIGHT, maxWidth: "24ch" }}>
+              {lang === "es" ? c.name.es : c.name.en}
             </div>
-          </div> */}
-
-          {/* Partner Organizations */}
-          {/* <div>
-            <h3 className="text-xl font-semibold mb-8 text-center text-muted-foreground">
-              In Partnership With
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {partnerOrganizations.map((organization, index) => (
-                <Card
-                  key={index}
-                  className="bg-card border-border hover:border-primary/50 transition-all duration-300 group cursor-pointer"
-                  onClick={() => window.open(organization.url, "_blank", "noopener,noreferrer")}
-                >
-                  <CardContent className="p-6 flex items-center justify-center h-32">
-                    <img
-                      src={organization.logo}
-                      alt={organization.name}
-                      className="max-w-full max-h-20 object-contain opacity-70 group-hover:opacity-100 transition-opacity"
-                    />
-                  </CardContent>
-                </Card>
-              ))}
+            <div
+              className="mt-auto pt-5 font-mono"
+              style={{ fontSize: 11.5, letterSpacing: ".06em", color: ON_LIGHT_FAINT, borderTop: `1px dashed ${PAPER_LINE}` }}
+            >
+              {lang === "es" ? c.role.es : c.role.en}
+              <span style={{ color: BRAND_ON_LIGHT, padding: "0 .3em" }}>·</span>
+              {c.meta}
             </div>
-          </div> */}
-        </div>
+          </a>
+        ))}
       </div>
     </section>
   )
 }
-

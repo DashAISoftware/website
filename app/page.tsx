@@ -4,12 +4,13 @@ import { useEffect } from "react"
 import i18n from "i18next"
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
+import { ManifestoSection } from "@/components/manifesto-section"
 import { FeaturesSection } from "@/components/features-section"
-//import { ModulesCarousel } from "@/components/modules-carousel"
+import { ShowcaseSection } from "@/components/showcase-section"
+import { ExtensibleSection } from "@/components/extensible-section"
 import { DownloadSection } from "@/components/download-section"
-import { SupportedBySection } from "@/components/supported-by-section"
 import { CommunitySection } from "@/components/community-section"
-import { ContactSection } from "@/components/contact-section"
+import { SupportedBySection } from "@/components/supported-by-section"
 import { Footer } from "@/components/footer"
 import "./i18n"
 
@@ -26,11 +27,13 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <HeroSection />
+      <ManifestoSection />
       <FeaturesSection />
+      <ShowcaseSection />
+      <ExtensibleSection />
       <DownloadSection />
       <CommunitySection />
       <SupportedBySection />
-      <ContactSection />
       <Footer />
     </main>
   )

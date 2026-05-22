@@ -1,8 +1,7 @@
 {
-  "community": "Community",
-  "contact": "Contact",
-  "download": "Download",
-  "features": "Features",
-  "github": "GitHub",
-  "support": "Support"
+  "manifesto": "Manifesto",
+  "open": "Full Open",
+  "showcase": "App",
+  "extensible": "Full Extensible",
+  "download": "Download"
 }
