@@ -8,6 +8,8 @@ import heroEN from "../public/locales/en/hero.json";
 import heroES from "../public/locales/es/hero.json";
 import featuresEN from "../public/locales/en/features.json";
 import featuresES from "../public/locales/es/features.json";
+import showcaseEN from "../public/locales/en/showcase.json";
+import showcaseES from "../public/locales/es/showcase.json";
 import downloadEN from "../public/locales/en/download.json";
 import downloadES from "../public/locales/es/download.json";
 import communityEN from "../public/locales/en/community.json";
@@ -28,6 +30,7 @@ i18n
         hero: heroEN,
         supportedBy: supportedByEN,
         features: featuresEN,
+        showcase: showcaseEN,
         download: downloadEN,
         community: communityEN,
         contact: contactEN,
@@ -38,6 +41,7 @@ i18n
         hero: heroES,
         supportedBy: supportedByES,
         features: featuresES,
+        showcase: showcaseES,
         download: downloadES,
         community: communityES,
         contact: contactES,
