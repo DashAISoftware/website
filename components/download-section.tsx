@@ -39,8 +39,7 @@ function CopyButton({ text }: { text: string }) {
 }
 
 export function DownloadSection() {
-  const { i18n } = useTranslation()
-  const lang = i18n.language?.startsWith("es") ? "es" : "en"
+  const { t } = useTranslation("download")
   const [exes, setExes] = useState<ExeEntry[]>(FALLBACK)
   const [releaseTag, setReleaseTag] = useState("v0.9.3-alpha")
 
@@ -76,7 +75,7 @@ export function DownloadSection() {
         <div>
           <div className="font-mono text-xs tracking-[.1em] uppercase text-primary">
             <span className="block w-12 h-[3px] mb-[18px] bg-primary" />
-            [ 04 ] {lang === "es" ? "Descarga" : "Download"}
+            [ 04 ] {t("sectionLabel")}
           </div>
         </div>
         <div>
@@ -84,13 +83,13 @@ export function DownloadSection() {
             className="font-medium leading-[.96] text-foreground mb-4"
             style={{ fontSize: "clamp(48px,7vw,96px)", letterSpacing: "-.04em" }}
           >
-            {lang === "es" ? <><em className="not-italic text-[#A7C7FF]">Descargá</em> dashAI.</> : <><em className="not-italic text-[#A7C7FF]">Download</em> dashAI.</>}
+            <em className="not-italic text-[#A7C7FF]">{t("heading")}</em> dashAI.
           </h2>
           <div className="font-mono text-xs text-muted-foreground tracking-[.08em] flex flex-wrap gap-x-3 gap-y-1">
             <strong className="text-foreground font-medium">{releaseTag}</strong>
             <span>·</span><span>MIT License</span>
             <span>·</span><span>Linux · macOS · Windows</span>
-            <span>·</span><span>{lang === "es" ? "Mayo 2026" : "May 2026"}</span>
+            <span>·</span><span>{t("releaseMonth")}</span>
           </div>
         </div>
       </div>
@@ -110,13 +109,11 @@ export function DownloadSection() {
         <div className="flex flex-col p-7 min-h-[280px]" style={{ background: "var(--card)" }}>
           <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[.12em] text-muted-foreground mb-3.5">
             <span className="bg-primary text-primary-foreground font-semibold text-[10px] px-[7px] py-[2px] rounded">01</span>
-            {lang === "es" ? "Ejecutables (recomendado)" : "Executables (recommended)"}
+            {t("executables.badge")}
           </div>
-          <h3 className="text-2xl font-semibold tracking-tight mb-2.5">{lang === "es" ? "Instalador nativo" : "Native installer"}</h3>
+          <h3 className="text-2xl font-semibold tracking-tight mb-2.5">{t("executables.title")}</h3>
           <p className="text-sm text-muted-foreground leading-[1.5] mb-4">
-            {lang === "es"
-              ? "Sin Python ni configuración. Descargá el ejecutable de tu sistema operativo desde GitHub Releases."
-              : "No Python, no setup. Download the executable for your OS from GitHub Releases."}
+            {t("executables.description")}
           </p>
           <div className="flex flex-col border border-border rounded-md overflow-hidden mb-4">
             {exes.map((e, i) => (
@@ -155,7 +152,7 @@ export function DownloadSection() {
             rel="noopener"
             className="mt-auto font-mono text-xs text-[#A7C7FF] flex items-center gap-1.5 hover:gap-2.5 transition-all duration-200"
           >
-            {lang === "es" ? "Ver releases" : "View releases"} →
+            {t("executables.viewReleases")} →
           </a>
         </div>
 
@@ -165,18 +162,16 @@ export function DownloadSection() {
             <span className="bg-primary text-primary-foreground font-semibold text-[10px] px-[7px] py-[2px] rounded">02</span>
             PyPI
           </div>
-          <h3 className="text-2xl font-semibold tracking-tight mb-2.5">{lang === "es" ? "Instalación con pip" : "Install with pip"}</h3>
+          <h3 className="text-2xl font-semibold tracking-tight mb-2.5">{t("pip.title")}</h3>
           <p className="text-sm text-muted-foreground leading-[1.5] mb-4">
-            {lang === "es"
-              ? <><code className="font-mono text-xs">dashai</code> levanta el servidor y abre el navegador en <code className="font-mono text-xs">localhost:8000</code>.</>
-              : <><code className="font-mono text-xs">dashai</code> starts the server and opens the browser at <code className="font-mono text-xs">localhost:8000</code>.</>}
+            <code className="font-mono text-xs">dashai</code> {t("pip.descriptionMiddle")} <code className="font-mono text-xs">localhost:8000</code>.
           </p>
           <div className="relative border border-border rounded-md p-4 font-mono text-sm leading-[1.7] mb-4" style={{ background: "var(--ink-deep)" }}>
             <CopyButton text={pipCmd} />
             <div><span className="text-[#A7C7FF]">$</span> pip install dashai</div>
             <div><span className="text-[#A7C7FF]">$</span> dashai</div>
             <div className="text-muted-foreground mt-1 text-xs italic">
-              # {lang === "es" ? "http://localhost:8000/ — El navegador abre solo." : "http://localhost:8000/ — Browser opens on its own."}
+              # {t("pip.comment")}
             </div>
           </div>
           <a
@@ -185,7 +180,7 @@ export function DownloadSection() {
             rel="noopener"
             className="mt-auto font-mono text-xs text-[#A7C7FF] flex items-center gap-1.5 hover:gap-2.5 transition-all duration-200"
           >
-            {lang === "es" ? "Ver en PyPI" : "View on PyPI"} →
+            {t("pip.viewOnPyPI")} →
           </a>
         </div>
 
@@ -193,14 +188,14 @@ export function DownloadSection() {
         <div className="flex flex-col p-7 min-h-[280px]" style={{ background: "var(--card)" }}>
           <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[.12em] text-muted-foreground mb-3.5">
             <span className="font-semibold text-[10px] px-[7px] py-[2px] rounded border border-border">⊳</span>
-            {lang === "es" ? "Requisitos" : "Requirements"}
+            {t("requirements.badge")}
           </div>
-          <h3 className="text-xl font-semibold tracking-tight mb-4">{lang === "es" ? "Lo que necesitás" : "What you need"}</h3>
+          <h3 className="text-xl font-semibold tracking-tight mb-4">{t("requirements.title")}</h3>
           <ul className="flex flex-col gap-3.5 flex-1">
             {[
-              { k: "Python", v: "≥ 3.10",  note: lang === "es" ? "Solo para instalación pip" : "Only for pip install" },
-              { k: "RAM",    v: "8 GB",    note: lang === "es" ? "16 GB para LLMs locales"   : "16 GB for local LLMs" },
-              { k: "OS",     v: "Linux · macOS · Windows", note: lang === "es" ? "Ejecutables nativos disponibles" : "Native executables available" },
+              { k: "Python", v: "≥ 3.10",                  note: t("requirements.items.python.note") },
+              { k: "RAM",    v: "8 GB",                     note: t("requirements.items.ram.note") },
+              { k: "OS",     v: "Linux · macOS · Windows",  note: t("requirements.items.os.note") },
             ].map(r => (
               <li key={r.k} className="grid gap-3.5 pb-3.5 border-b border-dashed border-border last:border-b-0 last:pb-0" style={{ gridTemplateColumns: "80px 1fr" }}>
                 <span className="font-mono text-[10.5px] uppercase tracking-[.1em] text-muted-foreground pt-0.5">{r.k}</span>
@@ -217,7 +212,7 @@ export function DownloadSection() {
       {/* Footer row */}
       <div className="relative z-10 mt-10 pt-6 border-t border-border flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-muted-foreground">
         <div className="flex items-center gap-2 flex-wrap">
-          <span>{lang === "es" ? "¿Querés modificar el núcleo? Cloná el repo:" : "Want to modify the core? Clone the repo:"}</span>
+          <span>{t("footer.cloneText")}</span>
           <code className="bg-background border border-border rounded px-2 py-0.5 text-foreground ml-1.5">
             git clone github.com/DashAISoftware/DashAI
           </code>

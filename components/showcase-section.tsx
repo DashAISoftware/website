@@ -3,8 +3,8 @@
 import { useTranslation } from "react-i18next"
 
 export function ShowcaseSection() {
-  const { i18n } = useTranslation()
-  const lang = i18n.language?.startsWith("es") ? "es" : "en"
+  const { t } = useTranslation("showcase")
+  const callouts = t("callouts", { returnObjects: true }) as Array<{ title: string; body: string }>
 
   return (
     <section
@@ -21,7 +21,7 @@ export function ShowcaseSection() {
         <div>
           <div className="font-mono text-xs tracking-[.1em] uppercase pt-2 relative text-primary">
             <span className="block w-12 h-[3px] mb-[18px] bg-primary" />
-            [ 02 ] {lang === "es" ? "La aplicación" : "The application"}
+            [ 02 ] {t("sectionLabel")}
           </div>
         </div>
         <div>
@@ -34,12 +34,10 @@ export function ShowcaseSection() {
             className="font-medium leading-[1.02] text-foreground mb-6"
             style={{ fontSize: "clamp(36px,5.4vw,72px)", letterSpacing: "-.03em", maxWidth: "18ch" }}
           >
-            {lang === "es" ? "La interfaz que emerge del schema." : "The interface that emerges from the schema."}
+            {t("heading")}
           </h2>
           <p className="text-muted-foreground leading-[1.5]" style={{ fontSize: "clamp(17px,1.3vw,20px)", maxWidth: "62ch" }}>
-            {lang === "es"
-              ? "Cuando registrás un componente, la UI no se programa: se genera. El servidor expone su schema Pydantic y el frontend renderiza el formulario sin conocerlo previamente."
-              : "When you register a component, the UI isn't programmed: it's generated. The server exposes its Pydantic schema and the React frontend renders the form without prior knowledge."}
+            {t("description")}
           </p>
         </div>
       </div>
@@ -77,17 +75,17 @@ export function ShowcaseSection() {
                 <img src="/images/dashai-logo.svg" alt="dash.AI" height={16} style={{ height: 16, width: "auto" }} />
               </div>
               {[
-                { label: lang === "es" ? "Workspace" : "Workspace", items: [
-                  { name: lang === "es" ? "Datasets"   : "Datasets",   badge: "12"    },
-                  { name: lang === "es" ? "Modelos"    : "Models",     badge: "28", active: true },
-                  { name: lang === "es" ? "Generativo" : "Generative", badge: "5"    },
-                  { name: lang === "es" ? "Plugins"    : "Plugins",    badge: "+"    },
+                { label: t("sidebar.workspaceLabel"), items: [
+                  { name: t("sidebar.datasets"),   badge: "12" },
+                  { name: t("sidebar.models"),     badge: "28", active: true },
+                  { name: t("sidebar.generative"), badge: "5" },
+                  { name: t("sidebar.plugins"),    badge: "+" },
                 ]},
-                { label: lang === "es" ? "Catálogo" : "Catalog", items: [
-                  { name: "Tabular",   badge: "30" },
-                  { name: "NLP",       badge: "15" },
-                  { name: lang === "es" ? "Traducción" : "Translation", badge: "9" },
-                  { name: lang === "es" ? "Visión" : "Vision", badge: "11" },
+                { label: t("sidebar.catalogLabel"), items: [
+                  { name: t("sidebar.tabular"),     badge: "30" },
+                  { name: t("sidebar.nlp"),         badge: "15" },
+                  { name: t("sidebar.translation"), badge: "9" },
+                  { name: t("sidebar.vision"),      badge: "11" },
                 ]},
               ].map(sec => (
                 <div key={sec.label} className="mb-[18px]">
@@ -115,21 +113,21 @@ export function ShowcaseSection() {
             {/* Main */}
             <div className="p-6 overflow-hidden">
               <div className="font-mono text-[11px] text-muted-foreground mb-2.5">
-                <span className="text-[#A7C7FF]">{lang === "es" ? "Modelos" : "Models"}</span> / Tabular / <span>{lang === "es" ? "Configurar" : "Configure"}</span>
+                <span className="text-[#A7C7FF]">{t("sidebar.models")}</span> / Tabular / <span>{t("main.configure")}</span>
               </div>
               <h3 className="text-2xl font-semibold tracking-tight mb-1">RandomForestClassifier</h3>
               <p className="text-sm text-muted-foreground mb-5">
-                {lang === "es" ? "Hiperparámetros generados desde" : "Hyperparameters generated from"}{" "}
+                {t("main.hyperparamsFrom")}{" "}
                 <code className="font-mono text-[#A7C7FF]">MyForestSchema</code>
               </p>
 
               {/* Form grid */}
               <div className="grid grid-cols-2 gap-px border border-border rounded overflow-hidden" style={{ background: "var(--border)" }}>
                 {[
-                  { label: "n_estimators", type: "int · 10–1000", name: "", input: <div className="relative h-9 overflow-hidden rounded"><div className="absolute inset-0" style={{ background: "linear-gradient(90deg, var(--primary) 0%, var(--primary) 35%, var(--ink-deep) 35%)" }}/><div className="relative flex items-center justify-between px-3 h-full text-foreground font-mono text-sm font-semibold"><span>350</span><span className="text-muted-foreground font-normal">1000</span></div></div>, help: lang === "es" ? "Número de árboles en el bosque." : "Number of trees in the forest." },
-                  { label: "max_depth", type: "int | None", name: "", input: <div className="flex items-center justify-between border border-border rounded px-3 py-2 font-mono text-sm bg-[var(--ink-deep)]"><span>None</span></div>, help: lang === "es" ? "Profundidad máxima del árbol." : "Maximum depth of the tree." },
-                  { label: "criterion", type: "enum", name: "", input: <div className="flex items-center justify-between border border-border rounded px-3 py-2 font-mono text-sm bg-[var(--ink-deep)]"><span>gini</span><span className="text-muted-foreground text-[10px]">▾</span></div>, help: lang === "es" ? "Función para medir la calidad del split." : "Function to measure split quality." },
-                  { label: "bootstrap", type: "bool", name: "", input: <div className="flex items-center justify-between border border-border rounded px-3 py-2 font-mono text-sm bg-[var(--ink-deep)]"><span>True</span><span className="bg-primary text-primary-foreground text-[9.5px] font-semibold px-1.5 py-0.5 rounded-full tracking-[.08em]">ON</span></div>, help: lang === "es" ? "Usar muestras bootstrap al construir cada árbol." : "Use bootstrap samples when building each tree." },
+                  { label: "n_estimators", type: "int · 10–1000", input: <div className="relative h-9 overflow-hidden rounded"><div className="absolute inset-0" style={{ background: "linear-gradient(90deg, var(--primary) 0%, var(--primary) 35%, var(--ink-deep) 35%)" }}/><div className="relative flex items-center justify-between px-3 h-full text-foreground font-mono text-sm font-semibold"><span>350</span><span className="text-muted-foreground font-normal">1000</span></div></div>, help: t("main.form.nEstimatorsHelp") },
+                  { label: "max_depth",    type: "int | None",    input: <div className="flex items-center justify-between border border-border rounded px-3 py-2 font-mono text-sm bg-[var(--ink-deep)]"><span>None</span></div>, help: t("main.form.maxDepthHelp") },
+                  { label: "criterion",    type: "enum",          input: <div className="flex items-center justify-between border border-border rounded px-3 py-2 font-mono text-sm bg-[var(--ink-deep)]"><span>gini</span><span className="text-muted-foreground text-[10px]">▾</span></div>, help: t("main.form.criterionHelp") },
+                  { label: "bootstrap",    type: "bool",          input: <div className="flex items-center justify-between border border-border rounded px-3 py-2 font-mono text-sm bg-[var(--ink-deep)]"><span>True</span><span className="bg-primary text-primary-foreground text-[9.5px] font-semibold px-1.5 py-0.5 rounded-full tracking-[.08em]">ON</span></div>, help: t("main.form.bootstrapHelp") },
                 ].map(f => (
                   <div key={f.label} className="p-3.5" style={{ background: "var(--background)" }}>
                     <div className="flex items-center justify-between font-mono text-[10.5px] uppercase tracking-[.06em] text-muted-foreground mb-2">
@@ -146,12 +144,12 @@ export function ShowcaseSection() {
               <div className="flex items-center justify-between mt-5 pt-4 border-t border-border">
                 <div className="flex items-center gap-2 font-mono text-[11px] text-muted-foreground">
                   <span className="text-primary text-sm leading-none">●</span>
-                  {lang === "es" ? "Formulario auto-generado del schema" : "Form auto-generated from schema"}
+                  {t("main.formAutoGenerated")}
                   <span className="text-foreground">·</span>
-                  {lang === "es" ? "4 campos" : "4 fields"}
+                  {t("main.fields")}
                 </div>
                 <button className="bg-primary text-primary-foreground font-semibold text-[12.5px] px-4 py-2 rounded">
-                  {lang === "es" ? "Entrenar →" : "Train →"}
+                  {t("main.train")}
                 </button>
               </div>
             </div>
@@ -160,26 +158,7 @@ export function ShowcaseSection() {
 
         {/* Callouts */}
         <div className="flex flex-col gap-8 md:sticky md:top-24">
-          {[
-            {
-              title: lang === "es" ? "1. Schema → UI" : "1. Schema → UI",
-              body: lang === "es"
-                ? "Cada campo del formulario nace de una línea de Pydantic. Tipo, rango, default y descripción se renderizan automáticamente."
-                : "Each form field is born from a Pydantic line. Type, range, default and description render automatically.",
-            },
-            {
-              title: lang === "es" ? "2. Sin código de frontend" : "2. No frontend code",
-              body: lang === "es"
-                ? "El componente nuevo no toca un solo archivo React. La interfaz aparece sola cuando el backend lo registra."
-                : "The new component touches zero React files. The UI shows up on its own once the backend registers it.",
-            },
-            {
-              title: lang === "es" ? "3. Catálogo navegable" : "3. Browsable catalog",
-              body: lang === "es"
-                ? "Tabular, NLP, traducción, LLMs y visión generativa coexisten en una sola UI consistente — todos sobre las mismas doce abstracciones."
-                : "Tabular, NLP, translation, LLMs and generative vision coexist in one consistent UI — all on the same twelve abstractions.",
-            },
-          ].map(c => (
+          {callouts.map(c => (
             <div
               key={c.title}
               className="p-6 border border-border rounded-lg relative"
@@ -199,13 +178,20 @@ export function ShowcaseSection() {
         <div className="border border-border rounded-lg overflow-hidden" style={{ background: "var(--background)" }}>
           <div className="flex items-center gap-2 px-3 py-2 border-b border-border text-[10.5px] font-mono text-muted-foreground" style={{ background: "var(--ink-deep)" }}>
             <div className="flex gap-1"><span className="w-[7px] h-[7px] rounded-full bg-[#FF5F57]"/><span className="w-[7px] h-[7px] rounded-full bg-[#FEBC2E]"/><span className="w-[7px] h-[7px] rounded-full bg-[#28C840]"/></div>
-            <span className="ml-1.5">{lang === "es" ? "Catálogo / Modelos" : "Catalog / Models"}</span>
+            <span className="ml-1.5">{t("strip.card1.title")}</span>
           </div>
           <div className="p-[18px] min-h-[200px]">
             <div className="font-mono text-[10px] text-muted-foreground tracking-[.06em] mb-3">[ TABULAR · 30 ]</div>
-            <h5 className="text-sm font-semibold mb-3">{lang === "es" ? "Seleccionar un modelo" : "Pick a model"}</h5>
+            <h5 className="text-sm font-semibold mb-3">{t("strip.card1.heading")}</h5>
             <div className="grid grid-cols-2 gap-2">
-              {[["RandomForest", lang === "es" ? "Bosque aleatorio" : "Random forest", true],["XGBoost","Gradient boosting",false],["LightGBM","Microsoft GBM",false],["SVM","Support Vector",false],["MLPClassifier",lang === "es" ? "Red neuronal" : "Neural net",false],["KNN","k-Nearest",false]].map(([name, desc, sel]) => (
+              {[
+                ["RandomForest", t("strip.card1.randomForest"), true],
+                ["XGBoost",      "Gradient boosting",           false],
+                ["LightGBM",     "Microsoft GBM",               false],
+                ["SVM",          "Support Vector",              false],
+                ["MLPClassifier", t("strip.card1.neuralNet"),   false],
+                ["KNN",          "k-Nearest",                   false],
+              ].map(([name, desc, sel]) => (
                 <div key={name as string} className="p-2.5 rounded border" style={sel ? { borderColor: "var(--primary)", background: "color-mix(in oklab, var(--primary) 16%, var(--ink-deep))" } : { borderColor: "var(--border)", background: "var(--ink-deep)" }}>
                   <div className="font-mono text-[11px] mb-0.5" style={sel ? { color: "#A7C7FF" } : { color: "var(--foreground)" }}>{name}</div>
                   <div className="text-[10px] text-muted-foreground leading-[1.4]">{desc}</div>
@@ -219,11 +205,11 @@ export function ShowcaseSection() {
         <div className="border border-border rounded-lg overflow-hidden" style={{ background: "var(--background)" }}>
           <div className="flex items-center gap-2 px-3 py-2 border-b border-border text-[10.5px] font-mono text-muted-foreground" style={{ background: "var(--ink-deep)" }}>
             <div className="flex gap-1"><span className="w-[7px] h-[7px] rounded-full bg-[#FF5F57]"/><span className="w-[7px] h-[7px] rounded-full bg-[#FEBC2E]"/><span className="w-[7px] h-[7px] rounded-full bg-[#28C840]"/></div>
-            <span className="ml-1.5">{lang === "es" ? "Resultados / Job #218" : "Results / Job #218"}</span>
+            <span className="ml-1.5">{t("strip.card2.title")}</span>
           </div>
           <div className="p-[18px] min-h-[200px]">
-            <div className="font-mono text-[10px] text-muted-foreground tracking-[.06em] mb-3">[ {lang === "es" ? "COMPLETADO" : "COMPLETED"} · 2m 14s ]</div>
-            <h5 className="text-sm font-semibold mb-3">{lang === "es" ? "Métricas de validación" : "Validation metrics"}</h5>
+            <div className="font-mono text-[10px] text-muted-foreground tracking-[.06em] mb-3">[ {t("strip.card2.status")} · 2m 14s ]</div>
+            <h5 className="text-sm font-semibold mb-3">{t("strip.card2.heading")}</h5>
             {[["accuracy","0.9342","#90F1C4"],["f1_macro","0.9118","#90F1C4"],["precision","0.8987","#90F1C4"],["recall","0.8512","#FFA578"]].map(([k,v,c]) => (
               <div key={k} className="flex justify-between items-center py-2 border-b border-dashed border-border font-mono text-[11px] last:border-b-0">
                 <span className="text-muted-foreground">{k}</span>
@@ -243,16 +229,16 @@ export function ShowcaseSection() {
         <div className="border border-border rounded-lg overflow-hidden" style={{ background: "var(--background)" }}>
           <div className="flex items-center gap-2 px-3 py-2 border-b border-border text-[10.5px] font-mono text-muted-foreground" style={{ background: "var(--ink-deep)" }}>
             <div className="flex gap-1"><span className="w-[7px] h-[7px] rounded-full bg-[#FF5F57]"/><span className="w-[7px] h-[7px] rounded-full bg-[#FEBC2E]"/><span className="w-[7px] h-[7px] rounded-full bg-[#28C840]"/></div>
-            <span className="ml-1.5">Jobs · {lang === "es" ? "Cola" : "Queue"}</span>
+            <span className="ml-1.5">Jobs · {t("strip.card3.queueLabel")}</span>
           </div>
           <div className="p-[18px] min-h-[200px]">
-            <div className="font-mono text-[10px] text-muted-foreground tracking-[.06em] mb-3">[ 8 BaseJob · 2 {lang === "es" ? "activos" : "running"} ]</div>
-            <h5 className="text-sm font-semibold mb-3">{lang === "es" ? "Orquestación" : "Orchestration"}</h5>
+            <div className="font-mono text-[10px] text-muted-foreground tracking-[.06em] mb-3">[ 8 BaseJob · 2 {t("strip.card3.runningCount")} ]</div>
+            <h5 className="text-sm font-semibold mb-3">{t("strip.card3.heading")}</h5>
             {[
-              { pill: lang === "es" ? "Activo" : "Running", pillStyle: { background: "color-mix(in oklab, #90F1C4 25%, var(--ink-deep))", color: "#90F1C4", border: "1px solid color-mix(in oklab, #90F1C4 40%, transparent)" }, name: "train_rf_v2",  meta: "68%" },
-              { pill: lang === "es" ? "Activo" : "Running", pillStyle: { background: "color-mix(in oklab, #90F1C4 25%, var(--ink-deep))", color: "#90F1C4", border: "1px solid color-mix(in oklab, #90F1C4 40%, transparent)" }, name: "explain_shap", meta: "12s" },
-              { pill: lang === "es" ? "Listo"  : "Done",    pillStyle: { background: "color-mix(in oklab, var(--primary) 22%, var(--ink-deep))", color: "#A7C7FF", border: "1px solid color-mix(in oklab, var(--primary) 40%, transparent)" }, name: "predict_test", meta: "1m 4s" },
-              { pill: lang === "es" ? "Cola"   : "Queued",  pillStyle: { background: "var(--background)", color: "var(--muted-foreground)", border: "1px solid var(--border)" }, name: "optimize_hpo", meta: "—" },
+              { pill: t("strip.card3.pills.running"), pillStyle: { background: "color-mix(in oklab, #90F1C4 25%, var(--ink-deep))", color: "#90F1C4", border: "1px solid color-mix(in oklab, #90F1C4 40%, transparent)" }, name: "train_rf_v2",  meta: "68%" },
+              { pill: t("strip.card3.pills.running"), pillStyle: { background: "color-mix(in oklab, #90F1C4 25%, var(--ink-deep))", color: "#90F1C4", border: "1px solid color-mix(in oklab, #90F1C4 40%, transparent)" }, name: "explain_shap", meta: "12s" },
+              { pill: t("strip.card3.pills.done"),    pillStyle: { background: "color-mix(in oklab, var(--primary) 22%, var(--ink-deep))", color: "#A7C7FF", border: "1px solid color-mix(in oklab, var(--primary) 40%, transparent)" }, name: "predict_test", meta: "1m 4s" },
+              { pill: t("strip.card3.pills.queued"),  pillStyle: { background: "var(--background)", color: "var(--muted-foreground)", border: "1px solid var(--border)" }, name: "optimize_hpo", meta: "—" },
             ].map(j => (
               <div key={j.name} className="flex items-center gap-2.5 py-2 border-b border-dashed border-border text-xs last:border-b-0">
                 <span className="font-mono text-[9.5px] px-[7px] py-[2px] rounded-full uppercase tracking-[.06em] whitespace-nowrap" style={j.pillStyle}>{j.pill}</span>

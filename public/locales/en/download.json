@@ -1,25 +1,29 @@
 {
-  "title": "Download DashAI",
-  "badge": "Beta Version",
-  "description": "This early version lets you explore DashAI’s main features. We appreciate your feedback to help us improve before the official release.",
-  "button": "Download",
-  "cards": {
-    "macIntel": {
-      "platform": "macOS Intel processors",
-      "format": "binary"
-    },
-    "macArm": {
-      "platform": "macOS ARM processors",
-      "format": "binary"
-    },
-    "windows": {
-      "platform": "Windows",
-      "format": ".exe"
-    }
+  "sectionLabel": "Download",
+  "heading": "Download",
+  "releaseMonth": "May 2026",
+  "executables": {
+    "badge": "Executables (recommended)",
+    "title": "Native installer",
+    "description": "No Python, no setup. Download the executable for your OS from GitHub Releases.",
+    "viewReleases": "View releases"
   },
   "pip": {
-    "title": "Install via pip",
-    "subtitle": "For developers who prefer command-line installation",
-    "command": "pip install dashai"
+    "title": "Install with pip",
+    "descriptionMiddle": "starts the server and opens the browser at",
+    "comment": "http://localhost:8000/ — Browser opens on its own.",
+    "viewOnPyPI": "View on PyPI"
+  },
+  "requirements": {
+    "badge": "Requirements",
+    "title": "What you need",
+    "items": {
+      "python": { "note": "Only for pip install" },
+      "ram": { "note": "16 GB for local LLMs" },
+      "os": { "note": "Native executables available" }
+    }
+  },
+  "footer": {
+    "cloneText": "Want to modify the core? Clone the repo:"
   }
 }
