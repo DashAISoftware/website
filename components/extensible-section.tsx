@@ -73,7 +73,7 @@ export function ExtensibleSection() {
 
       {/* 12 Modules grid */}
       <div
-        className="grid grid-cols-2 md:grid-cols-4 mt-16"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-16"
         style={{
           borderTop: `1px solid ${PAPER_LINE}`,
           borderLeft: `1px solid ${PAPER_LINE}`,
