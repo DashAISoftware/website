@@ -54,7 +54,7 @@ export function CommunitySection() {
             {lang === "es" ? "Contacto" : "Contact"}
           </div>
           <h3 className="text-2xl font-semibold tracking-tight mb-3">
-            {lang === "es" ? "Escribinos directamente." : "Reach out directly."}
+            {lang === "es" ? "Escríbenos directamente." : "Reach out directly."}
           </h3>
           <p className="text-sm text-muted-foreground leading-[1.55] mb-6 flex-1">
             {lang === "es"
@@ -68,7 +68,7 @@ export function CommunitySection() {
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = "0.85" }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = "1" }}
           >
-            {lang === "es" ? "Escribirnos" : "Send us an email"} →
+            {lang === "es" ? "Escríbenos" : "Send us an email"} →
           </a>
           <p className="mt-auto font-mono text-[11px] text-muted-foreground border-t border-border pt-4">
             {lang === "es"
@@ -88,7 +88,7 @@ export function CommunitySection() {
             Discord
           </div>
           <h3 className="text-2xl font-semibold tracking-tight mb-3">
-            {lang === "es" ? "Súmate al servidor de Discord." : "Join the Discord server."}
+            {lang === "es" ? "Únete al servidor de Discord." : "Join the Discord server."}
           </h3>
           <p className="text-sm text-muted-foreground leading-[1.55] mb-6 flex-1">
             {lang === "es"
@@ -104,7 +104,7 @@ export function CommunitySection() {
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = "0.85" }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = "1" }}
           >
-            {lang === "es" ? "Unirme al Discord" : "Join Discord"} →
+            {lang === "es" ? "Unirse al Discord" : "Join Discord"} →
           </a>
           <p className="mt-auto font-mono text-[11px] text-muted-foreground border-t border-border pt-4">
             {lang === "es"
@@ -131,7 +131,7 @@ export function CommunitySection() {
           </h3>
           <p className="text-sm text-muted-foreground leading-[1.55] mb-6 flex-1">
             {lang === "es"
-              ? "Nuevas features, modelos agregados al catálogo, plugins de la comunidad, papers relevantes. Sin spam, sin promos — solo lo que importa para tu workflow."
+              ? "Nuevas features, modelos agregados al catálogo, plugins de la comunidad, papers relevantes. Sin publicidad, sin promociones — solo lo que importa para tu flujo de trabajo."
               : "New features, models added to the catalog, community plugins, relevant papers. No spam, no promos — just what matters for your workflow."}
           </p>
           <a
@@ -147,7 +147,7 @@ export function CommunitySection() {
           </a>
           <p className="mt-auto font-mono text-[11px] text-muted-foreground border-t border-border pt-4">
             {lang === "es"
-              ? "· Salís cuando quieras · 0 emails comerciales"
+              ? "· Sal cuando quieras · 0 emails comerciales"
               : "· Leave anytime · 0 commercial emails"}
           </p>
         </div>
