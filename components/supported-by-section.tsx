@@ -12,38 +12,31 @@ const BRAND_ON_LIGHT = "#1E63D8"
 
 const COLLABS = [
   {
-    acro: "CENIA",
-    name: { es: "Centro Nacional de Inteligencia Artificial", en: "National Center for Artificial Intelligence" },
-    role: { es: "Institución líder", en: "Lead institution" },
-    meta: "Chile",
-    url: "https://www.cenia.cl/",
-  },
-  {
     acro: "UCHILE",
     name: { es: "Universidad de Chile · DCC, FCFM", en: "University of Chile · DCC, FCFM" },
-    role: { es: "Investigación y desarrollo", en: "Research & development" },
-    meta: "DCC",
+    role: { es: "Institución líder", en: "Lead institution" },
+    meta: { es: "Academia", en: "Academic" },
     url: "https://dcc.uchile.cl/",
   },
   {
-    acro: "USM",
-    name: { es: "Universidad Técnica Federico Santa María", en: "Federico Santa María Technical University" },
-    role: { es: "Investigación y desarrollo", en: "Research & development" },
-    meta: "Chile",
-    url: "https://www.usm.cl/",
+    acro: "CENIA",
+    name: { es: "Centro Nacional de Inteligencia Artificial", en: "National Center for Artificial Intelligence" },
+    role: { es: "Colaborador", en: "Collaborator" },
+    meta: { es: "Investigación", en: "Research" },
+    url: "https://www.cenia.cl/",
   },
   {
-    acro: "IMFD",
-    name: { es: "Instituto Milenio Fundamentos de los Datos", en: "Millennium Institute for Foundational Research on Data" },
-    role: { es: "Colaboración científica", en: "Scientific collaboration" },
-    meta: "ICN17_002",
-    url: "https://www.imfd.cl/",
+    acro: "Unholster",
+    name: { es: "Unholster", en: "Unholster" },
+    role: { es: "Colaborador", en: "Collaborator" },
+    meta: { es: "Industria", en: "Industry" },
+    url: "https://www.unholster.com/",
   },
   {
     acro: "ANID",
     name: { es: "Agencia Nacional de Investigación y Desarrollo", en: "National Agency for Research and Development" },
     role: { es: "Financiamiento público", en: "Public funding" },
-    meta: "Fondef IDEA",
+    meta: { es: "Gobierno", en: "Government" },
     url: "https://anid.cl/",
   },
 ]
@@ -85,7 +78,7 @@ export function SupportedBySection() {
 
       {/* Grid */}
       <div
-        className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-5"
+        className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4"
         style={{
           gap: "1px",
           background: PAPER_LINE,
@@ -118,7 +111,7 @@ export function SupportedBySection() {
             >
               {lang === "es" ? c.role.es : c.role.en}
               <span style={{ color: BRAND_ON_LIGHT, padding: "0 .3em" }}>·</span>
-              {c.meta}
+              {lang === "es" ? c.meta.es : c.meta.en}
             </div>
           </a>
         ))}
