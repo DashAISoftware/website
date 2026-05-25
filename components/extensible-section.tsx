@@ -88,7 +88,7 @@ export function ExtensibleSection() {
             onMouseLeave={e => (e.currentTarget.style.background = "")}
           >
             <div className="font-mono text-[11px] tracking-[.1em]" style={{ color: ON_LIGHT_FAINT }}>{m.num}</div>
-            <div className="font-mono text-[15px] font-medium mt-3.5" style={{ color: BRAND_ON_LIGHT }}>{m.name}</div>
+            <div className="font-mono text-[15px] font-medium mt-3.5 break-all" style={{ color: BRAND_ON_LIGHT }}>{m.name}</div>
             <div className="text-base font-medium mt-3.5 mb-2 tracking-tight" style={{ color: ON_LIGHT }}>{lang === "es" ? m.role.es : m.role.en}</div>
             <div className="text-[13.5px] leading-[1.5]" style={{ color: ON_LIGHT_MUTE }}>{lang === "es" ? m.desc.es : m.desc.en}</div>
             <div className="absolute right-4.5 bottom-4.5 flex flex-col gap-[3px] opacity-40 group-hover:opacity-100 transition-opacity">

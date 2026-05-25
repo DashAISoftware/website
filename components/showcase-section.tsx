@@ -70,7 +70,7 @@ export function ShowcaseSection() {
           {/* App layout */}
           <div className="grid grid-cols-1 md:grid-cols-[220px_1fr]" style={{ minHeight: 480 }}>
             {/* Sidebar */}
-            <aside className="border-r border-border p-5 text-sm" style={{ background: "var(--ink-deep)" }}>
+            <aside className="hidden md:block border-r border-border p-5 text-sm" style={{ background: "var(--ink-deep)" }}>
               <div className="flex items-center pb-[18px] border-b border-border mb-[18px]">
                 <img src="/images/dashai-logo.svg" alt="dash.AI" height={16} style={{ height: 16, width: "auto" }} />
               </div>
