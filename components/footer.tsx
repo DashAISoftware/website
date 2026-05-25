@@ -38,8 +38,8 @@ export function Footer() {
           </div>
           <p className="text-sm text-muted-foreground leading-[1.55] max-w-[38ch]">
             {lang === "es"
-              ? "Proyecto open-source desarrollado en CENIA, Chile. Licencia MIT. Visual ML Full Open · Full Extensible."
-              : "Open-source project developed at CENIA, Chile. MIT licensed. Visual ML, Full Open · Full Extensible."}
+              ? "Proyecto open-source desarrollado en la Universidad de Chile. Licencia MIT. Visual ML Full Open · Full Extensible."
+              : "Open-source project developed at Universidad de Chile. MIT licensed. Visual ML, Full Open · Full Extensible."}
           </p>
         </div>
 
@@ -130,7 +130,7 @@ export function Footer() {
         <div className="flex flex-wrap gap-x-[18px] gap-y-1">
           <span>© 2026 DashAI</span>
           <span>MIT License</span>
-          <span>CENIA · Chile</span>
+          <span>Universidad de Chile · Chile</span>
         </div>
         <div className="flex gap-5">
           <a href={siteConfig.github.url} target="_blank" rel="noopener" className="hover:text-[#A7C7FF] transition-colors">
