@@ -25,7 +25,7 @@ export function CommunitySection() {
       }}
     >
       {/* Head */}
-      <div className="grid gap-8 md:gap-20 mb-14 items-end" style={{ gridTemplateColumns: "min(240px,100%) 1fr" }}>
+      <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 md:gap-20 mb-14 items-end">
         <div>
           <div className="font-mono text-xs tracking-[.1em] uppercase text-primary">
             <span className="block w-12 h-[3px] mb-[18px] bg-primary" />

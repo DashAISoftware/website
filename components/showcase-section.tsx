@@ -17,7 +17,7 @@ export function ShowcaseSection() {
       }}
     >
       {/* Section head */}
-      <div className="grid gap-8 md:gap-20 mb-12 md:mb-20" style={{ gridTemplateColumns: "min(240px, 100%) 1fr" }}>
+      <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 md:gap-20 mb-12 md:mb-20">
         <div>
           <div className="font-mono text-xs tracking-[.1em] uppercase pt-2 relative text-primary">
             <span className="block w-12 h-[3px] mb-[18px] bg-primary" />
@@ -68,7 +68,7 @@ export function ShowcaseSection() {
           </div>
 
           {/* App layout */}
-          <div className="grid" style={{ gridTemplateColumns: "220px 1fr", minHeight: 480 }}>
+          <div className="grid grid-cols-1 md:grid-cols-[220px_1fr]" style={{ minHeight: 480 }}>
             {/* Sidebar */}
             <aside className="border-r border-border p-5 text-sm" style={{ background: "var(--ink-deep)" }}>
               <div className="flex items-center pb-[18px] border-b border-border mb-[18px]">
@@ -122,7 +122,7 @@ export function ShowcaseSection() {
               </p>
 
               {/* Form grid */}
-              <div className="grid grid-cols-2 gap-px border border-border rounded overflow-hidden" style={{ background: "var(--border)" }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px border border-border rounded overflow-hidden" style={{ background: "var(--border)" }}>
                 {[
                   { label: "n_estimators", type: "int · 10–1000", input: <div className="relative h-9 overflow-hidden rounded"><div className="absolute inset-0" style={{ background: "linear-gradient(90deg, var(--primary) 0%, var(--primary) 35%, var(--ink-deep) 35%)" }}/><div className="relative flex items-center justify-between px-3 h-full text-foreground font-mono text-sm font-semibold"><span>350</span><span className="text-muted-foreground font-normal">1000</span></div></div>, help: t("main.form.nEstimatorsHelp") },
                   { label: "max_depth",    type: "int | None",    input: <div className="flex items-center justify-between border border-border rounded px-3 py-2 font-mono text-sm bg-[var(--ink-deep)]"><span>None</span></div>, help: t("main.form.maxDepthHelp") },

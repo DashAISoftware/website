@@ -71,7 +71,7 @@ export function DownloadSection() {
       <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent 0 22px, rgba(167,199,255,.04) 22px 23px)" }} />
 
       {/* Head */}
-      <div className="relative z-10 grid gap-8 md:gap-20 mb-12 md:mb-18 items-end" style={{ gridTemplateColumns: "min(240px,100%) 1fr" }}>
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 md:gap-20 mb-12 md:mb-18 items-end">
         <div>
           <div className="font-mono text-xs tracking-[.1em] uppercase text-primary">
             <span className="block w-12 h-[3px] mb-[18px] bg-primary" />

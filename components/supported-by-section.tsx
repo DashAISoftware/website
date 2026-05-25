@@ -59,7 +59,7 @@ export function SupportedBySection() {
       style={{ padding: "clamp(80px,11vw,160px) clamp(20px,5vw,96px)", background: PAPER, color: ON_LIGHT, borderColor: PAPER_LINE }}
     >
       {/* Head */}
-      <div className="grid gap-8 md:gap-20 mb-14" style={{ gridTemplateColumns: "min(240px,100%) 1fr" }}>
+      <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 md:gap-20 mb-14">
         <div>
           <div className="font-mono text-xs tracking-[.1em] uppercase pt-2" style={{ color: BRAND_ON_LIGHT }}>
             <span className="block w-12 h-[3px] mb-[18px]" style={{ background: BRAND_ON_LIGHT }} />

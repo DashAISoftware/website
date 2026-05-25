@@ -44,7 +44,7 @@ export function ExtensibleSection() {
       }}
     >
       {/* Section head */}
-      <div className="grid gap-8 md:gap-20 mb-0" style={{ gridTemplateColumns: "min(240px,100%) 1fr" }}>
+      <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 md:gap-20 mb-0">
         <div>
           <div className="font-mono text-xs tracking-[.1em] uppercase pt-2 relative" style={{ color: PLUGINS_COLOR }}>
             <span className="block w-12 h-[3px] mb-[18px]" style={{ background: PLUGINS_COLOR }} />
@@ -73,9 +73,8 @@ export function ExtensibleSection() {
 
       {/* 12 Modules grid */}
       <div
-        className="grid mt-16"
+        className="grid grid-cols-2 md:grid-cols-4 mt-16"
         style={{
-          gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
           borderTop: `1px solid ${PAPER_LINE}`,
           borderLeft: `1px solid ${PAPER_LINE}`,
         }}
@@ -100,7 +99,7 @@ export function ExtensibleSection() {
       </div>
 
       {/* Arch grid */}
-      <div className="grid gap-8 md:gap-18 items-start mt-20 md:mt-24" style={{ gridTemplateColumns: "1fr 1.1fr" }}>
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-8 md:gap-18 items-start mt-20 md:mt-24">
         {/* Arch points */}
         <div className="flex flex-col gap-7">
           {[
