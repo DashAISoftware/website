@@ -25,7 +25,7 @@ export function FeaturesSection() {
       }}
     >
       {/* Section head */}
-      <div className="grid gap-8 md:gap-20 mb-16 md:mb-24" style={{ gridTemplateColumns: "240px 1fr" }}>
+      <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 md:gap-20 mb-16 md:mb-24">
         <div>
           <div className="font-mono text-xs tracking-[.1em] uppercase pt-2 relative" style={{ color: BRAND_ON_LIGHT }}>
             <span className="block w-12 h-[3px] mb-[18px]" style={{ background: BRAND_ON_LIGHT }} />

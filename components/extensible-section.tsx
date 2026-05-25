@@ -44,7 +44,7 @@ export function ExtensibleSection() {
       }}
     >
       {/* Section head */}
-      <div className="grid gap-8 md:gap-20 mb-0" style={{ gridTemplateColumns: "min(240px,100%) 1fr" }}>
+      <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 md:gap-20 mb-0">
         <div>
           <div className="font-mono text-xs tracking-[.1em] uppercase pt-2 relative" style={{ color: PLUGINS_COLOR }}>
             <span className="block w-12 h-[3px] mb-[18px]" style={{ background: PLUGINS_COLOR }} />
@@ -73,9 +73,8 @@ export function ExtensibleSection() {
 
       {/* 12 Modules grid */}
       <div
-        className="grid mt-16"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-16"
         style={{
-          gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
           borderTop: `1px solid ${PAPER_LINE}`,
           borderLeft: `1px solid ${PAPER_LINE}`,
         }}
@@ -89,7 +88,7 @@ export function ExtensibleSection() {
             onMouseLeave={e => (e.currentTarget.style.background = "")}
           >
             <div className="font-mono text-[11px] tracking-[.1em]" style={{ color: ON_LIGHT_FAINT }}>{m.num}</div>
-            <div className="font-mono text-[15px] font-medium mt-3.5" style={{ color: BRAND_ON_LIGHT }}>{m.name}</div>
+            <div className="font-mono text-[15px] font-medium mt-3.5 break-all" style={{ color: BRAND_ON_LIGHT }}>{m.name}</div>
             <div className="text-base font-medium mt-3.5 mb-2 tracking-tight" style={{ color: ON_LIGHT }}>{lang === "es" ? m.role.es : m.role.en}</div>
             <div className="text-[13.5px] leading-[1.5]" style={{ color: ON_LIGHT_MUTE }}>{lang === "es" ? m.desc.es : m.desc.en}</div>
             <div className="absolute right-4.5 bottom-4.5 flex flex-col gap-[3px] opacity-40 group-hover:opacity-100 transition-opacity">
@@ -100,7 +99,7 @@ export function ExtensibleSection() {
       </div>
 
       {/* Arch grid */}
-      <div className="grid gap-8 md:gap-18 items-start mt-20 md:mt-24" style={{ gridTemplateColumns: "1fr 1.1fr" }}>
+      <div className="grid grid-cols-1 xl:grid-cols-[1fr_1.1fr] gap-8 xl:gap-18 items-start mt-20 md:mt-24">
         {/* Arch points */}
         <div className="flex flex-col gap-7">
           {[
