@@ -99,7 +99,7 @@ export function ExtensibleSection() {
       </div>
 
       {/* Arch grid */}
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-8 md:gap-18 items-start mt-20 md:mt-24">
+      <div className="grid grid-cols-1 xl:grid-cols-[1fr_1.1fr] gap-8 xl:gap-18 items-start mt-20 md:mt-24">
         {/* Arch points */}
         <div className="flex flex-col gap-7">
           {[
