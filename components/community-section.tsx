@@ -1,19 +1,10 @@
 "use client"
 
-import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
 export function CommunitySection() {
   const { i18n } = useTranslation()
   const lang = i18n.language?.startsWith("es") ? "es" : "en"
-  const [email, setEmail] = useState("")
-  const [subscribed, setSubscribed] = useState(false)
-
-  function handleSubscribe(e: React.FormEvent) {
-    e.preventDefault()
-    setSubscribed(true)
-  }
-
   return (
     <section
       id="comunidad"
@@ -72,10 +63,18 @@ export function CommunitySection() {
           </p>
           <a
             href="mailto:dashai.nocode@gmail.com"
-            className="font-mono text-base text-[#A7C7FF] flex items-center gap-1.5 hover:gap-2.5 transition-all duration-200 py-8 mb-14"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md font-mono text-sm font-medium mb-6 transition-colors"
+            style={{ background: "var(--primary)", color: "var(--primary-foreground)" }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = "0.85" }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = "1" }}
           >
-            dashai.nocode@gmail.com →
+            {lang === "es" ? "Escribirnos" : "Send us an email"} →
           </a>
+          <p className="mt-auto font-mono text-[11px] text-muted-foreground border-t border-border pt-4">
+            {lang === "es"
+              ? "· dashai.nocode@gmail.com · respuesta en < 48h"
+              : "· dashai.nocode@gmail.com · reply in < 48h"}
+          </p>
         </div>
 
         {/* Discord */}
@@ -91,7 +90,7 @@ export function CommunitySection() {
           <h3 className="text-2xl font-semibold tracking-tight mb-3">
             {lang === "es" ? "Súmate al servidor de Discord." : "Join the Discord server."}
           </h3>
-          <p className="text-sm text-muted-foreground leading-[1.55] mb-6">
+          <p className="text-sm text-muted-foreground leading-[1.55] mb-6 flex-1">
             {lang === "es"
               ? "Soporte en vivo, anuncios de release, hilos por módulo (Datasets, Modelos, Generativo, Plugins) y el canal #show-and-tell para que compartas tus experimentos."
               : "Live support, release announcements, threads per module (Datasets, Models, Generative, Plugins) and a #show-and-tell channel to share your experiments."}
@@ -107,6 +106,11 @@ export function CommunitySection() {
           >
             {lang === "es" ? "Unirme al Discord" : "Join Discord"} →
           </a>
+          <p className="mt-auto font-mono text-[11px] text-muted-foreground border-t border-border pt-4">
+            {lang === "es"
+              ? "· Comunidad abierta · acceso inmediato"
+              : "· Open community · instant access"}
+          </p>
         </div>
 
         {/* Newsletter */}
@@ -114,50 +118,37 @@ export function CommunitySection() {
           <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[.12em] text-muted-foreground mb-5">
             <span className="w-8 h-8 rounded-md flex items-center justify-center border border-border text-[#A7C7FF]">
               <svg width="18" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="m2 6 10 7 10-7"/>
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
               </svg>
             </span>
-            Newsletter
+            {lang === "es" ? "Lista de correo" : "Mailing List"}
           </div>
           <h3 className="text-2xl font-semibold tracking-tight mb-3">
             {lang === "es" ? "Una actualización mensual." : "One monthly digest."}
           </h3>
-          <p className="text-sm text-muted-foreground leading-[1.55] mb-6">
+          <p className="text-sm text-muted-foreground leading-[1.55] mb-6 flex-1">
             {lang === "es"
               ? "Nuevas features, modelos agregados al catálogo, plugins de la comunidad, papers relevantes. Sin spam, sin promos — solo lo que importa para tu workflow."
               : "New features, models added to the catalog, community plugins, relevant papers. No spam, no promos — just what matters for your workflow."}
           </p>
-          {subscribed ? (
-            <div className="flex items-center gap-2 font-mono text-sm text-[#A7C7FF] mb-6">
-              <span>✓</span> {lang === "es" ? "¡Suscripto!" : "Subscribed!"}
-            </div>
-          ) : (
-            <form onSubmit={handleSubscribe} className="flex gap-2 mb-4">
-              <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder={lang === "es" ? "tu@email.com" : "you@email.com"}
-                required
-                aria-label="Email"
-                className="flex-1 min-w-0 px-3.5 py-2.5 text-sm rounded-md border border-border bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-              />
-              <button
-                type="submit"
-                className="px-4 py-2.5 rounded-md font-mono text-sm font-medium text-primary-foreground bg-primary transition-colors"
-                style={{ whiteSpace: "nowrap" }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = "0.85" }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = "1" }}
-              >
-                {lang === "es" ? "Suscribirme" : "Subscribe"}
-              </button>
-            </form>
-          )}
+          <a
+            href="https://groups.google.com/g/dashai-updates"
+            target="_blank"
+            rel="noopener"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md font-mono text-sm font-medium mb-6 transition-colors"
+            style={{ background: "var(--primary)", color: "var(--primary-foreground)" }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = "0.85" }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = "1" }}
+          >
+            {lang === "es" ? "Unirse al grupo" : "Join the group"} →
+          </a>
           <p className="mt-auto font-mono text-[11px] text-muted-foreground border-t border-border pt-4">
             {lang === "es"
-              ? "· Cancela cuando quieras · 0 emails comerciales"
-              : "· Unsubscribe anytime · 0 commercial emails"}
+              ? "· Salís cuando quieras · 0 emails comerciales"
+              : "· Leave anytime · 0 commercial emails"}
           </p>
         </div>
       </div>
