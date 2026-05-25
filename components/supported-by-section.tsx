@@ -85,9 +85,8 @@ export function SupportedBySection() {
 
       {/* Grid */}
       <div
-        className="grid"
+        className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-5"
         style={{
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))",
           gap: "1px",
           background: PAPER_LINE,
           border: `1px solid ${PAPER_LINE}`,
