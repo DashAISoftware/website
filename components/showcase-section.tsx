@@ -43,7 +43,7 @@ export function ShowcaseSection() {
       </div>
 
       {/* Main window + callouts */}
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_min(320px,100%)] gap-10 md:gap-20 items-start">
+      <div className="grid grid-cols-1 xl:grid-cols-[1fr_min(320px,100%)] gap-10 md:gap-20 items-start">
         {/* App window */}
         <div
           className="rounded-xl overflow-hidden border border-border"
