@@ -55,8 +55,6 @@ export function ManifestoSection() {
 
   return (
     <>
-      <MarqueeStrip lang={lang} />
-
       <section
         id="manifesto"
         className="border-b border-border"
