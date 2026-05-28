@@ -30,7 +30,7 @@ export function Navbar() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 flex items-center justify-between",
-        "px-5 md:px-24 py-[18px] transition-all duration-300",
+        "px-5 lg:px-24 py-[18px] transition-all duration-300",
         "border-b backdrop-saturate-[160%] backdrop-blur-[14px]",
         isScrolled || mobileOpen
           ? "bg-background/90 border-primary/20"
@@ -43,7 +43,7 @@ export function Navbar() {
       </a>
 
       {/* Desktop nav links */}
-      <div className="hidden md:flex gap-7 items-center text-sm">
+      <div className="hidden lg:flex gap-7 items-center text-sm">
         {navLinks.map(l => (
           <button
             key={l}
@@ -82,7 +82,7 @@ export function Navbar() {
           href={siteConfig.docs.url}
           target="_blank"
           rel="noopener"
-          className="hidden md:flex items-center gap-2 font-mono text-xs px-[13px] py-[7px] border border-border rounded-md text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all duration-200"
+          className="hidden lg:flex items-center gap-2 font-mono text-xs px-[13px] py-[7px] border border-border rounded-md text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all duration-200"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           Docs
@@ -103,7 +103,7 @@ export function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-1.5 text-muted-foreground hover:text-foreground transition-colors"
+          className="lg:hidden p-1.5 text-muted-foreground hover:text-foreground transition-colors"
           onClick={() => setMobileOpen(v => !v)}
           aria-label="Menu"
         >
@@ -116,7 +116,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border py-5 px-5 flex flex-col gap-4">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border py-5 px-5 flex flex-col gap-4">
           {navLinks.map(l => (
             <button
               key={l}
