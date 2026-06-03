@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.dash-ai.com"),
   title: "dashAI — Community Hub",
   description:
     "dashAI es una aplicación de escritorio open-source para análisis de datos y entrenamiento de modelos de Machine Learning. Corre localmente bajo licencia MIT.",
