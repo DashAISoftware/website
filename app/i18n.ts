@@ -1,84 +1,59 @@
-import i18n from "i18next"
-import { initReactI18next } from "react-i18next"
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import supportedByEN from "../public/locales/en/supportedBy.json";
+import supportedByES from "../public/locales/es/supportedBy.json";
+import navbarEN from "../public/locales/en/navbar.json";
+import navbarES from "../public/locales/es/navbar.json";
+import heroEN from "../public/locales/en/hero.json";
+import heroES from "../public/locales/es/hero.json";
+import featuresEN from "../public/locales/en/features.json";
+import featuresES from "../public/locales/es/features.json";
+import showcaseEN from "../public/locales/en/showcase.json";
+import showcaseES from "../public/locales/es/showcase.json";
+import downloadEN from "../public/locales/en/download.json";
+import downloadES from "../public/locales/es/download.json";
+import communityEN from "../public/locales/en/community.json";
+import communityES from "../public/locales/es/community.json";
+import contactEN from "../public/locales/en/contact.json";
+import contactES from "../public/locales/es/contact.json";
+import footerEN from "../public/locales/en/footer.json";
+import footerES from "../public/locales/es/footer.json";
 
-import navbarEN from "../public/locales/en/navbar.json"
-import navbarES from "../public/locales/es/navbar.json"
-import navbarPT from "../public/locales/pt/navbar.json"
-
-import homeEN from "../public/locales/en/home.json"
-import homeES from "../public/locales/es/home.json"
-import homePT from "../public/locales/pt/home.json"
-
-import contributeEN from "../public/locales/en/contribute.json"
-import contributeES from "../public/locales/es/contribute.json"
-import contributePT from "../public/locales/pt/contribute.json"
-
-import modelsEN from "../public/locales/en/models.json"
-import modelsES from "../public/locales/es/models.json"
-import modelsPT from "../public/locales/pt/models.json"
-
-import downloadEN from "../public/locales/en/download.json"
-import downloadES from "../public/locales/es/download.json"
-import downloadPT from "../public/locales/pt/download.json"
-
-import pluginsEN from "../public/locales/en/plugins.json"
-import pluginsES from "../public/locales/es/plugins.json"
-import pluginsPT from "../public/locales/pt/plugins.json"
-
-import communityEN from "../public/locales/en/community.json"
-import communityES from "../public/locales/es/community.json"
-import communityPT from "../public/locales/pt/community.json"
-
-import aboutEN from "../public/locales/en/about.json"
-import aboutES from "../public/locales/es/about.json"
-import aboutPT from "../public/locales/pt/about.json"
-
-import footerEN from "../public/locales/en/footer.json"
-import footerES from "../public/locales/es/footer.json"
-import footerPT from "../public/locales/pt/footer.json"
 
 i18n
   .use(initReactI18next)
   .init({
-    lng: "es",
+    lng: "en",
     resources: {
-      es: {
-        navbar: navbarES,
-        home: homeES,
-        contribute: contributeES,
-        models: modelsES,
-        download: downloadES,
-        plugins: pluginsES,
-        community: communityES,
-        about: aboutES,
-        footer: footerES,
-      },
       en: {
         navbar: navbarEN,
-        home: homeEN,
-        contribute: contributeEN,
-        models: modelsEN,
+        hero: heroEN,
+        supportedBy: supportedByEN,
+        features: featuresEN,
+        showcase: showcaseEN,
         download: downloadEN,
-        plugins: pluginsEN,
         community: communityEN,
-        about: aboutEN,
+        contact: contactEN,
         footer: footerEN,
       },
-      pt: {
-        navbar: navbarPT,
-        home: homePT,
-        contribute: contributePT,
-        models: modelsPT,
-        download: downloadPT,
-        plugins: pluginsPT,
-        community: communityPT,
-        about: aboutPT,
-        footer: footerPT,
-      },
+      es: {
+        navbar: navbarES,
+        hero: heroES,
+        supportedBy: supportedByES,
+        features: featuresES,
+        showcase: showcaseES,
+        download: downloadES,
+        community: communityES,
+        contact: contactES,
+        footer: footerES,
+      }
     },
-    supportedLngs: ["es", "en", "pt"],
-    fallbackLng: "es",
-    interpolation: { escapeValue: false },
-  })
+    supportedLngs: ["en", "es"],
+    fallbackLng: "en",
 
-export default i18n
+    interpolation: {
+      escapeValue: false
+    }
+  });
+
+export default i18n;

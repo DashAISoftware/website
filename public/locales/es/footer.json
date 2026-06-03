@@ -1,16 +1,29 @@
 {
-  "ft.about": "Acerca",
-  "ft.brand": "Proyecto open-source desarrollado en Chile. MIT. Visual ML, Full Open · Full Extensible. Brand v2 · 2026.",
-  "ft.c1.h": "// PROYECTO",
-  "ft.c2.h": "// RECURSOS",
-  "ft.c3.h": "// COMUNIDAD",
-  "ft.cont": "Contribuir",
-  "ft.copy": "© 2026 dashAI · MIT License · Chile",
-  "ft.dl": "Descargar",
-  "ft.docs": "Documentación",
-  "ft.em": "Email",
-  "ft.ml": "Mailing list",
-  "ft.models": "Catálogo de modelos",
-  "ft.proto": "Prototype v3 · Community Hub — Mayo 2026",
-  "ft.rn": "Release notes"
+  "brand": {
+    "title": "DashAI",
+    "description": "Plataforma de código abierto para democratizar el acceso a la inteligencia artificial."
+  },
+  "sections": {
+    "product": {
+      "title": "Producto",
+      "links": {
+        "features": "Características",
+        "changelog": "Registro de cambios"
+      }
+    },
+    "resources": {
+      "title": "Recursos",
+      "links": {
+        "documentation": "Documentación"
+      }
+    },
+    "community": {
+      "title": "Comunidad",
+      "links": {
+        "github": "GitHub",
+        "contribute": "Contribuir"
+      }
+    }
+  },
+  "copyright": "© 2025 DashAI"
 }

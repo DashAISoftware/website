@@ -1,13 +1,18 @@
 {
-  "com.d.cta": "Unirse",
-  "com.d.h": "Servidor de Discord.",
-  "com.d.p": "Soporte en vivo, anuncios de release, hilos por módulo (Datasets, Models, Generative, Plugins) y #show-and-tell para compartir tus experimentos.",
-  "com.e.cta": "Escribir",
-  "com.e.h": "Colaboraciones.",
-  "com.e.p": "Consultas, colaboraciones, integraciones institucionales o simplemente compartir lo que estás construyendo. Respuesta en &lt; 48h.",
-  "com.h": "Comunidad dashAI.",
-  "com.lead": "Discord para soporte en vivo, mailing list para el resumen mensual, email para colaboraciones institucionales.",
-  "com.n.cta": "Suscribirse",
-  "com.n.h": "Resumen mensual.",
-  "com.n.p": "Resumen mensual con nuevas funcionalidades, modelos incorporados al catálogo, plugins de la comunidad y publicaciones académicas relevantes. Sin contenido promocional."
+  "title": "Construido y ampliado por la comunidad",
+  "description": "La arquitectura de plugins de DashAI permite que cualquiera aporte nuevas capacidades. Crea plugins, mejora el núcleo y da forma al futuro de las herramientas de IA de código abierto.",
+  "cards": {
+    "github": {
+      "title": "GitHub",
+      "description": "Explora el código fuente"
+    },
+    "docs": {
+      "title": "Documentación",
+      "description": "Visita la documentación técnica"
+    },
+    "contribute": {
+      "title": "Contribuye",
+      "description": "Mejora el proyecto"
+    }
+  }
 }

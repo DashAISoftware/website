@@ -1,13 +1,18 @@
 {
-  "com.d.cta": "Join",
-  "com.d.h": "Discord server.",
-  "com.d.p": "Live support, release announcements, per-module threads (Datasets, Models, Generative, Plugins) and #show-and-tell to share your experiments.",
-  "com.e.cta": "Write",
-  "com.e.h": "Collaborations.",
-  "com.e.p": "com.e.p",
-  "com.h": "dashAI community.",
-  "com.lead": "Discord for live support, mailing list for the monthly digest, email for institutional collaborations.",
-  "com.n.cta": "Subscribe",
-  "com.n.h": "Monthly digest.",
-  "com.n.p": "Once a month. New features, models added to the catalog, community plugins, relevant papers. Zero promos."
+  "title": "Built and extended by the community",
+  "description": "DashAI's plugin architecture enables anyone to contribute new capabilities. Build plugins, improve the core, and shape the future of open source AI tools.",
+  "cards": {
+    "github": {
+      "title": "GitHub",
+      "description": "Explore the source code"
+    },
+    "docs": {
+      "title": "Docs",
+      "description": "Visit the technical documentation"
+    },
+    "contribute": {
+      "title": "Contribute",
+      "description": "Improve the project"
+    }
+  }
 }
