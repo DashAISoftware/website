@@ -1,10 +1,7 @@
 {
-  "nav.about": "About",
-  "nav.community": "Community",
-  "nav.contribute": "Contribute",
-  "nav.docs": "Docs",
-  "nav.download": "Download",
-  "nav.home": "Home",
-  "nav.models": "Models",
-  "nav.plugins": "Plugins"
+  "manifesto": "Manifesto",
+  "open": "Full Open",
+  "showcase": "App",
+  "extensible": "Full Extensible",
+  "download": "Download"
 }
