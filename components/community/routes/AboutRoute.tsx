@@ -122,7 +122,7 @@ export function AboutRoute() {
                 <p>{t('abt.hist.inst.p')}</p>
                 <ul>
                   <li>
-                    <span className="avatar"><img src="/supported-by/utfsm-logo.jpg" alt="USM" style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "50%" }} /></span>
+                    <span className="avatar"><img src="/supported-by/utfsm-logo.png" alt="USM" style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "50%" }} /></span>
                     <div className="meta">
                       <strong>{t('abt.hist.inst.usm.n')}</strong>
                       <span>{t('abt.hist.inst.usm.r')}</span>
