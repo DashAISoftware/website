@@ -61,7 +61,7 @@
   "cont.ey": "eight ways to join",
   "cont.guide": "See guide",
   "cont.h": "How to <em>contribute</em> to dashAI.",
-  "cont.lead": "dashAI lives under MIT and is built in the open, with <strong>two clear mechanisms</strong>. To <strong>add a new component</strong> (model, loader, metric, explainer, optimizer), you do it as a <strong>plugin</strong>. To <strong>fix bugs, refactor, or add features to the core</strong>, you do it as a <strong>Pull Request</strong>. You can also contribute without code: tutorials, citations, translations.",
+  "cont.lead": "dashAI is open-source and is built in the open, with <strong>two clear mechanisms</strong>. To <strong>add a new component</strong> (model, loader, metric, explainer, optimizer), you do it as a <strong>plugin</strong>. To <strong>fix bugs, refactor, or add features to the core</strong>, you do it as a <strong>Pull Request</strong>. You can also contribute without code: tutorials, citations, translations.",
   "cont.onb.ey": "your first PR",
   "cont.onb.h": "Four steps to your <span class=\"blue\">first PR</span>.",
   "cont.onb.p": "Shortest path: fork, add a new model, send a pull request. The UI shows up on its own.",

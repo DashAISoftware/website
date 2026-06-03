@@ -11,7 +11,7 @@
   "dl.h": "Baixar <em>dashAI</em>.",
   "dl.lead": "Duas rotas: executável nativo para quem prefere não instalar Python, ou pip para quem já tem um ambiente. As duas deixam dashAI pronto para usar como aplicação desktop.",
   "dl.m.d": "Maio 2026",
-  "dl.m.l": "Licença MIT",
+  "dl.m.l": "Open Source",
   "dl.m.os": "Linux · macOS · Windows",
   "dl.m.v": "v0.9.3-alpha",
   "dl.p.h": "Instalar com pip.",

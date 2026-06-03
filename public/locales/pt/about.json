@@ -42,10 +42,10 @@
   "abt.inst.unh.r": "colaborador ativo · testes &amp; feedback",
   "abt.lead": "Projeto acadêmico chileno desenvolvido e mantido por uma rede de cinco instituições, financiado com fundos públicos. A sustentabilidade vem do financiamento público e da comunidade que o constrói dia após dia.",
   "abt.m.h": "Missão",
-  "abt.m.p": "Tornar Visual ML acessível para usuários não-técnicos sem sacrificar extensibilidade para usuários técnicos. Uma plataforma aberta é a que <em style=\"font-style:italic\">se comporta</em> abertamente: licença MIT sem copyleft, sem paywall produtivo, sem componentes fechados.",
+  "abt.m.p": "Tornar Visual ML acessível para usuários não-técnicos sem sacrificar extensibilidade para usuários técnicos. Uma plataforma aberta é a que <em style=\"font-style:italic\">se comporta</em> abertamente: open-source sem copyleft, sem paywall produtivo, sem componentes fechados.",
   "abt.v.h": "Versão atual",
   "abt.v.h2": "Visão",
   "abt.v.n": "// O arquivo LICENSE na raiz ainda não está versionado — a declaração MIT vive só no setup.py e nos classifiers do PyPI. Detalhe de governança pendente antes de publicações formais.",
-  "abt.v.p": "version &nbsp; <strong style=\"color:var(--brand-light)\">v0.9.3-alpha</strong><br>license &nbsp; MIT (declarada em setup.py)<br>python &nbsp; ≥ 3.10<br>stack &nbsp; &nbsp;FastAPI + React<br>docs &nbsp; &nbsp; &nbsp;docs.dash-ai.com (0.0.4)<br>paper &nbsp; &nbsp;em preparação",
+  "abt.v.p": "version &nbsp; <strong style=\"color:var(--brand-light)\">v0.9.3-alpha</strong><br>license &nbsp; open-source<br>python &nbsp; ≥ 3.10<br>stack &nbsp; &nbsp;FastAPI + React<br>docs &nbsp; &nbsp; &nbsp;docs.dash-ai.com (0.0.4)<br>paper &nbsp; &nbsp;em preparação",
   "abt.v.p2": "Consolidar uma plataforma chilena de Machine Learning visual com três atributos centrais: operação local sobre dados do usuário, extensibilidade via plugins da comunidade e rastreabilidade acadêmica dos seus componentes. O projeto aspira a servir como infraestrutura compartilhada entre grupos de pesquisa, instituições públicas e profissionais."
 }
