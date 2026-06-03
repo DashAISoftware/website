@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { AppMockup } from '../AppMockup'
+import { InstitutionsGrid } from '../InstitutionsGrid'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
 
@@ -351,28 +352,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
             </div>
           </div>
 
-          <div className="insts">
-            <a className="inst is-primary" href="https://dcc.uchile.cl/" target="_blank" rel="noopener">
-              <div className="acro">UCHILE</div>
-              <div className="name">{t('ins.uchile.n')}</div>
-              <div className="role">{t('ins.uchile.r')}</div>
-            </a>
-            <a className="inst" href="https://www.cenia.cl/" target="_blank" rel="noopener">
-              <div className="acro">CENIA</div>
-              <div className="name">{t('ins.cenia.n')}</div>
-              <div className="role">{t('ins.cenia.r')}</div>
-            </a>
-            <a className="inst" href="https://unholster.com/" target="_blank" rel="noopener">
-              <div className="acro">Unholster</div>
-              <div className="name">{t('ins.unh.n')}</div>
-              <div className="role">{t('ins.unh.r')}</div>
-            </a>
-            <a className="inst" href="https://anid.cl/" target="_blank" rel="noopener">
-              <div className="acro">ANID</div>
-              <div className="name">{t('ins.anid.n')}</div>
-              <div className="role">{t('ins.anid.r')}</div>
-            </a>
-          </div>
+          <InstitutionsGrid />
         </div>
       </section>
     </>
