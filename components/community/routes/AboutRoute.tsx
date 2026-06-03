@@ -107,7 +107,14 @@ export function AboutRoute() {
               <div className="team-card">
                 <h3>{t('abt.hist.alum.h')}</h3>
                 <p>{t('abt.hist.alum.p')}</p>
-                <div className="placeholder-note" dangerouslySetInnerHTML={th('abt.hist.alum.n')} />
+                <a
+                  href="https://github.com/DashAISoftware/DashAI/graphs/contributors"
+                  target="_blank"
+                  rel="noopener"
+                  style={{ fontSize: '13px', color: 'var(--brand-on)', fontWeight: 500 }}
+                >
+                  contributors graph →
+                </a>
               </div>
 
               <div className="team-card">
@@ -115,23 +122,20 @@ export function AboutRoute() {
                 <p>{t('abt.hist.inst.p')}</p>
                 <ul>
                   <li>
-                    <span className="avatar">USM</span>
+                    <span className="avatar"><img src="/supported-by/utfsm-logo.jpg" alt="USM" style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "50%" }} /></span>
                     <div className="meta">
                       <strong>{t('abt.hist.inst.usm.n')}</strong>
                       <span>{t('abt.hist.inst.usm.r')}</span>
                     </div>
                   </li>
                   <li>
-                    <span className="avatar">IMFD</span>
+                    <span className="avatar"><img src="/supported-by/imfd-logo.png" alt="IMFD" style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "50%" }} /></span>
                     <div className="meta">
                       <strong>{t('abt.hist.inst.imfd.n')}</strong>
                       <span>{t('abt.hist.inst.imfd.r')}</span>
                     </div>
                   </li>
                 </ul>
-                <div className="placeholder-note" style={{ marginTop: '14px' }}>
-                  {t('abt.hist.inst.n')}
-                </div>
               </div>
             </div>
 
