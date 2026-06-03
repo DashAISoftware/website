@@ -1,6 +1,7 @@
 'use client'
 
 import { useTranslation } from 'react-i18next'
+import { InstitutionsGrid } from '../InstitutionsGrid'
 import '@/app/i18n'
 export function AboutRoute() {
   const { t, i18n } = useTranslation('about')
@@ -89,32 +90,7 @@ export function AboutRoute() {
             <h2 dangerouslySetInnerHTML={th('abt.inst.h')} />
             <p className="lead">{t('abt.inst.lead')}</p>
 
-            <div className="inst-grid">
-              <a className="inst-big is-primary" href="https://dcc.uchile.cl/" target="_blank" rel="noopener">
-                <div className="logo-slot">LOGO</div>
-                <div className="acro">UCHILE</div>
-                <div className="full">{t('abt.inst.uchile.n')}</div>
-                <div className="role">{t('abt.inst.uchile.r')}</div>
-              </a>
-              <a className="inst-big" href="https://www.cenia.cl/" target="_blank" rel="noopener">
-                <div className="logo-slot">LOGO</div>
-                <div className="acro">CENIA</div>
-                <div className="full">{t('abt.inst.cenia.n')}</div>
-                <div className="role">{t('abt.inst.cenia.r')}</div>
-              </a>
-              <a className="inst-big" href="https://unholster.com/" target="_blank" rel="noopener">
-                <div className="logo-slot">LOGO</div>
-                <div className="acro">Unholster</div>
-                <div className="full">{t('abt.inst.unh.n')}</div>
-                <div className="role">{t('abt.inst.unh.r')}</div>
-              </a>
-              <a className="inst-big" href="https://anid.cl/" target="_blank" rel="noopener">
-                <div className="logo-slot">LOGO</div>
-                <div className="acro">ANID</div>
-                <div className="full">{t('abt.inst.anid.n')}</div>
-                <div className="role">{t('abt.inst.anid.r')}</div>
-              </a>
-            </div>
+            <InstitutionsGrid />
           </section>
 
           {/* Sub-section: History */}
