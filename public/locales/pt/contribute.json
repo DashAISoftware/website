@@ -61,7 +61,7 @@
   "cont.ey": "oito formas de somar",
   "cont.guide": "Ver guia",
   "cont.h": "Como <em>contribuir</em> ao dashAI.",
-  "cont.lead": "dashAI vive sob MIT e se constrói em aberto, com <strong>dois mecanismos claros</strong>. Se você quer <strong>adicionar um componente novo</strong> (modelo, loader, métrica, explicador, otimizador), faz como <strong>plugin</strong>. Se quer <strong>arrumar bugs, fazer refactors ou somar features ao core</strong>, faz como <strong>Pull Request</strong>. E sempre pode contribuir sem código: tutoriais, citações, traduções.",
+  "cont.lead": "dashAI é open-source e se constrói em aberto, com <strong>dois mecanismos claros</strong>. Se você quer <strong>adicionar um componente novo</strong> (modelo, loader, métrica, explicador, otimizador), faz como <strong>plugin</strong>. Se quer <strong>arrumar bugs, fazer refactors ou somar features ao core</strong>, faz como <strong>Pull Request</strong>. E sempre pode contribuir sem código: tutoriais, citações, traduções.",
   "cont.onb.ey": "seu primeiro PR",
   "cont.onb.h": "Quatro passos para seu <span class=\"blue\">primeiro PR</span>.",
   "cont.onb.p": "O caminho mais curto: fork, adicionar um modelo novo, abrir pull request. A UI aparece sozinha.",
