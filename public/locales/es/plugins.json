@@ -1,0 +1,21 @@
+{
+  "plg.cs.badge": "COMING SOON",
+  "plg.cs.cta.p": "Si planeas desarrollar un plugin, la guía de empaquetado está disponible en <a href=\"#guide-plugin\" style=\"color:var(--brand-on);font-weight:500\">/contribute</a>. Para coordinar publicaciones tempranas, contactar al equipo por email o Discord.",
+  "plg.cs.h": "Sección en preparación.",
+  "plg.cs.lead": "El catálogo público de plugins se publicará junto con el primer release estable de dashAI. Esta página listará entonces los paquetes verificados de la comunidad, con su tipo de componente, autoría y compatibilidad con la versión vigente.",
+  "plg.cs.m1.l": "// PUBLICACIÓN ESTIMADA",
+  "plg.cs.m1.v": "Junto al primer release estable",
+  "plg.cs.m2.l": "// MECANISMO TÉCNICO",
+  "plg.cs.m2.v": "Entry points · PyPI · instalación desde UI",
+  "plg.cs.m3.l": "// ABSTRACCIONES SOPORTADAS",
+  "plg.cs.m3.v": "Las doce abstracciones base del proyecto",
+  "plg.h": "Plugins de la comunidad.",
+  "plg.lead": "Los plugins son paquetes Python publicados en PyPI que registran componentes nuevos (modelos, loaders, métricas, explicadores, optimizadores). La instalación se realiza desde la propia interfaz de dashAI.",
+  "plg.s.ey": "PROTOTYPE V3 · STUBBED SECTION",
+  "plg.s.f": "// These names are illustrative. Want to be the one who publishes the first? <a href=\"#contribute\" style=\"color:var(--brand-on);font-weight:500\">How to publish a plugin →</a>",
+  "plg.s.h": "Plugin marketplace",
+  "plg.s.p": "plg.s.p",
+  "plg.s.v1": "ARIMA, Prophet, NeuralProphet models under BaseModel.",
+  "plg.s.v2": "Fairness metrics (Demographic Parity, Equalized Odds) under BaseMetric.",
+  "plg.s.v3": "Optimized TreeSHAP, KernelSHAP variants under BaseLocalExplainer."
+}

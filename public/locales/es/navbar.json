@@ -1,7 +1,10 @@
 {
-  "manifesto": "Manifiesto",
-  "open": "Full Open",
-  "showcase": "App",
-  "extensible": "Full Extensible",
-  "download": "Descargar"
+  "nav.about": "Acerca de",
+  "nav.community": "Comunidad",
+  "nav.contribute": "Contribuir",
+  "nav.docs": "Docs",
+  "nav.download": "Descarga",
+  "nav.home": "Inicio",
+  "nav.models": "Modelos",
+  "nav.plugins": "Plugins"
 }

@@ -1,29 +1,29 @@
 {
-  "sectionLabel": "Download",
-  "heading": "Download",
-  "releaseMonth": "May 2026",
-  "executables": {
-    "badge": "Executables (recommended)",
-    "title": "Native installer",
-    "description": "No Python, no setup. Download the executable for your OS from GitHub Releases.",
-    "viewReleases": "View releases"
-  },
-  "pip": {
-    "title": "Install with pip",
-    "descriptionMiddle": "starts the server and opens the browser at",
-    "comment": "http://localhost:8000/ — Browser opens on its own.",
-    "viewOnPyPI": "View on PyPI"
-  },
-  "requirements": {
-    "badge": "Requirements",
-    "title": "What you need",
-    "items": {
-      "python": { "note": "Only for pip install" },
-      "ram": { "note": "16 GB for local LLMs" },
-      "os": { "note": "Native executables available" }
-    }
-  },
-  "footer": {
-    "cloneText": "Want to modify the core? Clone the repo:"
-  }
+  "dl.cl.t": "<strong style=\"color:var(--ink);font-weight:500\">Want to modify the core?</strong> Clone the repo and work on the <code style=\"font-family:var(--mono);font-size:12px;background:var(--bg);padding:1px 5px;border-radius:4px\">develop</code> branch.",
+  "dl.e.arm": "macOS · Apple Silicon",
+  "dl.e.h": "Native installer.",
+  "dl.e.int": "macOS · Intel",
+  "dl.e.p": "No Python, no setup. Download the executable for your OS from GitHub Releases. Double-click and dashAI opens ready to use.",
+  "dl.e.r": "See all releases on GitHub",
+  "dl.e.tag": "native executables",
+  "dl.e.win": "Windows",
+  "dl.ey": "install dashAI on your machine",
+  "dl.h": "Download <em>dashAI</em>.",
+  "dl.lead": "Two routes: native executable for users who prefer not to install Python, or pip for those who already have an environment. Both leave dashAI ready to use as a desktop application.",
+  "dl.m.d": "May 2026",
+  "dl.m.l": "Open Source",
+  "dl.m.os": "Linux · macOS · Windows",
+  "dl.m.v": "v0.9.3-alpha",
+  "dl.p.h": "Install with pip.",
+  "dl.p.p": "The <code style=\"font-family:var(--mono);font-size:13px;background:var(--surface);padding:1px 5px;border-radius:4px\">dashai</code> package starts the server and opens the browser. Requires Python ≥ 3.10.",
+  "dl.p.r": "See package on PyPI",
+  "dl.p.tag": "for Python environments",
+  "dl.req.ey": "what you need",
+  "dl.req.h": "Requirements.",
+  "dl.req.os.s": "native executables available for all three",
+  "dl.req.py.s": "only for pip install",
+  "dl.req.ram.s": "extra memory recommended for image generation",
+  "dl.req.ram.v": "8 GB · 16 GB for local LLMs",
+  "dl.v.h": "Installation problems?",
+  "dl.v.p": "Check the official docs or ask directly on Discord — the team and community respond within hours."
 }
