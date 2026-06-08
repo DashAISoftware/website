@@ -73,7 +73,7 @@
   "cont.onb.s3.t": "Define el schema Pydantic",
   "cont.onb.s4.s": "El equipo revisa en menos de 48 horas hábiles.",
   "cont.onb.s4.t": "Pull request a develop",
-  "g.1.ctx": "Cada modelo predictivo es una subclase de",
+  "g.1.ctx": "Cada modelo predictivo es una subclase de <code>BaseModel</code> que define cómo entrenar y predecir. La UI se genera del schema Pydantic — nunca tocas React.",
   "g.1.h": "Aporta un modelo nuevo",
   "g.1.num": "// 01 · CÓDIGO",
   "g.1.s1": "<strong>Lee la abstracción.</strong> Revisa <code>BaseModel</code> en <code>DashAI/back/models/base_model.py</code> para entender los métodos requeridos: <code>fit()</code>, <code>predict()</code>, <code>save()</code>, <code>load()</code>.",
@@ -164,5 +164,5 @@
   "g.lnk.repo7": "Ver archivos de idioma en el repo",
   "g.sec.ey": "pasos concretos por tipo de contribución",
   "g.sec.h": "Guías por tipo.",
-  "g.sec.lead": "Cada guía sigue la misma estructura: contexto en una frase, pasos numerados, y enlace al archivo correspondiente del repositorio. Las páginas"
+  "g.sec.lead": "Cada guía sigue la misma estructura: contexto en una frase, pasos numerados, y enlace al archivo correspondiente del repositorio. Las páginas <code style=\"font-family:var(--mono);font-size:13px;background:var(--surface);padding:1px 5px;border-radius:4px\">docs.dash-ai.com</code> en preparación expandirán cada una."
 }
