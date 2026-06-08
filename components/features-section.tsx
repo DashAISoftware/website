@@ -117,11 +117,11 @@ export function FeaturesSection() {
             kind: lang === "es" ? "Tabular" : "Tabular",
             swatchColor: BRAND_ON_LIGHT,
             title: lang === "es" ? "Clasificación & regresión" : "Classification & regression",
-            count: "15 + 15",
+            count: "30",
             body: lang === "es"
               ? <>Treinta modelos sobre scikit-learn y boosting. Cada uno como subclase de <code className="font-mono text-xs">BaseModel</code>.</>
               : <>Thirty models over scikit-learn and boosting. Each one as a subclass of <code className="font-mono text-xs">BaseModel</code>.</>,
-            tags: ["RandomForest","XGBoost","LightGBM","SVM","MLP","+25"],
+            tags: ["RandomForest","LightGBM","SVM","MLP","+25"],
             countColor: BRAND_ON_LIGHT,
           },
           {
@@ -152,8 +152,8 @@ export function FeaturesSection() {
             title: lang === "es" ? "Texto a imagen" : "Text to image",
             count: "11",
             body: lang === "es"
-              ? "PixArt-Sigma, SDXL, Stable Diffusion y variantes ControlNet. Detección automática de CUDA."
-              : "PixArt-Sigma, SDXL, Stable Diffusion and ControlNet variants. Automatic CUDA detection.",
+              ? "PixArt-Sigma, SDXL, Stable Diffusion y variantes ControlNet."
+              : "PixArt-Sigma, SDXL, Stable Diffusion and ControlNet variants.",
             tags: ["PixArt-Sigma","SDXL","SD v3","SD v2","ControlNet","+6"],
             countColor: BRAND_ON_LIGHT,
           },

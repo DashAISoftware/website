@@ -14,7 +14,7 @@
   "abt.g.p": "Technical decisions are discussed on GitHub Issues and Discord. Institutional roadmap decisions go through the maintainers committee. Release priorities respond to external tester feedback (the latest round with Unholster defined the pre-release sprint).",
   "abt.h": "Acerca de dashAI.",
   "abt.hist.alum.h": "Alumnos colaboradores históricos",
-  "abt.hist.alum.n": "// PLACEHOLDER · listar alumnos colaboradores con (1) nombre, (2) afiliación al momento de contribuir, (3) año(s), (4) área de aporte. Recoger consentimiento antes de publicar. Mientras tanto, el historial de commits cuenta la historia: <a href=\"https://github.com/DashAISoftware/DashAI/graphs/contributors\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--brand-on);font-weight:500\">contributors graph</a>.",
+  "abt.hist.alum.n": "// PLACEHOLDER · listar alumnos colaboradores con (1) nombre, (2) afiliación al momento de contribuir, (3) año(s), (4) área de aporte. Recoger consentimiento antes de publicar. Mientras tanto, el historial de commits cuenta la historia: <a href=\"https://github.com/DashAISoftware/dashAI/graphs/contributors\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--brand-on);font-weight:500\">contributors graph</a>.",
   "abt.hist.alum.p": "Tesistas de pre y posgrado, memoristas, ayudantes de investigación. Muchas abstracciones actuales nacieron como proyectos de curso o tesis.",
   "abt.hist.cta.b": "Escribir",
   "abt.hist.cta.h": "¿Pasaste por dashAI?",
@@ -45,7 +45,6 @@
   "abt.m.p": "Reducir las barreras técnicas para el uso de Machine Learning en investigación, docencia y trabajo aplicado, manteniendo la extensibilidad que requieren los grupos especializados. dashAI articula una interfaz visual sobre una arquitectura modular auditable y open-source.",
   "abt.v.h": "Versión actual",
   "abt.v.h2": "Visión",
-  "abt.v.n": "// El archivo LICENSE en la raíz aún no está versionado — la declaración MIT vive en setup.py y en los classifiers de PyPI. Detalle de gobernanza pendiente antes de publicaciones formales.",
-  "abt.v.p": "version &nbsp; <strong style=\"color:var(--brand-light)\">v0.9.3-alpha</strong><br> license &nbsp; open-source<br> python &nbsp; ≥ 3.10<br> stack &nbsp; &nbsp;FastAPI + React<br> docs &nbsp; &nbsp; &nbsp;docs.dash-ai.com (0.0.4)<br> paper &nbsp; &nbsp;en preparación",
+  "abt.v.p": "version &nbsp; <strong style=\"color:var(--brand-light)\">v0.9.4</strong><br> license &nbsp; open-source<br> python &nbsp; ≥ 3.10<br> stack &nbsp; &nbsp;FastAPI + React<br> docs &nbsp; &nbsp; &nbsp;docs.dash-ai.com (0.0.4)<br> paper &nbsp; &nbsp;en preparación",
   "abt.v.p2": "Consolidar una plataforma chilena de Machine Learning visual con tres atributos centrales: operación local sobre datos del usuario, extensibilidad mediante plugins de la comunidad y trazabilidad académica de sus componentes. El proyecto aspira a servir como infraestructura compartida entre grupos de investigación, instituciones públicas y profesionales del sector."
 }

@@ -190,7 +190,6 @@ export function ShowcaseSection() {
             <div className="grid grid-cols-2 gap-2">
               {[
                 ["RandomForest", t("strip.card1.randomForest"), true],
-                ["XGBoost",      "Gradient boosting",           false],
                 ["LightGBM",     "Microsoft GBM",               false],
                 ["SVM",          "Support Vector",              false],
                 ["MLPClassifier", t("strip.card1.neuralNet"),   false],

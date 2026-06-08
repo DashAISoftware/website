@@ -92,11 +92,11 @@ export function CommunitySection() {
           </h3>
           <p className="text-sm text-muted-foreground leading-[1.55] mb-6 flex-1">
             {lang === "es"
-              ? "Soporte en vivo, anuncios de release, hilos por módulo (Datasets, Modelos, Generativo, Plugins) y el canal #show-and-tell para que compartas tus experimentos."
-              : "Live support, release announcements, threads per module (Datasets, Models, Generative, Plugins) and a #show-and-tell channel to share your experiments."}
+              ? "Soporte en vivo, anuncios de release e hilos por módulo (Datasets, Modelos, Generativo, Plugins) para que compartas tus experimentos."
+              : "Live support, release announcements and per-module threads (Datasets, Models, Generative, Plugins) to share your experiments."}
           </p>
           <a
-            href="https://discord.gg/dashai"
+            href="https://discord.gg/CQVqMBjeWP"
             target="_blank"
             rel="noopener"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md font-mono text-sm font-medium mb-6 transition-colors"

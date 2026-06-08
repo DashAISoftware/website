@@ -72,7 +72,7 @@ export function DownloadRoute() {
                 </a>
               </div>
 
-              <a className="dl-link" href="https://github.com/DashAISoftware/DashAI/releases" target="_blank" rel="noopener">
+              <a className="dl-link" href="https://github.com/DashAISoftware/dashAI/releases" target="_blank" rel="noopener">
                 <span>{t('dl.e.r')}</span> →
               </a>
             </article>
@@ -131,7 +131,7 @@ export function DownloadRoute() {
 
           <div className="dl-clone">
             <div className="t" dangerouslySetInnerHTML={th('dl.cl.t')} />
-            <code>git clone github.com/DashAISoftware/DashAI</code>
+            <code>git clone github.com/DashAISoftware/dashAI</code>
           </div>
 
           <div style={{
@@ -151,7 +151,7 @@ export function DownloadRoute() {
             </div>
             <div style={{ display: 'flex', gap: '8px' }}>
               <a className="btn btn--sm" href="https://docs.dash-ai.com" target="_blank" rel="noopener">Docs →</a>
-              <a className="btn btn--sm" href="https://discord.gg/dashai" target="_blank" rel="noopener">Discord →</a>
+              <a className="btn btn--sm" href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener">Discord →</a>
             </div>
           </div>
 

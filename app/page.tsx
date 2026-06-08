@@ -65,7 +65,7 @@ export default function Page() {
   }, [])
 
   useEffect(() => {
-    fetch('https://api.github.com/repos/DashAISoftware/DashAI/releases?per_page=1')
+    fetch('https://api.github.com/repos/DashAISoftware/dashAI/releases?per_page=1')
       .then(r => r.ok ? r.json() : null)
       .then(releases => { if (releases?.[0]?.tag_name) setGhVersion(releases[0].tag_name) })
       .catch(() => {})

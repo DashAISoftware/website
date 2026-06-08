@@ -41,9 +41,6 @@ export function AboutRoute() {
                 style={{ fontFamily: 'var(--mono)', fontSize: '14px', color: 'var(--ink-text-2)', lineHeight: '1.7' }}
                 dangerouslySetInnerHTML={th('abt.v.p')}
               />
-              <p style={{ fontSize: '12px', color: 'var(--ink-text-2)', marginTop: '14px', lineHeight: '1.5' }}>
-                {t('abt.v.n')}
-              </p>
             </div>
           </div>
 
@@ -108,7 +105,7 @@ export function AboutRoute() {
                 <h3>{t('abt.hist.alum.h')}</h3>
                 <p>{t('abt.hist.alum.p')}</p>
                 <a
-                  href="https://github.com/DashAISoftware/DashAI/graphs/contributors"
+                  href="https://github.com/DashAISoftware/dashAI/graphs/contributors"
                   target="_blank"
                   rel="noopener"
                   style={{ fontSize: '13px', color: 'var(--brand-on)', fontWeight: 500 }}

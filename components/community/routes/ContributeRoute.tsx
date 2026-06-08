@@ -253,7 +253,7 @@ export function ContributeRoute() {
                   <li dangerouslySetInnerHTML={th('g.1.s5')} />
                 </ol>
                 <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/DashAI/tree/develop/DashAI/back/models" target="_blank" rel="noopener">
+                  <a href="https://github.com/DashAISoftware/dashAI/tree/develop/DashAI/back/models" target="_blank" rel="noopener">
                     <span>{t('g.lnk.repo')}</span> →
                   </a>
                   <a href="https://docs.dash-ai.com" target="_blank" rel="noopener">
@@ -280,7 +280,7 @@ export function ContributeRoute() {
                   <li dangerouslySetInnerHTML={th('g.2.s5')} />
                 </ol>
                 <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/DashAI/tree/develop/DashAI/back/dataloaders" target="_blank" rel="noopener">
+                  <a href="https://github.com/DashAISoftware/dashAI/tree/develop/DashAI/back/dataloaders" target="_blank" rel="noopener">
                     <span>{t('g.lnk.repo2')}</span> →
                   </a>
                 </div>
@@ -306,7 +306,7 @@ export function ContributeRoute() {
                   <a href="https://packaging.python.org/en/latest/tutorials/packaging-projects/" target="_blank" rel="noopener">
                     <span>{t('g.lnk.pypi')}</span> →
                   </a>
-                  <a href="https://github.com/DashAISoftware/DashAI" target="_blank" rel="noopener">
+                  <a href="https://github.com/DashAISoftware/dashAI" target="_blank" rel="noopener">
                     <span>{t('g.lnk.repo3')}</span> →
                   </a>
                 </div>
@@ -329,7 +329,7 @@ export function ContributeRoute() {
                   <li dangerouslySetInnerHTML={th('g.4.s4')} />
                 </ol>
                 <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/DashAI/tree/develop/DashAI/back/metrics" target="_blank" rel="noopener">
+                  <a href="https://github.com/DashAISoftware/dashAI/tree/develop/DashAI/back/metrics" target="_blank" rel="noopener">
                     <span>{t('g.lnk.repo4')}</span> →
                   </a>
                 </div>
@@ -352,7 +352,7 @@ export function ContributeRoute() {
                   <li dangerouslySetInnerHTML={th('g.5.s4')} />
                 </ol>
                 <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/DashAI/tree/develop/DashAI/back/explainability" target="_blank" rel="noopener">
+                  <a href="https://github.com/DashAISoftware/dashAI/tree/develop/DashAI/back/explainability" target="_blank" rel="noopener">
                     <span>{t('g.lnk.repo5')}</span> →
                   </a>
                 </div>
@@ -375,7 +375,7 @@ export function ContributeRoute() {
                   <li dangerouslySetInnerHTML={th('g.6.s4')} />
                 </ol>
                 <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/DashAI/tree/develop/DashAI/back/optimizers" target="_blank" rel="noopener">
+                  <a href="https://github.com/DashAISoftware/dashAI/tree/develop/DashAI/back/optimizers" target="_blank" rel="noopener">
                     <span>{t('g.lnk.repo6')}</span> →
                   </a>
                 </div>
@@ -399,10 +399,10 @@ export function ContributeRoute() {
                   <li dangerouslySetInnerHTML={th('g.bug.s5')} />
                 </ol>
                 <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/DashAI/issues?q=is%3Aissue+is%3Aopen+label%3Abug" target="_blank" rel="noopener">
+                  <a href="https://github.com/DashAISoftware/dashAI/issues?q=is%3Aissue+is%3Aopen+label%3Abug" target="_blank" rel="noopener">
                     <span>{t('g.lnk.bugs')}</span> →
                   </a>
-                  <a href="https://github.com/DashAISoftware/DashAI/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" target="_blank" rel="noopener">
+                  <a href="https://github.com/DashAISoftware/dashAI/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" target="_blank" rel="noopener">
                     <span>{t('g.lnk.firstissue')}</span> →
                   </a>
                 </div>
@@ -426,10 +426,10 @@ export function ContributeRoute() {
                   <li dangerouslySetInnerHTML={th('g.feat.s5')} />
                 </ol>
                 <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/DashAI/issues" target="_blank" rel="noopener">
+                  <a href="https://github.com/DashAISoftware/dashAI/issues" target="_blank" rel="noopener">
                     <span>{t('g.lnk.issues')}</span> →
                   </a>
-                  <a href="https://github.com/DashAISoftware/DashAI/blob/production/CONTRIBUTING.rst" target="_blank" rel="noopener">
+                  <a href="https://github.com/DashAISoftware/dashAI/blob/production/CONTRIBUTING.rst" target="_blank" rel="noopener">
                     CONTRIBUTING.rst →
                   </a>
                 </div>
@@ -453,7 +453,7 @@ export function ContributeRoute() {
                   <li dangerouslySetInnerHTML={th('g.7.s5')} />
                 </ol>
                 <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/DashAI/tree/develop/front/src/locales" target="_blank" rel="noopener">
+                  <a href="https://github.com/DashAISoftware/dashAI/tree/develop/front/src/locales" target="_blank" rel="noopener">
                     <span>{t('g.lnk.repo7')}</span> →
                   </a>
                 </div>
@@ -476,7 +476,7 @@ export function ContributeRoute() {
                   <li dangerouslySetInnerHTML={th('g.8.s4')} />
                 </ol>
                 <div className="guide-footer">
-                  <a href="https://discord.gg/dashai" target="_blank" rel="noopener">
+                  <a href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener">
                     <span>{t('g.lnk.discord')}</span> →
                   </a>
                   <a href="mailto:dashai.nocode@gmail.com">
@@ -618,12 +618,12 @@ export function ContributeRoute() {
             <pre className="code">{`@software{dashai_2026,
   title  = {dashAI: a Full Open, Full Extensible
             Visual ML platform},
-  author = {{DashAI Team}},
+  author = {{dashAI Team}},
   year   = {2026},
-  version = {0.9.3-alpha},
-  url    = {https://github.com/DashAISoftware/DashAI},
-  license = {MIT},
-  organization = {DashAI Community},
+  version = {0.9.4},
+  url    = {https://github.com/DashAISoftware/dashAI},
+  license = {open-source},
+  organization = {dashAI Community},
 }`}</pre>
 
             <div style={{ background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: 'var(--r-lg)', padding: 24 }}>
@@ -632,7 +632,7 @@ export function ContributeRoute() {
               <a
                 className="btn btn--sm"
                 style={{ marginTop: 14 }}
-                href="https://github.com/DashAISoftware/DashAI/blob/production/CONTRIBUTING.rst"
+                href="https://github.com/DashAISoftware/dashAI/blob/production/CONTRIBUTING.rst"
                 target="_blank"
                 rel="noopener"
               >

@@ -21,7 +21,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
   const [releases, setReleases] = useState<GhRelease[]>([])
 
   useEffect(() => {
-    fetch('https://api.github.com/repos/DashAISoftware/DashAI/releases?per_page=4')
+    fetch('https://api.github.com/repos/DashAISoftware/dashAI/releases?per_page=4')
       .then(r => r.ok ? r.json() : null)
       .then(data => { if (data?.length) setReleases(data) })
       .catch(() => {})
@@ -216,15 +216,6 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
               </div>
             </a>
             <a className="feat-card" href="#models">
-              <div className="id">#models/xgboost</div>
-              <div className="name">XGBoost</div>
-              <div className="meta">
-                <span className="tag tabular">{t('tag.tab')}</span>
-                <span className="tag">{t('tag.bst')}</span>
-                <span className="tag mono">HPO</span>
-              </div>
-            </a>
-            <a className="feat-card" href="#models">
               <div className="id">#models/distilbert</div>
               <div className="name">DistilBERT</div>
               <div className="meta">
@@ -256,7 +247,6 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
               <div className="name">PixArt-Sigma</div>
               <div className="meta">
                 <span className="tag vision">text-to-image</span>
-                <span className="tag mono">CUDA auto</span>
               </div>
             </a>
           </div>
@@ -298,22 +288,22 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
                   </a>
                 )) : (
                   <>
-                    <a className="act-item" href="https://github.com/DashAISoftware/DashAI/releases" target="_blank" rel="noopener">
+                    <a className="act-item" href="https://github.com/DashAISoftware/dashAI/releases" target="_blank" rel="noopener">
                       <div className="when">{t('act.fb.1w')}</div>
                       <div className="what" dangerouslySetInnerHTML={th('act.fb.1')} />
                     </a>
-                    <a className="act-item" href="https://github.com/DashAISoftware/DashAI/releases" target="_blank" rel="noopener">
+                    <a className="act-item" href="https://github.com/DashAISoftware/dashAI/releases" target="_blank" rel="noopener">
                       <div className="when">{t('act.fb.2w')}</div>
                       <div className="what" dangerouslySetInnerHTML={th('act.fb.2')} />
                     </a>
-                    <a className="act-item" href="https://github.com/DashAISoftware/DashAI/releases" target="_blank" rel="noopener">
+                    <a className="act-item" href="https://github.com/DashAISoftware/dashAI/releases" target="_blank" rel="noopener">
                       <div className="when">{t('act.fb.3w')}</div>
                       <div className="what" dangerouslySetInnerHTML={th('act.fb.3')} />
                     </a>
                   </>
                 )}
               </div>
-              <a className="news-all" href="https://github.com/DashAISoftware/DashAI/releases" target="_blank" rel="noopener">
+              <a className="news-all" href="https://github.com/DashAISoftware/dashAI/releases" target="_blank" rel="noopener">
                 <span>{t('act.all')}</span> →
               </a>
             </div>

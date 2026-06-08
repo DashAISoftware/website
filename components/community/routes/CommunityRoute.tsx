@@ -29,7 +29,7 @@ export function CommunityRoute() {
               <div className="mono" style={{ display: 'inline-block', fontSize: '11px', color: 'var(--ink-3)' }}>DISCORD</div>
               <h3 style={{ margin: '14px 0 10px', color: 'var(--ink)' }}>{t('com.d.h')}</h3>
               <p style={{ fontSize: '14px', color: 'var(--ink-2)', lineHeight: '1.5' }}>{t('com.d.p')}</p>
-              <a className="btn btn--sm" style={{ marginTop: '18px' }} href="https://discord.gg/dashai" target="_blank" rel="noopener">
+              <a className="btn btn--sm" style={{ marginTop: '18px' }} href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener">
                 <span>{t('com.d.cta')}</span> →
               </a>
             </div>

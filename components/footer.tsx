@@ -102,7 +102,7 @@ export function Footer() {
           </h5>
           <ul className="grid gap-2">
             {[
-              { label: { es: "Discord", en: "Discord" }, href: "https://discord.gg/dashai" },
+              { label: { es: "Discord", en: "Discord" }, href: "https://discord.gg/CQVqMBjeWP" },
               { label: { es: "Contribuir", en: "Contribute" }, href: siteConfig.github.contribute },
               { label: { es: "Issues", en: "Issues" }, href: siteConfig.github.issues },
               { label: { es: "PyPI", en: "PyPI" }, href: "https://pypi.org/project/dashai/" },

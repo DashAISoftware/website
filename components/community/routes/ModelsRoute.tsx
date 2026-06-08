@@ -28,14 +28,13 @@ interface ModelRow {
 const MODEL_ROWS: ModelRow[] = [
   // tabular
   { category: 'tabular', name: 'RandomForestClassifier', id: '#models/random-forest', descKey: 'r.rf', descFallback: 'Bosque aleatorio sobre scikit-learn. HPO nativo.', base: 'BaseModel · sklearn', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
-  { category: 'tabular', name: 'XGBoost', id: '#models/xgboost', descKey: 'r.xgb', descFallback: 'Gradient boosting extremo. Baseline obligado en tabular.', base: 'BaseModel · xgboost', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
   { category: 'tabular', name: 'LightGBM', id: '#models/lightgbm', descKey: 'r.lgbm', descFallback: 'GBM de Microsoft. Histogramas eficientes.', base: 'BaseModel · lightgbm', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
   { category: 'tabular', name: 'SVMClassifier', id: '#models/svm', descKey: 'r.svm', descFallback: 'Support Vector Machines con kernels lineales y RBF.', base: 'BaseModel · sklearn', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
   { category: 'tabular', name: 'MLPClassifier', id: '#models/mlp', descKey: 'r.mlp', descFallback: 'Red neuronal multicapa. Punto de entrada al deep learning tabular.', base: 'BaseModel · sklearn', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
   { category: 'tabular', name: 'KNeighborsClassifier', id: '#models/knn', descKey: 'r.knn', descFallback: 'k-Nearest Neighbors. Baseline no paramétrico.', base: 'BaseModel · sklearn', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
   { category: 'tabular', name: 'LogisticRegression', id: '#models/logreg', descKey: 'r.lr', descFallback: 'Regresión logística regularizada. Interpretable.', base: 'BaseModel · sklearn', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
   { category: 'tabular', name: 'RidgeRegressor', id: '#models/ridge', descKey: 'r.rg', descFallback: 'Regresión lineal L2. Estable en alta colinealidad.', base: 'BaseModel · sklearn', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
-  { category: 'tabular', name: '+22 modelos tabulares', id: '15 clasificadores · 15 regresores', descKey: 'r.mt.d', descFallback: 'DecisionTree, GradientBoosting, AdaBoost, ExtraTrees, Lasso, ElasticNet, NaiveBayes y otros.', base: 'BaseModel · varios', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
+  { category: 'tabular', name: '+23 modelos tabulares', id: '15 clasificadores · 15 regresores', descKey: 'r.mt.d', descFallback: 'DecisionTree, GradientBoosting, AdaBoost, ExtraTrees, Lasso, ElasticNet, NaiveBayes y otros.', base: 'BaseModel · varios', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
   // nlp
   { category: 'nlp', name: 'DistilBERT', id: '#models/distilbert', descKey: 'r.db', descFallback: 'BERT destilado, más rápido. Clasificación de texto.', base: 'BaseModel · HF transformers', tagClass: 'nlp', tagKey: 'tag.nlp', tagFallback: 'NLP' },
   { category: 'nlp', name: 'DeBERTa-v3', id: '#models/deberta-v3', descKey: 'r.de', descFallback: 'Encoder con disentangled attention. Estado del arte en GLUE.', base: 'BaseModel · HF transformers', tagClass: 'nlp', tagKey: 'tag.nlp', tagFallback: 'NLP' },
@@ -57,7 +56,7 @@ const MODEL_ROWS: ModelRow[] = [
   { category: 'vision', name: 'Stable Diffusion v3', id: '#models/sd-v3', descKey: 'r.sd3', descFallback: 'Versión 3 con MMDiT — mejor adherencia al prompt.', base: 'BaseGenerativeModel', tagClass: 'vision', tagKey: 'tag.vis', tagFallback: 'text-to-image' },
   { category: 'vision', name: 'Stable Diffusion v2', id: '#models/sd-v2', descKey: 'r.sd2', descFallback: 'SD v2 con OpenCLIP. Generación 512×512 / 768×768.', base: 'BaseGenerativeModel', tagClass: 'vision', tagKey: 'tag.vis', tagFallback: 'text-to-image' },
   { category: 'vision', name: 'ControlNet', id: '#models/controlnet', descKey: 'r.cn', descFallback: 'Condicionamiento espacial sobre modelos de difusión.', base: 'BaseGenerativeModel', tagClass: 'vision', tagKey: 'tag.vis', tagFallback: 'text-to-image' },
-  { category: 'vision', name: '+6 modelos de visión generativa', id: 'detección automática de CUDA', descKey: 'r.mv.d', descFallback: 'Variantes de inpainting, img2img y modelos en preparación.', base: 'BaseGenerativeModel', tagClass: 'vision', tagKey: 'tag.vis', tagFallback: 'text-to-image' },
+  { category: 'vision', name: '+6 modelos de visión generativa', id: '', descKey: 'r.mv.d', descFallback: 'Variantes de inpainting, img2img y modelos en preparación.', base: 'BaseGenerativeModel', tagClass: 'vision', tagKey: 'tag.vis', tagFallback: 'text-to-image' },
 ]
 
 const ABSTRACTIONS = [
