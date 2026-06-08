@@ -18,7 +18,7 @@
   "fcta.b2": "Join Discord",
   "fcta.ey": "Before you leave",
   "fcta.h": "This is <span class=\"blue\" style=\"color:var(--brand-light)\">just</span> the beginning.",
-  "fcta.lead": "fcta.lead",
+  "fcta.lead": "dashAI está antes del primer release público. Cada componente nuevo, cada bug reportado, cada plugin publicado en PyPI cuenta. Si llegaste hasta aquí, probablemente eres la persona indicada para escribir el próximo.",
   "feat.cta": "Ver los 60",
   "feat.ey": "Destacados del catálogo",
   "feat.h": "Modelos en el catálogo.",

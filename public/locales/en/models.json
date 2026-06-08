@@ -43,7 +43,7 @@
   "r.de": "Encoder with disentangled attention. State of the art on GLUE.",
   "r.knn": "k-Nearest Neighbors. Non-parametric baseline.",
   "r.lgbm": "Microsoft GBM. Efficient histograms.",
-  "r.lla": "r.lla",
+  "r.lla": "Meta's open-weights LLM. Local inference.",
   "r.lr": "Regularized logistic regression. Interpretable.",
   "r.mb": "Modern encoder with 8k token context length.",
   "r.mi": "Efficient 7B open-weights. Sliding window attention.",
