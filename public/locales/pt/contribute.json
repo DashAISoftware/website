@@ -92,7 +92,7 @@
   "g.3.ctx": "Um plugin é um pacote Python independente que registra componentes novos em dashAI via entry points. Os usuários o instalam com um clique desde a UI.",
   "g.3.h": "Publique um plugin no PyPI",
   "g.3.num": "// 03 · CÓDIGO",
-  "g.3.s1": "g.3.s1",
+  "g.3.s1": "<strong>Estrutura inicial.</strong> <code>setup.py</code> com <code>entry_points={'dashai.plugins': ['name = my_pkg:register']}</code>. A função <code>register()</code> é o ponto de entrada.",
   "g.3.s2": "<strong>Importe abstrações</strong> desde <code>dashai.base</code> e declare seus componentes (modelos, métricas, otimizadores — o que quiser).",
   "g.3.s3": "<strong>Suba ao PyPI.</strong> <code>python -m build &amp;&amp; twine upload dist/*</code>. O pacote fica disponível para hot-install.",
   "g.3.s4": "<strong>Compartilhe o nome</strong> no Discord <code>#show-and-tell</code> para que outros testem.",
