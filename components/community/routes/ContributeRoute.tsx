@@ -620,9 +620,9 @@ export function ContributeRoute() {
             Visual ML platform},
   author = {{DashAI Team}},
   year   = {2026},
-  version = {0.9.3-alpha},
+  version = {0.9.4},
   url    = {https://github.com/DashAISoftware/DashAI},
-  license = {MIT},
+  license = {open-source},
   organization = {DashAI Community},
 }`}</pre>
 
