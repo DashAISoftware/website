@@ -185,12 +185,11 @@ export function ShowcaseSection() {
             <span className="ml-1.5">{t("strip.card1.title")}</span>
           </div>
           <div className="p-[18px] min-h-[200px]">
-            <div className="font-mono text-[10px] text-muted-foreground tracking-[.06em] mb-3">[ TABULAR · 30 ]</div>
+            <div className="font-mono text-[10px] text-muted-foreground tracking-[.06em] mb-3">[ TABULAR · 29 ]</div>
             <h5 className="text-sm font-semibold mb-3">{t("strip.card1.heading")}</h5>
             <div className="grid grid-cols-2 gap-2">
               {[
                 ["RandomForest", t("strip.card1.randomForest"), true],
-                ["XGBoost",      "Gradient boosting",           false],
                 ["LightGBM",     "Microsoft GBM",               false],
                 ["SVM",          "Support Vector",              false],
                 ["MLPClassifier", t("strip.card1.neuralNet"),   false],
