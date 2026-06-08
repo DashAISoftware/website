@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
 
 const COUNTS: Record<string, number> = {
-  all: 59,
-  tabular: 29,
+  all: 60,
+  tabular: 30,
   nlp: 15,
   translation: 9,
   gen: 5,
@@ -34,7 +34,7 @@ const MODEL_ROWS: ModelRow[] = [
   { category: 'tabular', name: 'KNeighborsClassifier', id: '#models/knn', descKey: 'r.knn', descFallback: 'k-Nearest Neighbors. Baseline no paramétrico.', base: 'BaseModel · sklearn', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
   { category: 'tabular', name: 'LogisticRegression', id: '#models/logreg', descKey: 'r.lr', descFallback: 'Regresión logística regularizada. Interpretable.', base: 'BaseModel · sklearn', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
   { category: 'tabular', name: 'RidgeRegressor', id: '#models/ridge', descKey: 'r.rg', descFallback: 'Regresión lineal L2. Estable en alta colinealidad.', base: 'BaseModel · sklearn', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
-  { category: 'tabular', name: '+22 modelos tabulares', id: '15 clasificadores · 15 regresores', descKey: 'r.mt.d', descFallback: 'DecisionTree, GradientBoosting, AdaBoost, ExtraTrees, Lasso, ElasticNet, NaiveBayes y otros.', base: 'BaseModel · varios', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
+  { category: 'tabular', name: '+23 modelos tabulares', id: '15 clasificadores · 15 regresores', descKey: 'r.mt.d', descFallback: 'DecisionTree, GradientBoosting, AdaBoost, ExtraTrees, Lasso, ElasticNet, NaiveBayes y otros.', base: 'BaseModel · varios', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
   // nlp
   { category: 'nlp', name: 'DistilBERT', id: '#models/distilbert', descKey: 'r.db', descFallback: 'BERT destilado, más rápido. Clasificación de texto.', base: 'BaseModel · HF transformers', tagClass: 'nlp', tagKey: 'tag.nlp', tagFallback: 'NLP' },
   { category: 'nlp', name: 'DeBERTa-v3', id: '#models/deberta-v3', descKey: 'r.de', descFallback: 'Encoder con disentangled attention. Estado del arte en GLUE.', base: 'BaseModel · HF transformers', tagClass: 'nlp', tagKey: 'tag.nlp', tagFallback: 'NLP' },
@@ -112,14 +112,14 @@ export function ModelsRoute() {
                 data-filter="all"
                 onClick={() => setFilter('all')}
               >
-                <span>{t('cat.f.all')}</span> <span className="n">59</span>
+                <span>{t('cat.f.all')}</span> <span className="n">60</span>
               </button>
               <button
                 className={`f-btn${filter === 'tabular' ? ' is-on' : ''}`}
                 data-filter="tabular"
                 onClick={() => setFilter('tabular')}
               >
-                <span>{t('cat.f.tab')}</span> <span className="n">29</span>
+                <span>{t('cat.f.tab')}</span> <span className="n">30</span>
               </button>
               <button
                 className={`f-btn${filter === 'nlp' ? ' is-on' : ''}`}
