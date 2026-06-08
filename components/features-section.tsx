@@ -117,10 +117,10 @@ export function FeaturesSection() {
             kind: lang === "es" ? "Tabular" : "Tabular",
             swatchColor: BRAND_ON_LIGHT,
             title: lang === "es" ? "Clasificación & regresión" : "Classification & regression",
-            count: "29",
+            count: "30",
             body: lang === "es"
-              ? <>Veintinueve modelos sobre scikit-learn y boosting. Cada uno como subclase de <code className="font-mono text-xs">BaseModel</code>.</>
-              : <>Twenty-nine models over scikit-learn and boosting. Each one as a subclass of <code className="font-mono text-xs">BaseModel</code>.</>,
+              ? <>Treinta modelos sobre scikit-learn y boosting. Cada uno como subclase de <code className="font-mono text-xs">BaseModel</code>.</>
+              : <>Thirty models over scikit-learn and boosting. Each one as a subclass of <code className="font-mono text-xs">BaseModel</code>.</>,
             tags: ["RandomForest","LightGBM","SVM","MLP","+25"],
             countColor: BRAND_ON_LIGHT,
           },

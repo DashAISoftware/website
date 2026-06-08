@@ -53,7 +53,7 @@
   "r.mn.i": "RoBERTa, ALBERT, XLM-R and others",
   "r.mt.b": "BaseModel · various",
   "r.mt.d": "DecisionTree, GradientBoosting, AdaBoost, ExtraTrees, Lasso, ElasticNet, NaiveBayes and others.",
-  "r.mt.h": "+22 tabular models",
+  "r.mt.h": "+23 tabular models",
   "r.mt.i": "15 classifiers · 15 regressors",
   "r.mtr.d": "M2M-100, mBART and domain-specialized variants.",
   "r.mtr.h": "+7 translation models",

@@ -185,7 +185,7 @@ export function ShowcaseSection() {
             <span className="ml-1.5">{t("strip.card1.title")}</span>
           </div>
           <div className="p-[18px] min-h-[200px]">
-            <div className="font-mono text-[10px] text-muted-foreground tracking-[.06em] mb-3">[ TABULAR · 29 ]</div>
+            <div className="font-mono text-[10px] text-muted-foreground tracking-[.06em] mb-3">[ TABULAR · 30 ]</div>
             <h5 className="text-sm font-semibold mb-3">{t("strip.card1.heading")}</h5>
             <div className="grid grid-cols-2 gap-2">
               {[
