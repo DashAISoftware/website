@@ -30,7 +30,7 @@ export function Footer() {
             <h5>{t('ft.c1.h')}</h5>
             <ul>
               <li>
-                <a href="https://github.com/DashAISoftware/DashAI" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/DashAISoftware/dashAI" target="_blank" rel="noopener noreferrer">
                   GitHub
                 </a>
               </li>
@@ -65,7 +65,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/DashAISoftware/DashAI/blob/production/CHANGELOG.rst"
+                  href="https://github.com/DashAISoftware/dashAI/blob/production/CHANGELOG.rst"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -93,7 +93,7 @@ export function Footer() {
                 <a href="mailto:dashai.nocode@gmail.com">{t('ft.em')}</a>
               </li>
               <li>
-                <a href="https://github.com/DashAISoftware/DashAI/issues" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/DashAISoftware/dashAI/issues" target="_blank" rel="noopener noreferrer">
                   Issues
                 </a>
               </li>

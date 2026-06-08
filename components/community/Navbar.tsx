@@ -142,7 +142,7 @@ export function Navbar({ route }: { route: string }) {
 
           <a
             className="btn btn--sm"
-            href="https://github.com/DashAISoftware/DashAI"
+            href="https://github.com/DashAISoftware/dashAI"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -21,7 +21,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
   const [releases, setReleases] = useState<GhRelease[]>([])
 
   useEffect(() => {
-    fetch('https://api.github.com/repos/DashAISoftware/DashAI/releases?per_page=4')
+    fetch('https://api.github.com/repos/DashAISoftware/dashAI/releases?per_page=4')
       .then(r => r.ok ? r.json() : null)
       .then(data => { if (data?.length) setReleases(data) })
       .catch(() => {})
@@ -288,22 +288,22 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
                   </a>
                 )) : (
                   <>
-                    <a className="act-item" href="https://github.com/DashAISoftware/DashAI/releases" target="_blank" rel="noopener">
+                    <a className="act-item" href="https://github.com/DashAISoftware/dashAI/releases" target="_blank" rel="noopener">
                       <div className="when">{t('act.fb.1w')}</div>
                       <div className="what" dangerouslySetInnerHTML={th('act.fb.1')} />
                     </a>
-                    <a className="act-item" href="https://github.com/DashAISoftware/DashAI/releases" target="_blank" rel="noopener">
+                    <a className="act-item" href="https://github.com/DashAISoftware/dashAI/releases" target="_blank" rel="noopener">
                       <div className="when">{t('act.fb.2w')}</div>
                       <div className="what" dangerouslySetInnerHTML={th('act.fb.2')} />
                     </a>
-                    <a className="act-item" href="https://github.com/DashAISoftware/DashAI/releases" target="_blank" rel="noopener">
+                    <a className="act-item" href="https://github.com/DashAISoftware/dashAI/releases" target="_blank" rel="noopener">
                       <div className="when">{t('act.fb.3w')}</div>
                       <div className="what" dangerouslySetInnerHTML={th('act.fb.3')} />
                     </a>
                   </>
                 )}
               </div>
-              <a className="news-all" href="https://github.com/DashAISoftware/DashAI/releases" target="_blank" rel="noopener">
+              <a className="news-all" href="https://github.com/DashAISoftware/dashAI/releases" target="_blank" rel="noopener">
                 <span>{t('act.all')}</span> →
               </a>
             </div>

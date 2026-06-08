@@ -65,7 +65,7 @@
   "cont.onb.ey": "your first PR",
   "cont.onb.h": "Four steps to your <span class=\"blue\">first PR</span>.",
   "cont.onb.p": "Shortest path: fork, add a new model, send a pull request. The UI shows up on its own.",
-  "cont.onb.s1.s": "github.com/DashAISoftware/DashAI · develop branch",
+  "cont.onb.s1.s": "github.com/DashAISoftware/dashAI · develop branch",
   "cont.onb.s1.t": "Fork the repo",
   "cont.onb.s2.s": "BaseModel for predictive, BaseMetric for metrics, etc.",
   "cont.onb.s2.t": "Inherit from the right abstraction",

@@ -214,7 +214,7 @@ export function DownloadSection() {
         <div className="flex items-center gap-2 flex-wrap">
           <span>{t("footer.cloneText")}</span>
           <code className="bg-background border border-border rounded px-2 py-0.5 text-foreground ml-1.5">
-            git clone github.com/DashAISoftware/DashAI
+            git clone github.com/DashAISoftware/dashAI
           </code>
         </div>
         <div className="flex gap-6 flex-wrap">

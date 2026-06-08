@@ -65,7 +65,7 @@
   "cont.onb.ey": "tu primer PR",
   "cont.onb.h": "Cuatro pasos para tu <span class=\"blue\">primer PR</span>.",
   "cont.onb.p": "El camino más corto: forkear, agregar un modelo nuevo, hacer pull request. La UI aparece sola.",
-  "cont.onb.s1.s": "github.com/DashAISoftware/DashAI · rama develop",
+  "cont.onb.s1.s": "github.com/DashAISoftware/dashAI · rama develop",
   "cont.onb.s1.t": "Forkea el repo",
   "cont.onb.s2.s": "BaseModel para predictivos, BaseMetric para métricas, etc.",
   "cont.onb.s2.t": "Hereda de la abstracción correcta",
