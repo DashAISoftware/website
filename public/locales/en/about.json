@@ -1,7 +1,7 @@
 {
   "abt.com.ey": "who builds it",
   "abt.com.h": "The community behind <span class=\"blue\">dashAI</span>.",
-  "abt.com.lead": "abt.com.lead",
+  "abt.com.lead": "dashAI is an academic project of the <strong>Department of Computer Science (DCC)</strong> at the <strong>Faculty of Physical and Mathematical Sciences (FCFM)</strong>, <strong>University of Chile</strong> — host institution and principal collaborator. It is built in collaboration with CENIA, Unholster and other allies, with funding from ANID. Its development brings together academic maintainers, undergraduate and graduate students, external testers, and anyone who opens an issue, translates the UI or publishes a plugin to PyPI. Every PR counts. Every Discord thread leaves a mark.",
   "abt.com.s1.l": "// ACTIVE MAINTAINERS",
   "abt.com.s1.v": "academic core",
   "abt.com.s2.l": "// GITHUB CONTRIBUTORS",
@@ -18,7 +18,7 @@
   "abt.hist.alum.p": "Thesis students from undergrad and grad programs, research assistants. Many current abstractions started as course projects or theses.",
   "abt.hist.cta.b": "Write",
   "abt.hist.cta.h": "Did you work on dashAI?",
-  "abt.hist.cta.p": "abt.hist.cta.p",
+  "abt.hist.cta.p": "If you worked on dashAI at any point — as a student, thesis writer, volunteer, partner institution — write to us. We want to acknowledge you explicitly on this page.",
   "abt.hist.ey": "who passed through dashAI",
   "abt.hist.h": "<span class=\"blue\">Historical</span> contributors.",
   "abt.hist.inst.h": "Institutions that collaborated in early phases",
