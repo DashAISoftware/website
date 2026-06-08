@@ -80,7 +80,7 @@ export function Footer() {
             <h5>{t('ft.c3.h')}</h5>
             <ul>
               <li>
-                <a href="https://discord.gg/dashai" target="_blank" rel="noopener noreferrer">
+                <a href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener noreferrer">
                   Discord
                 </a>
               </li>

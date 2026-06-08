@@ -476,7 +476,7 @@ export function ContributeRoute() {
                   <li dangerouslySetInnerHTML={th('g.8.s4')} />
                 </ol>
                 <div className="guide-footer">
-                  <a href="https://discord.gg/dashai" target="_blank" rel="noopener">
+                  <a href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener">
                     <span>{t('g.lnk.discord')}</span> →
                   </a>
                   <a href="mailto:dashai.nocode@gmail.com">

@@ -216,15 +216,6 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
               </div>
             </a>
             <a className="feat-card" href="#models">
-              <div className="id">#models/xgboost</div>
-              <div className="name">XGBoost</div>
-              <div className="meta">
-                <span className="tag tabular">{t('tag.tab')}</span>
-                <span className="tag">{t('tag.bst')}</span>
-                <span className="tag mono">HPO</span>
-              </div>
-            </a>
-            <a className="feat-card" href="#models">
               <div className="id">#models/distilbert</div>
               <div className="name">DistilBERT</div>
               <div className="meta">
@@ -256,7 +247,6 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
               <div className="name">PixArt-Sigma</div>
               <div className="meta">
                 <span className="tag vision">text-to-image</span>
-                <span className="tag mono">CUDA auto</span>
               </div>
             </a>
           </div>

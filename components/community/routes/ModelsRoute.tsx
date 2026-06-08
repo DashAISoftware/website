@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
 
 const COUNTS: Record<string, number> = {
-  all: 60,
-  tabular: 30,
+  all: 59,
+  tabular: 29,
   nlp: 15,
   translation: 9,
   gen: 5,
@@ -28,7 +28,6 @@ interface ModelRow {
 const MODEL_ROWS: ModelRow[] = [
   // tabular
   { category: 'tabular', name: 'RandomForestClassifier', id: '#models/random-forest', descKey: 'r.rf', descFallback: 'Bosque aleatorio sobre scikit-learn. HPO nativo.', base: 'BaseModel · sklearn', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
-  { category: 'tabular', name: 'XGBoost', id: '#models/xgboost', descKey: 'r.xgb', descFallback: 'Gradient boosting extremo. Baseline obligado en tabular.', base: 'BaseModel · xgboost', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
   { category: 'tabular', name: 'LightGBM', id: '#models/lightgbm', descKey: 'r.lgbm', descFallback: 'GBM de Microsoft. Histogramas eficientes.', base: 'BaseModel · lightgbm', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
   { category: 'tabular', name: 'SVMClassifier', id: '#models/svm', descKey: 'r.svm', descFallback: 'Support Vector Machines con kernels lineales y RBF.', base: 'BaseModel · sklearn', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
   { category: 'tabular', name: 'MLPClassifier', id: '#models/mlp', descKey: 'r.mlp', descFallback: 'Red neuronal multicapa. Punto de entrada al deep learning tabular.', base: 'BaseModel · sklearn', tagClass: 'tabular', tagKey: 'tag.tab', tagFallback: 'tabular' },
@@ -57,7 +56,7 @@ const MODEL_ROWS: ModelRow[] = [
   { category: 'vision', name: 'Stable Diffusion v3', id: '#models/sd-v3', descKey: 'r.sd3', descFallback: 'Versión 3 con MMDiT — mejor adherencia al prompt.', base: 'BaseGenerativeModel', tagClass: 'vision', tagKey: 'tag.vis', tagFallback: 'text-to-image' },
   { category: 'vision', name: 'Stable Diffusion v2', id: '#models/sd-v2', descKey: 'r.sd2', descFallback: 'SD v2 con OpenCLIP. Generación 512×512 / 768×768.', base: 'BaseGenerativeModel', tagClass: 'vision', tagKey: 'tag.vis', tagFallback: 'text-to-image' },
   { category: 'vision', name: 'ControlNet', id: '#models/controlnet', descKey: 'r.cn', descFallback: 'Condicionamiento espacial sobre modelos de difusión.', base: 'BaseGenerativeModel', tagClass: 'vision', tagKey: 'tag.vis', tagFallback: 'text-to-image' },
-  { category: 'vision', name: '+6 modelos de visión generativa', id: 'detección automática de CUDA', descKey: 'r.mv.d', descFallback: 'Variantes de inpainting, img2img y modelos en preparación.', base: 'BaseGenerativeModel', tagClass: 'vision', tagKey: 'tag.vis', tagFallback: 'text-to-image' },
+  { category: 'vision', name: '+6 modelos de visión generativa', id: '', descKey: 'r.mv.d', descFallback: 'Variantes de inpainting, img2img y modelos en preparación.', base: 'BaseGenerativeModel', tagClass: 'vision', tagKey: 'tag.vis', tagFallback: 'text-to-image' },
 ]
 
 const ABSTRACTIONS = [
@@ -113,14 +112,14 @@ export function ModelsRoute() {
                 data-filter="all"
                 onClick={() => setFilter('all')}
               >
-                <span>{t('cat.f.all')}</span> <span className="n">60</span>
+                <span>{t('cat.f.all')}</span> <span className="n">59</span>
               </button>
               <button
                 className={`f-btn${filter === 'tabular' ? ' is-on' : ''}`}
                 data-filter="tabular"
                 onClick={() => setFilter('tabular')}
               >
-                <span>{t('cat.f.tab')}</span> <span className="n">30</span>
+                <span>{t('cat.f.tab')}</span> <span className="n">29</span>
               </button>
               <button
                 className={`f-btn${filter === 'nlp' ? ' is-on' : ''}`}

@@ -151,7 +151,7 @@ export function DownloadRoute() {
             </div>
             <div style={{ display: 'flex', gap: '8px' }}>
               <a className="btn btn--sm" href="https://docs.dash-ai.com" target="_blank" rel="noopener">Docs →</a>
-              <a className="btn btn--sm" href="https://discord.gg/dashai" target="_blank" rel="noopener">Discord →</a>
+              <a className="btn btn--sm" href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener">Discord →</a>
             </div>
           </div>
 
