@@ -14,7 +14,7 @@
   "plg.s.ey": "PROTOTYPE V3 · STUBBED SECTION",
   "plg.s.f": "// These names are illustrative. Want to be the one who publishes the first? <a href=\"#contribute\" style=\"color:var(--brand-on);font-weight:500\">How to publish a plugin →</a>",
   "plg.s.h": "Plugin marketplace",
-  "plg.s.p": "plg.s.p",
+  "plg.s.p": "El marketplace todavía no tiene plugins de terceros — el proyecto está antes del primer release. Esta sección listará todos los paquetes que registren extensiones de las 12 abstracciones base.",
   "plg.s.v1": "ARIMA, Prophet, NeuralProphet models under BaseModel.",
   "plg.s.v2": "Fairness metrics (Demographic Parity, Equalized Odds) under BaseMetric.",
   "plg.s.v3": "Optimized TreeSHAP, KernelSHAP variants under BaseLocalExplainer."
