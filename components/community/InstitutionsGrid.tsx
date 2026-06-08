@@ -11,7 +11,7 @@ const INSTITUTIONS = [
     acro: 'UCHILE',
     nameKey: 'abt.inst.uchile.n',
     roleKey: 'abt.inst.uchile.r',
-    primary: true,
+    primary: false,
   },
   {
     href: 'https://www.cenia.cl/',
