@@ -57,7 +57,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .eyebrow .num{color:var(--brand);font-weight:500}
 .eyebrow.on-dark{color:var(--ink-text-2)}
 .eyebrow.on-dark .num{color:var(--brand-light)}
-.section{padding:96px 0;border-top:1px solid var(--line)}
+.section{padding:96px 0;border-top:1px solid var(--line);position:relative;overflow:hidden}
 .section--tight{padding:64px 0}
 .section--dark{background:var(--ink-bg);color:var(--ink-text);border-top:1px solid var(--ink-line)}
 .section--dark h2,.section--dark h3{color:var(--ink-text)}
@@ -109,7 +109,7 @@ h4{font-size:18px;line-height:1.3}
 .btn--sm{padding:6px 10px;font-size:13px}
 
 .hero{position:relative;padding:88px 0 96px;background:radial-gradient(1200px 420px at 75% -10%, rgba(167,199,255,.50), transparent 72%),radial-gradient(900px 340px at 0% 30%, rgba(44,122,255,.08), transparent 75%),linear-gradient(180deg, var(--bg), #F8FAFF 100%);border-bottom:1px solid var(--line);overflow:hidden;}
-.hero::before{content:"";position:absolute;right:-120px;top:80px;width:520px;height:340px;background:linear-gradient(var(--brand-light), var(--brand-light)) 0 0 / 220px 18px no-repeat,linear-gradient(var(--brand), var(--brand)) 40px 36px / 390px 18px no-repeat,linear-gradient(var(--brand-light), var(--brand-light)) 80px 72px / 180px 18px no-repeat;opacity:.18;border-radius:24px;transform:rotate(-6deg);pointer-events:none;}
+
 .hero-top{position:relative;z-index:1;max-width:920px}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--line);padding:6px 14px;border-radius:999px;color:var(--ink-2);margin-bottom:28px;}
 .hero-eyebrow .led{width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(44,122,255,.18);}
@@ -377,7 +377,7 @@ h4{font-size:18px;line-height:1.3}
 .model-row .m-base{font-family:var(--mono);font-size:11.5px;color:var(--ink-2)}
 .model-row .m-task{display:flex;justify-content:flex-end}
 
-.dl-hero{padding:80px 0 96px;position:relative;background:radial-gradient(1000px 380px at 50% -10%, rgba(167,199,255,.35), transparent 72%), var(--bg)}
+.dl-hero{padding:80px 0 96px;position:relative;overflow:hidden;background:radial-gradient(1000px 380px at 50% -10%, rgba(167,199,255,.35), transparent 72%), var(--bg)}
 .dl-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:80px;background:linear-gradient(180deg, transparent, var(--bg));pointer-events:none;z-index:0;}
 .dl-hero h1{font-size:68px}
 .dl-hero h1 em{color:var(--brand);font-style:normal}
@@ -415,6 +415,7 @@ h4{font-size:18px;line-height:1.3}
 .dl-clone .t{font-size:15px;color:var(--ink-2)}
 .dl-clone code{font-family:var(--mono);font-size:13px;background:var(--bg);border:1px solid var(--line);padding:8px 14px;border-radius:var(--r);display:inline-block;color:var(--ink)}
 
+.abt-hero{padding:80px 0 96px;border-top:1px solid var(--line);position:relative;overflow:hidden;background:radial-gradient(1000px 400px at 80% 0%, rgba(167,199,255,.40), transparent 70%), var(--bg)}
 .abt-sub{padding:64px 0;border-top:1px solid var(--line)}
 .abt-sub h2{font-size:32px;margin-bottom:8px;color:var(--ink)}
 .abt-sub h2 .blue{color:var(--brand)}

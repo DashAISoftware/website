@@ -8,7 +8,10 @@ export function CommunityRoute() {
 
   return (
     <main data-route="community">
-      <div className="section">
+      <section className="dl-hero">
+        <svg className="wm wm-cr" style={{ top: '15%', width: '220px', right: '-40px' }} viewBox="0 0 218.96 237.04" aria-hidden="true">
+          <use href="#dashai-mark" />
+        </svg>
         <div className="wrap">
           <div className="eyebrow"><span className="num">[ /community ]</span></div>
           <h2 style={{ margin: '16px 0' }}>{t('com.h')}</h2>
@@ -63,7 +66,7 @@ export function CommunityRoute() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </main>
   )
 }

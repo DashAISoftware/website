@@ -37,7 +37,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
     <>
       {/* HERO */}
       <section className="hero">
-        <svg className="wm wm-br" viewBox="0 0 218.96 237.04" aria-hidden="true">
+        <svg className="wm wm-cr wm-lg" style={{ top: '20%' }} viewBox="0 0 218.96 237.04" aria-hidden="true">
           <use href="#dashai-mark" />
         </svg>
         <div className="wrap">
