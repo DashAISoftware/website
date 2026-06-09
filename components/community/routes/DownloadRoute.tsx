@@ -10,6 +10,9 @@ export function DownloadRoute() {
     <main data-route="download">
 
       <section className="dl-hero">
+        <svg className="wm wm-cr wm-lg" style={{ top: '20%' }} viewBox="0 0 218.96 237.04" aria-hidden="true">
+          <use href="#dashai-mark" />
+        </svg>
         <div className="wrap">
           <div className="eyebrow">
             <span className="num">[ /download ]</span>

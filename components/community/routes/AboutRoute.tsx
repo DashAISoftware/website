@@ -9,7 +9,7 @@ export function AboutRoute() {
 
   return (
     <main data-route="about">
-      <div className="section" style={{ position: 'relative', overflow: 'hidden' }}>
+      <div className="abt-hero">
         <svg className="wm wm-tr" viewBox="0 0 218.96 237.04" aria-hidden="true">
           <use href="#dashai-mark" />
         </svg>

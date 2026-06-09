@@ -8,7 +8,10 @@ export function PluginsRoute() {
 
   return (
     <main data-route="plugins">
-      <div className="section">
+      <section className="dl-hero">
+        <svg className="wm wm-cr" style={{ top: '15%', width: '220px', right: '-40px' }} viewBox="0 0 218.96 237.04" aria-hidden="true">
+          <use href="#dashai-mark" />
+        </svg>
         <div className="wrap">
           <div className="eyebrow"><span className="num">[ /plugins ]</span></div>
           <h2 style={{ margin: '16px 0' }}>{t('plg.h')}</h2>
@@ -42,7 +45,7 @@ export function PluginsRoute() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </main>
   )
 }
