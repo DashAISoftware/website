@@ -13,7 +13,7 @@
   "dl.m.d": "May 2026",
   "dl.m.l": "Open Source",
   "dl.m.os": "Linux · macOS · Windows",
-  "dl.m.v": "v0.9.3-alpha",
+  "dl.m.v": "v0.9.4",
   "dl.p.h": "Install with pip.",
   "dl.p.p": "The <code style=\"font-family:var(--mono);font-size:13px;background:var(--surface);padding:1px 5px;border-radius:4px\">dashai</code> package starts the server and opens the browser. Requires Python ≥ 3.10.",
   "dl.p.r": "See package on PyPI",
