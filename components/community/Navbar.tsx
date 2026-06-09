@@ -11,10 +11,10 @@ type Route = 'home' | 'models' | 'plugins' | 'contribute' | 'download' | 'commun
 const NAV_LINKS: { key: Route; i18nKey: string }[] = [
   { key: 'home',       i18nKey: 'nav.home' },
   { key: 'models',     i18nKey: 'nav.models' },
-  { key: 'plugins',    i18nKey: 'nav.plugins' },
-  { key: 'contribute', i18nKey: 'nav.contribute' },
   { key: 'download',   i18nKey: 'nav.download' },
+  { key: 'contribute', i18nKey: 'nav.contribute' },
   { key: 'community',  i18nKey: 'nav.community' },
+  { key: 'plugins',    i18nKey: 'nav.plugins' },
   { key: 'about',      i18nKey: 'nav.about' },
 ]
 
