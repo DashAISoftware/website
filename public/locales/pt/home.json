@@ -118,5 +118,7 @@
   "tag.loc": "local",
   "tag.ow": "open weights",
   "tag.tab": "tabular",
-  "tag.tr": "tradução"
+  "tag.tr": "tradução",
+  "hero.stat.stars": "Apoie-nos com uma estrela",
+  "hero.stat.dl": "Total downloads"
 }
