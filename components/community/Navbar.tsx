@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { STATS_PLACEHOLDER } from '@/lib/stats'
 
 type Lang = 'es' | 'en' | 'pt'
 type Route = 'home' | 'models' | 'plugins' | 'contribute' | 'download' | 'community' | 'about'
@@ -24,12 +25,19 @@ const LANG_OPTIONS: { code: Lang; label: string }[] = [
   { code: 'pt', label: 'Português' },
 ]
 
+function fmtStars(n: number): string {
+  if (n >= 1000) return `${(n / 1000).toFixed(1)}k`
+  return String(n)
+}
+
 export function Navbar({ route }: { route: string }) {
   const { t, i18n } = useTranslation('navbar')
   const lang = i18n.language as 'es' | 'en' | 'pt'
   const setLang = (l: string) => { i18n.changeLanguage(l); try { localStorage.setItem('dashai-lang', l) } catch {} }
 
   const [isOpen, setIsOpen] = useState(false)
+  // TODO: replace with stats endpoint when ready
+  const stars = STATS_PLACEHOLDER.github.stars
   const switcherRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -150,6 +158,10 @@ export function Navbar({ route }: { route: string }) {
               <use href="#i-github" />
             </svg>
             GitHub
+            {stars !== null && <>
+              <span style={{ width: 1, height: 12, background: 'var(--line-2)', flexShrink: 0 }} />
+              <span style={{ fontSize: 11, color: 'var(--ink-3)', fontWeight: 500 }}>{fmtStars(stars)}</span>
+            </>}
           </a>
         </div>
       </div>
