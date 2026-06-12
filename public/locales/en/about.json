@@ -13,6 +13,7 @@
   "abt.g.h": "Governance decisions",
   "abt.g.p": "Technical decisions are discussed on GitHub Issues and Discord. Institutional roadmap decisions go through the maintainers committee. Release priorities respond to external tester feedback (the latest round with Unholster defined the pre-release sprint).",
   "abt.h": "About dashAI.",
+  "abt.hist.alum.count": "students",
   "abt.hist.alum.h": "Historical student contributors",
   "abt.hist.alum.n": "// PLACEHOLDER · list student contributors with (1) name, (2) affiliation at the time of contribution, (3) year(s), (4) area of contribution. Collect consent before publishing. Meanwhile, the commit history tells the story: <a href=\"https://github.com/DashAISoftware/dashAI/graphs/contributors\" target=\"_blank\" rel=\"noopener\" style=\"color:var(--brand-on);font-weight:500\">contributors graph</a>.",
   "abt.hist.alum.p": "Thesis students from undergrad and grad programs, research assistants. Many current abstractions started as course projects or theses.",

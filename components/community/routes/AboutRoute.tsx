@@ -2,6 +2,7 @@
 
 import { useTranslation } from 'react-i18next'
 import { InstitutionsGrid } from '../InstitutionsGrid'
+import { StudentsGrid } from '../StudentsGrid'
 import '@/app/i18n'
 export function AboutRoute() {
   const { t, i18n } = useTranslation('about')
@@ -100,40 +101,27 @@ export function AboutRoute() {
             <h2 dangerouslySetInnerHTML={th('abt.hist.h')} />
             <p className="lead">{t('abt.hist.lead')}</p>
 
-            <div className="team-grid">
-              <div className="team-card">
-                <h3>{t('abt.hist.alum.h')}</h3>
-                <p>{t('abt.hist.alum.p')}</p>
-                <a
-                  href="https://github.com/DashAISoftware/dashAI/graphs/contributors"
-                  target="_blank"
-                  rel="noopener"
-                  style={{ fontSize: '13px', color: 'var(--brand-on)', fontWeight: 500 }}
-                >
-                  contributors graph →
-                </a>
-              </div>
+            <StudentsGrid />
 
-              <div className="team-card">
-                <h3>{t('abt.hist.inst.h')}</h3>
-                <p>{t('abt.hist.inst.p')}</p>
-                <ul>
-                  <li>
-                    <span className="avatar"><img src="/supported-by/utfsm-logo.png" alt="USM" style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "50%" }} /></span>
-                    <div className="meta">
-                      <strong>{t('abt.hist.inst.usm.n')}</strong>
-                      <span>{t('abt.hist.inst.usm.r')}</span>
-                    </div>
-                  </li>
-                  <li>
-                    <span className="avatar"><img src="/supported-by/imfd-logo.png" alt="IMFD" style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "50%" }} /></span>
-                    <div className="meta">
-                      <strong>{t('abt.hist.inst.imfd.n')}</strong>
-                      <span>{t('abt.hist.inst.imfd.r')}</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+            <div className="team-card" style={{ marginTop: '32px' }}>
+              <h3>{t('abt.hist.inst.h')}</h3>
+              <p>{t('abt.hist.inst.p')}</p>
+              <ul>
+                <li>
+                  <span className="avatar"><img src="/supported-by/utfsm-logo.png" alt="USM" style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '50%' }} /></span>
+                  <div className="meta">
+                    <strong>{t('abt.hist.inst.usm.n')}</strong>
+                    <span>{t('abt.hist.inst.usm.r')}</span>
+                  </div>
+                </li>
+                <li>
+                  <span className="avatar"><img src="/supported-by/imfd-logo.png" alt="IMFD" style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '50%' }} /></span>
+                  <div className="meta">
+                    <strong>{t('abt.hist.inst.imfd.n')}</strong>
+                    <span>{t('abt.hist.inst.imfd.r')}</span>
+                  </div>
+                </li>
+              </ul>
             </div>
 
             <div style={{
