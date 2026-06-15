@@ -5,6 +5,8 @@ import { AppMockup } from '../AppMockup'
 import { InstitutionsGrid } from '../InstitutionsGrid'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { STATS_PLACEHOLDER, STATS_URL, totalDownloads as sumDownloads } from '@/lib/stats'
+import type { Stats } from '@/lib/stats'
 
 const MONTH_NAMES: Record<string, string[]> = {
   es: ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],
@@ -14,17 +16,35 @@ const MONTH_NAMES: Record<string, string[]> = {
 
 interface GhRelease { tag_name: string; name: string; html_url: string; published_at: string }
 
+function formatNum(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}m`
+  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}k`
+  return String(n)
+}
+
 export function HomeRoute({ ghVersion }: { ghVersion: string }) {
   const { t, i18n } = useTranslation('home')
   const th = (key: string) => ({ __html: t(key) })
   const lang = i18n.language as 'es' | 'en' | 'pt'
   const [releases, setReleases] = useState<GhRelease[]>([])
+  const [stats, setStats] = useState<Stats>(STATS_PLACEHOLDER)
+
+  const totalDownloads = sumDownloads(stats)
+  const stars = stats.github.stars
 
   useEffect(() => {
-    fetch('https://api.github.com/repos/DashAISoftware/dashAI/releases?per_page=4')
+    // Releases fetch kept for the activity section
+    fetch('https://api.github.com/repos/DashAISoftware/dashAI/releases?per_page=10')
       .then(r => r.ok ? r.json() : null)
       .then(data => { if (data?.length) setReleases(data) })
       .catch(() => {})
+
+    if (STATS_URL) {
+      fetch(STATS_URL)
+        .then(r => r.ok ? r.json() : null)
+        .then(data => { if (data) setStats(data) })
+        .catch(() => {})
+    }
   }, [])
 
   function fmtDate(iso: string) {
@@ -37,31 +57,57 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
     <>
       {/* HERO */}
       <section className="hero">
-        <svg className="wm wm-cr wm-lg" style={{ top: '20%' }} viewBox="0 0 218.96 237.04" aria-hidden="true">
+        <svg className="wm wm-cr wm-lg" style={{ top: '8%' }} viewBox="0 0 218.96 237.04" aria-hidden="true">
           <use href="#dashai-mark" />
         </svg>
         <div className="wrap">
           <div className="hero-top">
-            <div className="hero-eyebrow">
-              <span className="led"></span>
-              <span data-gh-version>{ghVersion}</span>
-              <span className="sep">·</span>
-              <span>{t('hero.ey')}</span>
+            <div className="hero-top-copy">
+              <div className="hero-eyebrow">
+                <span className="led"></span>
+                <span data-gh-version>{ghVersion}</span>
+                <span className="sep">·</span>
+                <span>{t('hero.ey')}</span>
+              </div>
+              <h1 dangerouslySetInnerHTML={th('hero.h')} />
+              <p className="hero-sub" dangerouslySetInnerHTML={th('hero.sub')} />
+              <div className="hero-cta">
+                <a className="btn btn--blue" href="#download">
+                  <svg style={{ width: '14px', height: '14px' }}>
+                    <use href="#i-download" />
+                  </svg>
+                  <span>{t('hero.cta.dl')}</span>
+                </a>
+                <a className="btn" href="#contribute">
+                  <span>{t('hero.cta.cont')}</span>
+                  <svg style={{ width: '14px', height: '14px' }}>
+                    <use href="#i-arrow" />
+                  </svg>
+                </a>
+              </div>
             </div>
-            <h1 dangerouslySetInnerHTML={th('hero.h')} />
-            <p className="hero-sub" dangerouslySetInnerHTML={th('hero.sub')} />
-            <div className="hero-cta">
-              <a className="btn btn--blue" href="#download">
-                <svg style={{ width: '14px', height: '14px' }}>
-                  <use href="#i-download" />
-                </svg>
-                <span>{t('hero.cta.dl')}</span>
+
+            <div className="hero-top-stats">
+              <a
+                className="hero-stat"
+                href="#download"
+              >
+                <div className="hero-stat-num">{totalDownloads !== null ? formatNum(totalDownloads) : '—'}</div>
+                <div className="hero-stat-label">{t('hero.stat.dl')}</div>
               </a>
-              <a className="btn" href="#contribute">
-                <span>{t('hero.cta.cont')}</span>
-                <svg style={{ width: '14px', height: '14px' }}>
-                  <use href="#i-arrow" />
-                </svg>
+              <a
+                className="hero-stat"
+                href="https://github.com/DashAISoftware/dashAI"
+                target="_blank"
+                rel="noopener"
+              >
+                <div className="hero-stat-num">{stars !== null ? formatNum(stars) : '—'}</div>
+                <div className="hero-stat-label">
+                  <svg style={{ width: 12, height: 12, flexShrink: 0 }}>
+                    <use href="#i-github" />
+                  </svg>
+                  {t('hero.stat.stars')}
+                </div>
               </a>
             </div>
           </div>
@@ -106,7 +152,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
             </div>
           </div>
 
-          <AppMockup t={t} th={th} />
+          <AppMockup />
 
           <div className="showcase-explain">
             <div className="showcase-step">
