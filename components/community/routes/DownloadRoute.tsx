@@ -2,6 +2,18 @@
 
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
+
+const TRACKER_URL = process.env.NEXT_PUBLIC_TRACKER_URL
+
+async function trackClick(buttonId: string) {
+  if (!TRACKER_URL) return
+  try {
+    await fetch(`${TRACKER_URL}/click/${buttonId}`, { method: 'POST' })
+  } catch {
+    // non-blocking
+  }
+}
+
 export function DownloadRoute() {
   const { t, i18n } = useTranslation('download')
   const th = (key: string) => ({ __html: t(key) })
@@ -46,7 +58,7 @@ export function DownloadRoute() {
               <p>{t('dl.e.p')}</p>
 
               <div className="dl-buttons">
-                <a href="https://sourceforge.net/projects/dashai/files/latest/download" target="_blank" rel="noopener">
+                <a href="https://sourceforge.net/projects/dashai/files/latest/download" target="_blank" rel="noopener" onClick={() => trackClick('native_win')}>
                   <span className="os">
                     <svg style={{ width: '18px', height: '18px' }}>
                       <use href="#i-win" />
@@ -55,7 +67,7 @@ export function DownloadRoute() {
                   </span>
                   <span className="arrow"><span className="ext">.exe</span> ↓</span>
                 </a>
-                <a href="https://sourceforge.net/projects/dashai/files/latest/download" target="_blank" rel="noopener">
+                <a href="https://sourceforge.net/projects/dashai/files/latest/download" target="_blank" rel="noopener" onClick={() => trackClick('native_mac_arm')}>
                   <span className="os">
                     <svg style={{ width: '18px', height: '18px' }}>
                       <use href="#i-apple" />
@@ -64,7 +76,7 @@ export function DownloadRoute() {
                   </span>
                   <span className="arrow"><span className="ext">.dmg</span> ↓</span>
                 </a>
-                <a className="alt" href="https://sourceforge.net/projects/dashai/files/latest/download" target="_blank" rel="noopener">
+                <a className="alt" href="https://sourceforge.net/projects/dashai/files/latest/download" target="_blank" rel="noopener" onClick={() => trackClick('native_mac_intel')}>
                   <span className="os">
                     <svg style={{ width: '18px', height: '18px' }}>
                       <use href="#i-apple" />
