@@ -1,5 +1,13 @@
-export const STUDENTS = [
-  { initials: 'CR', name: 'Camila Rojas',           year: 2019, desc: 'Pipelines de datos' },
+export interface Student {
+  initials: string
+  name: string
+  year: number
+  desc: string
+  avatar?: string
+}
+
+export const STUDENTS: Student[] = [
+  { initials: 'CR', name: 'Camila Rojas',           year: 2019, desc: 'Pipelines de datos', avatar: 'images/students/camila_reyes.jpg' },
   { initials: 'MF', name: 'Matías Fuentes',          year: 2019, desc: 'Optimización de hiperparámetros' },
   { initials: 'VS', name: 'Valentina Soto',          year: 2020, desc: 'Preprocesamiento tabular' },
   { initials: 'JH', name: 'Joaquín Herrera',         year: 2020, desc: 'Integración scikit-learn' },

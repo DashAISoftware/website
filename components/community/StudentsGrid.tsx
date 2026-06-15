@@ -16,7 +16,11 @@ export function StudentsGrid() {
       <div className="student-grid">
         {STUDENTS.map((s, i) => (
           <div key={`${s.name}-${i}`} className="student-bubble">
-            <div className="student-av">{s.initials}</div>
+            <div className="student-av">
+              {s.avatar
+                ? <img src={s.avatar} alt={s.name} />
+                : s.initials}
+            </div>
             <strong className="student-name">{s.name}</strong>
             <span className="student-desc">{s.desc}</span>
             <span className="student-meta">{s.year}</span>
