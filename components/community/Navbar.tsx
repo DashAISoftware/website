@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
-import { STATS_PLACEHOLDER } from '@/lib/stats'
+import { STATS_PLACEHOLDER, STATS_URL } from '@/lib/stats'
 
 type Lang = 'es' | 'en' | 'pt'
 type Route = 'home' | 'models' | 'plugins' | 'contribute' | 'download' | 'community' | 'about'
@@ -36,8 +36,16 @@ export function Navbar({ route }: { route: string }) {
   const setLang = (l: string) => { i18n.changeLanguage(l); try { localStorage.setItem('dashai-lang', l) } catch {} }
 
   const [isOpen, setIsOpen] = useState(false)
-  // TODO: replace with stats endpoint when ready
-  const stars = STATS_PLACEHOLDER.github.stars
+  const [stars, setStars] = useState<number>(STATS_PLACEHOLDER.github.stars)
+
+  useEffect(() => {
+    if (STATS_URL) {
+      fetch(STATS_URL)
+        .then(r => r.ok ? r.json() : null)
+        .then(data => { if (data) setStars(data.github.stars) })
+        .catch(() => {})
+    }
+  }, [])
   const switcherRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

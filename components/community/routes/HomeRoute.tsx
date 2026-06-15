@@ -5,7 +5,7 @@ import { AppMockup } from '../AppMockup'
 import { InstitutionsGrid } from '../InstitutionsGrid'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
-import { STATS_PLACEHOLDER, totalDownloads as sumDownloads } from '@/lib/stats'
+import { STATS_PLACEHOLDER, STATS_URL, totalDownloads as sumDownloads } from '@/lib/stats'
 import type { Stats } from '@/lib/stats'
 
 const MONTH_NAMES: Record<string, string[]> = {
@@ -39,11 +39,12 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
       .then(data => { if (data?.length) setReleases(data) })
       .catch(() => {})
 
-    // TODO: uncomment when stats endpoint is ready
-    // fetch(STATS_URL)
-    //   .then(r => r.ok ? r.json() : null)
-    //   .then(data => { if (data) setStats(data) })
-    //   .catch(() => {})
+    if (STATS_URL) {
+      fetch(STATS_URL)
+        .then(r => r.ok ? r.json() : null)
+        .then(data => { if (data) setStats(data) })
+        .catch(() => {})
+    }
   }, [])
 
   function fmtDate(iso: string) {

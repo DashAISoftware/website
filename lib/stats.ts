@@ -5,10 +5,9 @@ export interface Stats {
   pypi:        { downloads: number }
 }
 
-// TODO: swap for real fetch when endpoint is ready
-// export const STATS_URL = process.env.NEXT_PUBLIC_STATS_URL ?? ''
+export const STATS_URL = process.env.NEXT_PUBLIC_TRACKER_URL ? `${process.env.NEXT_PUBLIC_TRACKER_URL}/stats` : ''
 export const STATS_PLACEHOLDER: Stats = {
-  github:      { downloads: 173,  stars: 76  },
+  github:      { downloads: 173,  stars: 75  },
   website:     { downloads: 108             },
   sourceForge: { downloads: 59              },
   pypi:        { downloads: 2205            },
