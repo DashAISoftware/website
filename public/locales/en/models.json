@@ -110,7 +110,7 @@
   "r.sd2": "SD v2 with OpenCLIP. 512x512 / 768x768 generation.",
   "r.sd3": "V3 with MMDiT, better prompt adherence.",
   "r.sdxl": "Stable Diffusion XL. Photorealistic quality.",
-  "r.sdxlt": "Distilled SDXL for real-time generation.",
+  "r.sdxlt": "Distilled SDXL for real time generation.",
   "r.sgdc": "SGD classifier with probability calibration.",
   "r.sm": "Compact LLM for modest hardware. 135M–1.7B.",
   "r.svc": "SVM that maximises the margin between classes.",
