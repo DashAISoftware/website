@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { AppMockup } from '../AppMockup'
 import { InstitutionsGrid } from '../InstitutionsGrid'
+import { MODEL_ROWS } from './ModelsRoute'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
 import { STATS_PLACEHOLDER, STATS_URL, totalDownloads as sumDownloads } from '@/lib/stats'
@@ -241,10 +242,10 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
                 <span>{t('feat.ey')}</span>
               </div>
               <h2>{t('feat.h')}</h2>
-              <p className="lead">{t('feat.lead')}</p>
+              <p className="lead">{t('feat.lead', { count: MODEL_ROWS.length })}</p>
             </div>
             <a className="btn" href="#models">
-              <span>{t('feat.cta')}</span>{' '}
+              <span>{t('feat.cta', { count: MODEL_ROWS.length })}</span>{' '}
               <svg style={{ width: '14px', height: '14px' }}>
                 <use href="#i-arrow" />
               </svg>
