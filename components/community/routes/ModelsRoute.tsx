@@ -28,7 +28,7 @@ interface ModelRow {
   tagFallback: string
 }
 
-const MODEL_ROWS: ModelRow[] = [
+export const MODEL_ROWS: ModelRow[] = [
   // Tabular Classification (15)
   { category: 'tabular', name: 'AdaBoostClassifier',             id: '#models/adaboost-cls',       descKey: 'r.abc',        descFallback: 'Adapts to misclassified samples iteratively.',                  base: 'BaseModel | sklearn',         tagClass: 'tabular',     tagKey: 'tag.tabcls', tagFallback: 'TabularClassificationTask' },
   { category: 'tabular', name: 'BaggingClassifier',              id: '#models/bagging-cls',         descKey: 'r.bag',        descFallback: 'Aggregates predictions from bootstrap subsets.',                base: 'BaseModel | sklearn',         tagClass: 'tabular',     tagKey: 'tag.tabcls', tagFallback: 'TabularClassificationTask' },
