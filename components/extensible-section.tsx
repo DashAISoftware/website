@@ -104,7 +104,7 @@ export function ExtensibleSection() {
         <div className="flex flex-col gap-7">
           {[
             { ico: "⬡", title: "Schema-driven UI", body: { es: "El servidor expone el schema Pydantic; el frontend React renderiza el formulario sin conocerlo previamente.", en: "The server exposes the Pydantic schema; the React frontend renders the form without prior knowledge." } },
-            { ico: "↻", title: lang === "es" ? "Hot-install desde la UI" : "Hot-install from the UI", body: { es: "Un click instala una extensión desde PyPI. Sin reiniciar, sin shell externa.", en: "One click installs an extension from PyPI. No restart, no external shell." } },
+            { ico: "↻", title: lang === "es" ? "Instalar desde la UI" : "Install from the UI", body: { es: "Un click instala una extensión desde PyPI. Sin reiniciar, sin shell externa.", en: "One click installs an extension from PyPI. No restart, no external shell." } },
             { ico: "▶", title: lang === "es" ? "API HTTP pública" : "Public HTTP API", body: { es: <>Cualquier cliente HTTP, como Python, Jupyter o CLI, consulta componentes y lanza jobs. <code className="font-mono text-xs">GET /component/</code>, <code className="font-mono text-xs">POST /job/</code>.</>, en: <>Any HTTP client (Python, Jupyter, CLI) queries components and launches jobs. <code className="font-mono text-xs">GET /component/</code>, <code className="font-mono text-xs">POST /job/</code>.</> } },
             { ico: "⚡", title: "FastAPI + React, not desktop", body: { es: "El servidor corre en cualquier máquina, accesible desde el navegador: local, red o remoto.", en: "The server runs anywhere, reachable from any browser: local, network or remote." } },
           ].map(p => (

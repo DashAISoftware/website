@@ -61,7 +61,7 @@
   "mod.m.cta": "Ver catálogo",
   "mod.m.d": "Do Random Forest aos transformers. Cada um uma subclasse de <code style=\"font-family:var(--mono);font-size:12.5px\">BaseModel</code> com seu schema Pydantic.",
   "mod.m.h": "Modelos preditivos",
-  "mod.p.c": "Hot-install desde a UI | PyPI",
+  "mod.p.c": "Instalar desde a UI | PyPI",
   "mod.p.chip": "PLUGINS",
   "mod.p.cta": "Marketplace",
   "mod.p.d": "Um clique instala uma extensão desde o PyPI. Sem reiniciar, sem shell externa. Tudo sob a mesma licença.",

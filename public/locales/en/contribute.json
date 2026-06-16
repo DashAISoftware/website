@@ -94,7 +94,7 @@
   "g.3.num": "// 03 | CODE",
   "g.3.s1": "<strong>Initial structure.</strong> <code>setup.py</code> with <code>entry_points={'dashai.plugins': ['name = my_pkg:register']}</code>. The <code>register()</code> function is the entry point.",
   "g.3.s2": "<strong>Import abstractions</strong> from <code>dashai.base</code> and declare your components (models, metrics, optimizers, whatever you want).",
-  "g.3.s3": "<strong>Publish to PyPI.</strong> <code>python -m build &amp;&amp; twine upload dist/*</code>. The package becomes available for hot-install.",
+  "g.3.s3": "<strong>Publish to PyPI.</strong> <code>python -m build &amp;&amp; twine upload dist/*</code>. The package becomes available to install from the UI.",
   "g.3.s4": "<strong>Share the name</strong> on Discord so others can try it.",
   "g.4.ctx": "Metrics are applied post-training. Each declares its scope (classification, regression, translation) and shows up automatically in reports.",
   "g.4.h": "Define a new metric",
