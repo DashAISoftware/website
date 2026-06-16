@@ -158,7 +158,7 @@ export function DownloadRoute() {
               </div>
               <div className="req-card">
                 <div className="lbl">OS</div>
-                <div className="val">Linux · macOS · Windows</div>
+                <div className="val">Linux | macOS | Windows</div>
                 <div className="sub">{t('dl.req.os.s')}</div>
               </div>
             </div>

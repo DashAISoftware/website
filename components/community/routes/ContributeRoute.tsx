@@ -593,7 +593,7 @@ export function ContributeRoute() {
                 {'        '}
                 <span className="k">return</span>
                 {' self.model.predict(X)\n'}
-                <span className="c">{`# 24 líneas · UI auto-generada · python ≥ 3.10`}</span>
+                <span className="c">{`# 24 líneas | UI auto-generada | python ≥ 3.10`}</span>
               </pre>
             </div>
           </div>

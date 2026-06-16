@@ -170,7 +170,7 @@ export function ExtensibleSection() {
         `}<span className="code-kw">return</span>{` `}<span className="code-kw">self</span>{`.model.predict(X)`}</code>
           </pre>
           <div className="flex justify-between px-4.5 py-2.5 border-t font-mono text-[11px]" style={{ background: CODE_HEADER_BG, borderColor: CODE_BORDER, color: ON_LIGHT_FAINT }}>
-            <span>{lang === "es" ? "33 líneas · UI auto-generada" : "33 lines · UI auto-generated"}</span>
+            <span>{lang === "es" ? "33 líneas | UI auto-generada" : "33 lines | UI auto-generated"}</span>
             <span>python ≥ 3.10</span>
           </div>
         </div>

@@ -66,7 +66,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
               <div className="hero-eyebrow">
                 <span className="led"></span>
                 <span data-gh-version>{ghVersion}</span>
-                <span className="sep">·</span>
+                <span className="sep">|</span>
                 <span>{t('hero.ey')}</span>
               </div>
               <h1 dangerouslySetInnerHTML={th('hero.h')} />
@@ -276,7 +276,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
               <div className="meta">
                 <span className="tag translation">{t('tag.tr')}</span>
                 <span className="tag mono">seq2seq</span>
-                <span className="tag">BLEU · ChrF</span>
+                <span className="tag">BLEU | ChrF</span>
               </div>
             </a>
             <a className="feat-card" href="#models">

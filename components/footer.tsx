@@ -33,13 +33,13 @@ export function Footer() {
             <span className="h-[5px] rounded-full flex-1 max-w-[36px]" style={{ background: "#90F1C4" }} />
             <span className="h-[5px] rounded-full flex-1 max-w-[36px]" style={{ background: "#A54DA9" }} />
             <span className="font-mono text-[10px] uppercase tracking-[.12em] text-muted-foreground ml-2">
-              Brand v2 · 2026
+              Brand v2 | 2026
             </span>
           </div>
           <p className="text-sm text-muted-foreground leading-[1.55] max-w-[38ch]">
             {lang === "es"
-              ? "Proyecto open-source desarrollado en la Universidad de Chile. Licencia MIT. Visual ML Full Open · Full Extensible."
-              : "Open-source project developed at Universidad de Chile. MIT licensed. Visual ML, Full Open · Full Extensible."}
+              ? "Proyecto open-source desarrollado en la Universidad de Chile. Licencia MIT. Visual ML Full Open | Full Extensible."
+              : "Open-source project developed at Universidad de Chile. MIT licensed. Visual ML, Full Open | Full Extensible."}
           </p>
         </div>
 
@@ -130,7 +130,7 @@ export function Footer() {
         <div className="flex flex-wrap gap-x-[18px] gap-y-1">
           <span>© 2026 DashAI</span>
           <span>MIT License</span>
-          <span>Universidad de Chile · Chile</span>
+          <span>Universidad de Chile | Chile</span>
         </div>
         <div className="flex gap-5">
           <a href={siteConfig.github.url} target="_blank" rel="noopener" className="hover:text-[#A7C7FF] transition-colors">

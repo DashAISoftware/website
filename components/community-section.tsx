@@ -72,8 +72,8 @@ export function CommunitySection() {
           </a>
           <p className="mt-auto font-mono text-[11px] text-muted-foreground border-t border-border pt-4">
             {lang === "es"
-              ? "· dashai.nocode@gmail.com · respuesta en < 48h"
-              : "· dashai.nocode@gmail.com · reply in < 48h"}
+              ? "| dashai.nocode@gmail.com | respuesta en < 48h"
+              : "| dashai.nocode@gmail.com | reply in < 48h"}
           </p>
         </div>
 
@@ -108,8 +108,8 @@ export function CommunitySection() {
           </a>
           <p className="mt-auto font-mono text-[11px] text-muted-foreground border-t border-border pt-4">
             {lang === "es"
-              ? "· Comunidad abierta · acceso inmediato"
-              : "· Open community · instant access"}
+              ? "| Comunidad abierta | acceso inmediato"
+              : "| Open community | instant access"}
           </p>
         </div>
 
@@ -147,8 +147,8 @@ export function CommunitySection() {
           </a>
           <p className="mt-auto font-mono text-[11px] text-muted-foreground border-t border-border pt-4">
             {lang === "es"
-              ? "· Sal cuando quieras · 0 emails comerciales"
-              : "· Leave anytime · 0 commercial emails"}
+              ? "| Sal cuando quieras | 0 emails comerciales"
+              : "| Leave anytime | 0 commercial emails"}
           </p>
         </div>
       </div>

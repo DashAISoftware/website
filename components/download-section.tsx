@@ -87,9 +87,9 @@ export function DownloadSection() {
           </h2>
           <div className="font-mono text-xs text-muted-foreground tracking-[.08em] flex flex-wrap gap-x-3 gap-y-1">
             <strong className="text-foreground font-medium">{releaseTag}</strong>
-            <span>·</span><span>MIT License</span>
-            <span>·</span><span>Linux · macOS · Windows</span>
-            <span>·</span><span>{t("releaseMonth")}</span>
+            <span>|</span><span>MIT License</span>
+            <span>|</span><span>Linux | macOS | Windows</span>
+            <span>|</span><span>{t("releaseMonth")}</span>
           </div>
         </div>
       </div>
@@ -141,7 +141,7 @@ export function DownloadSection() {
                 }}
               >
                 <span className="font-medium">{e.os}</span>
-                <span className="text-[11px] text-muted-foreground flex-1 ml-3.5">{e.ext}{e.size ? ` · ${e.size}` : ""}</span>
+                <span className="text-[11px] text-muted-foreground flex-1 ml-3.5">{e.ext}{e.size ? ` | ${e.size}` : ""}</span>
                 <span className="text-[#A7C7FF] text-sm">↓</span>
               </a>
             ))}
@@ -195,7 +195,7 @@ export function DownloadSection() {
             {[
               { k: "Python", v: "≥ 3.10",                  note: t("requirements.items.python.note") },
               { k: "RAM",    v: "8 GB",                     note: t("requirements.items.ram.note") },
-              { k: "OS",     v: "Linux · macOS · Windows",  note: t("requirements.items.os.note") },
+              { k: "OS",     v: "Linux | macOS | Windows",  note: t("requirements.items.os.note") },
             ].map(r => (
               <li key={r.k} className="grid gap-3.5 pb-3.5 border-b border-dashed border-border last:border-b-0 last:pb-0" style={{ gridTemplateColumns: "80px 1fr" }}>
                 <span className="font-mono text-[10.5px] uppercase tracking-[.1em] text-muted-foreground pt-0.5">{r.k}</span>
