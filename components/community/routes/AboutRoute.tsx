@@ -2,10 +2,17 @@
 
 import { useTranslation } from 'react-i18next'
 import { InstitutionsGrid } from '../InstitutionsGrid'
+import { getAcknowledgmentsText } from '@/lib/institutions'
 import '@/app/i18n'
 export function AboutRoute() {
   const { t, i18n } = useTranslation('about')
   const th = (key: string) => ({ __html: t(key) })
+  const lang = i18n.language?.startsWith('es')
+    ? 'es'
+    : i18n.language?.startsWith('pt')
+      ? 'pt'
+      : 'en'
+  const acknowledgment = getAcknowledgmentsText(lang)
 
   return (
     <main data-route="about">
@@ -50,42 +57,12 @@ export function AboutRoute() {
               <use href="#dashai-mark" />
             </svg>
             <div className="ey">
-              <span className="num">[ /about/community ]</span>
-              {' '}&nbsp;{' '}
-              <span>{t('abt.com.ey')}</span>
-            </div>
-            <h2 dangerouslySetInnerHTML={th('abt.com.h')} />
-            <p className="lead" dangerouslySetInnerHTML={th('abt.com.lead')} />
-
-            <div className="comm-stats">
-              <div className="comm-stat brand">
-                <div className="lbl">{t('abt.com.s1.l')}</div>
-                <div className="val">{t('abt.com.s1.v')}</div>
-              </div>
-              <div className="comm-stat">
-                <div className="lbl">{t('abt.com.s2.l')}</div>
-                <div className="val">{t('abt.com.s2.v')}</div>
-              </div>
-              <div className="comm-stat">
-                <div className="lbl">{t('abt.com.s3.l')}</div>
-                <div className="val">{t('abt.com.s3.v')}</div>
-              </div>
-              <div className="comm-stat">
-                <div className="lbl">{t('abt.com.s4.l')}</div>
-                <div className="val">{t('abt.com.s4.v')}</div>
-              </div>
-            </div>
-          </section>
-
-          {/* Sub-section: Institutions */}
-          <section className="abt-sub">
-            <div className="ey">
               <span className="num">[ /about/institutions ]</span>
               {' '}&nbsp;{' '}
               <span>{t('abt.inst.ey')}</span>
             </div>
             <h2 dangerouslySetInnerHTML={th('abt.inst.h')} />
-            <p className="lead">{t('abt.inst.lead')}</p>
+            <p className="lead">{acknowledgment}</p>
 
             <InstitutionsGrid />
           </section>
@@ -112,27 +89,6 @@ export function AboutRoute() {
                 >
                   contributors graph →
                 </a>
-              </div>
-
-              <div className="team-card">
-                <h3>{t('abt.hist.inst.h')}</h3>
-                <p>{t('abt.hist.inst.p')}</p>
-                <ul>
-                  <li>
-                    <span className="avatar"><img src="/supported-by/utfsm-logo.png" alt="USM" style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "50%" }} /></span>
-                    <div className="meta">
-                      <strong>{t('abt.hist.inst.usm.n')}</strong>
-                      <span>{t('abt.hist.inst.usm.r')}</span>
-                    </div>
-                  </li>
-                  <li>
-                    <span className="avatar"><img src="/supported-by/imfd-logo.png" alt="IMFD" style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "50%" }} /></span>
-                    <div className="meta">
-                      <strong>{t('abt.hist.inst.imfd.n')}</strong>
-                      <span>{t('abt.hist.inst.imfd.r')}</span>
-                    </div>
-                  </li>
-                </ul>
               </div>
             </div>
 
