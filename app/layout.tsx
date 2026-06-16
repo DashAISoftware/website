@@ -5,17 +5,18 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.dash-ai.com"),
-  title: "dashAI — Community Hub",
+  title: "dashAI | Machine Learning Workbench",
   description:
-    "dashAI es una aplicación de escritorio open-source para análisis de datos y entrenamiento de modelos de Machine Learning. Corre localmente bajo licencia MIT.",
+    "dashAI is an open-source desktop app for data analysis and Machine Learning model training. Local-first.",
   icons: {
     icon: "/images/dashai-isotipo.svg",
     apple: "/images/dashai-isotipo.png",
   },
   openGraph: {
-    title: "dashAI — Community Hub",
+    title: "dashAI | Machine Learning Workbench",
+    siteName: "dashAI",
     description:
-      "Aplicación de escritorio open-source para análisis de datos y entrenamiento de modelos de Machine Learning. Local-first, MIT.",
+      "Open-source desktop app for data analysis and Machine Learning model training. Local-first.",
     images: ["/images/dashai-logo-azul.png"],
     type: "website",
   },
