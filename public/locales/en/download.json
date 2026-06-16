@@ -25,5 +25,5 @@
   "dl.req.ram.s": "extra memory recommended for image generation",
   "dl.req.ram.v": "8 GB | 16 GB for local LLMs",
   "dl.v.h": "Installation problems?",
-  "dl.v.p": "Check the official docs or ask directly on Discord — the team and community respond within hours."
+  "dl.v.p": "Check the official docs or ask directly on Discord: the team and community respond within hours."
 }

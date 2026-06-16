@@ -10,11 +10,11 @@
   "plg.cs.m3.l": "// ABSTRAÇÕES SUPORTADAS",
   "plg.cs.m3.v": "As doze abstrações base do projeto",
   "plg.h": "Plugins da comunidade.",
-  "plg.lead": "Os plugins são pacotes Python publicados no PyPI que registram componentes novos. Instalam-se com um clique desde a UI — sem reiniciar, sem shell externa.",
+  "plg.lead": "Os plugins são pacotes Python publicados no PyPI que registram componentes novos. Instalam-se com um clique desde a UI, sem reiniciar, sem shell externa.",
   "plg.s.ey": "PROTOTYPE V3 | SEÇÃO STUBBED",
   "plg.s.f": "// Estes nomes são ilustrativos. Quer ser quem publica o primeiro? <a href=\"#contribute\" style=\"color:var(--brand-on);font-weight:500\">Como publicar um plugin →</a>",
   "plg.s.h": "Marketplace de plugins",
-  "plg.s.p": "O marketplace ainda não tem plugins de terceiros publicados — o projeto está pré primeiro release. Esta seção listará todos os pacotes que registrem extensões das 12 abstrações base.",
+  "plg.s.p": "O marketplace ainda não tem plugins de terceiros publicados; o projeto está pré primeiro release. Esta seção listará todos os pacotes que registrem extensões das 12 abstrações base.",
   "plg.s.v1": "Modelos ARIMA, Prophet, NeuralProphet sob BaseModel.",
   "plg.s.v2": "Métricas de equidade (Demographic Parity, Equalized Odds) sob BaseMetric.",
   "plg.s.v3": "Variantes de TreeSHAP, KernelSHAP otimizadas sob BaseLocalExplainer."

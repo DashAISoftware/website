@@ -1,7 +1,7 @@
 {
   "abt.com.ey": "quem o constrói",
   "abt.com.h": "A comunidade por trás do <span class=\"blue\">dashAI</span>.",
-  "abt.com.lead": "dashAI é um projeto acadêmico do <strong>Departamento de Ciências da Computação (DCC)</strong> da <strong>Faculdade de Ciências Físicas e Matemáticas (FCFM)</strong> da <strong>Universidade do Chile</strong> — instituição sede e principal colaboradora. É construído em colaboração com CENIA, Unholster e outros aliados, com financiamento da ANID. Seu desenvolvimento combina mantenedores acadêmicos, alunos de graduação e pós, testers externos, e qualquer pessoa que abra uma issue, traduza a UI ou suba um plugin ao PyPI. Cada PR conta. Cada thread do Discord deixa marca.",
+  "abt.com.lead": "dashAI é um projeto acadêmico do <strong>Departamento de Ciências da Computação (DCC)</strong> da <strong>Faculdade de Ciências Físicas e Matemáticas (FCFM)</strong> da <strong>Universidade do Chile</strong>, instituição sede e principal colaboradora. É construído em colaboração com CENIA, Unholster e outros aliados, com financiamento da ANID. Seu desenvolvimento combina mantenedores acadêmicos, alunos de graduação e pós, testers externos, e qualquer pessoa que abra uma issue, traduza a UI ou suba um plugin ao PyPI. Cada PR conta. Cada thread do Discord deixa marca.",
   "abt.com.s1.l": "// MANTENEDORES ATIVOS",
   "abt.com.s1.v": "núcleo acadêmico",
   "abt.com.s2.l": "// CONTRIBUINTES GITHUB",
@@ -18,7 +18,7 @@
   "abt.hist.alum.p": "Tesistas de graduação e pós, memoristas, ajudantes de pesquisa. Muitas abstrações atuais nasceram como projetos de curso ou tese.",
   "abt.hist.cta.b": "Escrever",
   "abt.hist.cta.h": "Você passou pelo dashAI?",
-  "abt.hist.cta.p": "Se trabalhou no dashAI em algum momento — como aluno, tesista, voluntário, instituição parceira — escreva-nos. Queremos reconhecê-lo explicitamente nesta página.",
+  "abt.hist.cta.p": "Se trabalhou no dashAI em algum momento, como aluno, tesista, voluntário ou instituição parceira, escreva-nos. Queremos reconhecê-lo explicitamente nesta página.",
   "abt.hist.ey": "quem passou pelo dashAI",
   "abt.hist.h": "Colaboradores <span class=\"blue\">históricos</span>.",
   "abt.hist.inst.h": "Instituições que colaboraram em fases iniciais",

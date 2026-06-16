@@ -131,8 +131,8 @@ export function CommunitySection() {
           </h3>
           <p className="text-sm text-muted-foreground leading-[1.55] mb-6 flex-1">
             {lang === "es"
-              ? "Nuevas features, modelos agregados al catálogo, plugins de la comunidad, papers relevantes. Sin publicidad, sin promociones — solo lo que importa para tu flujo de trabajo."
-              : "New features, models added to the catalog, community plugins, relevant papers. No spam, no promos — just what matters for your workflow."}
+              ? "Nuevas features, modelos agregados al catálogo, plugins de la comunidad, papers relevantes. Sin publicidad, sin promociones, solo lo que importa para tu flujo de trabajo."
+              : "New features, models added to the catalog, community plugins, relevant papers. No spam, no promos, just what matters for your workflow."}
           </p>
           <a
             href="https://groups.google.com/g/dashai-updates"
