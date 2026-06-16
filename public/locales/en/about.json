@@ -47,5 +47,20 @@
   "abt.v.h": "Current version",
   "abt.v.h2": "Vision",
   "abt.v.p": "version &nbsp; <strong style=\"color:var(--brand-light)\">v0.9.4</strong><br>license &nbsp; open-source<br>python &nbsp; ≥ 3.10<br>stack &nbsp; &nbsp;FastAPI + React<br>docs &nbsp; &nbsp; &nbsp;docs.dash-ai.com (0.0.4)<br>paper &nbsp; &nbsp;in preparation",
-  "abt.v.p2": "Consolidate a Chilean visual Machine Learning platform with three central attributes: local operation on user data, extensibility via community plugins, and academic traceability of its components. The project aspires to serve as shared infrastructure between research groups, public institutions and professionals."
+  "abt.v.p2": "Consolidate a Chilean visual Machine Learning platform with three central attributes: local operation on user data, extensibility via community plugins, and academic traceability of its components. The project aspires to serve as shared infrastructure between research groups, public institutions and professionals.",
+  "abt.students.cesar-veliz.desc": "Hyperparameter optimization",
+  "abt.students.lucas-carrasco.desc": "Image classification",
+  "abt.students.oziel-aguilera.desc": "Models and Tasks",
+  "abt.students.daniel-roco.desc": "Interface redesign",
+  "abt.students.felipe-cardenas.desc": "Prediction module",
+  "abt.students.florencia-valladares.desc": "Front-end plugins",
+  "abt.students.javiera-labrin.desc": "Normalized CV",
+  "abt.students.natalia-abarca.desc": "Explainability module",
+  "abt.students.nicolas-olguin.desc": "Data exploration",
+  "abt.students.vicente-olivares.desc": "Type system",
+  "abt.students.camila-reyes.desc": "LLM models",
+  "abt.students.camilo-huerta.desc": "DataLoader & inference",
+  "abt.students.emilio-diaz.desc": "Image generation",
+  "abt.students.isaias-venegas.desc": "Converters module",
+  "abt.students.sofia-chavez.desc": "No-code RAG systems"
 }

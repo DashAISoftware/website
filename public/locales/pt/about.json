@@ -47,5 +47,20 @@
   "abt.v.h": "Versão atual",
   "abt.v.h2": "Visão",
   "abt.v.p": "version &nbsp; <strong style=\"color:var(--brand-light)\">v0.9.4</strong><br>license &nbsp; open-source<br>python &nbsp; ≥ 3.10<br>stack &nbsp; &nbsp;FastAPI + React<br>docs &nbsp; &nbsp; &nbsp;docs.dash-ai.com (0.0.4)<br>paper &nbsp; &nbsp;em preparação",
-  "abt.v.p2": "Consolidar uma plataforma chilena de Machine Learning visual com três atributos centrais: operação local sobre dados do usuário, extensibilidade via plugins da comunidade e rastreabilidade acadêmica dos seus componentes. O projeto aspira a servir como infraestrutura compartilhada entre grupos de pesquisa, instituições públicas e profissionais."
+  "abt.v.p2": "Consolidar uma plataforma chilena de Machine Learning visual com três atributos centrais: operação local sobre dados do usuário, extensibilidade via plugins da comunidade e rastreabilidade acadêmica dos seus componentes. O projeto aspira a servir como infraestrutura compartilhada entre grupos de pesquisa, instituições públicas e profissionais.",
+  "abt.students.cesar-veliz.desc": "Otimização de hiperparâmetros",
+  "abt.students.lucas-carrasco.desc": "Classificação de imagens",
+  "abt.students.oziel-aguilera.desc": "Modelos e Tasks",
+  "abt.students.daniel-roco.desc": "Redesign de interface",
+  "abt.students.felipe-cardenas.desc": "Módulo de predição",
+  "abt.students.florencia-valladares.desc": "Front-end plugins",
+  "abt.students.javiera-labrin.desc": "CV normalizado",
+  "abt.students.natalia-abarca.desc": "Módulo de explicabilidade",
+  "abt.students.nicolas-olguin.desc": "Exploração de dados",
+  "abt.students.vicente-olivares.desc": "Sistema de tipos",
+  "abt.students.camila-reyes.desc": "Modelos LLM",
+  "abt.students.camilo-huerta.desc": "DataLoader e inferência",
+  "abt.students.emilio-diaz.desc": "Geração de imagens",
+  "abt.students.isaias-venegas.desc": "Módulo de conversores",
+  "abt.students.sofia-chavez.desc": "Sistemas RAG no-code"
 }

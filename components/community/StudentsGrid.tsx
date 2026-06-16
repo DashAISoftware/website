@@ -22,7 +22,7 @@ export function StudentsGrid() {
                 : s.initials}
             </div>
             <strong className="student-name">{s.name}</strong>
-            <span className="student-desc">{s.desc}</span>
+            <span className="student-desc">{t(s.descKey)}</span>
             <span className="student-meta">{s.year}</span>
           </div>
         ))}
