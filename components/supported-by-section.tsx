@@ -1,6 +1,7 @@
 "use client"
 
 import { useTranslation } from "react-i18next"
+import { getInstitutions, getAcknowledgmentsText, getFunderLogos } from "@/lib/institutions"
 
 const PAPER = "#FEFEFF"
 const PAPER_LINE = "#E3E2DF"
@@ -10,40 +11,21 @@ const ON_LIGHT_MUTE = "#4A4744"
 const ON_LIGHT_FAINT = "#6C685F"
 const BRAND_ON_LIGHT = "#1E63D8"
 
-const COLLABS = [
-  {
-    acro: "UCHILE",
-    name: { es: "Universidad de Chile · DCC, FCFM", en: "University of Chile · DCC, FCFM" },
-    role: { es: "Institución líder", en: "Lead institution" },
-    meta: { es: "Academia", en: "Academic" },
-    url: "https://dcc.uchile.cl/",
-  },
-  {
-    acro: "CENIA",
-    name: { es: "Centro Nacional de Inteligencia Artificial", en: "National Center for Artificial Intelligence" },
-    role: { es: "Colaborador", en: "Collaborator" },
-    meta: { es: "Investigación", en: "Research" },
-    url: "https://www.cenia.cl/",
-  },
-  {
-    acro: "Unholster",
-    name: { es: "Unholster", en: "Unholster" },
-    role: { es: "Colaborador", en: "Collaborator" },
-    meta: { es: "Industria", en: "Industry" },
-    url: "https://www.unholster.com/",
-  },
-  {
-    acro: "ANID",
-    name: { es: "Agencia Nacional de Investigación y Desarrollo", en: "National Agency for Research and Development" },
-    role: { es: "Financiamiento público", en: "Public funding" },
-    meta: { es: "Gobierno", en: "Government" },
-    url: "https://anid.cl/",
-  },
-]
-
 export function SupportedBySection() {
   const { i18n } = useTranslation()
   const lang = i18n.language?.startsWith("es") ? "es" : "en"
+  const institutions = [
+    ...getInstitutions(),
+    ...getFunderLogos().map(f => ({
+      id: f.id,
+      name: f.name,
+      fullName: f.fullName,
+      url: f.url,
+      logo: f.logo,
+      role: lang === "es" ? "Financiamiento público" : "Public funding",
+    })),
+  ]
+  const acknowledgment = getAcknowledgmentsText(lang)
 
   return (
     <section
@@ -85,10 +67,10 @@ export function SupportedBySection() {
           border: `1px solid ${PAPER_LINE}`,
         }}
       >
-        {COLLABS.map(c => (
+        {institutions.map(inst => (
           <a
-            key={c.acro}
-            href={c.url}
+            key={inst.id}
+            href={inst.url}
             target="_blank"
             rel="noopener"
             className="flex flex-col p-7 min-h-[230px] transition-colors duration-200 group no-underline"
@@ -100,22 +82,30 @@ export function SupportedBySection() {
               className="font-mono font-medium leading-none"
               style={{ fontSize: "clamp(28px,3.4vw,42px)", letterSpacing: "-.03em", color: ON_LIGHT }}
             >
-              {c.acro}
+              {inst.id.toUpperCase()}
             </div>
             <div className="mt-[18px] font-medium leading-[1.35] tracking-tight" style={{ fontSize: 15.5, color: ON_LIGHT, maxWidth: "24ch" }}>
-              {lang === "es" ? c.name.es : c.name.en}
+              {inst.fullName || inst.name}
             </div>
             <div
               className="mt-auto pt-5 font-mono"
               style={{ fontSize: 11.5, letterSpacing: ".06em", color: ON_LIGHT_FAINT, borderTop: `1px dashed ${PAPER_LINE}` }}
             >
-              {lang === "es" ? c.role.es : c.role.en}
-              <span style={{ color: BRAND_ON_LIGHT, padding: "0 .3em" }}>·</span>
-              {lang === "es" ? c.meta.es : c.meta.en}
+              {inst.role}
             </div>
           </a>
         ))}
       </div>
+
+      {/* Acknowledgments / funding */}
+      {acknowledgment && (
+        <p
+          className="mt-10 font-mono"
+          style={{ fontSize: 12.5, lineHeight: 1.6, letterSpacing: ".02em", color: ON_LIGHT_FAINT, maxWidth: "80ch" }}
+        >
+          {acknowledgment}
+        </p>
+      )}
     </section>
   )
 }
