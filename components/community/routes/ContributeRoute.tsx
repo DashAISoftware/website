@@ -235,7 +235,7 @@ export function ContributeRoute() {
 
             <div className="guides-grid">
 
-              {/* Guide 1 — Modelo */}
+              {/* Guide 1 - Modelo */}
               <article className="guide g-model" id="guide-model">
                 <div className="guide-head">
                   <svg className="ic"><use href="#ic-model" /></svg>
@@ -262,7 +262,7 @@ export function ContributeRoute() {
                 </div>
               </article>
 
-              {/* Guide 2 — Loader */}
+              {/* Guide 2 - Loader */}
               <article className="guide g-data" id="guide-data">
                 <div className="guide-head">
                   <svg className="ic"><use href="#ic-data" /></svg>
@@ -286,7 +286,7 @@ export function ContributeRoute() {
                 </div>
               </article>
 
-              {/* Guide 3 — Plugin */}
+              {/* Guide 3 - Plugin */}
               <article className="guide g-plugin" id="guide-plugin">
                 <div className="guide-head">
                   <svg className="ic"><use href="#ic-plugin" /></svg>
@@ -312,7 +312,7 @@ export function ContributeRoute() {
                 </div>
               </article>
 
-              {/* Guide 4 — Metrica */}
+              {/* Guide 4 - Metrica */}
               <article className="guide g-metric" id="guide-metric">
                 <div className="guide-head">
                   <svg className="ic"><use href="#ic-metric" /></svg>
@@ -335,7 +335,7 @@ export function ContributeRoute() {
                 </div>
               </article>
 
-              {/* Guide 5 — XAI */}
+              {/* Guide 5 - XAI */}
               <article className="guide g-xai" id="guide-xai">
                 <div className="guide-head">
                   <svg className="ic"><use href="#ic-xai" /></svg>
@@ -358,7 +358,7 @@ export function ContributeRoute() {
                 </div>
               </article>
 
-              {/* Guide 6 — HPO */}
+              {/* Guide 6 - HPO */}
               <article className="guide g-hpo" id="guide-hpo">
                 <div className="guide-head">
                   <svg className="ic"><use href="#ic-hpo" /></svg>
@@ -381,7 +381,7 @@ export function ContributeRoute() {
                 </div>
               </article>
 
-              {/* Guide B1 — Bug fix */}
+              {/* Guide B1 - Bug fix */}
               <article className="guide g-bug" id="guide-bug">
                 <div className="guide-head">
                   <svg className="ic"><use href="#ic-bug" /></svg>
@@ -408,7 +408,7 @@ export function ContributeRoute() {
                 </div>
               </article>
 
-              {/* Guide B2 — Refactor or core feature */}
+              {/* Guide B2 - Refactor or core feature */}
               <article className="guide g-refactor" id="guide-feature">
                 <div className="guide-head">
                   <svg className="ic"><use href="#ic-refactor" /></svg>
@@ -435,7 +435,7 @@ export function ContributeRoute() {
                 </div>
               </article>
 
-              {/* Guide 7 — Lang */}
+              {/* Guide 7 - Lang */}
               <article className="guide g-lang" id="guide-lang">
                 <div className="guide-head">
                   <svg className="ic"><use href="#ic-lang" /></svg>
@@ -459,7 +459,7 @@ export function ContributeRoute() {
                 </div>
               </article>
 
-              {/* Guide 8 — Tutorial */}
+              {/* Guide 8 - Tutorial */}
               <article className="guide g-tutorial" id="guide-tutorial">
                 <div className="guide-head">
                   <svg className="ic"><use href="#ic-tutorial" /></svg>

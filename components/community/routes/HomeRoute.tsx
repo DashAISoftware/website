@@ -92,7 +92,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
                 className="hero-stat"
                 href="#download"
               >
-                <div className="hero-stat-num">{totalDownloads !== null ? formatNum(totalDownloads) : '—'}</div>
+                <div className="hero-stat-num">{totalDownloads !== null ? formatNum(totalDownloads) : '-'}</div>
                 <div className="hero-stat-label">{t('hero.stat.dl')}</div>
               </a>
               <a
@@ -101,7 +101,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
                 target="_blank"
                 rel="noopener"
               >
-                <div className="hero-stat-num">{stars !== null ? formatNum(stars) : '—'}</div>
+                <div className="hero-stat-num">{stars !== null ? formatNum(stars) : '-'}</div>
                 <div className="hero-stat-label">
                   <svg style={{ width: 12, height: 12, flexShrink: 0 }}>
                     <use href="#i-github" />
@@ -329,7 +329,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
                     <div className="when">{fmtDate(r.published_at)}</div>
                     <div className="what">
                       <strong>{r.tag_name}</strong>
-                      {r.name && r.name !== r.tag_name ? ` — ${r.name}` : ''}
+                      {r.name && r.name !== r.tag_name ? ` - ${r.name}` : ''}
                     </div>
                   </a>
                 )) : (

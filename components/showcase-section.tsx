@@ -241,7 +241,7 @@ export function ShowcaseSection() {
               { pill: t("strip.card3.pills.running"), pillStyle: { background: "color-mix(in oklab, #90F1C4 25%, var(--ink-deep))", color: "#90F1C4", border: "1px solid color-mix(in oklab, #90F1C4 40%, transparent)" }, name: "train_rf_v2",  meta: "68%" },
               { pill: t("strip.card3.pills.running"), pillStyle: { background: "color-mix(in oklab, #90F1C4 25%, var(--ink-deep))", color: "#90F1C4", border: "1px solid color-mix(in oklab, #90F1C4 40%, transparent)" }, name: "explain_shap", meta: "12s" },
               { pill: t("strip.card3.pills.done"),    pillStyle: { background: "color-mix(in oklab, var(--primary) 22%, var(--ink-deep))", color: "#A7C7FF", border: "1px solid color-mix(in oklab, var(--primary) 40%, transparent)" }, name: "predict_test", meta: "1m 4s" },
-              { pill: t("strip.card3.pills.queued"),  pillStyle: { background: "var(--background)", color: "var(--muted-foreground)", border: "1px solid var(--border)" }, name: "optimize_hpo", meta: "—" },
+              { pill: t("strip.card3.pills.queued"),  pillStyle: { background: "var(--background)", color: "var(--muted-foreground)", border: "1px solid var(--border)" }, name: "optimize_hpo", meta: "-" },
             ].map(j => (
               <div key={j.name} className="flex items-center gap-2.5 py-2 border-b border-dashed border-border text-xs last:border-b-0">
                 <span className="font-mono text-[9.5px] px-[7px] py-[2px] rounded-full uppercase tracking-[.06em] whitespace-nowrap" style={j.pillStyle}>{j.pill}</span>

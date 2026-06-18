@@ -105,7 +105,7 @@ export function DownloadSection() {
           overflow: "hidden",
         }}
       >
-        {/* Card 1 — executables */}
+        {/* Card 1 - executables */}
         <div className="flex flex-col p-7 min-h-[280px]" style={{ background: "var(--card)" }}>
           <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[.12em] text-muted-foreground mb-3.5">
             <span className="bg-primary text-primary-foreground font-semibold text-[10px] px-[7px] py-[2px] rounded">01</span>
@@ -156,7 +156,7 @@ export function DownloadSection() {
           </a>
         </div>
 
-        {/* Card 2 — pip */}
+        {/* Card 2 - pip */}
         <div className="flex flex-col p-7 min-h-[280px]" style={{ background: "var(--card)" }}>
           <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[.12em] text-muted-foreground mb-3.5">
             <span className="bg-primary text-primary-foreground font-semibold text-[10px] px-[7px] py-[2px] rounded">02</span>
@@ -184,7 +184,7 @@ export function DownloadSection() {
           </a>
         </div>
 
-        {/* Card 3 — requirements */}
+        {/* Card 3 - requirements */}
         <div className="flex flex-col p-7 min-h-[280px]" style={{ background: "var(--card)" }}>
           <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[.12em] text-muted-foreground mb-3.5">
             <span className="font-semibold text-[10px] px-[7px] py-[2px] rounded border border-border">⊳</span>
