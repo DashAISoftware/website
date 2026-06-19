@@ -1,8 +1,8 @@
 {
   "dl.cl.t": "<strong style=\"color:var(--ink);font-weight:500\">Quer modificar o core?</strong> Clone o repositório e trabalhe sobre a branch <code style=\"font-family:var(--mono);font-size:12px;background:var(--bg);padding:1px 5px;border-radius:4px\">develop</code>.",
-  "dl.e.arm": "macOS · Apple Silicon",
+  "dl.e.arm": "macOS | Apple Silicon",
   "dl.e.h": "Instalador nativo.",
-  "dl.e.int": "macOS · Intel",
+  "dl.e.int": "macOS | Intel",
   "dl.e.p": "Sem Python, sem setup. Baixe o executável para seu sistema operacional desde GitHub Releases. Clique duplo e dashAI abre pronto para usar.",
   "dl.e.r": "Ver todos os releases no GitHub",
   "dl.e.tag": "executáveis nativos",
@@ -12,7 +12,7 @@
   "dl.lead": "Duas rotas: executável nativo para quem prefere não instalar Python, ou pip para quem já tem um ambiente. As duas deixam dashAI pronto para usar como aplicação desktop.",
   "dl.m.d": "Maio 2026",
   "dl.m.l": "Open Source",
-  "dl.m.os": "Linux · macOS · Windows",
+  "dl.m.os": "Linux | macOS | Windows",
   "dl.m.v": "v0.9.4",
   "dl.p.h": "Instalar com pip.",
   "dl.p.p": "O pacote <code style=\"font-family:var(--mono);font-size:13px;background:var(--surface);padding:1px 5px;border-radius:4px\">dashai</code> sobe o servidor e abre o navegador. Requer Python ≥ 3.10.",
@@ -23,7 +23,7 @@
   "dl.req.os.s": "executáveis nativos disponíveis para os três",
   "dl.req.py.s": "só para instalação via pip",
   "dl.req.ram.s": "memória extra recomendada para geração de imagem",
-  "dl.req.ram.v": "8 GB · 16 GB para LLMs locais",
+  "dl.req.ram.v": "8 GB | 16 GB para LLMs locais",
   "dl.v.h": "Problemas com a instalação?",
-  "dl.v.p": "Revise a documentação oficial ou pergunte direto no Discord — a equipe e a comunidade respondem em horas."
+  "dl.v.p": "Revise a documentação oficial ou pergunte direto no Discord: a equipe e a comunidade respondem em horas."
 }

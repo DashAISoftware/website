@@ -87,9 +87,9 @@ export function DownloadSection() {
           </h2>
           <div className="font-mono text-xs text-muted-foreground tracking-[.08em] flex flex-wrap gap-x-3 gap-y-1">
             <strong className="text-foreground font-medium">{releaseTag}</strong>
-            <span>·</span><span>MIT License</span>
-            <span>·</span><span>Linux · macOS · Windows</span>
-            <span>·</span><span>{t("releaseMonth")}</span>
+            <span>|</span><span>MIT License</span>
+            <span>|</span><span>Linux | macOS | Windows</span>
+            <span>|</span><span>{t("releaseMonth")}</span>
           </div>
         </div>
       </div>
@@ -105,7 +105,7 @@ export function DownloadSection() {
           overflow: "hidden",
         }}
       >
-        {/* Card 1 — executables */}
+        {/* Card 1 - executables */}
         <div className="flex flex-col p-7 min-h-[280px]" style={{ background: "var(--card)" }}>
           <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[.12em] text-muted-foreground mb-3.5">
             <span className="bg-primary text-primary-foreground font-semibold text-[10px] px-[7px] py-[2px] rounded">01</span>
@@ -141,7 +141,7 @@ export function DownloadSection() {
                 }}
               >
                 <span className="font-medium">{e.os}</span>
-                <span className="text-[11px] text-muted-foreground flex-1 ml-3.5">{e.ext}{e.size ? ` · ${e.size}` : ""}</span>
+                <span className="text-[11px] text-muted-foreground flex-1 ml-3.5">{e.ext}{e.size ? ` | ${e.size}` : ""}</span>
                 <span className="text-[#A7C7FF] text-sm">↓</span>
               </a>
             ))}
@@ -156,7 +156,7 @@ export function DownloadSection() {
           </a>
         </div>
 
-        {/* Card 2 — pip */}
+        {/* Card 2 - pip */}
         <div className="flex flex-col p-7 min-h-[280px]" style={{ background: "var(--card)" }}>
           <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[.12em] text-muted-foreground mb-3.5">
             <span className="bg-primary text-primary-foreground font-semibold text-[10px] px-[7px] py-[2px] rounded">02</span>
@@ -184,7 +184,7 @@ export function DownloadSection() {
           </a>
         </div>
 
-        {/* Card 3 — requirements */}
+        {/* Card 3 - requirements */}
         <div className="flex flex-col p-7 min-h-[280px]" style={{ background: "var(--card)" }}>
           <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[.12em] text-muted-foreground mb-3.5">
             <span className="font-semibold text-[10px] px-[7px] py-[2px] rounded border border-border">⊳</span>
@@ -195,7 +195,7 @@ export function DownloadSection() {
             {[
               { k: "Python", v: "≥ 3.10",                  note: t("requirements.items.python.note") },
               { k: "RAM",    v: "8 GB",                     note: t("requirements.items.ram.note") },
-              { k: "OS",     v: "Linux · macOS · Windows",  note: t("requirements.items.os.note") },
+              { k: "OS",     v: "Linux | macOS | Windows",  note: t("requirements.items.os.note") },
             ].map(r => (
               <li key={r.k} className="grid gap-3.5 pb-3.5 border-b border-dashed border-border last:border-b-0 last:pb-0" style={{ gridTemplateColumns: "80px 1fr" }}>
                 <span className="font-mono text-[10.5px] uppercase tracking-[.1em] text-muted-foreground pt-0.5">{r.k}</span>

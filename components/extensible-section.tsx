@@ -20,7 +20,7 @@ const MODULES = [
   { num: "04", name: "BaseMetric",           role: { es: "Métrica",          en: "Metric"          }, desc: { es: "Classification, Regression, Translation. Aparece sola en la UI.", en: "Classification, Regression, Translation. Auto-appears in UI." } },
   { num: "05", name: "BaseOptimizer",        role: { es: "Optimización HPO",  en: "HPO optimizer"   }, desc: { es: "Optuna + HyperOpt. Estrategias bayesianas, evolutivas, QMC.", en: "Optuna + HyperOpt. Bayesian, evolutionary, QMC strategies." } },
   { num: "06", name: "BaseDataLoader",       role: { es: "Carga de datos",   en: "Data loader"     }, desc: { es: "CSV, JSON, imágenes, audio. Cada loader declara su formato.", en: "CSV, JSON, images, audio. Each loader declares its format." } },
-  { num: "07", name: "BaseExplorer",         role: { es: "EDA / exploración", en: "EDA / exploration"}, desc: { es: "Visualizaciones, perfilado, distribuciones — tipado.", en: "Visualizations, profiling, distributions — typed." } },
+  { num: "07", name: "BaseExplorer",         role: { es: "EDA / exploración", en: "EDA / exploration"}, desc: { es: "Visualizaciones, perfilado, distribuciones, tipadas.", en: "Visualizations, profiling, distributions, all typed." } },
   { num: "08", name: "BaseConverter",        role: { es: "Conversor",        en: "Converter"       }, desc: { es: "Transformaciones tipadas entre formatos y representaciones.", en: "Typed transformations between formats and representations." } },
   { num: "09", name: "BaseGlobalExplainer",  role: { es: "XAI global",       en: "Global XAI"      }, desc: { es: "Permutation importance, surrogate, partial dependence.", en: "Permutation importance, surrogate, partial dependence." } },
   { num: "10", name: "BaseLocalExplainer",   role: { es: "XAI local",        en: "Local XAI"       }, desc: { es: "SHAP, LIME, counterfactuals con abstracción dedicada.", en: "SHAP, LIME, counterfactuals with dedicated abstraction." } },
@@ -66,7 +66,7 @@ export function ExtensibleSection() {
           <p style={{ fontSize: "clamp(17px,1.5vw,22px)", maxWidth: "58ch", lineHeight: 1.5, color: ON_LIGHT_MUTE }}>
             {lang === "es"
               ? "Cada rol funcional tiene su clase base. Veinte a cuarenta líneas para un componente nuevo. La UI emerge del schema, no se programa."
-              : "Each functional role has its base class. Twenty to forty lines for a new component. The UI emerges from the schema — it isn't programmed."}
+              : "Each functional role has its base class. Twenty to forty lines for a new component. The UI emerges from the schema, not programmed."}
           </p>
         </div>
       </div>
@@ -104,9 +104,9 @@ export function ExtensibleSection() {
         <div className="flex flex-col gap-7">
           {[
             { ico: "⬡", title: "Schema-driven UI", body: { es: "El servidor expone el schema Pydantic; el frontend React renderiza el formulario sin conocerlo previamente.", en: "The server exposes the Pydantic schema; the React frontend renders the form without prior knowledge." } },
-            { ico: "↻", title: lang === "es" ? "Hot-install desde la UI" : "Hot-install from the UI", body: { es: "Un click instala una extensión desde PyPI. Sin reiniciar, sin shell externa.", en: "One click installs an extension from PyPI. No restart, no external shell." } },
-            { ico: "▶", title: lang === "es" ? "API HTTP pública" : "Public HTTP API", body: { es: <>Cualquier cliente HTTP — Python, Jupyter, CLI — consulta componentes y lanza jobs. <code className="font-mono text-xs">GET /component/</code>, <code className="font-mono text-xs">POST /job/</code>.</>, en: <>Any HTTP client — Python, Jupyter, CLI — queries components and launches jobs. <code className="font-mono text-xs">GET /component/</code>, <code className="font-mono text-xs">POST /job/</code>.</> } },
-            { ico: "⚡", title: "FastAPI + React, not desktop", body: { es: "El servidor corre en cualquier máquina, accesible desde el navegador — local, red o remoto.", en: "The server runs anywhere, reachable from any browser — local, network or remote." } },
+            { ico: "↻", title: lang === "es" ? "Instalar desde la UI" : "Install from the UI", body: { es: "Un click instala una extensión desde PyPI. Sin reiniciar, sin shell externa.", en: "One click installs an extension from PyPI. No restart, no external shell." } },
+            { ico: "▶", title: lang === "es" ? "API HTTP pública" : "Public HTTP API", body: { es: <>Cualquier cliente HTTP, como Python, Jupyter o CLI, consulta componentes y lanza jobs. <code className="font-mono text-xs">GET /component/</code>, <code className="font-mono text-xs">POST /job/</code>.</>, en: <>Any HTTP client (Python, Jupyter, CLI) queries components and launches jobs. <code className="font-mono text-xs">GET /component/</code>, <code className="font-mono text-xs">POST /job/</code>.</> } },
+            { ico: "⚡", title: "FastAPI + React, not desktop", body: { es: "El servidor corre en cualquier máquina, accesible desde el navegador: local, red o remoto.", en: "The server runs anywhere, reachable from any browser: local, network or remote." } },
           ].map(p => (
             <div key={p.title} className="grid gap-4.5 pb-7" style={{ gridTemplateColumns: "56px 1fr", borderBottom: `1px solid ${PAPER_LINE}` }}>
               <div className="w-[50px] h-[50px] rounded-md flex items-center justify-center font-mono text-[18px] border shrink-0" style={{ background: "#F4F4F2", borderColor: PAPER_LINE, color: BRAND_ON_LIGHT }}>
@@ -170,7 +170,7 @@ export function ExtensibleSection() {
         `}<span className="code-kw">return</span>{` `}<span className="code-kw">self</span>{`.model.predict(X)`}</code>
           </pre>
           <div className="flex justify-between px-4.5 py-2.5 border-t font-mono text-[11px]" style={{ background: CODE_HEADER_BG, borderColor: CODE_BORDER, color: ON_LIGHT_FAINT }}>
-            <span>{lang === "es" ? "33 líneas · UI auto-generada" : "33 lines · UI auto-generated"}</span>
+            <span>{lang === "es" ? "33 líneas | UI auto-generada" : "33 lines | UI auto-generated"}</span>
             <span>python ≥ 3.10</span>
           </div>
         </div>
