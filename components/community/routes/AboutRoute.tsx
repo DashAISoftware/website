@@ -2,6 +2,7 @@
 
 import { useTranslation } from 'react-i18next'
 import { InstitutionsGrid } from '../InstitutionsGrid'
+import { StudentsGrid } from '../StudentsGrid'
 import { getAcknowledgmentsText } from '@/lib/institutions'
 import '@/app/i18n'
 export function AboutRoute() {
@@ -77,20 +78,7 @@ export function AboutRoute() {
             <h2 dangerouslySetInnerHTML={th('abt.hist.h')} />
             <p className="lead">{t('abt.hist.lead')}</p>
 
-            <div className="team-grid">
-              <div className="team-card">
-                <h3>{t('abt.hist.alum.h')}</h3>
-                <p>{t('abt.hist.alum.p')}</p>
-                <a
-                  href="https://github.com/DashAISoftware/dashAI/graphs/contributors"
-                  target="_blank"
-                  rel="noopener"
-                  style={{ fontSize: '13px', color: 'var(--brand-on)', fontWeight: 500 }}
-                >
-                  contributors graph →
-                </a>
-              </div>
-            </div>
+            <StudentsGrid />
 
             <div style={{
               marginTop: '32px',
