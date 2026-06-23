@@ -110,6 +110,7 @@ export const STUDENTS: Student[] = [
     initials: 'ED', name: 'Emilio Díaz',           year: 2025,
     descKey: 'abt.students.emilio-diaz.desc',
     fullDesc: 'Generación de Imágenes para DashAI',
+    avatar: '/images/students/emilio_diaz.png',
   },
   {
     initials: 'IV', name: 'Isaias Venegas',        year: 2025,
