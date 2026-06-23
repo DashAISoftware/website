@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
-    "dev": "next dev",
+    "build": "node scripts/fetch-institutions.mjs && next build",
+    "dev": "node scripts/fetch-institutions.mjs && next dev",
     "lint": "eslint .",
-    "start": "next start"
+    "start": "next start",
+    "fetch-institutions": "node scripts/fetch-institutions.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

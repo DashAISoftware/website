@@ -94,7 +94,7 @@ export function AppMockup() {
             <div className={`mock-screen${activeIndex === 0 ? " is-active" : ""}`} data-mock-screen="datasets">
               <div className="mock-chrome">
                 <div className="mock-dots"><span /><span /><span /></div>
-                <div className="mock-url">dashAI · datasets / housing-2024.csv</div>
+                <div className="mock-url">dashAI | datasets / housing-2024.csv</div>
               </div>
               <div style={{ lineHeight: 0 }}>
                 <img src="/images/datasets.png" alt="dashAI datasets view" style={{ width: '100%', display: 'block' }} />
@@ -105,7 +105,7 @@ export function AppMockup() {
             <div className={`mock-screen${activeIndex === 1 ? " is-active" : ""}`} data-mock-screen="models">
               <div className="mock-chrome">
                 <div className="mock-dots"><span /><span /><span /></div>
-                <div className="mock-url">dashAI · models / tabular-classification</div>
+                <div className="mock-url">dashAI | models / tabular-classification</div>
               </div>
               <div style={{ lineHeight: 0 }}>
                 <img src="/images/models.png" alt="dashAI models view" style={{ width: '100%', display: 'block' }} />
@@ -116,7 +116,7 @@ export function AppMockup() {
             <div className={`mock-screen${activeIndex === 2 ? " is-active" : ""}`} data-mock-screen="gen">
               <div className="mock-chrome">
                 <div className="mock-dots"><span /><span /><span /></div>
-                <div className="mock-url">dashAI · generative / mistral-7b</div>
+                <div className="mock-url">dashAI | generative / mistral-7b</div>
               </div>
               <div style={{ lineHeight: 0 }}>
                 <img src="/images/generative.png" alt="dashAI generative view" style={{ width: '100%', display: 'block' }} />

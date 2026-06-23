@@ -1,10 +1,42 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { findAsset, getLatestRelease } from '@/lib/github'
+
+const SOURCEFORGE_URL = 'https://sourceforge.net/projects/dashai/files/latest/download'
+const TRACKER_URL = process.env.NEXT_PUBLIC_TRACKER_URL
+
+async function trackClick(buttonId: string) {
+  if (!TRACKER_URL) return
+  try {
+    await fetch(`${TRACKER_URL}/click/${buttonId}`, { method: 'POST' })
+  } catch {
+    // non-blocking
+  }
+}
+
 export function DownloadRoute() {
-  const { t, i18n } = useTranslation('download')
+  const { t } = useTranslation('download')
   const th = (key: string) => ({ __html: t(key) })
+
+  const [links, setLinks] = useState({
+    windows: SOURCEFORGE_URL,
+    mac_arm: SOURCEFORGE_URL,
+    mac_intel: SOURCEFORGE_URL,
+  })
+
+  useEffect(() => {
+    getLatestRelease().then((release) => {
+      if (!release) return
+      setLinks({
+        windows:   findAsset(release.assets, 'windows')?.browser_download_url   ?? SOURCEFORGE_URL,
+        mac_arm:   findAsset(release.assets, 'mac_arm')?.browser_download_url   ?? SOURCEFORGE_URL,
+        mac_intel: findAsset(release.assets, 'mac_intel')?.browser_download_url ?? SOURCEFORGE_URL,
+      })
+    })
+  }, [])
 
   return (
     <main data-route="download">
@@ -46,7 +78,7 @@ export function DownloadRoute() {
               <p>{t('dl.e.p')}</p>
 
               <div className="dl-buttons">
-                <a href="https://sourceforge.net/projects/dashai/files/latest/download" target="_blank" rel="noopener">
+                <a href={links.windows} target="_blank" rel="noopener" onClick={() => trackClick('windows')}>
                   <span className="os">
                     <svg style={{ width: '18px', height: '18px' }}>
                       <use href="#i-win" />
@@ -55,7 +87,7 @@ export function DownloadRoute() {
                   </span>
                   <span className="arrow"><span className="ext">.exe</span> ↓</span>
                 </a>
-                <a href="https://sourceforge.net/projects/dashai/files/latest/download" target="_blank" rel="noopener">
+                <a href={links.mac_arm} target="_blank" rel="noopener" onClick={() => trackClick('mac_arm')}>
                   <span className="os">
                     <svg style={{ width: '18px', height: '18px' }}>
                       <use href="#i-apple" />
@@ -64,7 +96,7 @@ export function DownloadRoute() {
                   </span>
                   <span className="arrow"><span className="ext">.dmg</span> ↓</span>
                 </a>
-                <a className="alt" href="https://sourceforge.net/projects/dashai/files/latest/download" target="_blank" rel="noopener">
+                <a className="alt" href={links.mac_intel} target="_blank" rel="noopener" onClick={() => trackClick('mac_intel')}>
                   <span className="os">
                     <svg style={{ width: '18px', height: '18px' }}>
                       <use href="#i-apple" />
@@ -126,7 +158,7 @@ export function DownloadRoute() {
               </div>
               <div className="req-card">
                 <div className="lbl">OS</div>
-                <div className="val">Linux · macOS · Windows</div>
+                <div className="val">Linux | macOS | Windows</div>
                 <div className="sub">{t('dl.req.os.s')}</div>
               </div>
             </div>

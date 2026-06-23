@@ -130,8 +130,8 @@ export function FeaturesSection() {
             title: lang === "es" ? "Transformers y seq-to-seq" : "Transformers & seq-to-seq",
             count: "15 + 9",
             body: lang === "es"
-              ? <>Clasificadores y modelos de traducción neural con métricas <code className="font-mono text-xs">BLEU · ChrF · TER</code> nativas.</>
-              : <>Classifiers and neural translation models with native <code className="font-mono text-xs">BLEU · ChrF · TER</code> metrics.</>,
+              ? <>Clasificadores y modelos de traducción neural con métricas <code className="font-mono text-xs">BLEU | ChrF | TER</code> nativas.</>
+              : <>Classifiers and neural translation models with native <code className="font-mono text-xs">BLEU | ChrF | TER</code> metrics.</>,
             tags: ["DistilBERT","DeBERTa-v3","ModernBERT","NLLB","OpusMT","+19"],
             countColor: BRAND_ON_LIGHT,
           },

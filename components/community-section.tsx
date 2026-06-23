@@ -72,8 +72,8 @@ export function CommunitySection() {
           </a>
           <p className="mt-auto font-mono text-[11px] text-muted-foreground border-t border-border pt-4">
             {lang === "es"
-              ? "· dashai.nocode@gmail.com · respuesta en < 48h"
-              : "· dashai.nocode@gmail.com · reply in < 48h"}
+              ? "| dashai.nocode@gmail.com | respuesta en < 48h"
+              : "| dashai.nocode@gmail.com | reply in < 48h"}
           </p>
         </div>
 
@@ -108,8 +108,8 @@ export function CommunitySection() {
           </a>
           <p className="mt-auto font-mono text-[11px] text-muted-foreground border-t border-border pt-4">
             {lang === "es"
-              ? "· Comunidad abierta · acceso inmediato"
-              : "· Open community · instant access"}
+              ? "| Comunidad abierta | acceso inmediato"
+              : "| Open community | instant access"}
           </p>
         </div>
 
@@ -131,8 +131,8 @@ export function CommunitySection() {
           </h3>
           <p className="text-sm text-muted-foreground leading-[1.55] mb-6 flex-1">
             {lang === "es"
-              ? "Nuevas features, modelos agregados al catálogo, plugins de la comunidad, papers relevantes. Sin publicidad, sin promociones — solo lo que importa para tu flujo de trabajo."
-              : "New features, models added to the catalog, community plugins, relevant papers. No spam, no promos — just what matters for your workflow."}
+              ? "Nuevas features, modelos agregados al catálogo, plugins de la comunidad, papers relevantes. Sin publicidad, sin promociones, solo lo que importa para tu flujo de trabajo."
+              : "New features, models added to the catalog, community plugins, relevant papers. No spam, no promos, just what matters for your workflow."}
           </p>
           <a
             href="https://groups.google.com/g/dashai-updates"
@@ -147,8 +147,8 @@ export function CommunitySection() {
           </a>
           <p className="mt-auto font-mono text-[11px] text-muted-foreground border-t border-border pt-4">
             {lang === "es"
-              ? "· Sal cuando quieras · 0 emails comerciales"
-              : "· Leave anytime · 0 commercial emails"}
+              ? "| Sal cuando quieras | 0 emails comerciales"
+              : "| Leave anytime | 0 commercial emails"}
           </p>
         </div>
       </div>

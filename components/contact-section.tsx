@@ -29,7 +29,7 @@ export function ContactSection() {
           </h2>
           <p className="text-muted-foreground text-lg">
             {t('contact:description', {
-              defaultValue: 'Have questions or feedback about DashAI? Feel free to get in touch — we’d love to hear from you.',
+              defaultValue: ‘Have questions or feedback about DashAI? Feel free to get in touch, we\’d love to hear from you.’,
             })}
           </p>
         </div>
