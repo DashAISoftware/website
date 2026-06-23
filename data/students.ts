@@ -5,10 +5,30 @@ export interface Student {
   descKey: string
   fullDesc: string
   avatar?: string
+  imgStyle?: { transform?: string; objectPosition?: string; scale?: string }
 }
 
 export const STUDENTS: Student[] = [
+  // 2022
+  {
+    initials: 'IN', name: 'Ignacio Nuñez',          year: 2022,
+    descKey: 'abt.students.ignacio-nunez.desc',
+    fullDesc: 'Building an extensible architecture for a multi-task GUI-oriented Machine Learning software',
+  },
   // 2023
+  {
+    initials: 'MP', name: 'Martin Paredes',          year: 2023,
+    descKey: 'abt.students.martin-paredes.desc',
+    fullDesc: 'Creación de un Data Studio',
+    avatar: '/images/students/martin_paredes.jpg',
+    imgStyle: { transform: 'scale(1.25)' },
+  },
+  {
+    initials: 'RU', name: 'Rodrigo Urrea',           year: 2023,
+    descKey: 'abt.students.rodrigo-urrea.desc',
+    fullDesc: 'Diseño e implementación de backend para el framework DashAI',
+    avatar: '/images/students/rodrigo_urrea.jpg',
+  },
   {
     initials: 'CV', name: 'César Véliz',           year: 2023,
     descKey: 'abt.students.cesar-veliz.desc',
@@ -37,6 +57,7 @@ export const STUDENTS: Student[] = [
     initials: 'DR', name: 'Daniel Roco',           year: 2024,
     descKey: 'abt.students.daniel-roco.desc',
     fullDesc: 'Rediseño centrado en personas de la interfaz de DashAI',
+    avatar: '/images/students/daniel_roco.jpg',
   },
   {
     initials: 'FC', name: 'Felipe Cárdenas',       year: 2024,
@@ -73,6 +94,12 @@ export const STUDENTS: Student[] = [
   },
   // 2025
   {
+    initials: 'DF', name: 'Diego Faúndez',           year: 2025,
+    descKey: 'abt.students.diego-faundez.desc',
+    fullDesc: 'Implementación de clases para la representación de tipos de datos e inferencia automática de estos tipos durante la carga para DashAI',
+    avatar: '/images/students/diego_faundez.jpg',
+  },
+  {
     initials: 'CR', name: 'Camila Reyes',          year: 2025,
     descKey: 'abt.students.camila-reyes.desc',
     fullDesc: 'Integración de Modelos LLM en DashAI',
@@ -88,7 +115,7 @@ export const STUDENTS: Student[] = [
     initials: 'IV', name: 'Isaias Venegas',        year: 2025,
     descKey: 'abt.students.isaias-venegas.desc',
     fullDesc: 'Módulo de converters, primera implementación',
-    avatar: '/images/students/isaias_venegas_2.jpg',
+    avatar: '/images/students/isaias_venegas.jpg',
   },
   {
     initials: 'SC', name: 'Sofía Chávez',          year: 2025,

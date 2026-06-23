@@ -18,7 +18,7 @@ export function StudentsGrid() {
           <div key={`${s.name}-${i}`} className="student-bubble">
             <div className="student-av">
               {s.avatar
-                ? <img src={s.avatar} alt={s.name} />
+                ? <img src={s.avatar} alt={s.name} style={s.imgStyle} />
                 : s.initials}
             </div>
             <strong className="student-name">{s.name}</strong>
