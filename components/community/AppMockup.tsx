@@ -41,9 +41,13 @@ export function AppMockup() {
 
   useEffect(() => {
     if (!lightboxSrc) return
+    document.body.style.overflow = "hidden"
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightboxSrc(null) }
     window.addEventListener("keydown", onKey)
-    return () => window.removeEventListener("keydown", onKey)
+    return () => {
+      document.body.style.overflow = ""
+      window.removeEventListener("keydown", onKey)
+    }
   }, [lightboxSrc])
 
   const goTo = (index: number) => {
