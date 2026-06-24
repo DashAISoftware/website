@@ -70,7 +70,7 @@ export function DownloadRoute() {
             <article className="dl-card recommended">
               <span className="step-num">01</span>
               <span className="step-tag">
-                <span className="n">// recomendado</span>
+                <span className="n">// {t('dl.e.rec')}</span>
                 {' '}&nbsp;{' '}
                 <span>{t('dl.e.tag')}</span>
               </span>
@@ -123,11 +123,13 @@ export function DownloadRoute() {
               <p dangerouslySetInnerHTML={th('dl.p.p')} />
 
               <div className="dl-cmd">
-                <span className="c"># instalar desde PyPI</span>{'\n'}
+                <span className="c"># {t('dl.p.c1')}</span>{'\n'}
+                <span className="p">$</span>{' python -m venv .venv && source .venv/bin/activate\n\n'}
+                <span className="c"># {t('dl.p.c2')}</span>{'\n'}
                 <span className="p">$</span>{' pip install dashai\n\n'}
-                <span className="c"># ejecutar</span>{'\n'}
+                <span className="c"># {t('dl.p.c3')}</span>{'\n'}
                 <span className="p">$</span>{' dashai\n\n'}
-                <span className="c"># → dashAI listo</span>
+                <span className="c"># {t('dl.p.c4')}</span>
               </div>
 
               <a className="dl-link" href="https://pypi.org/project/dashai/" target="_blank" rel="noopener">
@@ -135,6 +137,28 @@ export function DownloadRoute() {
               </a>
             </article>
 
+          </div>
+
+          <div style={{
+            marginTop: '48px',
+            padding: '24px',
+            background: 'var(--surface)',
+            border: '1px solid var(--line)',
+            borderRadius: 'var(--r-lg)',
+            display: 'grid',
+            gridTemplateColumns: '1fr auto',
+            gap: '20px',
+            alignItems: 'center',
+          }}>
+            <div>
+              <h4 style={{ fontSize: '15px', marginBottom: '6px' }}>{t('dl.v.h')}</h4>
+              <p style={{ fontSize: '13.5px', color: 'var(--ink-2)', lineHeight: '1.5' }}>{t('dl.v.p')}</p>
+            </div>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <a className="btn btn--sm" href="https://docs.dash-ai.com" target="_blank" rel="noopener">Docs →</a>
+              <a className="btn btn--sm" href="https://github.com/DashAISoftware/dashAI" target="_blank" rel="noopener">GitHub →</a>
+              <a className="btn btn--sm" href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener">Discord →</a>
+            </div>
           </div>
 
           <div style={{ marginTop: '64px' }}>
@@ -167,27 +191,6 @@ export function DownloadRoute() {
           <div className="dl-clone">
             <div className="t" dangerouslySetInnerHTML={th('dl.cl.t')} />
             <code>git clone github.com/DashAISoftware/dashAI</code>
-          </div>
-
-          <div style={{
-            marginTop: '48px',
-            padding: '24px',
-            background: 'var(--surface)',
-            border: '1px solid var(--line)',
-            borderRadius: 'var(--r-lg)',
-            display: 'grid',
-            gridTemplateColumns: '1fr auto',
-            gap: '20px',
-            alignItems: 'center',
-          }}>
-            <div>
-              <h4 style={{ fontSize: '15px', marginBottom: '6px' }}>{t('dl.v.h')}</h4>
-              <p style={{ fontSize: '13.5px', color: 'var(--ink-2)', lineHeight: '1.5' }}>{t('dl.v.p')}</p>
-            </div>
-            <div style={{ display: 'flex', gap: '8px' }}>
-              <a className="btn btn--sm" href="https://docs.dash-ai.com" target="_blank" rel="noopener">Docs →</a>
-              <a className="btn btn--sm" href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener">Discord →</a>
-            </div>
           </div>
 
         </div>
