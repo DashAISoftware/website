@@ -3,6 +3,7 @@
   "dl.e.arm": "macOS | Apple Silicon",
   "dl.e.h": "Instalador nativo.",
   "dl.e.int": "macOS | Intel",
+  "dl.e.lnx": "Linux | x64",
   "dl.e.p": "Sin Python, sin setup. Descarga el ejecutable para tu sistema operativo desde GitHub Releases. Doble click y dashAI se abre listo para usar.",
   "dl.e.r": "Ver todos los releases en GitHub",
   "dl.e.rec": "recomendado",
