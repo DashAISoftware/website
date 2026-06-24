@@ -356,7 +356,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
             </div>
 
             <div className="news-newsletter">
-              <div className="news-chip">NEWSLETTER</div>
+              <div className="news-chip">GOOGLE GROUP</div>
               <h3>{t('act.nl.h')}</h3>
               <p>{t('act.nl.p')}</p>
               <a

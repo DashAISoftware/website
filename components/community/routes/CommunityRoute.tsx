@@ -43,7 +43,7 @@ export function CommunityRoute() {
               borderRadius: 'var(--r-lg)',
               padding: '28px',
             }}>
-              <div className="mono" style={{ display: 'inline-block', fontSize: '11px', color: 'var(--ink-3)' }}>NEWSLETTER</div>
+              <div className="mono" style={{ display: 'inline-block', fontSize: '11px', color: 'var(--ink-3)' }}>GOOGLE GROUP</div>
               <h3 style={{ margin: '14px 0 10px', color: 'var(--ink)' }}>{t('com.n.h')}</h3>
               <p style={{ fontSize: '14px', color: 'var(--ink-2)', lineHeight: '1.5' }}>{t('com.n.p')}</p>
               <a className="btn btn--sm" style={{ marginTop: '18px' }} href="https://groups.google.com/g/dashai-updates" target="_blank" rel="noopener">
