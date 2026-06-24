@@ -8,12 +8,18 @@ import '@/app/i18n'
 const SLIDES = ["datasets", "models", "generative"] as const
 type SlideId = (typeof SLIDES)[number]
 
+const SLIDE_IMAGES = [
+  "/images/datasets.png",
+  "/images/models.png",
+  "/images/generative.png",
+]
+
 export function AppMockup() {
   const { t, i18n } = useTranslation('home')
   const th = (key: string) => ({ __html: t(key) })
 
   const [activeIndex, setActiveIndex] = useState(1) // default: models
-  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null)
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   const trackRef = useRef<HTMLDivElement>(null)
   const viewportRef = useRef<HTMLDivElement>(null)
 
@@ -40,19 +46,32 @@ export function AppMockup() {
   }, [computeTranslate])
 
   useEffect(() => {
-    if (!lightboxSrc) return
+    if (lightboxIndex === null) return
     document.body.style.overflow = "hidden"
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightboxSrc(null) }
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox()
+      if (e.key === "ArrowLeft")  lightboxGoTo(lightboxIndex - 1)
+      if (e.key === "ArrowRight") lightboxGoTo(lightboxIndex + 1)
+    }
     window.addEventListener("keydown", onKey)
     return () => {
       document.body.style.overflow = ""
       window.removeEventListener("keydown", onKey)
     }
-  }, [lightboxSrc])
+  }, [lightboxIndex])
 
   const goTo = (index: number) => {
     const n = SLIDES.length
     setActiveIndex(((index % n) + n) % n)
+  }
+
+  const closeLightbox = () => setLightboxIndex(null)
+
+  const lightboxGoTo = (index: number) => {
+    const n = SLIDES.length
+    const next = ((index % n) + n) % n
+    setLightboxIndex(next)
+    setActiveIndex(next)
   }
 
   const tabLabels: Record<SlideId, string> = {
@@ -110,7 +129,7 @@ export function AppMockup() {
                 <div className="mock-dots"><span /><span /><span /></div>
                 <div className="mock-url">dashAI | datasets / housing-2024.csv</div>
               </div>
-              <div className="mock-img-wrap" style={{ lineHeight: 0 }} onClick={() => setLightboxSrc("/images/datasets.png")}>
+              <div className="mock-img-wrap" style={{ lineHeight: 0 }} onClick={() => setLightboxIndex(0)}>
                 <img src="/images/datasets.png" alt="dashAI datasets view" style={{ width: '100%', display: 'block' }} />
                 <div className="mock-zoom-hint" aria-hidden="true">🔍</div>
               </div>
@@ -122,7 +141,7 @@ export function AppMockup() {
                 <div className="mock-dots"><span /><span /><span /></div>
                 <div className="mock-url">dashAI | models / tabular-classification</div>
               </div>
-              <div className="mock-img-wrap" style={{ lineHeight: 0 }} onClick={() => setLightboxSrc("/images/models.png")}>
+              <div className="mock-img-wrap" style={{ lineHeight: 0 }} onClick={() => setLightboxIndex(1)}>
                 <img src="/images/models.png" alt="dashAI models view" style={{ width: '100%', display: 'block' }} />
                 <div className="mock-zoom-hint" aria-hidden="true">🔍</div>
               </div>
@@ -134,7 +153,7 @@ export function AppMockup() {
                 <div className="mock-dots"><span /><span /><span /></div>
                 <div className="mock-url">dashAI | generative / mistral-7b</div>
               </div>
-              <div className="mock-img-wrap" style={{ lineHeight: 0 }} onClick={() => setLightboxSrc("/images/generative.png")}>
+              <div className="mock-img-wrap" style={{ lineHeight: 0 }} onClick={() => setLightboxIndex(2)}>
                 <img src="/images/generative.png" alt="dashAI generative view" style={{ width: '100%', display: 'block' }} />
                 <div className="mock-zoom-hint" aria-hidden="true">🔍</div>
               </div>
@@ -184,15 +203,21 @@ export function AppMockup() {
 
     </div>
 
-    {lightboxSrc && typeof document !== "undefined" && createPortal(
-      <div className="mock-lightbox" onClick={() => setLightboxSrc(null)}>
-        <button className="mock-lightbox-close" onClick={() => setLightboxSrc(null)} aria-label="Cerrar">✕</button>
+    {lightboxIndex !== null && typeof document !== "undefined" && createPortal(
+      <div className="mock-lightbox" onClick={closeLightbox}>
+        <button className="mock-lightbox-close" onClick={closeLightbox} aria-label="Cerrar">✕</button>
+        <button className="mock-lightbox-arrow mock-lightbox-prev" onClick={e => { e.stopPropagation(); lightboxGoTo(lightboxIndex - 1) }} aria-label="Anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
         <img
-          src={lightboxSrc}
+          src={SLIDE_IMAGES[lightboxIndex]}
           alt="Vista ampliada"
           className="mock-lightbox-img"
           onClick={e => e.stopPropagation()}
         />
+        <button className="mock-lightbox-arrow mock-lightbox-next" onClick={e => { e.stopPropagation(); lightboxGoTo(lightboxIndex + 1) }} aria-label="Siguiente">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
       </div>,
       document.body
     )}
