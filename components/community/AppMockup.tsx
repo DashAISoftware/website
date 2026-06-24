@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef, useCallback } from "react"
+import { createPortal } from "react-dom"
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
 
@@ -12,6 +13,7 @@ export function AppMockup() {
   const th = (key: string) => ({ __html: t(key) })
 
   const [activeIndex, setActiveIndex] = useState(1) // default: models
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null)
   const trackRef = useRef<HTMLDivElement>(null)
   const viewportRef = useRef<HTMLDivElement>(null)
 
@@ -37,6 +39,13 @@ export function AppMockup() {
     return () => window.removeEventListener("resize", computeTranslate)
   }, [computeTranslate])
 
+  useEffect(() => {
+    if (!lightboxSrc) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightboxSrc(null) }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [lightboxSrc])
+
   const goTo = (index: number) => {
     const n = SLIDES.length
     setActiveIndex(((index % n) + n) % n)
@@ -49,6 +58,7 @@ export function AppMockup() {
   }
 
   return (
+    <>
     <div className="app-mockup">
       {/* Tabs */}
       <div className="mock-tabs" role="tablist">
@@ -96,8 +106,9 @@ export function AppMockup() {
                 <div className="mock-dots"><span /><span /><span /></div>
                 <div className="mock-url">dashAI | datasets / housing-2024.csv</div>
               </div>
-              <div style={{ lineHeight: 0 }}>
+              <div className="mock-img-wrap" style={{ lineHeight: 0 }} onClick={() => setLightboxSrc("/images/datasets.png")}>
                 <img src="/images/datasets.png" alt="dashAI datasets view" style={{ width: '100%', display: 'block' }} />
+                <div className="mock-zoom-hint" aria-hidden="true">🔍</div>
               </div>
             </div>
 
@@ -107,8 +118,9 @@ export function AppMockup() {
                 <div className="mock-dots"><span /><span /><span /></div>
                 <div className="mock-url">dashAI | models / tabular-classification</div>
               </div>
-              <div style={{ lineHeight: 0 }}>
+              <div className="mock-img-wrap" style={{ lineHeight: 0 }} onClick={() => setLightboxSrc("/images/models.png")}>
                 <img src="/images/models.png" alt="dashAI models view" style={{ width: '100%', display: 'block' }} />
+                <div className="mock-zoom-hint" aria-hidden="true">🔍</div>
               </div>
             </div>
 
@@ -118,8 +130,9 @@ export function AppMockup() {
                 <div className="mock-dots"><span /><span /><span /></div>
                 <div className="mock-url">dashAI | generative / mistral-7b</div>
               </div>
-              <div style={{ lineHeight: 0 }}>
+              <div className="mock-img-wrap" style={{ lineHeight: 0 }} onClick={() => setLightboxSrc("/images/generative.png")}>
                 <img src="/images/generative.png" alt="dashAI generative view" style={{ width: '100%', display: 'block' }} />
+                <div className="mock-zoom-hint" aria-hidden="true">🔍</div>
               </div>
             </div>
 
@@ -164,6 +177,21 @@ export function AppMockup() {
           onClick={() => goTo(2)}
         />
       </div>
+
     </div>
+
+    {lightboxSrc && typeof document !== "undefined" && createPortal(
+      <div className="mock-lightbox" onClick={() => setLightboxSrc(null)}>
+        <button className="mock-lightbox-close" onClick={() => setLightboxSrc(null)} aria-label="Cerrar">✕</button>
+        <img
+          src={lightboxSrc}
+          alt="Vista ampliada"
+          className="mock-lightbox-img"
+          onClick={e => e.stopPropagation()}
+        />
+      </div>,
+      document.body
+    )}
+    </>
   )
 }

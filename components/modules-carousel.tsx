@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const modules = [
@@ -58,6 +58,7 @@ const modules = [
 export function ModulesCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [activeButton, setActiveButton] = useState<"previous" | "next" | null>(null)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
 
   const goToPrevious = () => {
     setActiveButton("previous")
@@ -75,7 +76,9 @@ export function ModulesCarousel() {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "ArrowLeft") {
+      if (event.key === "Escape") {
+        setLightboxOpen(false)
+      } else if (event.key === "ArrowLeft") {
         setActiveButton("previous")
         setCurrentIndex((prevIndex) => (prevIndex === 0 ? modules.length - 1 : prevIndex - 1))
       } else if (event.key === "ArrowRight") {
@@ -103,6 +106,7 @@ export function ModulesCarousel() {
   const currentModule = modules[currentIndex]
 
   return (
+    <>
     <section id="features" className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -119,13 +123,21 @@ export function ModulesCarousel() {
           <div className="bg-gradient-to-br from-gray-900 to-black border border-cyan-400/20 rounded-2xl overflow-hidden shadow-2xl shadow-cyan-500/10">
             <div className="grid md:grid-cols-2 gap-0">
               {/* Image side */}
-              <div className="relative h-[400px] md:h-[550px] bg-gradient-to-br from-cyan-500/5 to-orange-500/5 overflow-hidden">
+              <div
+                className="relative h-[400px] md:h-[550px] bg-gradient-to-br from-cyan-500/5 to-orange-500/5 overflow-hidden cursor-zoom-in group"
+                onClick={() => setLightboxOpen(true)}
+              >
                 <img
                   src={currentModule.image || "/placeholder.svg"}
                   alt={currentModule.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <div className="bg-black/50 rounded-full p-3 backdrop-blur-sm border border-white/20">
+                    <ZoomIn className="h-6 w-6 text-white" />
+                  </div>
+                </div>
               </div>
 
               {/* Content side */}
@@ -199,5 +211,28 @@ export function ModulesCarousel() {
         </div>
       </div>
     </section>
+
+    {/* Lightbox */}
+    {lightboxOpen && (
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+        onClick={() => setLightboxOpen(false)}
+      >
+        <button
+          className="absolute top-4 right-4 text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors border border-white/20"
+          onClick={() => setLightboxOpen(false)}
+          aria-label="Cerrar"
+        >
+          <X className="h-6 w-6" />
+        </button>
+        <img
+          src={currentModule.image || "/placeholder.svg"}
+          alt={currentModule.title}
+          className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
+        />
+      </div>
+    )}
+    </>
   )
 }
