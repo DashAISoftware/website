@@ -29,13 +29,15 @@ export function formatBytes(bytes: number): string {
 
 export function findAsset(
   assets: ReleaseAsset[],
-  platform: "windows" | "mac_intel" | "mac_arm"
+  platform: "windows" | "mac_intel" | "mac_arm" | "linux"
 ): ReleaseAsset | undefined {
   return assets.find(({ name }) => {
     const n = name.toLowerCase()
     switch (platform) {
       case "windows":
         return n.includes("windows")
+      case "linux":
+        return n.includes("linux") || n.includes("appimage")
       case "mac_intel":
         return (
           (n.includes("x64") || n.includes("intel")) &&
