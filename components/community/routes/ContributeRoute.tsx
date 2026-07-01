@@ -1,10 +1,21 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { getLatestRelease } from '@/lib/github'
 export function ContributeRoute() {
   const { t, i18n } = useTranslation('contribute')
   const th = (key: string) => ({ __html: t(key) })
+
+  const [version, setVersion] = useState('0.9.6')
+
+  useEffect(() => {
+    getLatestRelease().then((release) => {
+      if (!release) return
+      setVersion(release.tag_name.replace(/^v/, ''))
+    })
+  }, [])
 
   return (
     <>
@@ -620,7 +631,7 @@ export function ContributeRoute() {
             Visual ML platform},
   author = {{dashAI Team}},
   year   = {2026},
-  version = {0.9.4},
+  version = {${version}},
   url    = {https://github.com/DashAISoftware/dashAI},
   license = {open-source},
   organization = {dashAI Community},
