@@ -105,7 +105,12 @@ export const STUDENTS: Student[] = [
     fullDesc: 'Integración de Modelos LLM en DashAI',
     avatar: '/images/students/camila_reyes.jpg',
   },
-
+  {
+    initials: 'CH', name: 'Carla Hayler',          year: 2025,
+    descKey: 'abt.students.carla-hayler.desc',
+    fullDesc: 'Diseño e implementación de un sistema visual de pipelines en DashAI',
+    avatar: '/images/students/carla_hayler.jpg',
+  },
   {
     initials: 'ED', name: 'Emilio Díaz',           year: 2025,
     descKey: 'abt.students.emilio-diaz.desc',
