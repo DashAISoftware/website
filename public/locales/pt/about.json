@@ -46,7 +46,7 @@
   "abt.m.p": "Reduzir as barreiras técnicas ao uso de Machine Learning em pesquisa, docência e trabalho aplicado, mantendo a extensibilidade que os grupos especializados requerem. dashAI articula uma interface visual sobre uma arquitetura modular, auditável e open-source.",
   "abt.v.h": "Versão atual",
   "abt.v.h2": "Visão",
-  "abt.v.p": "version &nbsp; <strong style=\"color:var(--brand-light)\">v0.9.4</strong><br>license &nbsp; open-source<br>python &nbsp; ≥ 3.10<br>stack &nbsp; &nbsp;FastAPI + React<br>docs &nbsp; &nbsp; &nbsp;docs.dash-ai.com (0.0.4)<br>paper &nbsp; &nbsp;em preparação",
+  "abt.v.p": "version &nbsp; <strong style=\"color:var(--brand-light)\">v{{version}}</strong><br>license &nbsp; open-source<br>python &nbsp; ≥ 3.10<br>stack &nbsp; &nbsp;FastAPI + React<br>docs &nbsp; &nbsp; &nbsp;docs.dash-ai.com (0.0.4)<br>paper &nbsp; &nbsp;em preparação",
   "abt.v.p2": "Consolidar uma plataforma chilena de Machine Learning visual com três atributos centrais: operação local sobre dados do usuário, extensibilidade via plugins da comunidade e rastreabilidade acadêmica dos seus componentes. O projeto aspira a servir como infraestrutura compartilhada entre grupos de pesquisa, instituições públicas e profissionais.",
   "abt.students.ignacio-nunez.desc": "Arquitetura extensível ML",
   "abt.students.martin-paredes.desc": "Data Studio",
