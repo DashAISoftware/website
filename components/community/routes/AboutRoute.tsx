@@ -1,19 +1,30 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { InstitutionsGrid } from '../InstitutionsGrid'
 import { StudentsGrid } from '../StudentsGrid'
 import { getAcknowledgmentsText } from '@/lib/institutions'
+import { getLatestRelease } from '@/lib/github'
 import '@/app/i18n'
 export function AboutRoute() {
   const { t, i18n } = useTranslation('about')
-  const th = (key: string) => ({ __html: t(key) })
+  const th = (key: string, options?: Record<string, string>) => ({ __html: t(key, options) })
   const lang = i18n.language?.startsWith('es')
     ? 'es'
     : i18n.language?.startsWith('pt')
       ? 'pt'
       : 'en'
   const acknowledgment = getAcknowledgmentsText(lang)
+
+  const [version, setVersion] = useState('0.9.6')
+
+  useEffect(() => {
+    getLatestRelease().then((release) => {
+      if (!release) return
+      setVersion(release.tag_name.replace(/^v/, ''))
+    })
+  }, [])
 
   return (
     <main data-route="about">
@@ -47,7 +58,7 @@ export function AboutRoute() {
               <h3 style={{ marginBottom: '14px', color: 'var(--ink-text)' }}>{t('abt.v.h')}</h3>
               <p
                 style={{ fontFamily: 'var(--mono)', fontSize: '14px', color: 'var(--ink-text-2)', lineHeight: '1.7' }}
-                dangerouslySetInnerHTML={th('abt.v.p')}
+                dangerouslySetInnerHTML={th('abt.v.p', { version })}
               />
             </div>
           </div>
