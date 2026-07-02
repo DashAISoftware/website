@@ -35,7 +35,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
 
   useEffect(() => {
     // Releases fetch kept for the activity section
-    fetch('https://api.github.com/repos/DashAISoftware/dashAI/releases?per_page=10')
+    fetch('https://api.github.com/repos/DashAISoftware/dashAI/releases?per_page=4')
       .then(r => r.ok ? r.json() : null)
       .then(data => { if (data?.length) setReleases(data) })
       .catch(() => {})
