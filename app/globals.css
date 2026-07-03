@@ -128,6 +128,8 @@ h4{font-size:18px;line-height:1.3}
 .hero-stat:hover .hero-stat-num{color:var(--brand)}
 .hero-stat-label{font-size:12.5px;color:var(--ink-3);display:flex;align-items:center;gap:5px}
 .hero-stat-star{color:var(--ink-3);font-size:11px}
+.stat-skeleton{display:inline-block;width:2.4em;height:.82em;border-radius:4px;background:var(--surface-3);animation:stat-skeleton-pulse 1.4s ease-in-out infinite;vertical-align:middle}
+@keyframes stat-skeleton-pulse{0%,100%{opacity:.55}50%{opacity:1}}
 .hero-concepts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px;position:relative;z-index:1;}
 .concept{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px 22px 22px;display:flex;flex-direction:column;gap:10px;position:relative;transition:border-color .15s,transform .12s,box-shadow .15s;}
 .concept:hover{border-color:var(--line-2);transform:translateY(-2px);box-shadow:0 12px 28px -18px rgba(25,24,23,.20)}

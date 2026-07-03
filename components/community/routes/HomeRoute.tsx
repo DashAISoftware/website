@@ -6,8 +6,8 @@ import { InstitutionsGrid } from '../InstitutionsGrid'
 import { MODEL_ROWS } from './ModelsRoute'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
-import { STATS_PLACEHOLDER, STATS_URL, totalDownloads as sumDownloads } from '@/lib/stats'
-import type { Stats } from '@/lib/stats'
+import { totalDownloads as sumDownloads } from '@/lib/stats'
+import { useStats } from '@/lib/useStats'
 
 const MONTH_NAMES: Record<string, string[]> = {
   es: ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],
@@ -28,10 +28,10 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
   const th = (key: string) => ({ __html: t(key) })
   const lang = i18n.language as 'es' | 'en' | 'pt'
   const [releases, setReleases] = useState<GhRelease[]>([])
-  const [stats, setStats] = useState<Stats>(STATS_PLACEHOLDER)
+  const { stats, isLoading: statsLoading } = useStats()
 
-  const totalDownloads = sumDownloads(stats)
-  const stars = stats.github.stars
+  const totalDownloads = stats ? sumDownloads(stats) : null
+  const stars = stats?.github.stars ?? null
 
   useEffect(() => {
     // Releases fetch kept for the activity section
@@ -39,13 +39,6 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
       .then(r => r.ok ? r.json() : null)
       .then(data => { if (data?.length) setReleases(data) })
       .catch(() => {})
-
-    if (STATS_URL) {
-      fetch(STATS_URL)
-        .then(r => r.ok ? r.json() : null)
-        .then(data => { if (data) setStats(data) })
-        .catch(() => {})
-    }
   }, [])
 
   function fmtDate(iso: string) {
@@ -93,7 +86,9 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
                 className="hero-stat"
                 href="#download"
               >
-                <div className="hero-stat-num">{totalDownloads !== null ? formatNum(totalDownloads) : '-'}</div>
+                <div className="hero-stat-num">
+                  {statsLoading ? <span className="stat-skeleton" aria-hidden="true" /> : formatNum(totalDownloads ?? 0)}
+                </div>
                 <div className="hero-stat-label">{t('hero.stat.dl')}</div>
               </a>
               <a
@@ -102,7 +97,9 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
                 target="_blank"
                 rel="noopener"
               >
-                <div className="hero-stat-num">{stars !== null ? formatNum(stars) : '-'}</div>
+                <div className="hero-stat-num">
+                  {statsLoading ? <span className="stat-skeleton" aria-hidden="true" /> : formatNum(stars ?? 0)}
+                </div>
                 <div className="hero-stat-label">
                   <svg style={{ width: 12, height: 12, flexShrink: 0 }}>
                     <use href="#i-github" />

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
-import { STATS_PLACEHOLDER, STATS_URL } from '@/lib/stats'
+import { useStats } from '@/lib/useStats'
 
 type Lang = 'es' | 'en' | 'pt'
 type Route = 'home' | 'models' | 'plugins' | 'contribute' | 'download' | 'community' | 'about'
@@ -36,16 +36,8 @@ export function Navbar({ route }: { route: string }) {
   const setLang = (l: string) => { i18n.changeLanguage(l); try { localStorage.setItem('dashai-lang', l) } catch {} }
 
   const [isOpen, setIsOpen] = useState(false)
-  const [stars, setStars] = useState<number>(STATS_PLACEHOLDER.github.stars)
-
-  useEffect(() => {
-    if (STATS_URL) {
-      fetch(STATS_URL)
-        .then(r => r.ok ? r.json() : null)
-        .then(data => { if (data) setStars(data.github.stars) })
-        .catch(() => {})
-    }
-  }, [])
+  const { stats, isLoading: statsLoading } = useStats()
+  const stars = stats?.github.stars ?? null
   const switcherRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -166,9 +158,11 @@ export function Navbar({ route }: { route: string }) {
               <use href="#i-github" />
             </svg>
             GitHub
-            {stars !== null && <>
+            {(statsLoading || stars !== null) && <>
               <span style={{ width: 1, height: 12, background: 'var(--line-2)', flexShrink: 0 }} />
-              <span style={{ fontSize: 11, color: 'var(--ink-3)', fontWeight: 500 }}>{fmtStars(stars)}</span>
+              <span style={{ fontSize: 11, color: 'var(--ink-3)', fontWeight: 500 }}>
+                {statsLoading ? <span className="stat-skeleton" style={{ width: '1.6em', height: '.9em' }} aria-hidden="true" /> : fmtStars(stars ?? 0)}
+              </span>
             </>}
           </a>
         </div>
