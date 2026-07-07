@@ -7,7 +7,8 @@
     "dev": "node scripts/fetch-institutions.mjs && next dev",
     "lint": "eslint .",
     "start": "next start",
-    "fetch-institutions": "node scripts/fetch-institutions.mjs"
+    "fetch-institutions": "node scripts/fetch-institutions.mjs",
+    "i18n:status": "i18next-cli status"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -69,6 +70,7 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "i18next-cli": "^1.65.0",
     "postcss": "^8.5",
     "tailwindcss": "^4.1.9",
     "tw-animate-css": "1.3.3",
