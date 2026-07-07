@@ -23,6 +23,14 @@ function formatNum(n: number): string {
   return String(n)
 }
 
+function formatUpdatedAt(iso: string, lang: string): string {
+  const d = new Date(iso)
+  if (isNaN(d.getTime())) return ''
+  return d.toLocaleString(lang, {
+    year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit',
+  })
+}
+
 export function HomeRoute({ ghVersion }: { ghVersion: string }) {
   const { t, i18n } = useTranslation('home')
   const th = (key: string) => ({ __html: t(key) })
@@ -82,31 +90,38 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
             </div>
 
             <div className="hero-top-stats">
-              <a
-                className="hero-stat"
-                href="#download"
-              >
-                <div className="hero-stat-num">
-                  {statsLoading ? <span className="stat-skeleton" aria-hidden="true" /> : formatNum(totalDownloads ?? 0)}
+              <div className="hero-top-stats-items">
+                <a
+                  className="hero-stat"
+                  href="#download"
+                >
+                  <div className="hero-stat-num">
+                    {statsLoading ? <span className="stat-skeleton" aria-hidden="true" /> : formatNum(totalDownloads ?? 0)}
+                  </div>
+                  <div className="hero-stat-label">{t('hero.stat.dl')}</div>
+                </a>
+                <a
+                  className="hero-stat"
+                  href="https://github.com/DashAISoftware/dashAI"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <div className="hero-stat-num">
+                    {statsLoading ? <span className="stat-skeleton" aria-hidden="true" /> : formatNum(stars ?? 0)}
+                  </div>
+                  <div className="hero-stat-label">
+                    <svg style={{ width: 12, height: 12, flexShrink: 0 }}>
+                      <use href="#i-github" />
+                    </svg>
+                    {t('hero.stat.stars')}
+                  </div>
+                </a>
+              </div>
+              {stats?.updatedAt && (
+                <div className="hero-stats-updated">
+                  {t('hero.stat.updated', { date: formatUpdatedAt(stats.updatedAt, lang) })}
                 </div>
-                <div className="hero-stat-label">{t('hero.stat.dl')}</div>
-              </a>
-              <a
-                className="hero-stat"
-                href="https://github.com/DashAISoftware/dashAI"
-                target="_blank"
-                rel="noopener"
-              >
-                <div className="hero-stat-num">
-                  {statsLoading ? <span className="stat-skeleton" aria-hidden="true" /> : formatNum(stars ?? 0)}
-                </div>
-                <div className="hero-stat-label">
-                  <svg style={{ width: 12, height: 12, flexShrink: 0 }}>
-                    <use href="#i-github" />
-                  </svg>
-                  {t('hero.stat.stars')}
-                </div>
-              </a>
+              )}
             </div>
           </div>
 
