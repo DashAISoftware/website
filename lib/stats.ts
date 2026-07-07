@@ -8,7 +8,6 @@ export interface Stats {
 
 export const STATS_URL = process.env.NEXT_PUBLIC_TRACKER_URL ? `${process.env.NEXT_PUBLIC_TRACKER_URL}/stats` : ''
 export const STATS_PLACEHOLDER: Stats = {
-  updatedAt:   '2026-07-07T18:16:22Z',
   github:      { downloads: 173,  stars: 75  },
   website:     { downloads: 108             },
   sourceForge: { downloads: 59              },
