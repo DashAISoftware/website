@@ -68,5 +68,17 @@
   "abt.students.isaias-venegas.desc": "Converter-Modul",
   "abt.students.sofia-chavez.desc": "No-Code-RAG-Systeme",
   "abt.students.carla-hayler.desc": "Visuelles Pipeline-System",
-  "abt.students.ivan-salas.desc": "Forecasting-Modul"
+  "abt.students.ivan-salas.desc": "Forecasting-Modul",
+  "abt.team.andres-carvallo.role": "Forscher",
+  "abt.team.camila-reyes.role": "Software-Ingenieurin",
+  "abt.team.claudia-lopez.role": "Stellvertretende Direktorin",
+  "abt.team.cristian-tamblay.role": "Leitender Software-Ingenieur",
+  "abt.team.emilio-diaz.role": "Software-Ingenieur",
+  "abt.team.ey": "Entwicklungsteam",
+  "abt.team.felipe-bravo-marquez.role": "Direktor",
+  "abt.team.felipe-cardenas.role": "Technisches Personal",
+  "abt.team.h": "<span class=\"blue\">Entwicklungs</span>team.",
+  "abt.team.lead": "Die Menschen, die dashAI Tag für Tag entwerfen, entwickeln und pflegen.",
+  "abt.team.nicolas-nast.role": "UX-Ingenieur & Produktentwicklung",
+  "abt.team.yelena-hernandez.role": "HCI-Forschungsassistentin"
 }

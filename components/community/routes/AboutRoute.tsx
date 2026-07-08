@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { InstitutionsGrid } from '../InstitutionsGrid'
 import { StudentsGrid } from '../StudentsGrid'
+import { TeamGrid } from '../TeamGrid'
 import { getAcknowledgmentsText } from '@/lib/institutions'
 import { getLatestRelease } from '@/lib/github'
 import '@/app/i18n'
@@ -77,6 +78,19 @@ export function AboutRoute() {
             <p className="lead">{acknowledgment}</p>
 
             <InstitutionsGrid />
+          </section>
+
+          {/* Sub-section: Team */}
+          <section className="abt-sub" style={{ position: 'relative', overflow: 'hidden' }}>
+            <div className="ey">
+              <span className="num">[ /about/team ]</span>
+              {' '}&nbsp;{' '}
+              <span>{t('abt.team.ey')}</span>
+            </div>
+            <h2 dangerouslySetInnerHTML={th('abt.team.h')} />
+            <p className="lead">{t('abt.team.lead')}</p>
+
+            <TeamGrid />
           </section>
 
           {/* Sub-section: History */}

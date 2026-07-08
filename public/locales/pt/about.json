@@ -68,5 +68,17 @@
   "abt.students.isaias-venegas.desc": "Módulo de conversores",
   "abt.students.sofia-chavez.desc": "Sistemas RAG no-code",
   "abt.students.carla-hayler.desc": "Sistema visual de pipelines",
-  "abt.students.ivan-salas.desc": "Módulo de forecasting"
+  "abt.students.ivan-salas.desc": "Módulo de forecasting",
+  "abt.team.andres-carvallo.role": "Pesquisador",
+  "abt.team.camila-reyes.role": "Engenheira de Software",
+  "abt.team.claudia-lopez.role": "Diretora Alterna",
+  "abt.team.cristian-tamblay.role": "Engenheiro de Software Líder",
+  "abt.team.emilio-diaz.role": "Engenheiro de Software",
+  "abt.team.ey": "equipe de desenvolvimento",
+  "abt.team.felipe-bravo-marquez.role": "Diretor",
+  "abt.team.felipe-cardenas.role": "Equipe Técnica",
+  "abt.team.h": "Equipe de <span class=\"blue\">Desenvolvimento</span>.",
+  "abt.team.lead": "As pessoas que, dia a dia, projetam, constroem e mantêm o dashAI.",
+  "abt.team.nicolas-nast.role": "Engenheiro de UX e desenvolvimento de produto",
+  "abt.team.yelena-hernandez.role": "Assistente de Pesquisa em IHC"
 }

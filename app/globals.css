@@ -483,6 +483,12 @@ h4{font-size:18px;line-height:1.3}
 .student-meta{font-size:11px;color:var(--ink-3)}
 .student-desc{font-size:11.5px;color:var(--ink-3);line-height:1.35}
 .student-count{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;color:var(--ink-4);letter-spacing:.04em;display:flex;justify-content:space-between;align-items:center}
+.devteam-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px 28px 20px;margin-top:24px}
+.devteam-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4px}
+.devteam-bubble{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:20px 10px}
+.devteam-av{width:62px;height:62px;border-radius:50%;background:rgba(167,199,255,.28);border:2px solid rgba(167,199,255,.5);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;color:var(--brand-on);margin-bottom:6px;flex-shrink:0;overflow:hidden}.devteam-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.devteam-name{font-size:13px;font-weight:500;color:var(--ink);line-height:1.3}
+.devteam-role{font-size:11.5px;color:var(--ink-3);line-height:1.35}
 .hist-inst-list{display:flex;flex-direction:column;gap:0;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;margin-top:8px}
 .hist-inst-item{display:flex;align-items:center;gap:16px;padding:18px 22px;border-bottom:1px solid var(--line)}
 .hist-inst-item:last-child{border-bottom:none}
@@ -551,6 +557,7 @@ h4{font-size:18px;line-height:1.3}
   .community-grid{grid-template-columns:1fr 1fr}
   .student-grid{grid-template-columns:repeat(4,1fr)}
   .students-card{padding:22px 20px 16px}
+  .devteam-card{padding:22px 20px 16px}
   .mock-chrome{padding:10px 14px}.mock-url{font-size:10.5px}
   .mock-carousel{--slide-w:90%;--slide-gap:14px}
   .mock-arrow{width:36px;height:36px}.mock-arrow svg{width:15px;height:15px}
@@ -583,6 +590,8 @@ h4{font-size:18px;line-height:1.3}
   .inst-grid{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr}
   .student-grid{grid-template-columns:repeat(3,1fr)}
   .students-card{padding:18px 16px 14px}
+  .devteam-grid{grid-template-columns:repeat(2,1fr)}
+  .devteam-card{padding:18px 16px 14px}
   .mock-sidebar{grid-template-columns:1fr}.mock-fname{font-size:12px}
   .req-grid{grid-template-columns:1fr}.dl-buttons a{padding:12px 14px;font-size:13.5px}
   .lang-trigger{padding:6px 8px;gap:5px}
@@ -596,6 +605,7 @@ h4{font-size:18px;line-height:1.3}
   .hero-cta{flex-direction:column;align-items:stretch}.hero-cta .btn{justify-content:center}
   .student-grid{grid-template-columns:repeat(2,1fr)}
   .student-av{width:52px;height:52px;font-size:14px}
+  .devteam-av{width:52px;height:52px;font-size:14px}
 }
 
 /* ── Mock image zoom hint + lightbox ── */
