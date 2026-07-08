@@ -97,7 +97,14 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
                   href="#download"
                 >
                   <div className="hero-stat-num">
-                    {statsLoading ? <span className="stat-skeleton" aria-hidden="true" /> : formatNum(totalDownloads ?? 0)}
+                    {statsLoading ? (
+                      <span className="stat-skeleton" aria-hidden="true" />
+                    ) : (
+                      <>
+                        {formatNum(totalDownloads ?? 0)}
+                        <sup style={{ fontSize: '0.5em', marginLeft: 1, color: 'var(--ink-3)' }}>*</sup>
+                      </>
+                    )}
                   </div>
                   <div className="hero-stat-label">{t('hero.stat.dl')}</div>
                 </a>
@@ -148,6 +155,13 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
               <p>{t('hero.c4.p')}</p>
             </div>
           </div>
+
+          <p
+            className="hero-concepts-note"
+            style={{ marginTop: 20, fontSize: 12, color: 'var(--ink-3)', lineHeight: 1.5 }}
+          >
+            {t('hero.stat.dl.note')}
+          </p>
         </div>
       </section>
 

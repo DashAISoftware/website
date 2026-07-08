@@ -130,5 +130,6 @@
   "tag.tr": "tradução",
   "hero.stat.stars": "Apoie-nos com uma estrela",
   "hero.stat.dl": "Total downloads",
+  "hero.stat.dl.note": "* Downloads contabilizados no SourceForge, PyPI (via Google BigQuery), neste site e no GitHub.",
   "hero.stat.updated": "Última atualização: {{date}}"
 }
