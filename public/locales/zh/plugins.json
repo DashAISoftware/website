@@ -1,0 +1,21 @@
+{
+  "plg.cs.badge": "COMING SOON",
+  "plg.cs.cta.p": "如果你计划开发插件,打包指南可在 <a href=\"#guide-plugin\" style=\"color:var(--brand-on);font-weight:500\">/contribute</a> 查看。如需协调提前发布,请通过邮件或 Discord 联系团队。",
+  "plg.cs.h": "该板块正在筹备中。",
+  "plg.cs.lead": "公开插件目录将随 dashAI 首个稳定版本一同发布。届时本页面将列出社区验证过的软件包,包括其组件类型、作者信息以及与当前版本的兼容性。",
+  "plg.cs.m1.l": "// 预计发布时间",
+  "plg.cs.m1.v": "随首个稳定版本一同发布",
+  "plg.cs.m2.l": "// 技术机制",
+  "plg.cs.m2.v": "Entry points | PyPI | 从界面安装",
+  "plg.cs.m3.l": "// 支持的抽象类",
+  "plg.cs.m3.v": "项目的十二个基础抽象类",
+  "plg.h": "社区插件。",
+  "plg.lead": "插件是发布在 PyPI 上的 Python 软件包,用于注册新的组件(模型、加载器、指标、解释器、优化器)。安装可直接在 dashAI 界面中完成。",
+  "plg.s.ey": "PROTOTYPE V3 | STUBBED SECTION",
+  "plg.s.f": "// 这些名称仅为示例。想成为第一个发布插件的人吗?<a href=\"#contribute\" style=\"color:var(--brand-on);font-weight:500\">如何发布插件 →</a>",
+  "plg.s.h": "插件市场",
+  "plg.s.p": "市场目前还没有第三方插件;项目尚处于首个版本发布之前。本板块将列出所有为 12 个基础抽象类注册扩展的软件包。",
+  "plg.s.v1": "基于 BaseModel 的 ARIMA、Prophet、NeuralProphet 模型。",
+  "plg.s.v2": "基于 BaseMetric 的公平性指标(Demographic Parity、Equalized Odds)。",
+  "plg.s.v3": "基于 BaseLocalExplainer 优化的 TreeSHAP、KernelSHAP 变体。"
+}

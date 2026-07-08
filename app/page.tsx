@@ -44,7 +44,7 @@ export default function Page() {
     // Restore saved language
     try {
       const saved = localStorage.getItem('dashai-lang')
-      if (saved && ['es', 'en', 'pt'].includes(saved)) i18n.changeLanguage(saved)
+      if (saved && ['es', 'en', 'pt', 'de', 'zh'].includes(saved)) i18n.changeLanguage(saved)
     } catch {}
 
     // Set initial route

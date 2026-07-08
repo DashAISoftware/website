@@ -1,0 +1,21 @@
+{
+  "plg.cs.badge": "COMING SOON",
+  "plg.cs.cta.p": "Wenn du vorhast, ein Plugin zu entwickeln, ist der Packaging-Guide unter <a href=\"#guide-plugin\" style=\"color:var(--brand-on);font-weight:500\">/contribute</a> verfügbar. Um frühe Veröffentlichungen zu koordinieren, kontaktiere das Team per E-Mail oder Discord.",
+  "plg.cs.h": "Abschnitt in Vorbereitung.",
+  "plg.cs.lead": "Der öffentliche Plugin-Katalog wird zusammen mit dem ersten stabilen Release von dashAI veröffentlicht. Diese Seite wird dann die verifizierten Community-Pakete auflisten, mit ihrem Komponententyp, ihrer Autorenschaft und ihrer Kompatibilität mit der aktuellen Version.",
+  "plg.cs.m1.l": "// GESCHÄTZTE VERÖFFENTLICHUNG",
+  "plg.cs.m1.v": "Zusammen mit dem ersten stabilen Release",
+  "plg.cs.m2.l": "// TECHNISCHER MECHANISMUS",
+  "plg.cs.m2.v": "Entry Points | PyPI | Installation über die UI",
+  "plg.cs.m3.l": "// UNTERSTÜTZTE ABSTRAKTIONEN",
+  "plg.cs.m3.v": "Die zwölf Basisabstraktionen des Projekts",
+  "plg.h": "Community-Plugins.",
+  "plg.lead": "Plugins sind Python-Pakete auf PyPI, die neue Komponenten registrieren (Modelle, Loader, Metriken, Explainer, Optimierer). Die Installation erfolgt direkt über die Oberfläche von dashAI.",
+  "plg.s.ey": "PROTOTYPE V3 | STUBBED SECTION",
+  "plg.s.f": "// Diese Namen sind nur Platzhalter. Möchtest du der oder die Erste sein, der ein Plugin veröffentlicht? <a href=\"#contribute\" style=\"color:var(--brand-on);font-weight:500\">Wie man ein Plugin veröffentlicht →</a>",
+  "plg.s.h": "Plugin-Marketplace",
+  "plg.s.p": "Der Marketplace hat noch keine Plugins von Drittanbietern; das Projekt befindet sich noch vor dem ersten Release. Dieser Abschnitt wird alle Pakete auflisten, die Erweiterungen der 12 Basisabstraktionen registrieren.",
+  "plg.s.v1": "ARIMA-, Prophet-, NeuralProphet-Modelle unter BaseModel.",
+  "plg.s.v2": "Fairness-Metriken (Demographic Parity, Equalized Odds) unter BaseMetric.",
+  "plg.s.v3": "Optimierte TreeSHAP-, KernelSHAP-Varianten unter BaseLocalExplainer."
+}

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
 import { useStats } from '@/lib/useStats'
 
-type Lang = 'es' | 'en' | 'pt'
+type Lang = 'es' | 'en' | 'pt' | 'de' | 'zh'
 type Route = 'home' | 'models' | 'plugins' | 'contribute' | 'download' | 'community' | 'about'
 
 
@@ -23,6 +23,8 @@ const LANG_OPTIONS: { code: Lang; label: string }[] = [
   { code: 'es', label: 'Español' },
   { code: 'en', label: 'English' },
   { code: 'pt', label: 'Português' },
+  { code: 'de', label: 'Deutsch' },
+  { code: 'zh', label: '中文' },
 ]
 
 function fmtStars(n: number): string {
@@ -32,7 +34,7 @@ function fmtStars(n: number): string {
 
 export function Navbar({ route }: { route: string }) {
   const { t, i18n } = useTranslation('navbar')
-  const lang = i18n.language as 'es' | 'en' | 'pt'
+  const lang = i18n.language as Lang
   const setLang = (l: string) => { i18n.changeLanguage(l); try { localStorage.setItem('dashai-lang', l) } catch {} }
 
   const [isOpen, setIsOpen] = useState(false)
