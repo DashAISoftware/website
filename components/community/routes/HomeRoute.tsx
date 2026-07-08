@@ -34,7 +34,7 @@ function formatUpdatedAt(iso: string, lang: string): string {
 export function HomeRoute({ ghVersion }: { ghVersion: string }) {
   const { t, i18n } = useTranslation('home')
   const th = (key: string) => ({ __html: t(key) })
-  const lang = i18n.language as 'es' | 'en' | 'pt'
+  const lang = i18n.language
   const [releases, setReleases] = useState<GhRelease[]>([])
   const { stats, isLoading: statsLoading } = useStats()
 
@@ -51,8 +51,9 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
 
   function fmtDate(iso: string) {
     const d = new Date(iso)
-    const months = MONTH_NAMES[lang] ?? MONTH_NAMES.es
-    return `${months[d.getMonth()]} ${d.getFullYear()}`
+    const months = MONTH_NAMES[lang]
+    if (months) return `${months[d.getMonth()]} ${d.getFullYear()}`
+    return d.toLocaleString(lang, { month: 'short', year: 'numeric' })
   }
 
   return (

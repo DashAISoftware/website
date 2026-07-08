@@ -130,5 +130,6 @@
   "tag.tr": "翻译",
   "hero.stat.stars": "为我们点亮一颗 Star",
   "hero.stat.dl": "总下载量",
+  "hero.stat.updated": "最后更新：{{date}}",
   "hero.stat.dl.note": "* 下载量统计自 SourceForge、PyPI（通过 Google BigQuery）、本网站和 GitHub。"
 }
