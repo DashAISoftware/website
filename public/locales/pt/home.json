@@ -129,5 +129,6 @@
   "tag.tab": "tabular",
   "tag.tr": "tradução",
   "hero.stat.stars": "Apoie-nos com uma estrela",
-  "hero.stat.dl": "Total downloads"
+  "hero.stat.dl": "Total downloads",
+  "hero.stat.updated": "Última atualização: {{date}}"
 }

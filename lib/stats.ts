@@ -1,4 +1,5 @@
 export interface Stats {
+  updatedAt?:  string
   github:      { downloads: number; stars: number }
   website:     { downloads: number }
   sourceForge: { downloads: number }
