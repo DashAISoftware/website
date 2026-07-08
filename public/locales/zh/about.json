@@ -68,5 +68,17 @@
   "abt.students.isaias-venegas.desc": "Converters 模块",
   "abt.students.sofia-chavez.desc": "无代码 RAG 系统",
   "abt.students.carla-hayler.desc": "可视化 Pipeline 系统",
-  "abt.students.ivan-salas.desc": "Forecasting 模块"
+  "abt.students.ivan-salas.desc": "Forecasting 模块",
+  "abt.team.andres-carvallo.role": "研究员",
+  "abt.team.camila-reyes.role": "软件工程师",
+  "abt.team.claudia-lopez.role": "副主任",
+  "abt.team.cristian-tamblay.role": "首席软件工程师",
+  "abt.team.emilio-diaz.role": "软件工程师",
+  "abt.team.ey": "开发团队",
+  "abt.team.felipe-bravo-marquez.role": "主任",
+  "abt.team.felipe-cardenas.role": "技术人员",
+  "abt.team.h": "<span class=\"blue\">开发</span>团队。",
+  "abt.team.lead": "每天设计、构建和维护 dashAI 的人们。",
+  "abt.team.nicolas-nast.role": "UX工程师兼产品开发",
+  "abt.team.yelena-hernandez.role": "人机交互研究助理"
 }
