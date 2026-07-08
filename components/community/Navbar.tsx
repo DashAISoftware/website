@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
 import { useStats } from '@/lib/useStats'
 
-type Lang = 'es' | 'en' | 'pt' | 'de'
+type Lang = 'es' | 'en' | 'pt' | 'de' | 'zh'
 type Route = 'home' | 'models' | 'plugins' | 'contribute' | 'download' | 'community' | 'about'
 
 
@@ -24,6 +24,7 @@ const LANG_OPTIONS: { code: Lang; label: string }[] = [
   { code: 'en', label: 'English' },
   { code: 'pt', label: 'Português' },
   { code: 'de', label: 'Deutsch' },
+  { code: 'zh', label: '中文' },
 ]
 
 function fmtStars(n: number): string {
