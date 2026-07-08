@@ -124,6 +124,12 @@ export const STUDENTS: Student[] = [
     avatar: '/images/students/isaias_venegas.jpg',
   },
   {
+    initials: 'IS', name: 'Iván Salas',            year: 2025,
+    descKey: 'abt.students.ivan-salas.desc',
+    fullDesc: 'Módulo de Forecasting para DashAI',
+    avatar: '/images/students/ivan_salas.jpg',
+  },
+  {
     initials: 'SC', name: 'Sofía Chávez',          year: 2025,
     descKey: 'abt.students.sofia-chavez.desc',
     fullDesc: 'Abstracción de sistemas RAG en un entorno no-code',
