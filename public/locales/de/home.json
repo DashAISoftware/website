@@ -129,6 +129,5 @@
   "tag.tab": "tabellarisch",
   "tag.tr": "Übersetzung",
   "hero.stat.stars": "Unterstütze uns mit einem Stern",
-  "hero.stat.dl": "Downloads insgesamt",
-  "hero.stat.updated": "Letzte Aktualisierung: {{date}}"
+  "hero.stat.dl": "Downloads insgesamt"
 }
