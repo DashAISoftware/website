@@ -90,7 +90,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:dashai.nocode@gmail.com">{t('ft.em')}</a>
+                <a href="mailto:contacto@dash-ai.com">{t('ft.em')}</a>
               </li>
               <li>
                 <a href="https://github.com/DashAISoftware/dashAI/issues" target="_blank" rel="noopener noreferrer">
@@ -104,7 +104,6 @@ export function Footer() {
 
         <div className="foot-bottom">
           <div>{t('ft.copy')}</div>
-          <div>{t('ft.proto')}</div>
         </div>
       </div>
     </footer>
