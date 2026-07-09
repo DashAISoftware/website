@@ -104,7 +104,6 @@ export function Footer() {
 
         <div className="foot-bottom">
           <div>{t('ft.copy')}</div>
-          <div>{t('ft.proto')}</div>
         </div>
       </div>
     </footer>
