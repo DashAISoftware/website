@@ -490,7 +490,7 @@ export function ContributeRoute() {
                   <a href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener">
                     <span>{t('g.lnk.discord')}</span> →
                   </a>
-                  <a href="mailto:dashai.nocode@gmail.com">
+                  <a href="mailto:contacto@dash-ai.com">
                     <span>{t('g.lnk.email')}</span> →
                   </a>
                 </div>

@@ -106,7 +106,7 @@ export function AboutRoute() {
                 <h4 style={{ fontSize: '16px', color: 'var(--ink-text)', marginBottom: '8px' }}>{t('abt.hist.cta.h')}</h4>
                 <p style={{ fontSize: '14px', color: 'var(--ink-text-2)', lineHeight: '1.55' }}>{t('abt.hist.cta.p')}</p>
               </div>
-              <a className="btn btn--blue" href="mailto:dashai.nocode@gmail.com">
+              <a className="btn btn--blue" href="mailto:contacto@dash-ai.com">
                 <span>{t('abt.hist.cta.b')}</span> →
               </a>
             </div>
