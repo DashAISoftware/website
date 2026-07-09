@@ -17,12 +17,7 @@ export function CommunityRoute() {
           <h2 style={{ margin: '16px 0' }}>{t('com.h')}</h2>
           <p className="lead">{t('com.lead')}</p>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr 1fr',
-            gap: '18px',
-            marginTop: '32px',
-          }}>
+          <div className="community-grid">
             <div style={{
               background: 'var(--bg)',
               border: '1px solid var(--line)',

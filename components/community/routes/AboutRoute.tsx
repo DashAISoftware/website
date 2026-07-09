@@ -37,7 +37,7 @@ export function AboutRoute() {
           <h2 style={{ margin: '16px 0' }}>{t('abt.h')}</h2>
           <p className="lead">{t('abt.lead')}</p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1.3fr .9fr', gap: '32px', marginTop: '32px' }}>
+          <div className="abt-mission-grid">
             <div style={{
               background: 'var(--surface)',
               border: '1px solid var(--line)',

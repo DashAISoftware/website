@@ -625,7 +625,7 @@ export function ContributeRoute() {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1.3fr .9fr', gap: 32 }}>
+          <div className="citation-grid">
             <pre className="code">{`@software{dashai_2026,
   title  = {dashAI: a Full Open, Full Extensible
             Visual ML platform},
@@ -637,7 +637,7 @@ export function ContributeRoute() {
   organization = {dashAI Community},
 }`}</pre>
 
-            <div style={{ background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: 'var(--r-lg)', padding: 24 }}>
+            <div className="coc-card" style={{ background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: 'var(--r-lg)', padding: 24 }}>
               <h4 style={{ fontSize: 16, marginBottom: 10 }}>{t('cont.coc.h')}</h4>
               <p style={{ fontSize: 14, color: 'var(--ink-2)', lineHeight: 1.5 }} dangerouslySetInnerHTML={th('cont.coc.p')} />
               <a
