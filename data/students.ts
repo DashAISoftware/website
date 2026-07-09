@@ -63,7 +63,7 @@ export const STUDENTS: Student[] = [
     initials: 'FC', name: 'Felipe Cárdenas',       year: 2024,
     descKey: 'abt.students.felipe-cardenas.desc',
     fullDesc: 'Módulo de predicción',
-    avatar: '/images/students/felipe_cardenas.jpg',
+    avatar: '/images/team/felipe_cardenas.jpg',
   },
   {
     initials: 'FV', name: 'Florencia Valladares',  year: 2024,
@@ -103,7 +103,7 @@ export const STUDENTS: Student[] = [
     initials: 'CR', name: 'Camila Reyes',          year: 2025,
     descKey: 'abt.students.camila-reyes.desc',
     fullDesc: 'Integración de Modelos LLM en DashAI',
-    avatar: '/images/students/camila_reyes.jpg',
+    avatar: '/images/team/camila_reyes.jpg',
   },
   {
     initials: 'CH', name: 'Carla Hayler',          year: 2025,
@@ -115,7 +115,7 @@ export const STUDENTS: Student[] = [
     initials: 'ED', name: 'Emilio Díaz',           year: 2025,
     descKey: 'abt.students.emilio-diaz.desc',
     fullDesc: 'Generación de Imágenes para DashAI',
-    avatar: '/images/students/emilio_diaz.png',
+    avatar: '/images/team/emilio_diaz.jpg',
   },
   {
     initials: 'IV', name: 'Isaias Venegas',        year: 2025,
