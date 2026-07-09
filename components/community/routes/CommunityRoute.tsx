@@ -23,11 +23,14 @@ export function CommunityRoute() {
               border: '1px solid var(--line)',
               borderRadius: 'var(--r-lg)',
               padding: '28px',
+              display: 'flex',
+              flexDirection: 'column',
             }}>
               <div className="mono" style={{ display: 'inline-block', fontSize: '11px', color: 'var(--ink-3)' }}>DISCORD</div>
               <h3 style={{ margin: '14px 0 10px', color: 'var(--ink)' }}>{t('com.d.h')}</h3>
               <p style={{ fontSize: '14px', color: 'var(--ink-2)', lineHeight: '1.5' }}>{t('com.d.p')}</p>
-              <a className="btn btn--sm" style={{ marginTop: '18px' }} href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener">
+              <div style={{ flex: 1 }} />
+              <a className="btn btn--sm" style={{ marginTop: '18px', alignSelf: 'flex-start' }} href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener">
                 <span>{t('com.d.cta')}</span> →
               </a>
             </div>
@@ -37,11 +40,14 @@ export function CommunityRoute() {
               border: '1px solid var(--line)',
               borderRadius: 'var(--r-lg)',
               padding: '28px',
+              display: 'flex',
+              flexDirection: 'column',
             }}>
               <div className="mono" style={{ display: 'inline-block', fontSize: '11px', color: 'var(--ink-3)' }}>GOOGLE GROUP</div>
               <h3 style={{ margin: '14px 0 10px', color: 'var(--ink)' }}>{t('com.n.h')}</h3>
               <p style={{ fontSize: '14px', color: 'var(--ink-2)', lineHeight: '1.5' }}>{t('com.n.p')}</p>
-              <a className="btn btn--sm" style={{ marginTop: '18px' }} href="https://groups.google.com/g/dashai-updates" target="_blank" rel="noopener">
+              <div style={{ flex: 1 }} />
+              <a className="btn btn--sm" style={{ marginTop: '18px', alignSelf: 'flex-start' }} href="https://groups.google.com/g/dashai-updates" target="_blank" rel="noopener">
                 <span>{t('com.n.cta')}</span> →
               </a>
             </div>
@@ -51,6 +57,8 @@ export function CommunityRoute() {
               border: '1px solid var(--line)',
               borderRadius: 'var(--r-lg)',
               padding: '28px',
+              display: 'flex',
+              flexDirection: 'column',
             }}>
               <div className="mono" style={{ display: 'inline-block', fontSize: '11px', color: 'var(--ink-3)' }}>EMAIL</div>
               <h3 style={{ margin: '14px 0 10px', color: 'var(--ink)' }}>{t('com.e.h')}</h3>
@@ -58,7 +66,8 @@ export function CommunityRoute() {
               <a className="mono" style={{ display: 'block', marginTop: '14px', fontSize: '13px', color: 'var(--brand-on)' }} href="mailto:contacto@dash-ai.com">
                 contacto@dash-ai.com
               </a>
-              <a className="btn btn--sm" style={{ marginTop: '14px' }} href="mailto:contacto@dash-ai.com">
+              <div style={{ flex: 1 }} />
+              <a className="btn btn--sm" style={{ marginTop: '18px', alignSelf: 'flex-start' }} href="mailto:contacto@dash-ai.com">
                 <span>{t('com.e.cta')}</span> →
               </a>
             </div>
