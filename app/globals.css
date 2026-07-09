@@ -69,7 +69,7 @@ h3{font-size:24px;line-height:1.25}
 h4{font-size:18px;line-height:1.3}
 .lead{font-size:18px;line-height:1.55;color:var(--ink-2);max-width:62ch}
 
-.nav{position:sticky;top:0;z-index:50;background:rgba(254,254,255,.98);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden}
+.nav{position:sticky;top:0;z-index:50;background:rgba(254,254,255,.98);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);display:flex;flex-direction:column}
 .nav-inner{display:flex;align-items:center;gap:18px;height:64px;padding:0 28px;width:100%;max-width:1200px;margin:0 auto}
 .nav-logo{display:flex;align-items:center;gap:10px;color:var(--brand)}
 .nav-logo:hover{color:var(--brand-on)}
