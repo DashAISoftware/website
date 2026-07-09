@@ -38,6 +38,7 @@ export function Navbar({ route }: { route: string }) {
   const setLang = (l: string) => { i18n.changeLanguage(l); try { localStorage.setItem('dashai-lang', l) } catch {} }
 
   const [isOpen, setIsOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { stats, isLoading: statsLoading } = useStats()
   const stars = stats?.github.stars ?? null
   const switcherRef = useRef<HTMLDivElement>(null)
@@ -52,14 +53,31 @@ export function Navbar({ route }: { route: string }) {
     return () => document.removeEventListener('click', handleClickOutside)
   }, [])
 
+  function closeMobileMenu() {
+    setMobileMenuOpen(false)
+  }
+
   function handleLangSelect(l: Lang) {
     setLang(l)
     setIsOpen(false)
   }
 
   return (
+    <>
     <header className="nav">
       <div className="wrap nav-inner">
+        <button
+          className="nav-burger"
+          type="button"
+          aria-label="Menu"
+          aria-expanded={mobileMenuOpen}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
         <a href="#home" className="nav-logo" aria-label="dashAI">
           <svg className="nav-mark" viewBox="0 0 218.96 237.04">
             <use href="#dashai-mark" />
@@ -82,8 +100,8 @@ export function Navbar({ route }: { route: string }) {
           ))}
         </nav>
 
-        <div className="nav-right">
-          <div className="lang-switcher" ref={switcherRef}>
+        <div className="nav-right nav-right-desktop">
+          <div className="lang-switcher lang-switcher-desktop" ref={switcherRef}>
             <button
               className="lang-trigger"
               type="button"
@@ -170,5 +188,96 @@ export function Navbar({ route }: { route: string }) {
         </div>
       </div>
     </header>
+
+    {mobileMenuOpen && (
+      <>
+        <div className="nav-backdrop" onClick={closeMobileMenu} />
+        <nav className="nav-mobile-menu">
+          <div className="nav-mobile-menu-header">
+            <svg className="nav-mobile-menu-logo" viewBox="0 0 854 237.04">
+              <use href="#dashai-lockup" />
+            </svg>
+            <button
+              className="nav-mobile-menu-close"
+              type="button"
+              aria-label="Close"
+              onClick={closeMobileMenu}
+            >
+              ×
+            </button>
+          </div>
+
+          {NAV_LINKS.map(({ key, i18nKey }) => (
+            <a
+              key={key}
+              href={`#${key}`}
+              className={route === key ? 'is-active' : undefined}
+              onClick={closeMobileMenu}
+            >
+              {t(i18nKey)}
+            </a>
+          ))}
+
+          <div className="lang-switcher" ref={switcherRef} style={{ width: '100%' }}>
+            <button
+              className="lang-trigger"
+              type="button"
+              aria-haspopup="listbox"
+              aria-expanded={isOpen}
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
+              <svg
+                className="lang-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.8}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="9" />
+                <path d="M3 12h18" />
+                <path d="M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18" />
+              </svg>
+              <span className="lang-current">{lang.toUpperCase()}</span>
+              <svg
+                className="lang-caret"
+                viewBox="0 0 12 12"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 4l4 4 4-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.8}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            {isOpen && (
+              <ul className="lang-list lang-list-inline" role="listbox">
+                {LANG_OPTIONS.map(({ code, label }) => (
+                  <li key={code}>
+                    <button
+                      type="button"
+                      role="option"
+                      className={lang === code ? 'is-on' : undefined}
+                      onClick={() => handleLangSelect(code)}
+                    >
+                      <span className="lang-code">{code.toUpperCase()}</span>
+                      <span className="lang-name">{label}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </nav>
+      </>
+    )}
+    </>
   )
 }
