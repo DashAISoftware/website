@@ -55,7 +55,10 @@ export function CommunityRoute() {
               <div className="mono" style={{ display: 'inline-block', fontSize: '11px', color: 'var(--ink-3)' }}>EMAIL</div>
               <h3 style={{ margin: '14px 0 10px', color: 'var(--ink)' }}>{t('com.e.h')}</h3>
               <p style={{ fontSize: '14px', color: 'var(--ink-2)', lineHeight: '1.5' }}>{t('com.e.p')}</p>
-              <a className="btn btn--sm" style={{ marginTop: '18px' }} href="mailto:contacto@dash-ai.com">
+              <a className="mono" style={{ display: 'block', marginTop: '14px', fontSize: '13px', color: 'var(--brand-on)' }} href="mailto:contacto@dash-ai.com">
+                contacto@dash-ai.com
+              </a>
+              <a className="btn btn--sm" style={{ marginTop: '14px' }} href="mailto:contacto@dash-ai.com">
                 <span>{t('com.e.cta')}</span> →
               </a>
             </div>
