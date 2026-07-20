@@ -2,12 +2,16 @@
 
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
-import { getInstitutions, getFunderLogos } from '@/lib/institutions'
+import { getInstitutions, getFunderLogos, getInstitutionRole } from '@/lib/institutions'
 
 export function InstitutionsGrid() {
-  const { t } = useTranslation('about')
+  const { t, i18n } = useTranslation('about')
+  const lang = i18n.language || 'en'
   const institutions = [
-    ...getInstitutions(),
+    ...getInstitutions().map((inst) => ({
+      ...inst,
+      role: getInstitutionRole(inst, lang),
+    })),
     ...getFunderLogos().map((f) => ({
       id: f.id,
       name: f.name,

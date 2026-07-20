@@ -11,12 +11,7 @@ import '@/app/i18n'
 export function AboutRoute() {
   const { t, i18n } = useTranslation('about')
   const th = (key: string, options?: Record<string, string>) => ({ __html: t(key, options) })
-  const lang = i18n.language?.startsWith('es')
-    ? 'es'
-    : i18n.language?.startsWith('pt')
-      ? 'pt'
-      : 'en'
-  const acknowledgment = getAcknowledgmentsText(lang)
+  const acknowledgment = getAcknowledgmentsText(i18n.language)
 
   const [version, setVersion] = useState('0.9.6')
 
