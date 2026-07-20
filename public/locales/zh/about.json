@@ -47,7 +47,7 @@
   "abt.v.h": "当前版本",
   "abt.v.h2": "愿景",
   "abt.v.p": "version &nbsp; <strong style=\"color:var(--brand-light)\">v{{version}}</strong><br> license &nbsp; open-source<br> python &nbsp; ≥ 3.10<br> stack &nbsp; &nbsp;FastAPI + React<br> docs &nbsp; &nbsp; &nbsp;docs.dash-ai.com (0.0.4)<br> paper &nbsp; &nbsp;筹备中",
-  "abt.v.p2": "打造一个具备三大核心特性的智利可视化 Machine Learning 平台：基于用户数据的本地运行、通过社区插件实现的可扩展性，以及各组件的学术可追溯性。该项目致力于成为科研团队、公共机构和业内专业人士共享的基础设施。",
+  "abt.v.p2": "打造一个具备两大核心特性的智利可视化 Machine Learning 平台：基于用户数据的本地运行，以及通过社区插件实现的可扩展性。该项目致力于成为科研团队、公共机构和业内专业人士共享的基础设施。",
   "abt.students.ignacio-nunez.desc": "可扩展 ML 架构",
   "abt.students.martin-paredes.desc": "Data Studio",
   "abt.students.rodrigo-urrea.desc": "DashAI 后端",

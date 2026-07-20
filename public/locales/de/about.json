@@ -47,7 +47,7 @@
   "abt.v.h": "Aktuelle Version",
   "abt.v.h2": "Vision",
   "abt.v.p": "version &nbsp; <strong style=\"color:var(--brand-light)\">v{{version}}</strong><br> license &nbsp; open-source<br> python &nbsp; ≥ 3.10<br> stack &nbsp; &nbsp;FastAPI + React<br> docs &nbsp; &nbsp; &nbsp;docs.dash-ai.com (0.0.4)<br> paper &nbsp; &nbsp;in Vorbereitung",
-  "abt.v.p2": "Eine chilenische Plattform für visuelles Machine Learning mit drei zentralen Merkmalen etablieren: lokale Verarbeitung der Nutzerdaten, Erweiterbarkeit durch Community-Plugins und akademische Nachvollziehbarkeit ihrer Komponenten. Das Projekt strebt an, als gemeinsame Infrastruktur für Forschungsgruppen, öffentliche Institutionen und Fachleute der Branche zu dienen.",
+  "abt.v.p2": "Eine chilenische Plattform für visuelles Machine Learning mit zwei zentralen Merkmalen etablieren: lokale Verarbeitung der Nutzerdaten und Erweiterbarkeit durch Community-Plugins. Das Projekt strebt an, als gemeinsame Infrastruktur für Forschungsgruppen, öffentliche Institutionen und Fachleute der Branche zu dienen.",
   "abt.students.ignacio-nunez.desc": "Erweiterbare ML-Architektur",
   "abt.students.martin-paredes.desc": "Data Studio",
   "abt.students.rodrigo-urrea.desc": "DashAI-Backend",
