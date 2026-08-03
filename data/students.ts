@@ -17,23 +17,19 @@ export const STUDENTS: Student[] = [
   },
   // 2023
   {
+    initials: 'CV', name: 'César Véliz',           year: 2023,
+    descKey: 'abt.students.cesar-veliz.desc',
+    fullDesc: 'Módulo de Optimización de Hiperparámetros para DashAI',
+  },
+  {
     initials: 'MP', name: 'Martin Paredes',          year: 2023,
     descKey: 'abt.students.martin-paredes.desc',
     fullDesc: 'Creación de un Data Studio',
     avatar: '/images/students/martin_paredes.jpg',
     imgStyle: { transform: 'scale(1.25)' },
   },
-  {
-    initials: 'RU', name: 'Rodrigo Urrea',           year: 2023,
-    descKey: 'abt.students.rodrigo-urrea.desc',
-    fullDesc: 'Diseño e implementación de backend para el framework DashAI',
-    avatar: '/images/students/rodrigo_urrea.jpg',
-  },
-  {
-    initials: 'CV', name: 'César Véliz',           year: 2023,
-    descKey: 'abt.students.cesar-veliz.desc',
-    fullDesc: 'Módulo de Optimización de Hiperparámetros para DashAI',
-  },
+
+
   {
     initials: 'LC', name: 'Lucas Carrasco',        year: 2023,
     descKey: 'abt.students.lucas-carrasco.desc',
@@ -45,6 +41,18 @@ export const STUDENTS: Student[] = [
     descKey: 'abt.students.oziel-aguilera.desc',
     fullDesc: 'Implementación de modelos de IA y Tasks en DashAI',
     avatar: '/images/students/oziel_aguilera.jpg',
+  },
+  {
+    initials: 'PB', name: 'Pablo Badilla',         year: 2023,
+    descKey: 'abt.students.pablo-badilla.desc',
+    fullDesc: 'Arquitectura de software y desarrollo frontend para DashAI',
+    avatar: '/images/students/pablo_badilla.jpeg',
+  },
+  {
+    initials: 'RU', name: 'Rodrigo Urrea',           year: 2023,
+    descKey: 'abt.students.rodrigo-urrea.desc',
+    fullDesc: 'Diseño e implementación de backend para el framework DashAI',
+    avatar: '/images/students/rodrigo_urrea.jpg',
   },
   // 2024
   {
