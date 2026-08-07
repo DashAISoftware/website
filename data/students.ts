@@ -37,6 +37,11 @@ export const STUDENTS: Student[] = [
     avatar: '/images/students/lucas_carrasco.jpg',
   },
   {
+    initials: 'MA', name: 'Maximiliano Aguilar',     year: 2023,
+    descKey: 'abt.students.maximiliano-aguilar.desc',
+    fullDesc: 'Diseño e implementación de interfaz de usuario para software de inteligencia artificial sin programar',
+  },
+  {
     initials: 'OA', name: 'Oziel Aguilera',        year: 2023,
     descKey: 'abt.students.oziel-aguilera.desc',
     fullDesc: 'Implementación de modelos de IA y Tasks en DashAI',
@@ -54,6 +59,7 @@ export const STUDENTS: Student[] = [
     fullDesc: 'Diseño e implementación de backend para el framework DashAI',
     avatar: '/images/students/rodrigo_urrea.jpg',
   },
+
   // 2024
   {
     initials: 'CP', name: 'Camilo Huerta',          year: 2024,
@@ -138,8 +144,14 @@ export const STUDENTS: Student[] = [
     avatar: '/images/students/ivan_salas.jpg',
   },
   {
+    initials: 'SA', name: 'Sofía Araya Vallejos',           year: 2025,
+    descKey: 'abt.students.sofia-araya.desc',
+    fullDesc: 'Reimplementación y visualización de la cola de trabajos de DashAI',
+    avatar: '/images/students/sofia_araya.jpg',
+  },
+  {
     initials: 'SC', name: 'Sofía Chávez',          year: 2025,
     descKey: 'abt.students.sofia-chavez.desc',
     fullDesc: 'Abstracción de sistemas RAG en un entorno no-code',
-  },
+  }
 ]
