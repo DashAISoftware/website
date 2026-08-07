@@ -2,7 +2,6 @@
   "dl.cl.t": "<strong style=\"color:var(--ink);font-weight:500\">想修改核心代码？</strong>克隆仓库，基于 <code style=\"font-family:var(--mono);font-size:12px;background:var(--bg);padding:1px 5px;border-radius:4px\">develop</code> 分支进行开发。",
   "dl.e.arm": "macOS | Apple Silicon",
   "dl.e.h": "原生安装程序。",
-  "dl.e.int": "macOS | Intel",
   "dl.e.lnx": "Linux | x64",
   "dl.e.p": "无需 Python，无需配置。从 GitHub Releases 下载适合你操作系统的可执行文件，双击即可打开，dashAI 随时可用。",
   "dl.e.r": "查看 GitHub 上的所有版本",

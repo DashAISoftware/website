@@ -24,7 +24,6 @@ export function DownloadRoute() {
   const [links, setLinks] = useState({
     windows: SOURCEFORGE_URL,
     mac_arm: SOURCEFORGE_URL,
-    mac_intel: SOURCEFORGE_URL,
     linux: SOURCEFORGE_URL,
   })
 
@@ -34,7 +33,6 @@ export function DownloadRoute() {
       setLinks({
         windows:   findAsset(release.assets, 'windows')?.browser_download_url   ?? SOURCEFORGE_URL,
         mac_arm:   findAsset(release.assets, 'mac_arm')?.browser_download_url   ?? SOURCEFORGE_URL,
-        mac_intel: findAsset(release.assets, 'mac_intel')?.browser_download_url ?? SOURCEFORGE_URL,
         linux:     findAsset(release.assets, 'linux')?.browser_download_url     ?? SOURCEFORGE_URL,
       })
     })
@@ -95,15 +93,6 @@ export function DownloadRoute() {
                       <use href="#i-apple" />
                     </svg>
                     <span>{t('dl.e.arm')}</span>
-                  </span>
-                  <span className="arrow"><span className="ext">.dmg</span> ↓</span>
-                </a>
-                <a className="alt" href={links.mac_intel} target="_blank" rel="noopener" onClick={() => trackClick('mac_intel')}>
-                  <span className="os">
-                    <svg style={{ width: '18px', height: '18px' }}>
-                      <use href="#i-apple" />
-                    </svg>
-                    <span>{t('dl.e.int')}</span>
                   </span>
                   <span className="arrow"><span className="ext">.dmg</span> ↓</span>
                 </a>
