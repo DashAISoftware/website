@@ -2,7 +2,6 @@
   "dl.cl.t": "<strong style=\"color:var(--ink);font-weight:500\">Quer modificar o core?</strong> Clone o repositório e trabalhe sobre a branch <code style=\"font-family:var(--mono);font-size:12px;background:var(--bg);padding:1px 5px;border-radius:4px\">develop</code>.",
   "dl.e.arm": "macOS | Apple Silicon",
   "dl.e.h": "Instalador nativo.",
-  "dl.e.int": "macOS | Intel",
   "dl.e.lnx": "Linux | x64",
   "dl.e.p": "Sem Python, sem setup. Baixe o executável para seu sistema operacional desde GitHub Releases. Clique duplo e dashAI abre pronto para usar.",
   "dl.e.r": "Ver todos os releases no GitHub",

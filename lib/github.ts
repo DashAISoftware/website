@@ -29,7 +29,7 @@ export function formatBytes(bytes: number): string {
 
 export function findAsset(
   assets: ReleaseAsset[],
-  platform: "windows" | "mac_intel" | "mac_arm" | "linux"
+  platform: "windows" | "mac_arm" | "linux"
 ): ReleaseAsset | undefined {
   return assets.find(({ name }) => {
     const n = name.toLowerCase()
@@ -38,11 +38,6 @@ export function findAsset(
         return n.includes("windows")
       case "linux":
         return n.includes("linux") || n.includes("appimage")
-      case "mac_intel":
-        return (
-          (n.includes("x64") || n.includes("intel")) &&
-          (n.includes("osx") || n.includes("mac") || n.includes("darwin"))
-        )
       case "mac_arm":
         return (
           (n.includes("arm") || n.includes("aarch")) &&
