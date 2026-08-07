@@ -144,7 +144,7 @@ export const STUDENTS: Student[] = [
     avatar: '/images/students/ivan_salas.jpg',
   },
   {
-    initials: 'SA', name: 'Sofía Araya Vallejos',           year: 2025,
+    initials: 'SA', name: 'Sofía Araya',           year: 2025,
     descKey: 'abt.students.sofia-araya.desc',
     fullDesc: 'Reimplementación y visualización de la cola de trabajos de DashAI',
     avatar: '/images/students/sofia_araya.jpg',
