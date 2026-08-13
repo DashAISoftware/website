@@ -153,5 +153,6 @@ export const STUDENTS: Student[] = [
     initials: 'SC', name: 'Sofía Chávez',          year: 2025,
     descKey: 'abt.students.sofia-chavez.desc',
     fullDesc: 'Abstracción de sistemas RAG en un entorno no-code',
+    avatar: '/images/students/sofia_chavez.jpg',
   }
 ]
