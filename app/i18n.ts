@@ -55,6 +55,12 @@ import footerPT from "../public/locales/pt/footer.json"
 import footerDE from "../public/locales/de/footer.json"
 import footerZH from "../public/locales/zh/footer.json"
 
+import faqEN from "../public/locales/en/faq.json"
+import faqES from "../public/locales/es/faq.json"
+import faqPT from "../public/locales/pt/faq.json"
+import faqDE from "../public/locales/de/faq.json"
+import faqZH from "../public/locales/zh/faq.json"
+
 i18n
   .use(initReactI18next)
   .init({
@@ -70,6 +76,7 @@ i18n
         community: communityES,
         about: aboutES,
         footer: footerES,
+        faq: faqES,
       },
       en: {
         navbar: navbarEN,
@@ -81,6 +88,7 @@ i18n
         community: communityEN,
         about: aboutEN,
         footer: footerEN,
+        faq: faqEN,
       },
       pt: {
         navbar: navbarPT,
@@ -92,6 +100,7 @@ i18n
         community: communityPT,
         about: aboutPT,
         footer: footerPT,
+        faq: faqPT,
       },
       de: {
         navbar: navbarDE,
@@ -103,6 +112,7 @@ i18n
         community: communityDE,
         about: aboutDE,
         footer: footerDE,
+        faq: faqDE,
       },
       zh: {
         navbar: navbarZH,
@@ -114,6 +124,7 @@ i18n
         community: communityZH,
         about: aboutZH,
         footer: footerZH,
+        faq: faqZH,
       },
     },
     supportedLngs: ["es", "en", "pt", "de", "zh"],

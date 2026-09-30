@@ -64,6 +64,9 @@ export function Footer() {
                 <a href="#contribute">{t('ft.cont')}</a>
               </li>
               <li>
+                <a href="#faq">{t('ft.faq')}</a>
+              </li>
+              <li>
                 <a
                   href="https://github.com/DashAISoftware/dashAI/blob/production/CHANGELOG.rst"
                   target="_blank"
