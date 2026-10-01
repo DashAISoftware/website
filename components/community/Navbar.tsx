@@ -6,7 +6,7 @@ import '@/app/i18n'
 import { useStats } from '@/lib/useStats'
 
 type Lang = 'es' | 'en' | 'pt' | 'de' | 'zh'
-type Route = 'home' | 'models' | 'plugins' | 'contribute' | 'download' | 'community' | 'faq' | 'about'
+type Route = 'home' | 'models' | 'plugins' | 'contribute' | 'download' | 'community' | 'faq' | 'news' | 'about'
 
 
 const NAV_LINKS: { key: Route; i18nKey: string }[] = [
@@ -17,6 +17,7 @@ const NAV_LINKS: { key: Route; i18nKey: string }[] = [
   { key: 'community',  i18nKey: 'nav.community' },
   { key: 'plugins',    i18nKey: 'nav.plugins' },
   { key: 'faq',        i18nKey: 'nav.faq' },
+  { key: 'news',       i18nKey: 'nav.news' },
   { key: 'about',      i18nKey: 'nav.about' },
 ]
 
