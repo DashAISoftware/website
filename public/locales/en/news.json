@@ -16,7 +16,7 @@
   "news.list.lead": "Sorted from newest to oldest. Filter by type of outlet or search by title.",
   "news.search.sr": "Search the coverage",
   "news.search.ph": "Search by outlet or headline...",
-  "news.filter.all": "All",
+  "news.type.all": "All",
   "news.type.prensa": "Press",
   "news.type.tv": "TV",
   "news.type.radio": "Radio",

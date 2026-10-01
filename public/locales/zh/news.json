@@ -16,7 +16,7 @@
   "news.list.lead": "按时间从新到旧排列。可按媒体类型筛选，或按标题搜索。",
   "news.search.sr": "搜索报道",
   "news.search.ph": "按媒体或标题搜索...",
-  "news.filter.all": "全部",
+  "news.type.all": "全部",
   "news.type.prensa": "报刊",
   "news.type.tv": "电视",
   "news.type.radio": "广播",

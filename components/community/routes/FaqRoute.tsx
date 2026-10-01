@@ -21,6 +21,9 @@ const OS_STEPS_ITEM = 'install.3'
 const MAC_STEPS = 5
 const WIN_STEPS = 3
 
+// Keys for a category's own texts: ey, h, p and nav
+const catKey = (id: string, field: string) => `faq.${id}.${field}`
+
 const pad = (n: number) => String(n).padStart(2, '0')
 const range = (n: number) => Array.from({ length: n }, (_, i) => i + 1)
 const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -50,7 +53,7 @@ export function FaqRoute() {
   const haystack = useMemo(() => {
     const map = new Map<string, string>()
     for (const cat of CATEGORIES) {
-      const head = [t(`faq.${cat.id}.ey`), t(`faq.${cat.id}.h`), t(`faq.${cat.id}.p`)].join(' ')
+      const head = [t(catKey(cat.id, 'ey')), t(catKey(cat.id, 'h')), t(catKey(cat.id, 'p'))].join(' ')
       for (const n of range(cat.count)) {
         const id = `${cat.id}.${n}`
         const parts = [t(`faq.${id}.q`), t(`faq.${id}.a`), head]
@@ -175,7 +178,7 @@ export function FaqRoute() {
                     className={activeCat === cat.id ? 'is-active' : undefined}
                     onClick={e => handleCategoryClick(e, cat.id)}
                   >
-                    {t(`faq.${cat.id}.nav`)} <b>{pad(cat.count)}</b>
+                    {t(catKey(cat.id, 'nav'))} <b>{pad(cat.count)}</b>
                   </a>
                 ))}
               </nav>
@@ -189,9 +192,9 @@ export function FaqRoute() {
                 return (
                   <div key={cat.id} className={`faq-block ${cat.cls}`} id={`faq-${cat.id}`} hidden={!anyVisible}>
                     <div className="faq-block-head">
-                      <div className="ey">// {pad(ci + 1)} {t(`faq.${cat.id}.ey`)}</div>
-                      <h3>{t(`faq.${cat.id}.h`)}</h3>
-                      <p>{t(`faq.${cat.id}.p`)}</p>
+                      <div className="ey">// {pad(ci + 1)} {t(catKey(cat.id, 'ey'))}</div>
+                      <h3>{t(catKey(cat.id, 'h'))}</h3>
+                      <p>{t(catKey(cat.id, 'p'))}</p>
                     </div>
 
                     {items.map(id => (
