@@ -16,7 +16,7 @@
   "news.list.lead": "Sortiert von neu nach alt. Filtere nach Medientyp oder suche nach Titel.",
   "news.search.sr": "Berichterstattung durchsuchen",
   "news.search.ph": "Nach Medium oder Schlagzeile suchen...",
-  "news.filter.all": "Alle",
+  "news.type.all": "Alle",
   "news.type.prensa": "Presse",
   "news.type.tv": "TV",
   "news.type.radio": "Radio",

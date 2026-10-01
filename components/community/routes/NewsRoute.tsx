@@ -125,7 +125,7 @@ export function NewsRoute() {
                   aria-pressed={filter === f}
                   onClick={() => setFilter(f)}
                 >
-                  {f === 'all' ? t('news.filter.all') : t(`news.type.${f}`)}
+                  {t(`news.type.${f}`)}
                 </button>
               ))}
             </div>
