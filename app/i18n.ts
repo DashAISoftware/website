@@ -56,10 +56,15 @@ import footerDE from "../public/locales/de/footer.json"
 import footerZH from "../public/locales/zh/footer.json"
 
 import faqEN from "../public/locales/en/faq.json"
+import newsEN from "../public/locales/en/news.json"
 import faqES from "../public/locales/es/faq.json"
+import newsES from "../public/locales/es/news.json"
 import faqPT from "../public/locales/pt/faq.json"
+import newsPT from "../public/locales/pt/news.json"
 import faqDE from "../public/locales/de/faq.json"
+import newsDE from "../public/locales/de/news.json"
 import faqZH from "../public/locales/zh/faq.json"
+import newsZH from "../public/locales/zh/news.json"
 
 i18n
   .use(initReactI18next)
@@ -77,6 +82,7 @@ i18n
         about: aboutES,
         footer: footerES,
         faq: faqES,
+        news: newsES,
       },
       en: {
         navbar: navbarEN,
@@ -89,6 +95,7 @@ i18n
         about: aboutEN,
         footer: footerEN,
         faq: faqEN,
+        news: newsEN,
       },
       pt: {
         navbar: navbarPT,
@@ -101,6 +108,7 @@ i18n
         about: aboutPT,
         footer: footerPT,
         faq: faqPT,
+        news: newsPT,
       },
       de: {
         navbar: navbarDE,
@@ -113,6 +121,7 @@ i18n
         about: aboutDE,
         footer: footerDE,
         faq: faqDE,
+        news: newsDE,
       },
       zh: {
         navbar: navbarZH,
@@ -125,6 +134,7 @@ i18n
         about: aboutZH,
         footer: footerZH,
         faq: faqZH,
+        news: newsZH,
       },
     },
     supportedLngs: ["es", "en", "pt", "de", "zh"],

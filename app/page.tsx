@@ -13,6 +13,7 @@ import { PluginsRoute } from '@/components/community/routes/PluginsRoute'
 import { CommunityRoute } from '@/components/community/routes/CommunityRoute'
 import { AboutRoute } from '@/components/community/routes/AboutRoute'
 import { FaqRoute } from '@/components/community/routes/FaqRoute'
+import { NewsRoute } from '@/components/community/routes/NewsRoute'
 import i18n from '@/app/i18n'
 
 function getRouteFromHash(hash: string): { route: string; isSubAnchor: boolean } {
@@ -84,6 +85,7 @@ export default function Page() {
       {route === 'plugins'    && <PluginsRoute />}
       {route === 'community'  && <CommunityRoute />}
       {route === 'faq'        && <FaqRoute />}
+      {route === 'news'       && <NewsRoute />}
       {route === 'about'      && <AboutRoute />}
       <Footer />
     </>
