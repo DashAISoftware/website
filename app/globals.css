@@ -861,3 +861,64 @@ h4{font-size:18px;line-height:1.3}
   .lb-steps,.lb-grid,.lb-parts,.lb-teach{grid-template-columns:1fr}
   main[data-route="labs"] .wrap{padding:0 16px}
 }
+
+/* Lab page (#labs/<slug>) */
+.lb-detail-head{padding:48px 0 36px;border-bottom:1px solid var(--line)}
+.lb-crumb{display:flex;gap:8px;font-size:14px;color:var(--ink-3)}
+.lb-crumb a{color:var(--brand)}
+.lb-crumb a:hover{text-decoration:underline}
+.lb-context{margin-top:22px;font-family:var(--mono);font-size:13px;color:var(--generative-deep)}
+.lb-detail-head h1{margin-top:10px;font-size:52px;letter-spacing:-.03em}
+.lb-intro{margin-top:16px;max-width:none}
+.lb-detail-tags{margin-top:20px}
+.lb-detail-tags .tag{font-family:var(--sans);font-size:13px;padding:5px 12px}
+.tag.lb-level{background:var(--generative-soft);color:var(--generative-deep);border-color:#B7E9D2;font-weight:600}
+.lb-version{margin-top:14px;font-size:13.5px;color:var(--ink-3)}
+.lb-detail-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;padding-top:40px;padding-bottom:80px;align-items:start}
+.lb-detail-main{display:flex;flex-direction:column;gap:48px;min-width:0}
+.lb-h3{font-size:28px;letter-spacing:-.02em}
+.lb-h4{font-size:19px;letter-spacing:-.01em}
+.lb-learn{margin-top:16px;padding-left:20px;display:flex;flex-direction:column;gap:8px;color:var(--ink-2);font-size:15.5px}
+.lb-note{margin-top:12px;font-size:13px;color:var(--ink-3);line-height:1.5}
+.lb-table-wrap{margin-top:18px;border:1px solid var(--line);border-radius:var(--r-lg);overflow-x:auto}
+.lb-table{width:100%;border-collapse:collapse;font-size:14.5px}
+.lb-table th,.lb-table td{padding:12px 16px;text-align:right;white-space:nowrap}
+.lb-table th:first-child{text-align:left;white-space:normal}
+.lb-table thead th{background:#F5F8FF;font-weight:600;font-size:14px}
+.lb-table tbody tr{border-top:1px solid var(--line)}
+.lb-table tbody th{font-weight:400}
+.lb-table td{font-family:var(--mono);font-size:14px}
+.lb-table tr.is-best{background:var(--generative-soft);color:var(--generative-deep);font-weight:600}
+.lb-table tr.is-best th{font-weight:600}
+.lb-modules{list-style:none;margin-top:18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.lb-modules li{display:flex;gap:10px;border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;font-size:14.5px;line-height:1.35}
+.lb-mod-n{font-family:var(--mono);font-weight:600;color:var(--brand-on)}
+.lb-others{margin-top:18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.lb-detail-side{display:flex;flex-direction:column;gap:18px}
+.lb-panel{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg);padding:22px}
+.lb-panel--tint{background:#F5F8FF}
+.lb-side-p{margin-top:10px;font-size:14.5px;color:var(--ink-2);line-height:1.55}
+.lb-dl{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.lb-dl-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line-2);border-radius:var(--r);font-size:14px;font-weight:600;transition:border-color .15s,background .15s}
+.lb-dl-row:hover{border-color:var(--ink)}
+.lb-dl-row.is-primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.lb-dl-name{min-width:0;overflow-wrap:anywhere}
+.lb-dl-size{flex-shrink:0;font-size:12.5px;font-weight:400;opacity:.8}
+.lb-dl-row.is-disabled{opacity:.5;cursor:not-allowed}
+.lb-dl-row.is-disabled:hover{border-color:var(--line-2)}
+.lb-dl-row.is-primary.is-disabled:hover{border-color:var(--brand)}
+.lb-import{margin-top:12px;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:14.5px;color:var(--ink-2)}
+.lb-import code{font-family:var(--mono);font-size:13px;overflow-wrap:anywhere}
+.lb-alert{margin-top:12px;font-size:13px;line-height:1.5;color:var(--datasets-deep);background:var(--datasets-soft);border-radius:var(--r);padding:10px 12px}
+
+@media(max-width:980px){
+  .lb-detail-grid{grid-template-columns:1fr}
+  .lb-modules{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:640px){
+  .lb-detail-head h1{font-size:34px}
+  .lb-h3{font-size:24px}
+  .lb-modules,.lb-others{grid-template-columns:1fr}
+  .lb-detail-grid{padding-bottom:48px}
+  .lb-table th,.lb-table td{padding:10px}
+}

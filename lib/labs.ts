@@ -19,6 +19,12 @@ export function getLab(slug: string): Lab | undefined {
   return LABS.find(l => l.slug === slug)
 }
 
+// "Otros labs" on a lab page: available ones first, then in catalog order.
+export function otherLabs(slug: string, max = 2): Lab[] {
+  const rest = LABS.filter(l => l.slug !== slug)
+  return [...rest.filter(l => l.status === 'available'), ...rest.filter(l => l.status !== 'available')].slice(0, max)
+}
+
 export function sessionFile(lab: Lab): LabFile | undefined {
   return lab.files.find(f => f.kind === 'session')
 }

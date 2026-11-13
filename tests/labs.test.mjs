@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { LABS } from '../data/labs.ts'
-import { filterLabs, formatMetric, formatSize, fileHref, parseHash, getLab, sessionFile } from '../lib/labs.ts'
+import { filterLabs, formatMetric, formatSize, fileHref, parseHash, getLab, sessionFile, otherLabs } from '../lib/labs.ts'
 
 test('LABS has 7 unique slugs, only tutorias has a detail page, no file is ready yet', () => {
   const slugs = LABS.map(l => l.slug)
@@ -60,4 +60,10 @@ test('parseHash keeps existing routing behaviour', () => {
   assert.deepEqual(parseHash('#guide-1'), { route: 'contribute', slug: null, isSubAnchor: true })
   assert.deepEqual(parseHash('#first-pr'), { route: 'contribute', slug: null, isSubAnchor: true })
   assert.deepEqual(parseHash('#models/knn'), { route: 'models/knn', slug: null, isSubAnchor: false })
+})
+
+test('otherLabs lists available labs first, skips the current one, max 2', () => {
+  assert.deepEqual(otherLabs('tutorias').map(l => l.slug), ['caso-01', 'caso-02'])
+  assert.deepEqual(otherLabs('caso-01').map(l => l.slug), ['tutorias', 'caso-02'])
+  assert.equal(otherLabs('tutorias', 3).length, 3)
 })
