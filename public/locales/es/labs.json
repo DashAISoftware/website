@@ -40,8 +40,8 @@
   "labs.cat.empty.reset": "Ver todos los labs",
 
   "labs.card.open": "Abrir lab",
-  "labs.card.concepts": "Conceptos: {{list}}",
-  "labs.card.includes": "Incluye: {{list}}",
+  "labs.card.concepts": "<b>Conceptos:</b> {{list}}",
+  "labs.card.includes": "<b>Incluye:</b> {{list}}",
   "labs.card.session": "Sesión .dashai, {{size}}",
   "labs.card.sessionSoon": "Sesión en preparación",
   "labs.card.soonNote": "En preparación según la malla de la serie",
