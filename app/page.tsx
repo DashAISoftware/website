@@ -14,17 +14,14 @@ import { CommunityRoute } from '@/components/community/routes/CommunityRoute'
 import { AboutRoute } from '@/components/community/routes/AboutRoute'
 import { FaqRoute } from '@/components/community/routes/FaqRoute'
 import { NewsRoute } from '@/components/community/routes/NewsRoute'
+import { LabsRoute } from '@/components/community/routes/LabsRoute'
+import { LabDetailRoute } from '@/components/community/routes/LabDetailRoute'
+import { parseHash } from '@/lib/labs'
 import i18n from '@/app/i18n'
-
-function getRouteFromHash(hash: string): { route: string; isSubAnchor: boolean } {
-  const rawHash = (hash || '#home').replace(/^#/, '') || 'home'
-  if (rawHash.startsWith('faq-')) return { route: 'faq', isSubAnchor: true }
-  const isSubAnchor = rawHash === 'first-pr' || rawHash.startsWith('guide-')
-  return { route: isSubAnchor ? 'contribute' : rawHash, isSubAnchor }
-}
 
 export default function Page() {
   const [route, setRoute] = useState('home')
+  const [labSlug, setLabSlug] = useState<string | null>(null)
   const [scrollTarget, setScrollTarget] = useState<string | null>(null)
   const [ghVersion, setGhVersion] = useState('v0.9.3-alpha')
 
@@ -51,14 +48,16 @@ export default function Page() {
     } catch {}
 
     // Set initial route
-    const { route: initial, isSubAnchor } = getRouteFromHash(window.location.hash)
+    const { route: initial, slug, isSubAnchor } = parseHash(window.location.hash)
     setRoute(initial)
+    setLabSlug(slug)
     if (isSubAnchor) setScrollTarget(window.location.hash.slice(1))
     else window.scrollTo({ top: 0, behavior: 'instant' })
 
     function handleHashChange() {
-      const { route: next, isSubAnchor } = getRouteFromHash(window.location.hash)
+      const { route: next, slug, isSubAnchor } = parseHash(window.location.hash)
       setRoute(next)
+      setLabSlug(slug)
       if (isSubAnchor) setScrollTarget(window.location.hash.slice(1))
       else window.scrollTo({ top: 0, behavior: 'instant' })
     }
@@ -84,6 +83,7 @@ export default function Page() {
       {route === 'download'   && <DownloadRoute />}
       {route === 'plugins'    && <PluginsRoute />}
       {route === 'community'  && <CommunityRoute />}
+      {route === 'labs'       && (labSlug ? <LabDetailRoute slug={labSlug} /> : <LabsRoute />)}
       {route === 'faq'        && <FaqRoute />}
       {route === 'news'       && <NewsRoute />}
       {route === 'about'      && <AboutRoute />}

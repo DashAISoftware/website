@@ -779,3 +779,9 @@ h4{font-size:18px;line-height:1.3}
   .press-feature-copy,.press-quote{padding:28px}
   .press-feature-copy h3{font-size:23px}
 }
+
+/* ── Labs ─────────────────────────────────────────────── */
+.lb-new{display:inline-block;margin-left:6px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.03em;line-height:1;padding:3px 6px;border-radius:999px;background:var(--brand);color:#fff;vertical-align:1px}
+/* With Labs the nav has 10 items: keep each link (and its badge) on one line */
+.nav-links a{white-space:nowrap}
+@media(max-width:1280px){.nav-links{gap:0}.nav-links a{padding:8px 8px}}

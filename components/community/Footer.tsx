@@ -58,6 +58,9 @@ export function Footer() {
                 <a href="#models">{t('ft.models')}</a>
               </li>
               <li>
+                <a href="#labs">{t('ft.labs')}</a>
+              </li>
+              <li>
                 <a href="#download">{t('ft.dl')}</a>
               </li>
               <li>
