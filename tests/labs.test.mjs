@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { LABS } from '../data/labs.ts'
-import { filterLabs, formatMetric, formatSize, fileHref, parseHash, getLab, sessionFile, otherLabs } from '../lib/labs.ts'
+import { filterLabs, formatMetric, formatSize, fileHref, parseHash, getLab, sessionFile, otherLabs, labSearchText } from '../lib/labs.ts'
 
 test('LABS has 7 unique slugs, only tutorias has a detail page, no file is ready yet', () => {
   const slugs = LABS.map(l => l.slug)
@@ -66,4 +66,11 @@ test('otherLabs lists available labs first, skips the current one, max 2', () =>
   assert.deepEqual(otherLabs('tutorias').map(l => l.slug), ['caso-01', 'caso-02'])
   assert.deepEqual(otherLabs('caso-01').map(l => l.slug), ['tutorias', 'caso-02'])
   assert.equal(otherLabs('tutorias', 3).length, 3)
+})
+
+test('search text includes the visible card code and task names', () => {
+  const fakeT = key => ({ 'labs.item.caso-03.code': 'Caso 03', 'labs.item.caso-03.title': '¿Qué tipo de asistente es?' })[key] ?? ''
+  const text = labSearchText(getLab('caso-03'), fakeT)
+  assert.equal(filterLabs(LABS, 'all', 'caso 03', l => labSearchText(l, fakeT)).map(l => l.slug).join(), 'caso-03')
+  assert.ok(text.includes('Tabular Classification'))
 })

@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
 import { LABS, LAB_TASKS, type LabTask } from '@/data/labs'
-import { filterLabs, formatSize, getLab, sessionFile } from '@/lib/labs'
+import { filterLabs, formatSize, getLab, labSearchText, sessionFile } from '@/lib/labs'
 import { LabCard } from '@/components/community/LabCard'
 
 // The hero panel shows what's inside the reference session (the talk lab).
@@ -26,10 +26,7 @@ export function LabsRoute() {
   const [task, setTask] = useState<'all' | LabTask>('all')
   const [query, setQuery] = useState('')
 
-  const shown = useMemo(() => filterLabs(LABS, task, query, lab => {
-    const p = `labs.item.${lab.slug}`
-    return [t(`${p}.title`), t(`${p}.concepts`), t(`${p}.summary`)].join(' ')
-  }), [task, query, t])
+  const shown = useMemo(() => filterLabs(LABS, task, query, lab => labSearchText(lab, k => t(k))), [task, query, t])
 
   const reset = () => { setTask('all'); setQuery('') }
 

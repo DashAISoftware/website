@@ -15,6 +15,13 @@ export function filterLabs(labs: Lab[], task: 'all' | LabTask, query: string, te
   )
 }
 
+// What the catalog search looks at: everything a card shows (code, title,
+// summary, concepts) plus the task names. `t` is the i18n translate function.
+export function labSearchText(lab: Lab, t: (key: string) => string): string {
+  const p = `labs.item.${lab.slug}`
+  return [t(`${p}.code`), t(`${p}.title`), t(`${p}.summary`), t(`${p}.concepts`), ...lab.tasks].join(' ')
+}
+
 export function getLab(slug: string): Lab | undefined {
   return LABS.find(l => l.slug === slug)
 }
