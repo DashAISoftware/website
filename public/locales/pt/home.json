@@ -40,6 +40,7 @@
   "hero.c4.h": "Pipeline integrado de análise e modelagem",
   "hero.c4.p": "Uma única interface visual cobre importação, exploração de dados, treinamento, avaliação e explicabilidade de modelos preditivos e generativos.",
   "hero.cta.cont": "Como contribuir",
+  "hero.cta.demo": "Ver demo",
   "hero.cta.dl": "Baixar dashAI",
   "hero.ey": "local-first | open-source",
   "hero.h": "Treine modelos de Machine Learning <span class=\"blue\">sem escrever código</span>, na sua própria máquina.",
@@ -131,5 +132,7 @@
   "hero.stat.stars": "Apoie-nos com uma estrela",
   "hero.stat.dl": "Total downloads",
   "hero.stat.dl.note": "* Downloads contabilizados no SourceForge, PyPI (via Google BigQuery), neste site e no GitHub.",
-  "hero.stat.updated": "Última atualização: {{date}}"
+  "hero.stat.updated": "Última atualização: {{date}}",
+  "hero.demo.close": "Fechar",
+  "hero.demo.title": "Demo do dashAI"
 }

@@ -40,6 +40,7 @@
   "hero.c4.h": "集成的分析与建模流程",
   "hero.c4.p": "单一可视化界面覆盖数据导入、探索、训练、评估，以及预测和生成模型的可解释性分析。",
   "hero.cta.cont": "如何参与贡献",
+  "hero.cta.demo": "观看演示",
   "hero.cta.dl": "下载 dashAI",
   "hero.ey": "local-first | open-source",
   "hero.h": "在你自己的电脑上训练机器学习模型，<span class=\"blue\">无需编写代码</span>。",
@@ -131,5 +132,7 @@
   "hero.stat.stars": "为我们点亮一颗 Star",
   "hero.stat.dl": "总下载量",
   "hero.stat.updated": "最后更新：{{date}}",
-  "hero.stat.dl.note": "* 下载量统计自 SourceForge、PyPI（通过 Google BigQuery）、本网站和 GitHub。"
+  "hero.stat.dl.note": "* 下载量统计自 SourceForge、PyPI（通过 Google BigQuery）、本网站和 GitHub。",
+  "hero.demo.close": "关闭",
+  "hero.demo.title": "dashAI 演示"
 }

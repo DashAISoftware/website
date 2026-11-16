@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { AppMockup } from '../AppMockup'
+import { DemoVideo } from '../DemoVideo'
 import { InstitutionsGrid } from '../InstitutionsGrid'
 import { MODEL_ROWS } from './ModelsRoute'
 import { useTranslation } from 'react-i18next'
@@ -80,6 +81,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
                   </svg>
                   <span>{t('hero.cta.dl')}</span>
                 </a>
+                <DemoVideo />
                 <a className="btn" href="#contribute">
                   <span>{t('hero.cta.cont')}</span>
                   <svg style={{ width: '14px', height: '14px' }}>
