@@ -19,7 +19,6 @@ export function PluginsRoute() {
 
           <div className="coming-soon">
             <div className="cs-badge">
-              <span className="cs-dot" />
               <span>{t('plg.cs.badge')}</span>
             </div>
             <h2>{t('plg.cs.h')}</h2>
