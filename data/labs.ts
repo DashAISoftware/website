@@ -78,7 +78,7 @@ export const LABS: Lab[] = [
       { key: 'logregBalanced', recall: 0.7059, f1: 0.6154, auc: 0.8194, highlight: true },
     ],
   },
-  { slug: 'caso-01', level: 1, tasks: ['Tabular Classification'], status: 'available', minutes: [90, 120], hasDetail: false, files: [] },
+  { slug: 'caso-01', level: 1, tasks: ['Tabular Classification'], status: 'soon', hasDetail: false, files: [] },
   { slug: 'caso-02', level: 1, tasks: ['Regression'],             status: 'soon', hasDetail: false, files: [] },
   { slug: 'caso-03', level: 2, tasks: ['Tabular Classification'], status: 'soon', hasDetail: false, files: [] },
   { slug: 'caso-04', level: 2, tasks: ['Text Classification'],    status: 'soon', hasDetail: false, files: [] },

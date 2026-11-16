@@ -44,7 +44,6 @@
   "labs.card.includes": "<b>Enthält:</b> {{list}}",
   "labs.card.session": ".dashai-Session, {{size}}",
   "labs.card.sessionSoon": "Session in Vorbereitung",
-  "labs.card.soonNote": "In Vorbereitung gemäß dem Lehrplan der Reihe",
 
   "labs.status.available": "Verfügbar",
   "labs.status.soon": "Demnächst",
@@ -143,7 +142,6 @@
   "labs.item.caso-01.title": "Wer wird kommen?",
   "labs.item.caso-01.summary": "260 Personen sind für einen Kongress angemeldet, und es bleiben drei Wochen, um über Catering, Stühle und Nachfassen zu entscheiden. Ein Modell schätzt, wer teilnehmen wird.",
   "labs.item.caso-01.concepts": "Spaltentypen, fehlende Werte, positive Klasse, LogLoss, Kosten des Fehlers",
-  "labs.item.caso-01.includes": "HTML-Lab, 2 Datensätze; .dashai-Session in Vorbereitung",
 
   "labs.item.caso-02.code": "Fall 02",
   "labs.item.caso-02.title": "Wie viel werden wir einnehmen?",

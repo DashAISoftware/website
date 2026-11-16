@@ -44,7 +44,6 @@
   "labs.card.includes": "<b>包含：</b>{{list}}",
   "labs.card.session": ".dashai 会话，{{size}}",
   "labs.card.sessionSoon": "会话准备中",
-  "labs.card.soonNote": "按系列课程大纲准备中",
 
   "labs.status.available": "可用",
   "labs.status.soon": "即将推出",
@@ -143,7 +142,6 @@
   "labs.item.caso-01.title": "谁会来？",
   "labs.item.caso-01.summary": "一场大会有 260 人报名，还有三周时间来决定餐饮、座椅以及要再次提醒谁。由模型估计谁会出席。",
   "labs.item.caso-01.concepts": "列类型、缺失值、正类、LogLoss、错误成本",
-  "labs.item.caso-01.includes": "HTML 实验、2 个数据集；.dashai 会话准备中",
 
   "labs.item.caso-02.code": "案例 02",
   "labs.item.caso-02.title": "我们能收入多少？",

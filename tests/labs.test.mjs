@@ -86,3 +86,7 @@ test('search text includes the visible card code and task names', () => {
   assert.equal(filterLabs(LABS, 'all', 'caso 03', l => labSearchText(l, fakeT)).map(l => l.slug).join(), 'caso-03')
   assert.ok(text.includes('Tabular Classification'))
 })
+
+test('only tutorias is available; the other labs are in preparation', () => {
+  assert.deepEqual(LABS.filter(l => l.status === 'available').map(l => l.slug), ['tutorias'])
+})

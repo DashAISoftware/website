@@ -44,7 +44,6 @@
   "labs.card.includes": "<b>Includes:</b> {{list}}",
   "labs.card.session": ".dashai session, {{size}}",
   "labs.card.sessionSoon": "Session in preparation",
-  "labs.card.soonNote": "In preparation, following the series syllabus",
 
   "labs.status.available": "Available",
   "labs.status.soon": "Coming soon",
@@ -143,7 +142,6 @@
   "labs.item.caso-01.title": "Who is going to show up?",
   "labs.item.caso-01.summary": "There are 260 people registered for a conference and three weeks to decide on catering, chairs and who to follow up with. A model estimates who will attend.",
   "labs.item.caso-01.concepts": "column types, missing values, positive class, LogLoss, cost of error",
-  "labs.item.caso-01.includes": "HTML lab, 2 datasets; .dashai session in preparation",
 
   "labs.item.caso-02.code": "Case 02",
   "labs.item.caso-02.title": "How much are we going to raise?",

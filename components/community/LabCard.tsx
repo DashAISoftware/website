@@ -8,7 +8,7 @@ import { fileHref, formatSize, sessionFile } from '@/lib/labs'
 // One lab in the catalog. Three variants come from the data:
 //  - has a page (#labs/<slug>): "Abrir lab" goes there
 //  - available without a page: "Abrir lab" opens the lab HTML file, disabled until it's uploaded
-//  - soon: no actions, just the "in preparation" note
+//  - soon: no footer at all (no actions, no note, no divider)
 // `compact` is the small linked card used under "Otros labs" on a lab page.
 export function LabCard({ lab, compact = false }: { lab: Lab; compact?: boolean }) {
   const { t, i18n } = useTranslation('labs')
@@ -56,28 +56,24 @@ export function LabCard({ lab, compact = false }: { lab: Lab; compact?: boolean 
         <p className="lb-meta" dangerouslySetInnerHTML={{ __html: t('labs.card.includes', { list: t(`${p}.includes`) }) }} />
       )}
 
-      <div className="lb-card-foot">
-        {soon ? (
-          <p className="lb-soon-note">{t('labs.card.soonNote')}</p>
-        ) : (
-          <>
-            {labHref ? (
-              <a className="btn btn--blue btn--sm" href={labHref} {...(lab.hasDetail ? {} : { target: '_blank', rel: 'noopener noreferrer' })}>
-                {t('labs.card.open')}
-              </a>
-            ) : (
-              <span className="btn btn--blue btn--sm is-disabled" aria-disabled="true">{t('labs.card.open')}</span>
-            )}
-            {sessionHref && session ? (
-              <a className="btn btn--sm" href={sessionHref} download>
-                {t('labs.card.session', { size: formatSize(session.bytes, lang) })}
-              </a>
-            ) : (
-              <span className="lb-pending">{t('labs.card.sessionSoon')}</span>
-            )}
-          </>
-        )}
-      </div>
+      {!soon && (
+        <div className="lb-card-foot">
+          {labHref ? (
+            <a className="btn btn--blue btn--sm" href={labHref} {...(lab.hasDetail ? {} : { target: '_blank', rel: 'noopener noreferrer' })}>
+              {t('labs.card.open')}
+            </a>
+          ) : (
+            <span className="btn btn--blue btn--sm is-disabled" aria-disabled="true">{t('labs.card.open')}</span>
+          )}
+          {sessionHref && session ? (
+            <a className="btn btn--sm" href={sessionHref} download>
+              {t('labs.card.session', { size: formatSize(session.bytes, lang) })}
+            </a>
+          ) : (
+            <span className="lb-pending">{t('labs.card.sessionSoon')}</span>
+          )}
+        </div>
+      )}
     </article>
   )
 }
