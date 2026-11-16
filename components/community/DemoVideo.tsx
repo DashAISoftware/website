@@ -42,9 +42,10 @@ export function DemoVideo() {
         <div className="demo-modal" role="dialog" aria-modal="true" aria-label={t('hero.demo.title')} onClick={() => setOpen(false)}>
           <button ref={closeRef} type="button" className="mock-lightbox-close" onClick={() => setOpen(false)} aria-label={t('hero.demo.close')}>✕</button>
           <div className="demo-frame" onClick={e => e.stopPropagation()}>
+            {/* aria-label, not title: a title shows a tooltip over the player on hover */}
             <iframe
               src={demoEmbedUrl()}
-              title={t('hero.demo.title')}
+              aria-label={t('hero.demo.title')}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
