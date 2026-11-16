@@ -4,15 +4,18 @@ import { useState, useEffect, useRef, useCallback } from "react"
 import { createPortal } from "react-dom"
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { demoEmbedUrl } from '@/lib/demo'
 
-const SLIDES = ["datasets", "models", "generative"] as const
+const SLIDES = ["datasets", "models", "generative", "demo"] as const
 type SlideId = (typeof SLIDES)[number]
 
+// Only the screenshot slides open in the lightbox; the demo slide plays a video.
 const SLIDE_IMAGES = [
   "/images/datasets.png",
   "/images/models.png",
   "/images/generative.png",
 ]
+const DEMO_INDEX = SLIDES.indexOf("demo")
 
 export function AppMockup() {
   const { t, i18n } = useTranslation('home')
@@ -20,6 +23,9 @@ export function AppMockup() {
 
   const [activeIndex, setActiveIndex] = useState(1) // default: models
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+  // The YouTube player only exists while the demo is playing: nothing loads from
+  // YouTube until the visitor clicks play, and leaving the slide stops the video.
+  const [demoPlaying, setDemoPlaying] = useState(false)
   const trackRef = useRef<HTMLDivElement>(null)
   const viewportRef = useRef<HTMLDivElement>(null)
 
@@ -60,6 +66,10 @@ export function AppMockup() {
     }
   }, [lightboxIndex])
 
+  useEffect(() => {
+    if (activeIndex !== DEMO_INDEX) setDemoPlaying(false)
+  }, [activeIndex])
+
   const goTo = (index: number) => {
     const n = SLIDES.length
     setActiveIndex(((index % n) + n) % n)
@@ -68,7 +78,7 @@ export function AppMockup() {
   const closeLightbox = () => setLightboxIndex(null)
 
   const lightboxGoTo = (index: number) => {
-    const n = SLIDES.length
+    const n = SLIDE_IMAGES.length
     const next = ((index % n) + n) % n
     setLightboxIndex(next)
     setActiveIndex(next)
@@ -78,6 +88,14 @@ export function AppMockup() {
     datasets: t("sho.tab.datasets"),
     models: t("sho.tab.models"),
     generative: t("sho.tab.gen"),
+    demo: t("sho.tab.demo"),
+  }
+
+  const pagerLabels: Record<SlideId, string> = {
+    datasets: t("mock.tab.datasets"),
+    models: t("mock.tab.models"),
+    generative: t("mock.tab.generative"),
+    demo: t("mock.tab.demo"),
   }
 
   return (
@@ -159,6 +177,38 @@ export function AppMockup() {
               </div>
             </div>
 
+            {/* ====== Slide: Demo video ====== */}
+            <div className={`mock-screen${activeIndex === DEMO_INDEX ? " is-active" : ""}`} data-mock-screen="demo">
+              <div className="mock-chrome">
+                <div className="mock-dots"><span /><span /><span /></div>
+                <div className="mock-url">dashAI | demo</div>
+              </div>
+              <div className="mock-demo">
+                {demoPlaying ? (
+                  <iframe
+                    src={demoEmbedUrl()}
+                    aria-label={t("mock.demo.title")}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                ) : (
+                  <button
+                    type="button"
+                    className="mock-demo-poster"
+                    aria-label={t("mock.demo.play")}
+                    tabIndex={activeIndex === DEMO_INDEX ? 0 : -1}
+                    onClick={() => { goTo(DEMO_INDEX); setDemoPlaying(true) }}
+                  >
+                    <img src="/images/demo-poster.jpg" alt="" />
+                    <span className="mock-demo-play" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.87l11-6.5a1 1 0 0 0 0-1.74l-11-6.5A1 1 0 0 0 8 5.5Z" /></svg>
+                    </span>
+                  </button>
+                )}
+              </div>
+            </div>
+
           </div>{/* /.mock-track */}
         </div>{/* /.mock-viewport */}
 
@@ -184,21 +234,14 @@ export function AppMockup() {
 
       {/* Pager dots */}
       <div className="mock-pager">
-        <button
-          className={activeIndex === 0 ? "is-on" : ""}
-          aria-label={t("mock.tab.datasets")}
-          onClick={() => goTo(0)}
-        />
-        <button
-          className={activeIndex === 1 ? "is-on" : ""}
-          aria-label={t("mock.tab.models")}
-          onClick={() => goTo(1)}
-        />
-        <button
-          className={activeIndex === 2 ? "is-on" : ""}
-          aria-label={t("mock.tab.generative")}
-          onClick={() => goTo(2)}
-        />
+        {SLIDES.map((slide, i) => (
+          <button
+            key={slide}
+            className={activeIndex === i ? "is-on" : ""}
+            aria-label={pagerLabels[slide]}
+            onClick={() => goTo(i)}
+          />
+        ))}
       </div>
 
     </div>
