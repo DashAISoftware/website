@@ -53,8 +53,9 @@ export interface Lab {
   minVersion?: string
 }
 
-const file = (slug: string, kind: LabFileKind, name: string, bytes: number): LabFile =>
-  ({ kind, name, path: `labs/${slug}/${name}`, bytes, ready: false })
+// `ready`: the file is in public/labs/<slug>/ (bytes must match its real size)
+const file = (slug: string, kind: LabFileKind, name: string, bytes: number, ready = false): LabFile =>
+  ({ kind, name, path: `labs/${slug}/${name}`, bytes, ready })
 
 // Rendered in this order
 export const LABS: Lab[] = [
@@ -62,10 +63,10 @@ export const LABS: Lab[] = [
     slug: 'tutorias', level: 1, tasks: ['Tabular Classification', 'Generative'], status: 'available',
     minutes: [90, 120], hasDetail: true, minVersion: '0.11', learnCount: 6, moduleCount: 12,
     files: [
-      file('tutorias', 'lab', 'tutorias.html', 2_500_000),
-      file('tutorias', 'session', 'sesion-tutorias.dashai', 49_000),
-      file('tutorias', 'dataset', 'historial_estadistica.csv', 38_000),
-      file('tutorias', 'dataset', 'estudiantes_semestre_actual.csv', 5_000),
+      file('tutorias', 'lab', 'dashai-lab-tutorias.html', 2_571_534, true),
+      file('tutorias', 'session', 'sesion-tutorias.dashai', 48_984, true),
+      file('tutorias', 'dataset', 'historial_estadistica.csv', 38_642, true),
+      file('tutorias', 'dataset', 'estudiantes_semestre_actual.csv', 5_262, true),
     ],
     // Validation metrics as computed by dashAI 0.11 (recall of the "fails" class)
     models: [

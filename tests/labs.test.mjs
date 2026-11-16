@@ -1,13 +1,25 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
+import { existsSync, statSync } from 'node:fs'
 import { LABS } from '../data/labs.ts'
 import { filterLabs, formatMetric, formatSize, fileHref, parseHash, getLab, sessionFile, otherLabs, labSearchText } from '../lib/labs.ts'
 
-test('LABS has 7 unique slugs, only tutorias has a detail page, no file is ready yet', () => {
+test('LABS has 7 unique slugs, only tutorias has a detail page', () => {
   const slugs = LABS.map(l => l.slug)
   assert.deepEqual(slugs, ['tutorias', 'caso-01', 'caso-02', 'caso-03', 'caso-04', 'caso-05', 'caso-06'])
   assert.deepEqual(LABS.filter(l => l.hasDetail).map(l => l.slug), ['tutorias'])
-  assert.equal(LABS.flatMap(l => l.files).filter(f => f.ready).length, 0)
+})
+
+test('tutorias files are uploaded', () => {
+  assert.ok(getLab('tutorias').files.every(f => f.ready))
+})
+
+test('every ready file exists in public/ with the listed size', () => {
+  for (const f of LABS.flatMap(l => l.files).filter(f => f.ready)) {
+    const path = new URL(`../public/${f.path}`, import.meta.url)
+    assert.ok(existsSync(path), `missing public/${f.path}`)
+    assert.equal(statSync(path).size, f.bytes, `size of ${f.name}`)
+  }
 })
 
 test('tutorias carries the session table from the mockup', () => {
