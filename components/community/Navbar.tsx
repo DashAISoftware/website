@@ -15,7 +15,7 @@ const NAV_LINKS: { key: Route; i18nKey: string }[] = [
   { key: 'download',   i18nKey: 'nav.download' },
   { key: 'contribute', i18nKey: 'nav.contribute' },
   { key: 'community',  i18nKey: 'nav.community' },
-  { key: 'plugins',    i18nKey: 'nav.plugins' },
+  // Plugins is hidden from the nav for now; #plugins still works.
   { key: 'labs',       i18nKey: 'nav.labs' },
   { key: 'faq',        i18nKey: 'nav.faq' },
   { key: 'news',       i18nKey: 'nav.news' },
