@@ -620,7 +620,8 @@ h4{font-size:18px;line-height:1.3}
 .mock-demo-poster::after{content:"";position:absolute;inset:0;background:rgba(15,15,14,.28);transition:background .2s}
 .mock-demo-poster:hover::after{background:rgba(15,15,14,.18)}
 .mock-demo-play{position:absolute;top:50%;left:50%;z-index:1;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -8px rgba(44,122,255,.6);transition:transform .15s}
-.mock-demo-play svg{width:30px;height:30px;margin-left:4px}
+/* The triangle's centroid already sits at the middle of the 24×24 icon, so no extra offset */
+.mock-demo-play svg{width:30px;height:30px}
 .mock-demo-poster:hover .mock-demo-play,.mock-demo-poster:focus-visible .mock-demo-play{transform:scale(1.08)}
 @media(max-width:640px){.mock-demo-play{width:52px;height:52px;margin:-26px 0 0 -26px}.mock-demo-play svg{width:22px;height:22px}}
 .mock-lightbox{position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.88);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;cursor:zoom-out;}
