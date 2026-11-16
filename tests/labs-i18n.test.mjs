@@ -44,6 +44,6 @@ test('navbar and footer have the Labs entries in every language', () => {
   for (const lang of LANGS) {
     const nav = load(lang, 'navbar')
     const ft = load(lang, 'footer')
-    assert.ok(nav['nav.labs'] && nav['nav.new'] && ft['ft.labs'], `missing Labs nav/footer keys in ${lang}`)
+    assert.ok(nav['nav.labs'] && ft['ft.labs'], `missing Labs nav/footer keys in ${lang}`)
   }
 })

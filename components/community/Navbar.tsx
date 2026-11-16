@@ -9,14 +9,14 @@ type Lang = 'es' | 'en' | 'pt' | 'de' | 'zh'
 type Route = 'home' | 'models' | 'plugins' | 'contribute' | 'download' | 'community' | 'labs' | 'faq' | 'news' | 'about'
 
 
-const NAV_LINKS: { key: Route; i18nKey: string; isNew?: boolean }[] = [
+const NAV_LINKS: { key: Route; i18nKey: string }[] = [
   { key: 'home',       i18nKey: 'nav.home' },
   { key: 'models',     i18nKey: 'nav.models' },
   { key: 'download',   i18nKey: 'nav.download' },
   { key: 'contribute', i18nKey: 'nav.contribute' },
   { key: 'community',  i18nKey: 'nav.community' },
   { key: 'plugins',    i18nKey: 'nav.plugins' },
-  { key: 'labs',       i18nKey: 'nav.labs', isNew: true },
+  { key: 'labs',       i18nKey: 'nav.labs' },
   { key: 'faq',        i18nKey: 'nav.faq' },
   { key: 'news',       i18nKey: 'nav.news' },
   { key: 'about',      i18nKey: 'nav.about' },
@@ -91,7 +91,7 @@ export function Navbar({ route }: { route: string }) {
         </a>
 
         <nav className="nav-links">
-          {NAV_LINKS.map(({ key, i18nKey, isNew }) => (
+          {NAV_LINKS.map(({ key, i18nKey }) => (
             <a
               key={key}
               href={`#${key}`}
@@ -99,7 +99,6 @@ export function Navbar({ route }: { route: string }) {
               className={route === key ? 'is-active' : undefined}
             >
               {t(i18nKey)}
-              {isNew && <span className="lb-new">{t('nav.new')}</span>}
             </a>
           ))}
         </nav>
@@ -211,7 +210,7 @@ export function Navbar({ route }: { route: string }) {
             </button>
           </div>
 
-          {NAV_LINKS.map(({ key, i18nKey, isNew }) => (
+          {NAV_LINKS.map(({ key, i18nKey }) => (
             <a
               key={key}
               href={`#${key}`}
@@ -219,7 +218,6 @@ export function Navbar({ route }: { route: string }) {
               onClick={closeMobileMenu}
             >
               {t(i18nKey)}
-              {isNew && <span className="lb-new">{t('nav.new')}</span>}
             </a>
           ))}
 
