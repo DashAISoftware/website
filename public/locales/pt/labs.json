@@ -75,7 +75,6 @@
   "labs.teach.item.3.d": "O estudante exporta sua própria sessão .dashai e a entrega: o docente a importa e vê exatamente o que foi feito.",
 
   "labs.detail.crumb": "Labs",
-  "labs.detail.meta": "Versão 1.0, atualizada em [fecha de publicación]. Licença: [por definir]. Requer dashAI {{version}} ou posterior.",
   "labs.detail.learn.h": "O que você vai aprender",
   "labs.detail.session.h": "O que a sessão traz",
   "labs.detail.th.model": "Modelo",
@@ -97,12 +96,11 @@
   "labs.detail.teach.h": "Para docentes",
   "labs.detail.req.h": "Requisitos",
 
-  "labs.item.tutorias.code": "Lab da palestra",
+  "labs.item.tutorias.code": "Caso 00",
   "labs.item.tutorias.title": "A quem oferecemos tutoria?",
   "labs.item.tutorias.summary": "Uma coordenação tem 50 vagas de tutoria para 150 estudantes e precisa decidir, no meio do semestre, a quem oferecê-las. Fecha redigindo o convite com um modelo generativo.",
   "labs.item.tutorias.concepts": "linha de base, classe positiva, sobreajuste, peso de classe, explicabilidade, amostragem",
   "labs.item.tutorias.includes": "lab HTML, sessão .dashai, 2 datasets",
-  "labs.item.tutorias.context": "Lab da palestra «dashAI como ferramenta de aprendizagem de ML e GenAI»",
   "labs.item.tutorias.intro": "Você coordena Estatística I. Terminou a primeira prova e você tem 50 vagas de tutoria para 150 estudantes. Neste lab você constrói, sem programar, um modelo que estima quem está em risco de reprovar, decide como distribuir as vagas e redige o convite com um modelo generativo.",
   "labs.item.tutorias.langs": "Espanhol e inglês",
   "labs.item.tutorias.learn.1": "Por que 76,7% de acerto mal supera o modelo que diz «aprova» para todos (71,7%).",

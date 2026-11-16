@@ -33,7 +33,6 @@ export function LabDetailRoute({ slug }: { slug: string }) {
             <span aria-hidden="true">/</span>
             <span>{t(`${p}.code`)}</span>
           </nav>
-          <p className="lb-context">{t(`${p}.context`)}</p>
           <h1>{t(`${p}.title`)}</h1>
           <p className="lead lb-intro">{t(`${p}.intro`)}</p>
           <div className="lb-tags lb-detail-tags">
@@ -42,7 +41,6 @@ export function LabDetailRoute({ slug }: { slug: string }) {
             {lab.tasks.map(task => <span key={task} className="tag">{task}</span>)}
             <span className="tag">{t(`${p}.langs`)}</span>
           </div>
-          <p className="lb-version">{t('labs.detail.meta', { version })}</p>
         </div>
       </section>
 

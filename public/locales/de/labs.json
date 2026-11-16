@@ -75,7 +75,6 @@
   "labs.teach.item.3.d": "Die Studierenden exportieren ihre eigene .dashai-Session und geben sie ab: Die Lehrperson importiert sie und sieht genau, was gemacht wurde.",
 
   "labs.detail.crumb": "Labs",
-  "labs.detail.meta": "Version 1.0, aktualisiert am [fecha de publicación]. Lizenz: [por definir]. Erfordert dashAI {{version}} oder neuer.",
   "labs.detail.learn.h": "Was du lernst",
   "labs.detail.session.h": "Was die Session enthält",
   "labs.detail.th.model": "Modell",
@@ -97,12 +96,11 @@
   "labs.detail.teach.h": "Für Lehrende",
   "labs.detail.req.h": "Voraussetzungen",
 
-  "labs.item.tutorias.code": "Lab zum Vortrag",
+  "labs.item.tutorias.code": "Fall 00",
   "labs.item.tutorias.title": "Wem bieten wir Tutorien an?",
   "labs.item.tutorias.summary": "Eine Studiengangskoordination hat 50 Tutoriumsplätze für 150 Studierende und muss zur Semestermitte entscheiden, wem sie sie anbietet. Zum Abschluss wird die Einladung mit einem generativen Modell verfasst.",
   "labs.item.tutorias.concepts": "Baseline, positive Klasse, Overfitting, Klassengewicht, Erklärbarkeit, Stichprobe",
   "labs.item.tutorias.includes": "HTML-Lab, .dashai-Session, 2 Datensätze",
-  "labs.item.tutorias.context": "Lab zum Vortrag „dashAI als Werkzeug zum Lernen von ML und GenAI“",
   "labs.item.tutorias.intro": "Du koordinierst Statistik I. Die erste Prüfung ist vorbei und du hast 50 Tutoriumsplätze für 150 Studierende. In diesem Lab baust du ohne Programmieren ein Modell, das schätzt, wer durchzufallen droht, entscheidest, wie die Plätze verteilt werden, und verfasst die Einladung mit einem generativen Modell.",
   "labs.item.tutorias.langs": "Spanisch und Englisch",
   "labs.item.tutorias.learn.1": "Warum 76,7 % Trefferquote das Modell, das allen „besteht“ sagt (71,7 %), kaum übertrifft.",

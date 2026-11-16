@@ -75,7 +75,6 @@
   "labs.teach.item.3.d": "学生导出自己的 .dashai 会话并提交：教师导入后就能看到学生具体做了什么。",
 
   "labs.detail.crumb": "Labs",
-  "labs.detail.meta": "版本 1.0，更新于 [fecha de publicación]。许可：[por definir]。需要 dashAI {{version}} 或更高版本。",
   "labs.detail.learn.h": "你将学到",
   "labs.detail.session.h": "会话包含什么",
   "labs.detail.th.model": "模型",
@@ -97,12 +96,11 @@
   "labs.detail.teach.h": "教师专区",
   "labs.detail.req.h": "要求",
 
-  "labs.item.tutorias.code": "讲座实验",
+  "labs.item.tutorias.code": "案例 00",
   "labs.item.tutorias.title": "辅导名额该给谁？",
   "labs.item.tutorias.summary": "一个教学协调团队有 50 个辅导名额、150 名学生，需要在学期中决定把名额给谁。最后用生成式模型撰写邀请。",
   "labs.item.tutorias.concepts": "基线、正类、过拟合、类别权重、可解释性、抽样",
   "labs.item.tutorias.includes": "HTML 实验、.dashai 会话、2 个数据集",
-  "labs.item.tutorias.context": "讲座“dashAI：学习机器学习与生成式 AI 的工具”配套实验",
   "labs.item.tutorias.intro": "你负责协调《统计学 I》。第一次测验已经结束，你有 50 个辅导名额、150 名学生。在本实验中，你将在不编程的情况下构建一个模型，估计谁有不及格风险，决定如何分配名额，并用生成式模型撰写邀请。",
   "labs.item.tutorias.langs": "西班牙语和英语",
   "labs.item.tutorias.learn.1": "为什么 76.7% 的准确率只比对所有人都说“及格”的模型（71.7%）略好。",

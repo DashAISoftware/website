@@ -75,7 +75,6 @@
   "labs.teach.item.3.d": "The student exports their own .dashai session and hands it in: the teacher imports it and sees exactly what was done.",
 
   "labs.detail.crumb": "Labs",
-  "labs.detail.meta": "Version 1.0, updated on [fecha de publicación]. License: [por definir]. Requires dashAI {{version}} or later.",
   "labs.detail.learn.h": "What you will learn",
   "labs.detail.session.h": "What the session includes",
   "labs.detail.th.model": "Model",
@@ -97,12 +96,11 @@
   "labs.detail.teach.h": "For teachers",
   "labs.detail.req.h": "Requirements",
 
-  "labs.item.tutorias.code": "Talk lab",
+  "labs.item.tutorias.code": "Case 00",
   "labs.item.tutorias.title": "Who should we offer tutoring to?",
   "labs.item.tutorias.summary": "A program office has 50 tutoring spots for 150 students and must decide, mid-semester, who to offer them to. It closes by drafting the invitation with a generative model.",
   "labs.item.tutorias.concepts": "baseline, positive class, overfitting, class weight, explainability, sampling",
   "labs.item.tutorias.includes": "HTML lab, .dashai session, 2 datasets",
-  "labs.item.tutorias.context": "Lab from the talk “dashAI as a tool for learning ML and GenAI”",
   "labs.item.tutorias.intro": "You coordinate Statistics I. The first exam is over and you have 50 tutoring spots for 150 students. In this lab you build, without programming, a model that estimates who is at risk of failing, decide how to allocate the spots and draft the invitation with a generative model.",
   "labs.item.tutorias.langs": "Spanish and English",
   "labs.item.tutorias.learn.1": "Why 76.7% accuracy barely beats the model that says “pass” to everyone (71.7%).",

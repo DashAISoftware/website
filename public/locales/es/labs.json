@@ -75,7 +75,6 @@
   "labs.teach.item.3.d": "El estudiante exporta su propia sesión .dashai y la entrega: el docente la importa y ve exactamente lo que se hizo.",
 
   "labs.detail.crumb": "Labs",
-  "labs.detail.meta": "Versión 1.0, actualizada el [fecha de publicación]. Licencia: [por definir]. Requiere dashAI {{version}} o posterior.",
   "labs.detail.learn.h": "Qué vas a aprender",
   "labs.detail.session.h": "Qué trae la sesión",
   "labs.detail.th.model": "Modelo",
@@ -97,12 +96,11 @@
   "labs.detail.teach.h": "Para docentes",
   "labs.detail.req.h": "Requisitos",
 
-  "labs.item.tutorias.code": "Lab de la charla",
+  "labs.item.tutorias.code": "Caso 00",
   "labs.item.tutorias.title": "¿A quién le ofrecemos tutoría?",
   "labs.item.tutorias.summary": "Una coordinación tiene 50 cupos de tutoría para 150 estudiantes y debe decidir, a mitad de semestre, a quién ofrecerlos. Cierra redactando la invitación con un modelo generativo.",
   "labs.item.tutorias.concepts": "línea base, clase positiva, sobreajuste, peso de clase, explicabilidad, muestreo",
   "labs.item.tutorias.includes": "lab HTML, sesión .dashai, 2 datasets",
-  "labs.item.tutorias.context": "Lab de la charla «dashAI como herramienta de aprendizaje de ML y GenAI»",
   "labs.item.tutorias.intro": "Coordinas Estadística I. Terminó el primer control y tienes 50 cupos de tutoría para 150 estudiantes. En este lab construyes, sin programar, un modelo que estima quién está en riesgo de reprobar, decides cómo repartir los cupos y redactas la invitación con un modelo generativo.",
   "labs.item.tutorias.langs": "Español e inglés",
   "labs.item.tutorias.learn.1": "Por qué un 76,7% de acierto apenas supera al modelo que dice «aprueba» a todos (71,7%).",
