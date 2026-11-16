@@ -67,7 +67,6 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
           <div className="hero-top">
             <div className="hero-top-copy">
               <div className="hero-eyebrow">
-                <span className="led"></span>
                 <span data-gh-version>{ghVersion}</span>
                 <span className="sep">|</span>
                 <span>{t('hero.ey')}</span>

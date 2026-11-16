@@ -133,7 +133,6 @@ h4{font-size:18px;line-height:1.3}
 .hero-top-stats-items{display:flex;flex-direction:column;gap:28px}
 .hero-stats-updated{font-size:11px;color:var(--ink-4);text-align:right}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--line);padding:6px 14px;border-radius:999px;color:var(--ink-2);margin-bottom:28px;}
-.hero-eyebrow .led{width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(44,122,255,.18);}
 .hero-eyebrow [data-gh-version]{color:var(--brand);font-weight:500}
 .hero-eyebrow .sep{color:var(--ink-4)}
 .hero h1{font-size:72px;letter-spacing:-.04em;line-height:1.02;color:var(--ink);max-width:14ch;}
