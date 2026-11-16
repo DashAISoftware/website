@@ -96,7 +96,7 @@
   "labs.detail.teach.h": "教师专区",
   "labs.detail.req.h": "要求",
 
-  "labs.item.tutorias.code": "案例 00",
+  "labs.item.tutorias.code": "案例 01",
   "labs.item.tutorias.title": "辅导名额该给谁？",
   "labs.item.tutorias.summary": "一个教学协调团队有 50 个辅导名额、150 名学生，需要在学期中决定把名额给谁。最后用生成式模型撰写邀请。",
   "labs.item.tutorias.concepts": "基线、正类、过拟合、类别权重、可解释性、抽样",
@@ -133,33 +133,33 @@
   "labs.item.tutorias.teach": "把会话分享给全班，请每位学生只改变一个决定，例如随机种子或树的深度，并导出自己的会话作为作业提交。",
   "labs.item.tutorias.req": "dashAI 0.11 或更高版本。模块 11 需要在 Generative 中下载一个文本模型。无需机器学习基础。",
 
-  "labs.item.caso-01.code": "案例 01",
+  "labs.item.caso-01.code": "案例 02",
   "labs.item.caso-01.title": "谁会来？",
   "labs.item.caso-01.summary": "一场大会有 260 人报名，还有三周时间来决定餐饮、座椅以及要再次提醒谁。由模型估计谁会出席。",
   "labs.item.caso-01.concepts": "列类型、缺失值、正类、LogLoss、错误成本",
 
-  "labs.item.caso-02.code": "案例 02",
+  "labs.item.caso-02.code": "案例 03",
   "labs.item.caso-02.title": "我们能收入多少？",
   "labs.item.caso-02.summary": "同样是活动场景，但这次目标是一个数字：报名费能收入多少。",
   "labs.item.caso-02.concepts": "回归、MAE、RMSE、R²",
 
-  "labs.item.caso-03.code": "案例 03",
+  "labs.item.caso-03.code": "案例 04",
   "labs.item.caso-03.title": "这是哪一类参会者？",
   "labs.item.caso-03.summary": "将每位报名者归入多个画像之一，并为每个模型寻找最佳设置。",
   "labs.item.caso-03.concepts": "多分类、宏平均与微平均、交叉验证、Optuna",
 
-  "labs.item.caso-04.code": "案例 04",
+  "labs.item.caso-04.code": "案例 05",
   "labs.item.caso-04.title": "大家怎么评价我们？",
   "labs.item.caso-04.summary": "对活动的开放式评论进行分类：把文本当作数据。",
   "labs.item.caso-04.concepts": "文本即数据、TF-IDF、transformers",
 
-  "labs.item.caso-05.code": "案例 05",
+  "labs.item.caso-05.code": "案例 06",
   "labs.item.caso-05.title": "三月会有多少人报名？",
   "labs.item.caso-05.summary": "预测报名人数随时间的变化，这时数据的顺序很重要。",
   "labs.item.caso-05.concepts": "时间序列、按时间划分",
 
-  "labs.item.caso-06.code": "案例 06",
+  "labs.item.caso-06.code": "案例 07",
   "labs.item.caso-06.title": "我能信任这个模型吗？",
-  "labs.item.caso-06.summary": "审查案例 01 的会话：局部解释、校准与偏差。",
+  "labs.item.caso-06.summary": "审查案例 02 的会话：局部解释、校准与偏差。",
   "labs.item.caso-06.concepts": "SHAP、校准、偏差、导出"
 }

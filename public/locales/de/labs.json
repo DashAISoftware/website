@@ -96,7 +96,7 @@
   "labs.detail.teach.h": "Für Lehrende",
   "labs.detail.req.h": "Voraussetzungen",
 
-  "labs.item.tutorias.code": "Fall 00",
+  "labs.item.tutorias.code": "Fall 01",
   "labs.item.tutorias.title": "Wem bieten wir Tutorien an?",
   "labs.item.tutorias.summary": "Eine Studiengangskoordination hat 50 Tutoriumsplätze für 150 Studierende und muss zur Semestermitte entscheiden, wem sie sie anbietet. Zum Abschluss wird die Einladung mit einem generativen Modell verfasst.",
   "labs.item.tutorias.concepts": "Baseline, positive Klasse, Overfitting, Klassengewicht, Erklärbarkeit, Stichprobe",
@@ -133,33 +133,33 @@
   "labs.item.tutorias.teach": "Teile die Session mit dem Kurs und bitte alle, genau eine Entscheidung zu ändern, zum Beispiel den Seed oder die Tiefe eines Baums, und die eigene Session als Abgabe zu exportieren.",
   "labs.item.tutorias.req": "dashAI 0.11 oder neuer. Für Modul 11 ein in Generative heruntergeladenes Textmodell. Keine ML-Vorkenntnisse nötig.",
 
-  "labs.item.caso-01.code": "Fall 01",
+  "labs.item.caso-01.code": "Fall 02",
   "labs.item.caso-01.title": "Wer wird kommen?",
   "labs.item.caso-01.summary": "260 Personen sind für einen Kongress angemeldet, und es bleiben drei Wochen, um über Catering, Stühle und Nachfassen zu entscheiden. Ein Modell schätzt, wer teilnehmen wird.",
   "labs.item.caso-01.concepts": "Spaltentypen, fehlende Werte, positive Klasse, LogLoss, Kosten des Fehlers",
 
-  "labs.item.caso-02.code": "Fall 02",
+  "labs.item.caso-02.code": "Fall 03",
   "labs.item.caso-02.title": "Wie viel werden wir einnehmen?",
   "labs.item.caso-02.summary": "Dieselbe Veranstaltungsdomäne, aber jetzt ist das Ziel eine Zahl: wie viel durch Anmeldungen eingenommen wird.",
   "labs.item.caso-02.concepts": "Regression, MAE, RMSE, R²",
 
-  "labs.item.caso-03.code": "Fall 03",
+  "labs.item.caso-03.code": "Fall 04",
   "labs.item.caso-03.title": "Welche Art von Teilnehmer ist das?",
   "labs.item.caso-03.summary": "Jede angemeldete Person einem von mehreren Profilen zuordnen und die besten Einstellungen jedes Modells suchen.",
   "labs.item.caso-03.concepts": "Mehrklassen, Makro und Mikro, Kreuzvalidierung, Optuna",
 
-  "labs.item.caso-04.code": "Fall 04",
+  "labs.item.caso-04.code": "Fall 05",
   "labs.item.caso-04.title": "Was haben sie über uns gesagt?",
   "labs.item.caso-04.summary": "Offene Kommentare zu einer Veranstaltung klassifizieren: Text als Daten.",
   "labs.item.caso-04.concepts": "Text als Daten, TF-IDF, Transformer",
 
-  "labs.item.caso-05.code": "Fall 05",
+  "labs.item.caso-05.code": "Fall 06",
   "labs.item.caso-05.title": "Wie viele Anmeldungen wird es im März geben?",
   "labs.item.caso-05.summary": "Anmeldungen über die Zeit prognostizieren, wobei die Reihenfolge der Daten zählt.",
   "labs.item.caso-05.concepts": "Zeitreihen, zeitliche Aufteilung",
 
-  "labs.item.caso-06.code": "Fall 06",
+  "labs.item.caso-06.code": "Fall 07",
   "labs.item.caso-06.title": "Kann ich diesem Modell vertrauen?",
-  "labs.item.caso-06.summary": "Die Session aus Fall 01 prüfen: lokale Erklärungen, Kalibrierung und Verzerrung.",
+  "labs.item.caso-06.summary": "Die Session aus Fall 02 prüfen: lokale Erklärungen, Kalibrierung und Verzerrung.",
   "labs.item.caso-06.concepts": "SHAP, Kalibrierung, Verzerrung, Export"
 }

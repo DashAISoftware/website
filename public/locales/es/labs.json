@@ -96,7 +96,7 @@
   "labs.detail.teach.h": "Para docentes",
   "labs.detail.req.h": "Requisitos",
 
-  "labs.item.tutorias.code": "Caso 00",
+  "labs.item.tutorias.code": "Caso 01",
   "labs.item.tutorias.title": "¿A quién le ofrecemos tutoría?",
   "labs.item.tutorias.summary": "Una coordinación tiene 50 cupos de tutoría para 150 estudiantes y debe decidir, a mitad de semestre, a quién ofrecerlos. Cierra redactando la invitación con un modelo generativo.",
   "labs.item.tutorias.concepts": "línea base, clase positiva, sobreajuste, peso de clase, explicabilidad, muestreo",
@@ -133,33 +133,33 @@
   "labs.item.tutorias.teach": "Comparte la sesión con el curso y pide a cada estudiante que cambie una sola decisión, por ejemplo la semilla o la profundidad de un árbol, y que exporte su propia sesión como entrega.",
   "labs.item.tutorias.req": "dashAI 0.11 o posterior. Para el módulo 11, un modelo de texto descargado en Generative. Sin conocimientos previos de ML.",
 
-  "labs.item.caso-01.code": "Caso 01",
+  "labs.item.caso-01.code": "Caso 02",
   "labs.item.caso-01.title": "¿Quién va a venir?",
   "labs.item.caso-01.summary": "Hay 260 inscritos a un congreso y tres semanas para decidir catering, sillas y a quién insistirle. Un modelo estima quién asistirá.",
   "labs.item.caso-01.concepts": "tipos de columna, faltantes, clase positiva, LogLoss, costo del error",
 
-  "labs.item.caso-02.code": "Caso 02",
+  "labs.item.caso-02.code": "Caso 03",
   "labs.item.caso-02.title": "¿Cuánto vamos a recaudar?",
   "labs.item.caso-02.summary": "El mismo dominio de eventos, pero ahora el objetivo es un número: cuánto se recaudará en inscripciones.",
   "labs.item.caso-02.concepts": "regresión, MAE, RMSE, R²",
 
-  "labs.item.caso-03.code": "Caso 03",
+  "labs.item.caso-03.code": "Caso 04",
   "labs.item.caso-03.title": "¿Qué tipo de asistente es?",
   "labs.item.caso-03.summary": "Clasificar a cada inscrito en uno de varios perfiles, y buscar los mejores ajustes de cada modelo.",
   "labs.item.caso-03.concepts": "multiclase, macro y micro, validación cruzada, Optuna",
 
-  "labs.item.caso-04.code": "Caso 04",
+  "labs.item.caso-04.code": "Caso 05",
   "labs.item.caso-04.title": "¿Qué dijeron de nosotros?",
   "labs.item.caso-04.summary": "Clasificar comentarios abiertos sobre un evento: el texto como dato.",
   "labs.item.caso-04.concepts": "texto como dato, TF-IDF, transformers",
 
-  "labs.item.caso-05.code": "Caso 05",
+  "labs.item.caso-05.code": "Caso 06",
   "labs.item.caso-05.title": "¿Cuántas inscripciones habrá en marzo?",
   "labs.item.caso-05.summary": "Proyectar inscripciones en el tiempo, donde el orden de los datos importa.",
   "labs.item.caso-05.concepts": "series de tiempo, división temporal",
 
-  "labs.item.caso-06.code": "Caso 06",
+  "labs.item.caso-06.code": "Caso 07",
   "labs.item.caso-06.title": "¿Puedo confiar en este modelo?",
-  "labs.item.caso-06.summary": "Auditar la sesión del Caso 01: explicaciones locales, calibración y sesgo.",
+  "labs.item.caso-06.summary": "Auditar la sesión del Caso 02: explicaciones locales, calibración y sesgo.",
   "labs.item.caso-06.concepts": "SHAP, calibración, sesgo, exportación"
 }
