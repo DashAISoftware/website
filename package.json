@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "start": "next start",
     "fetch-institutions": "node scripts/fetch-institutions.mjs",
-    "i18n:status": "i18next-cli status"
+    "i18n:status": "i18next-cli status",
+    "test": "node --test \"tests/**/*.test.mjs\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
