@@ -3,16 +3,15 @@
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
 import type { Lab } from '@/data/labs'
-import { fileHref, formatSize, sessionFile } from '@/lib/labs'
+import { fileHref } from '@/lib/labs'
 
-// One lab in the catalog. Three variants come from the data:
-//  - has a page (#labs/<slug>): "Abrir lab" goes there
-//  - available without a page: "Abrir lab" opens the lab HTML file, disabled until it's uploaded
-//  - soon: no footer at all (no actions, no note, no divider)
+// One lab in the catalog. The whole card is the link, with no buttons:
+//  - has a page (#labs/<slug>): the card goes there
+//  - available without a page: the card opens the lab HTML file in a new tab
+//  - soon, or a lab file not uploaded yet: a plain, non-clickable card
 // `compact` is the small linked card used under "Otros labs" on a lab page.
 export function LabCard({ lab, compact = false }: { lab: Lab; compact?: boolean }) {
   const { t, i18n } = useTranslation('labs')
-  const lang = i18n.language
   const p = `labs.item.${lab.slug}`
   const soon = lab.status === 'soon'
 
@@ -41,12 +40,9 @@ export function LabCard({ lab, compact = false }: { lab: Lab; compact?: boolean 
     )
   }
 
-  const labHref = lab.hasDetail ? `#labs/${lab.slug}` : fileHref(lab.files.find(f => f.kind === 'lab'))
-  const session = sessionFile(lab)
-  const sessionHref = fileHref(session)
-
-  return (
-    <article className={`lb-card${soon ? ' is-soon' : ''}`}>
+  const href = soon ? undefined : lab.hasDetail ? `#labs/${lab.slug}` : fileHref(lab.files.find(f => f.kind === 'lab'))
+  const body = (
+    <>
       {head}
       <h3>{t(`${p}.title`)}</h3>
       <p className="lb-sum">{t(`${p}.summary`)}</p>
@@ -55,25 +51,18 @@ export function LabCard({ lab, compact = false }: { lab: Lab; compact?: boolean 
       {i18n.exists(`${p}.includes`, { ns: 'labs' }) && (
         <p className="lb-meta" dangerouslySetInnerHTML={{ __html: t('labs.card.includes', { list: t(`${p}.includes`) }) }} />
       )}
+    </>
+  )
 
-      {!soon && (
-        <div className="lb-card-foot">
-          {labHref ? (
-            <a className="btn btn--blue btn--sm" href={labHref} {...(lab.hasDetail ? {} : { target: '_blank', rel: 'noopener noreferrer' })}>
-              {t('labs.card.open')}
-            </a>
-          ) : (
-            <span className="btn btn--blue btn--sm is-disabled" aria-disabled="true">{t('labs.card.open')}</span>
-          )}
-          {sessionHref && session ? (
-            <a className="btn btn--sm" href={sessionHref} download>
-              {t('labs.card.session', { size: formatSize(session.bytes, lang) })}
-            </a>
-          ) : (
-            <span className="lb-pending">{t('labs.card.sessionSoon')}</span>
-          )}
-        </div>
-      )}
-    </article>
+  if (!href) return <article className={`lb-card${soon ? ' is-soon' : ''}`}>{body}</article>
+
+  return (
+    <a
+      className="lb-card lb-card--link"
+      href={href}
+      {...(lab.hasDetail ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+    >
+      {body}
+    </a>
   )
 }

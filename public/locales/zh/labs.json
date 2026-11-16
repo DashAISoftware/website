@@ -39,11 +39,8 @@
   "labs.cat.empty.d": "换个关键词试试，或移除任务类型筛选。",
   "labs.cat.empty.reset": "查看全部实验",
 
-  "labs.card.open": "打开实验",
   "labs.card.concepts": "<b>概念：</b>{{list}}",
   "labs.card.includes": "<b>包含：</b>{{list}}",
-  "labs.card.session": ".dashai 会话，{{size}}",
-  "labs.card.sessionSoon": "会话准备中",
 
   "labs.status.available": "可用",
   "labs.status.soon": "即将推出",

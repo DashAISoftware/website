@@ -39,11 +39,8 @@
   "labs.cat.empty.d": "Tente outra palavra ou remova o filtro de tipo de tarefa.",
   "labs.cat.empty.reset": "Ver todos os labs",
 
-  "labs.card.open": "Abrir lab",
   "labs.card.concepts": "<b>Conceitos:</b> {{list}}",
   "labs.card.includes": "<b>Inclui:</b> {{list}}",
-  "labs.card.session": "Sessão .dashai, {{size}}",
-  "labs.card.sessionSoon": "Sessão em preparação",
 
   "labs.status.available": "Disponível",
   "labs.status.soon": "Em breve",
