@@ -1,425 +1,245 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { AppMockup } from '../AppMockup'
-import { DemoVideo } from '../DemoVideo'
-import { InstitutionsGrid } from '../InstitutionsGrid'
-import { MODEL_ROWS } from './ModelsRoute'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { DemoEmbed } from '../DemoEmbed'
+import { TourCarousel } from '../TourCarousel'
 import { totalDownloads as sumDownloads } from '@/lib/stats'
 import { useStats } from '@/lib/useStats'
+import {
+  getAcknowledgmentsText,
+  getFunderLogos,
+  getInstitutionRole,
+  getInstitutions,
+} from '@/lib/institutions'
 
-const MONTH_NAMES: Record<string, string[]> = {
-  es: ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],
-  en: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
-  pt: ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'],
-}
+const DOCS = 'https://docs.dash-ai.com'
+const REPO = 'https://github.com/DashAISoftware/DashAI'
 
-interface GhRelease { tag_name: string; name: string; html_url: string; published_at: string }
+type Section = 'discover' | 'learn' | 'deep' | 'build'
 
+const DOC_CARDS: { id: string; href: string; section: Section; level: 'start' | 'advanced'; icon: React.ReactNode }[] = [
+  {
+    id: 'intro', href: `${DOCS}/discover/overview`, section: 'discover', level: 'start',
+    icon: <><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z" /><path d="M4 19a2 2 0 0 1 2-2h12" /></>,
+  },
+  {
+    id: 'guides', href: `${DOCS}/learn/tutorials/upload-dataset`, section: 'learn', level: 'start',
+    icon: <><path d="M2 9l10-5 10 5-10 5z" /><path d="M6 11v5c3 2 9 2 12 0v-5" /></>,
+  },
+  {
+    id: 'arch', href: `${DOCS}/deep-dive/architecture`, section: 'deep', level: 'advanced',
+    icon: <><path d="M12 3l9 5-9 5-9-5z" /><path d="M3 13l9 5 9-5" /></>,
+  },
+  {
+    id: 'dev', href: `${DOCS}/build/dev-setup`, section: 'build', level: 'advanced',
+    icon: <><path d="M8 7l-5 5 5 5" /><path d="M16 7l5 5-5 5" /></>,
+  },
+]
+
+const FEATURES = ['data', 'eda', 'transform', 'train', 'optim', 'xai']
+
+// The three areas of the app, each with its tutorial in the docs.
+const AREAS: { id: string; tutorial: string }[] = [
+  { id: 'data', tutorial: 'learn/tutorials/notebook/' },
+  { id: 'ml', tutorial: 'learn/tutorials/Models/train/' },
+  { id: 'gen', tutorial: 'learn/tutorials/generative/' },
+]
+
+// Short counts, as on the previous home: 33.5k, 1.2m.
 function formatNum(n: number): string {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}m`
   if (n >= 1_000) return `${(n / 1_000).toFixed(1)}k`
   return String(n)
 }
 
-function formatUpdatedAt(iso: string, lang: string): string {
-  const d = new Date(iso)
-  if (isNaN(d.getTime())) return ''
-  return d.toLocaleString(lang, {
-    year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit',
-  })
+function citation(version: string, year: number) {
+  return `@software{dashai_${year},
+  title   = {dashAI: A graphical toolbox for training, evaluating
+             and deploying state-of-the-art AI models},
+  author  = {dashAI Development Team},
+  year    = {${year}},
+  version = {${version.replace(/^v/, '')}},
+  url     = {${REPO}}
+}`
 }
 
 export function HomeRoute({ ghVersion }: { ghVersion: string }) {
   const { t, i18n } = useTranslation('home')
-  const th = (key: string) => ({ __html: t(key) })
-  const lang = i18n.language
-  const [releases, setReleases] = useState<GhRelease[]>([])
+  const lang = i18n.language || 'es'
   const { stats, isLoading: statsLoading } = useStats()
+  const [copied, setCopied] = useState(false)
 
-  const totalDownloads = stats ? sumDownloads(stats) : null
+  const downloads = stats ? sumDownloads(stats) : null
   const stars = stats?.github.stars ?? null
+  const bib = citation(ghVersion, new Date().getFullYear())
 
-  useEffect(() => {
-    // Releases fetch kept for the activity section
-    fetch('https://api.github.com/repos/DashAISoftware/dashAI/releases?per_page=4')
-      .then(r => r.ok ? r.json() : null)
-      .then(data => { if (data?.length) setReleases(data) })
-      .catch(() => {})
-  }, [])
+  const institutions = [
+    ...getInstitutions().map((inst) => ({
+      id: inst.id, fullName: inst.fullName || inst.name, url: inst.url, logo: inst.logo,
+      role: getInstitutionRole(inst, lang),
+    })),
+    ...getFunderLogos().map((f) => ({
+      id: f.id, fullName: f.fullName, url: f.url, logo: f.logo,
+      role: t(`abt.inst.${f.id}.r`, { ns: 'about' }),
+    })),
+  ]
 
-  function fmtDate(iso: string) {
-    const d = new Date(iso)
-    const months = MONTH_NAMES[lang]
-    if (months) return `${months[d.getMonth()]} ${d.getFullYear()}`
-    return d.toLocaleString(lang, { month: 'short', year: 'numeric' })
+  async function copyCitation() {
+    try {
+      await navigator.clipboard.writeText(bib)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {}
   }
+
+  const skeleton = <span className="stat-skeleton" style={{ width: '3em', height: '1em' }} aria-hidden="true" />
 
   return (
     <>
-      {/* HERO */}
-      <section className="hero">
-        <svg className="wm wm-cr wm-lg" style={{ top: '8%' }} viewBox="0 0 218.96 237.04" aria-hidden="true">
+      <section className="hm-hero" aria-labelledby="hm-title">
+        <svg className="hm-hero-mark" viewBox="0 0 218.96 237.04" aria-hidden="true">
           <use href="#dashai-mark" />
         </svg>
-        <div className="wrap">
-          <div className="hero-top">
-            <div className="hero-top-copy">
-              <div className="hero-eyebrow">
-                <span data-gh-version>{ghVersion}</span>
-                <span className="sep">|</span>
-                <span>{t('hero.ey')}</span>
-              </div>
-              <h1 dangerouslySetInnerHTML={th('hero.h')} />
-              <p className="hero-sub" dangerouslySetInnerHTML={th('hero.sub')} />
-              <div className="hero-cta">
-                <a className="btn btn--blue" href="#download">
-                  <svg style={{ width: '14px', height: '14px' }}>
-                    <use href="#i-download" />
-                  </svg>
-                  <span>{t('hero.cta.dl')}</span>
-                </a>
-                <DemoVideo />
-                <a className="btn" href="#contribute">
-                  <span>{t('hero.cta.cont')}</span>
-                  <svg style={{ width: '14px', height: '14px' }}>
-                    <use href="#i-arrow" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <div className="hero-top-stats">
-              <div className="hero-top-stats-items">
-                <a
-                  className="hero-stat"
-                  href="#download"
-                >
-                  <div className="hero-stat-num">
-                    {statsLoading ? (
-                      <span className="stat-skeleton" aria-hidden="true" />
-                    ) : (
-                      <>
-                        {formatNum(totalDownloads ?? 0)}
-                        <sup style={{ fontSize: '0.5em', marginLeft: 1, color: 'var(--ink-3)' }}>*</sup>
-                      </>
-                    )}
-                  </div>
-                  <div className="hero-stat-label">{t('hero.stat.dl')}</div>
-                </a>
-                <a
-                  className="hero-stat"
-                  href="https://github.com/DashAISoftware/dashAI"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <div className="hero-stat-num">
-                    {statsLoading ? <span className="stat-skeleton" aria-hidden="true" /> : formatNum(stars ?? 0)}
-                  </div>
-                  <div className="hero-stat-label">
-                    <svg style={{ width: 12, height: 12, flexShrink: 0 }}>
-                      <use href="#i-github" />
-                    </svg>
-                    {t('hero.stat.stars')}
-                  </div>
-                </a>
-              </div>
-              {stats?.updatedAt && (
-                <div className="hero-stats-updated">
-                  {t('hero.stat.updated', { date: formatUpdatedAt(stats.updatedAt, lang) })}
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="hero-concepts">
-            <div className="concept c-ext">
-              <div className="ey">{t('hero.c1.ey')}</div>
-              <h4>{t('hero.c1.h')}</h4>
-              <p>{t('hero.c1.p')}</p>
-            </div>
-            <div className="concept c-local">
-              <div className="ey">{t('hero.c2.ey')}</div>
-              <h4>{t('hero.c2.h')}</h4>
-              <p>{t('hero.c2.p')}</p>
-            </div>
-            <div className="concept c-open">
-              <div className="ey">{t('hero.c3.ey')}</div>
-              <h4>{t('hero.c3.h')}</h4>
-              <p>{t('hero.c3.p')}</p>
-            </div>
-            <div className="concept c-tool">
-              <div className="ey">{t('hero.c4.ey')}</div>
-              <h4>{t('hero.c4.h')}</h4>
-              <p>{t('hero.c4.p')}</p>
-            </div>
-          </div>
-
-          <p
-            className="hero-concepts-note"
-            style={{ marginTop: 20, fontSize: 12, color: 'var(--ink-3)', lineHeight: 1.5 }}
-          >
-            {t('hero.stat.dl.note')}
-          </p>
-        </div>
-      </section>
-
-      {/* SHOWCASE */}
-      <section className="section">
-        <div className="wrap">
-          <div className="sec-head">
-            <div className="left">
-              <div className="eyebrow">
-                <span className="num">[ 01 ]</span>
-                {' '}&nbsp;{' '}
-                <span>{t('sho.ey')}</span>
-              </div>
-              <h2 dangerouslySetInnerHTML={th('sho.h')} />
-              <p className="lead" dangerouslySetInnerHTML={th('sho.lead')} />
-            </div>
-          </div>
-
-          <AppMockup />
-
-          <div className="showcase-explain">
-            <div className="showcase-step">
-              <div className="n">01</div>
-              <h4>{t('sho.e1.h')}</h4>
-              <p>{t('sho.e1.p')}</p>
-            </div>
-            <div className="showcase-step">
-              <div className="n">02</div>
-              <h4>{t('sho.e2.h')}</h4>
-              <p>{t('sho.e2.p')}</p>
-            </div>
-            <div className="showcase-step">
-              <div className="n">03</div>
-              <h4>{t('sho.e3.h')}</h4>
-              <p>{t('sho.e3.p')}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* MODULES */}
-      <section className="section section--tight">
-        <div className="wrap">
-          <div className="sec-head">
-            <div className="left">
-              <div className="eyebrow">
-                <span className="num">[ 02 ]</span>
-                {' '}&nbsp;{' '}
-                <span>{t('mods.ey')}</span>
-              </div>
-              <h2>{t('mods.h')}</h2>
-              <p className="lead">{t('mods.lead')}</p>
-            </div>
-          </div>
-
-          <div className="modules">
-            <a className="mod-card models" href="#models">
-              <div className="chip">{t('mod.m.chip')}</div>
-              <h3>{t('mod.m.h')}</h3>
-              <div className="count mono">{t('mod.m.c')}</div>
-              <p className="desc" dangerouslySetInnerHTML={th('mod.m.d')} />
-              <span className="arrow">
-                <span>{t('mod.m.cta')}</span>{' '}
-                <svg style={{ width: '14px', height: '14px' }}>
-                  <use href="#i-arrow" />
-                </svg>
-              </span>
-            </a>
-            <a className="mod-card gen" href="#models">
-              <div className="chip">{t('mod.g.chip')}</div>
-              <h3>{t('mod.g.h')}</h3>
-              <div className="count mono">{t('mod.g.c')}</div>
-              <p className="desc">{t('mod.g.d')}</p>
-              <span className="arrow">
-                <span>{t('mod.g.cta')}</span>{' '}
-                <svg style={{ width: '14px', height: '14px' }}>
-                  <use href="#i-arrow" />
-                </svg>
-              </span>
-            </a>
-            <a className="mod-card plugins" href="#plugins">
-              <div className="chip">{t('mod.p.chip')}</div>
-              <h3>{t('mod.p.h')}</h3>
-              <div className="count">{t('mod.p.c')}</div>
-              <p className="desc">{t('mod.p.d')}</p>
-              <span className="arrow">
-                <span>{t('mod.p.cta')}</span>{' '}
-                <svg style={{ width: '14px', height: '14px' }}>
-                  <use href="#i-arrow" />
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* FEATURED MODELS */}
-      <section className="section">
-        <div className="wrap">
-          <div className="sec-head">
-            <div className="left">
-              <div className="eyebrow">
-                <span className="num">[ 03 ]</span>
-                {' '}&nbsp;{' '}
-                <span>{t('feat.ey')}</span>
-              </div>
-              <h2>{t('feat.h')}</h2>
-              <p className="lead">{t('feat.lead', { count: MODEL_ROWS.length })}</p>
-            </div>
-            <a className="btn" href="#models">
-              <span>{t('feat.cta', { count: MODEL_ROWS.length })}</span>{' '}
-              <svg style={{ width: '14px', height: '14px' }}>
-                <use href="#i-arrow" />
+        <div className="hm-hero-inner">
+          <div className="hm-hero-copy">
+            <h1 id="hm-title" className="hm-hero-title">
+              <svg role="img" aria-label="dashAI" viewBox="0 0 854 237.04">
+                <use href="#dashai-lockup" />
               </svg>
-            </a>
+            </h1>
+            <p className="hm-hero-lead">{t('hero.lead')}</p>
+            <div className="hm-hero-actions">
+              <a className="hm-btn hm-btn--solid" href="#download">{t('hero.cta.dl')}</a>
+              <div className="hm-hero-stats">
+                <a href="#download">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
+                  </svg>
+                  <span>
+                    {statsLoading ? skeleton : <strong>{formatNum(downloads ?? 0)}<sup aria-hidden="true">*</sup></strong>} {t('hero.stat.dl')}
+                  </span>
+                </a>
+                <a href={`${REPO}/stargazers`} target="_blank" rel="noopener noreferrer">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z" />
+                  </svg>
+                  <span>
+                    {statsLoading ? skeleton : <strong>{formatNum(stars ?? 0)}</strong>} {t('hero.stat.stars')}
+                  </span>
+                </a>
+              </div>
+              <span className="hm-hero-footnote">* {t('hero.stat.dl.note')}</span>
+            </div>
           </div>
-
-          <div className="feat-models">
-            <a className="feat-card" href="#models">
-              <div className="id">#models/random-forest</div>
-              <div className="name">RandomForestClassifier</div>
-              <div className="meta">
-                <span className="tag tabular">{t('tag.tab')}</span>
-                <span className="tag">{t('tag.cls')}</span>
-                <span className="tag mono">sklearn</span>
-              </div>
-            </a>
-            <a className="feat-card" href="#models">
-              <div className="id">#models/distilbert</div>
-              <div className="name">DistilBERT</div>
-              <div className="meta">
-                <span className="tag nlp">NLP</span>
-                <span className="tag">{t('tag.cls')}</span>
-                <span className="tag mono">transformers</span>
-              </div>
-            </a>
-            <a className="feat-card" href="#models">
-              <div className="id">#models/nllb</div>
-              <div className="name">NLLB</div>
-              <div className="meta">
-                <span className="tag translation">{t('tag.tr')}</span>
-                <span className="tag mono">seq2seq</span>
-                <span className="tag">BLEU | ChrF</span>
-              </div>
-            </a>
-            <a className="feat-card" href="#models">
-              <div className="id">#models/mistral</div>
-              <div className="name">Mistral</div>
-              <div className="meta">
-                <span className="tag gen">LLM</span>
-                <span className="tag">{t('tag.ow')}</span>
-                <span className="tag mono">{t('tag.loc')}</span>
-              </div>
-            </a>
-            <a className="feat-card" href="#models">
-              <div className="id">#models/pixart-sigma</div>
-              <div className="name">PixArt-Sigma</div>
-              <div className="meta">
-                <span className="tag vision">text-to-image</span>
-              </div>
-            </a>
+          <div className="hm-hero-media">
+            <TourCarousel />
           </div>
         </div>
       </section>
 
-      {/* ACTIVITY */}
-      <section
-        className="section section--tight activity-section"
-        style={{ background: 'var(--surface)', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}
-      >
-        <svg className="wm wm-tr" viewBox="0 0 218.96 237.04" aria-hidden="true">
-          <use href="#dashai-mark" />
-        </svg>
-        <div className="wrap">
-          <div className="sec-head">
-            <div className="left">
-              <div className="eyebrow">
-                <span className="num">[ 04 ]</span>
-                {' '}&nbsp;{' '}
-                <span>{t('act.ey')}</span>
-              </div>
-              <h2>{t('act.h')}</h2>
-              <p className="lead" dangerouslySetInnerHTML={th('act.lead')} />
-            </div>
-          </div>
+      <div className="hm-col">
+        <section className="hm-sec hm-sec--first" aria-labelledby="hm-about">
+          <h2 id="hm-about" className="hm-h2">{t('about.h')}</h2>
+          <p className="hm-p">{t('about.lead')}</p>
 
-          <div className="news-grid">
-            <div className="news-releases">
-              <h4>{t('act.col.h')}</h4>
-              <div data-gh-releases="">
-                {releases.length > 0 ? releases.map(r => (
-                  <a key={r.tag_name} className="act-item" href={r.html_url} target="_blank" rel="noopener">
-                    <div className="when">{fmtDate(r.published_at)}</div>
-                    <div className="what">
-                      <strong>{r.tag_name}</strong>
-                      {r.name && r.name !== r.tag_name ? ` - ${r.name}` : ''}
-                    </div>
-                  </a>
-                )) : (
-                  <>
-                    <a className="act-item" href="https://github.com/DashAISoftware/dashAI/releases" target="_blank" rel="noopener">
-                      <div className="when">{t('act.fb.1w')}</div>
-                      <div className="what" dangerouslySetInnerHTML={th('act.fb.1')} />
-                    </a>
-                    <a className="act-item" href="https://github.com/DashAISoftware/dashAI/releases" target="_blank" rel="noopener">
-                      <div className="when">{t('act.fb.2w')}</div>
-                      <div className="what" dangerouslySetInnerHTML={th('act.fb.2')} />
-                    </a>
-                    <a className="act-item" href="https://github.com/DashAISoftware/dashAI/releases" target="_blank" rel="noopener">
-                      <div className="when">{t('act.fb.3w')}</div>
-                      <div className="what" dangerouslySetInnerHTML={th('act.fb.3')} />
-                    </a>
-                  </>
-                )}
+          <ul className="hm-areas">
+            {AREAS.map((a) => (
+              <li key={a.id} className={`hm-area hm-area--${a.id}`}>
+                <h3>{t(`area.${a.id}.h`)}</h3>
+                <p>{t(`area.${a.id}.p`)}</p>
+                <a href={`${DOCS}/${lang === 'es' ? 'es/' : ''}${a.tutorial}`} target="_blank" rel="noopener noreferrer">
+                  {t('area.tutorial')}
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M7 17L17 7M9 7h8v8" />
+                  </svg>
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <DemoEmbed />
+        </section>
+
+        <section className="hm-sec" aria-labelledby="hm-feat">
+          <h2 id="hm-feat" className="hm-h2">{t('feat.h')}</h2>
+          <div className="hm-feats">
+            {FEATURES.map((f) => (
+              <div key={f} className="hm-feat">
+                <h3>{t(`feat.${f}.h`)}</h3>
+                <p>{t(`feat.${f}.p`)}</p>
               </div>
-              <a className="news-all" href="https://github.com/DashAISoftware/dashAI/releases" target="_blank" rel="noopener">
-                <span>{t('act.all')}</span> →
+            ))}
+          </div>
+        </section>
+
+        <section className="hm-sec" aria-labelledby="hm-docs">
+          <h2 id="hm-docs" className="hm-h2">{t('docs.h')}</h2>
+          <p className="hm-p hm-muted">{t('docs.sub')}</p>
+          <div className="hm-docs">
+            {DOC_CARDS.map((c) => (
+              <a key={c.id} className={`hm-doc hm-doc--${c.section}`} href={c.href} target="_blank" rel="noopener noreferrer">
+                <span className="hm-doc-top">
+                  <span className="hm-doc-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      {c.icon}
+                    </svg>
+                  </span>
+                  <span className="hm-tag">{t(`docs.level.${c.level}`)}</span>
+                </span>
+                <span className="hm-doc-title">{t(`docs.${c.id}.h`)}</span>
+                <span className="hm-doc-desc">{t(`docs.${c.id}.p`)}</span>
+                <span className="hm-doc-foot">
+                  <span className="hm-doc-tags">
+                    <span className="hm-tag hm-tag--sm">{t(`docs.${c.id}.t1`)}</span>
+                    <span className="hm-tag hm-tag--sm">{t(`docs.${c.id}.t2`)}</span>
+                  </span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </span>
               </a>
-            </div>
+            ))}
+          </div>
+          <a className="hm-btn hm-btn--outline hm-docs-cta" href={DOCS} target="_blank" rel="noopener noreferrer">
+            {t('docs.cta')}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M7 17L17 7M9 7h8v8" />
+            </svg>
+          </a>
+        </section>
 
-            <div className="news-newsletter">
-              <div className="news-chip">GOOGLE GROUP</div>
-              <h3>{t('act.nl.h')}</h3>
-              <p>{t('act.nl.p')}</p>
-              <a
-                className="btn btn--blue"
-                href="https://groups.google.com/g/dashai-updates"
-                target="_blank"
-                rel="noopener"
-                style={{ marginTop: '8px' }}
-              >
-                <span>{t('act.nl.cta')}</span> →
+        <section className="hm-sec" aria-labelledby="hm-cite">
+          <h2 id="hm-cite" className="hm-h2">{t('cite.h')}</h2>
+          <p className="hm-p hm-muted">{t('cite.p')}</p>
+          <div className="hm-cite">
+            <pre suppressHydrationWarning>{bib}</pre>
+            <button type="button" className="hm-cite-copy" onClick={copyCitation} aria-live="polite">
+              {copied ? t('cite.copied') : t('cite.copy')}
+            </button>
+          </div>
+        </section>
+
+        <section className="hm-sec hm-sec--last" aria-labelledby="hm-inst">
+          <h2 id="hm-inst" className="hm-h2">{t('inst.h')}</h2>
+          <p className="hm-p">{getAcknowledgmentsText(lang)}</p>
+          <div className="hm-insts">
+            {institutions.map((inst) => (
+              <a key={inst.id} className="hm-inst" href={inst.url} target="_blank" rel="noopener noreferrer">
+                <span className="hm-inst-logo">
+                  <img src={`/${inst.logo}`} alt="" loading="lazy" />
+                </span>
+                <span className="hm-inst-name">
+                  <strong>{inst.id.toUpperCase()}</strong>
+                  <span>{inst.fullName}</span>
+                  <span>{inst.role}</span>
+                </span>
               </a>
-              <div className="news-fineprint">{t('act.nl.fine')}</div>
-            </div>
+            ))}
           </div>
-        </div>
-      </section>
-
-      {/* INSTITUTIONS */}
-      <section className="section">
-        <div className="wrap">
-          <div className="sec-head">
-            <div className="left">
-              <div className="eyebrow">
-                <span className="num">[ 05 ]</span>
-                {' '}&nbsp;{' '}
-                <span>{t('inst.ey')}</span>
-              </div>
-              <h2 dangerouslySetInnerHTML={th('inst.h')} />
-              <p className="lead">{t('inst.lead')}</p>
-            </div>
-          </div>
-
-          <InstitutionsGrid />
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   )
 }
