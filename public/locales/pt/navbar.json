@@ -17,12 +17,9 @@
   "docs.dev.title": "Desenvolvimento",
   "docs.guides.desc": "Procedimentos passo a passo por módulo.",
   "docs.guides.title": "Guias e tutoriais",
-  "docs.home": "Início da documentação",
+  "docs.home": "Consultar a documentação",
   "docs.intro.desc": "Propósito, instalação e casos de uso.",
   "docs.intro.title": "Introdução",
-  "docs.labs.desc": "Casos guiados com sessões prontas para importar.",
-  "docs.labs.title": "Labs",
-  "docs.reference": "Referência de componentes",
   "menu.community": "Comunidade",
   "menu.docs": "Documentação",
   "menu.resources": "Recursos",
@@ -34,6 +31,8 @@
   "res.faq.title": "Perguntas frequentes",
   "res.github": "Repositório no GitHub",
   "res.issues": "Reportar um problema",
+  "res.labs.desc": "Casos guiados com sessões prontas para importar.",
+  "res.labs.title": "Labs",
   "res.pypi.desc": "Instalação com pip, incluindo aceleração por GPU.",
   "res.pypi.title": "Pacote no PyPI"
 }

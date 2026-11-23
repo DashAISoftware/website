@@ -132,13 +132,11 @@ export function Navbar({ route }: { route: string }) {
       items: [
         { href: `${DOCS}/discover/overview`, title: t('docs.intro.title'), desc: t('docs.intro.desc'), section: 'discover' },
         { href: `${DOCS}/learn/tutorials/upload-dataset`, title: t('docs.guides.title'), desc: t('docs.guides.desc'), section: 'learn' },
-        { href: '#labs', title: t('docs.labs.title'), desc: t('docs.labs.desc'), section: 'learn', route: 'labs' },
         { href: `${DOCS}/deep-dive/architecture`, title: t('docs.arch.title'), desc: t('docs.arch.desc'), section: 'deep' },
         { href: `${DOCS}/build/dev-setup`, title: t('docs.dev.title'), desc: t('docs.dev.desc'), section: 'build' },
       ],
       footer: [
         { href: `${DOCS}/`, title: t('docs.home'), arrow: true },
-        { href: `${DOCS}/components/tasks`, title: t('docs.reference'), arrow: true },
       ],
     },
     {
@@ -148,6 +146,7 @@ export function Navbar({ route }: { route: string }) {
       items: [
         { href: '#download', title: t('res.download.title'), desc: t('res.download.desc'), route: 'download' },
         { href: '#faq', title: t('res.faq.title'), desc: t('res.faq.desc'), route: 'faq' },
+        { href: '#labs', title: t('res.labs.title'), desc: t('res.labs.desc'), route: 'labs' },
         { href: 'https://pypi.org/project/dashai/', title: t('res.pypi.title'), desc: t('res.pypi.desc') },
         { href: `${REPO}/blob/develop/CHANGELOG.rst`, title: t('res.changelog.title'), desc: t('res.changelog.desc') },
       ],

@@ -17,12 +17,9 @@
   "docs.dev.title": "开发",
   "docs.guides.desc": "按模块划分的分步操作说明。",
   "docs.guides.title": "指南与教程",
-  "docs.home": "文档首页",
+  "docs.home": "查看文档",
   "docs.intro.desc": "用途、安装与使用场景。",
   "docs.intro.title": "简介",
-  "docs.labs.desc": "附带可直接导入会话的引导案例。",
-  "docs.labs.title": "实验室",
-  "docs.reference": "组件参考",
   "menu.community": "社区",
   "menu.docs": "文档",
   "menu.resources": "资源",
@@ -34,6 +31,8 @@
   "res.faq.title": "常见问题",
   "res.github": "GitHub 仓库",
   "res.issues": "报告问题",
+  "res.labs.desc": "附带可直接导入会话的引导案例。",
+  "res.labs.title": "实验室",
   "res.pypi.desc": "通过 pip 安装，支持 GPU 加速。",
   "res.pypi.title": "PyPI 软件包"
 }
