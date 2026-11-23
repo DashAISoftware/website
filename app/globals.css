@@ -172,8 +172,6 @@ h4{font-size:18px;line-height:1.3}
 .hm-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 24px;border:1px solid var(--brand);border-radius:var(--app-radius);font-size:15px;font-weight:500;letter-spacing:.02em;text-transform:uppercase;transition:background .15s,color .15s,border-color .15s}
 .hm-btn--solid{background:var(--brand);color:var(--bg)}
 .hm-btn--solid:hover{background:#1F66E5;border-color:#1F66E5}
-.hm-btn--outline{padding:0 20px;background:transparent;color:var(--brand)}
-.hm-btn--outline:hover{background:var(--app-active-bg)}
 .hm-btn:focus-visible,.hm-doc:focus-visible,.hm-inst:focus-visible,.hm-cite-copy:focus-visible,.tour-dots button:focus-visible,.hm-hero-stats a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 
 .tour{margin:0}
@@ -223,7 +221,7 @@ h4{font-size:18px;line-height:1.3}
 .hm-demo-cap{margin-top:12px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;font-size:14px;line-height:1.5;color:var(--app-muted)}
 .hm-demo-src{font-size:13px;color:var(--ink-4)}
 
-.hm-docs{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.hm-docs{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 .hm-doc{--c:var(--sec-discover);--c-bg:rgba(44,122,255,.12);--c-line:rgba(44,122,255,.22);display:flex;flex-direction:column;padding:22px 24px;background:#fff;border:1px solid var(--app-line);border-radius:var(--app-radius);transition:border-color .15s}
 .hm-doc--learn{--c:var(--sec-learn);--c-bg:rgba(0,89,103,.12);--c-line:rgba(0,89,103,.22)}
 .hm-doc--deep{--c:var(--sec-deep);--c-bg:rgba(165,77,169,.12);--c-line:rgba(165,77,169,.22)}
@@ -239,7 +237,6 @@ h4{font-size:18px;line-height:1.3}
 .hm-doc-foot svg{flex:none;color:rgba(25,24,23,.35);transition:color .15s,transform .15s}
 .hm-doc:hover .hm-doc-foot svg{color:var(--c);transform:translateX(2px)}
 .hm-doc-tags{display:flex;flex-wrap:wrap;gap:5px}
-.hm-docs-cta{margin-top:28px}
 
 .hm-feats{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;font-size:15px}
 .hm-feat{padding:16px 18px;background:#fff;border:1px solid var(--app-line);border-radius:var(--app-radius)}
@@ -259,6 +256,9 @@ h4{font-size:18px;line-height:1.3}
 .hm-inst-name strong{font-weight:600}
 .hm-inst-name span{font-size:13px;color:var(--app-muted)}
 .hm-inst:hover strong{color:var(--brand)}
+.hm-more{display:inline-flex;align-items:center;gap:6px;margin-top:32px;font-size:14px;font-weight:500;color:var(--brand)}
+.hm-more:hover{text-decoration:underline;text-underline-offset:3px}
+.hm-more:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 
 @media(prefers-reduced-motion:reduce){
   .tour-card,.tour-dots span,.hm-doc,.hm-doc-foot svg,.hm-btn,.hm-demo-play,.hm-demo-poster img{transition:none}

@@ -8,7 +8,6 @@ import { TourCarousel } from '../TourCarousel'
 import { totalDownloads as sumDownloads } from '@/lib/stats'
 import { useStats } from '@/lib/useStats'
 import {
-  getAcknowledgmentsText,
   getFunderLogos,
   getInstitutionRole,
   getInstitutions,
@@ -176,7 +175,6 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
 
         <section className="hm-sec" aria-labelledby="hm-docs">
           <h2 id="hm-docs" className="hm-h2">{t('docs.h')}</h2>
-          <p className="hm-p hm-muted">{t('docs.sub')}</p>
           <div className="hm-docs">
             {DOC_CARDS.map((c) => (
               <a key={c.id} className={`hm-doc hm-doc--${c.section}`} href={c.href} target="_blank" rel="noopener noreferrer">
@@ -202,7 +200,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
               </a>
             ))}
           </div>
-          <a className="hm-btn hm-btn--outline hm-docs-cta" href={DOCS} target="_blank" rel="noopener noreferrer">
+          <a className="hm-more" href={DOCS} target="_blank" rel="noopener noreferrer">
             {t('docs.cta')}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M7 17L17 7M9 7h8v8" />
@@ -223,7 +221,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
 
         <section className="hm-sec hm-sec--last" aria-labelledby="hm-inst">
           <h2 id="hm-inst" className="hm-h2">{t('inst.h')}</h2>
-          <p className="hm-p">{getAcknowledgmentsText(lang)}</p>
+          <p className="hm-p">{t('inst.lead')}</p>
           <div className="hm-insts">
             {institutions.map((inst) => (
               <a key={inst.id} className="hm-inst" href={inst.url} target="_blank" rel="noopener noreferrer">
@@ -238,6 +236,12 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
               </a>
             ))}
           </div>
+          <a className="hm-more" href="#about">
+            {t('inst.more')}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
         </section>
       </div>
     </>
