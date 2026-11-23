@@ -40,10 +40,9 @@ test('every lab in LABS has its texts', () => {
   assert.deepEqual(need.filter(k => !(k in es)), [])
 })
 
-test('navbar and footer have the Labs entries in every language', () => {
+test('navbar has the Labs entry in every language', () => {
   for (const lang of LANGS) {
     const nav = load(lang, 'navbar')
-    const ft = load(lang, 'footer')
-    assert.ok(nav['res.labs.title'] && nav['res.labs.desc'] && ft['ft.labs'], `missing Labs nav/footer keys in ${lang}`)
+    assert.ok(nav['res.labs.title'] && nav['res.labs.desc'], `missing Labs nav keys in ${lang}`)
   }
 })
