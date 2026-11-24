@@ -17,19 +17,31 @@ const EARLY = [
 export function InstitutionsGrid({ early = true }: { early?: boolean }) {
   const { t, i18n } = useTranslation('about')
   const lang = i18n.language || 'en'
+  // Site texts (`abt.inst.<id>.t` / `.role`) override the shared data file,
+  // which is partly in English.
+  const name = (id: string, fallback: string) => {
+    const key = `abt.inst.${id}.t`
+    return i18n.exists(key, { ns: 'about' }) ? t(key) : fallback
+  }
+  const role = (id: string, fallback: string) => {
+    const key = `abt.inst.${id}.role`
+    return i18n.exists(key, { ns: 'about' }) ? t(key) : fallback
+  }
   const institutions = [
-    ...getInstitutions().filter((inst) => !EARLY_IDS.includes(inst.id) && !MERGED_IDS.includes(inst.id)).map((inst) => ({
-      ...inst,
-      ...(inst.id === 'uchile' && { fullName: t('abt.inst.uchile.t') }),
-      role: inst.id === 'uchile' ? t('abt.inst.uchile.role') : getInstitutionRole(inst, lang),
-    })),
+    ...getInstitutions()
+      .filter((inst) => !EARLY_IDS.includes(inst.id) && !MERGED_IDS.includes(inst.id))
+      .map((inst) => ({
+        ...inst,
+        fullName: name(inst.id, inst.fullName || inst.name),
+        role: role(inst.id, getInstitutionRole(inst, lang)),
+      })),
     ...getFunderLogos().map((f) => ({
       id: f.id,
       name: f.name,
-      fullName: f.fullName,
+      fullName: name(f.id, f.fullName),
       url: f.url,
       logo: f.logo,
-      role: t(`abt.inst.${f.id}.r`),
+      role: role(f.id, f.id),
     })),
   ]
 

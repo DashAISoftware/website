@@ -5,7 +5,6 @@
   "abt.hist.cta.h": "¿Pasaste por dashAI?",
   "abt.hist.cta.p": "Si tu participación en dashAI no figura en esta página, puedes escribirnos. Buscamos mantener un registro completo del proyecto.",
   "abt.hist.lead": "El proyecto lleva varios años en construcción. En él han participado tesistas de pre y posgrado, memoristas, ayudantes de investigación y otras personas. Muchas de sus abstracciones actuales nacieron como trabajos dirigidos o tesis.",
-  "abt.inst.anid.r": "financiamiento | Fondef IDeA",
   "abt.lead": "Proyecto académico chileno desarrollado y mantenido por una red de instituciones públicas y privadas, con financiamiento público y el trabajo de una comunidad de académicos y estudiantes.",
   "abt.m.h": "Misión",
   "abt.m.p": "Reducir las barreras técnicas para el uso de Machine Learning en investigación, docencia y trabajo aplicado, manteniendo la extensibilidad que requieren los grupos especializados. dashAI articula una interfaz visual sobre una arquitectura modular auditable y open-source.",
@@ -58,5 +57,11 @@
   "abt.inst.p": "dashAI es un proyecto del Departamento de Ciencias de la Computación de la Facultad de Ciencias Físicas y Matemáticas de la Universidad de Chile, desarrollado en colaboración con CENIA y Unholster, con financiamiento de ANID a través de los proyectos Fondef IDEA ID25I10330 y Fondef VIU23P 0110, y de los fondos basales de CENIA (FB210017).",
   "abt.hist.alum.graph": "gráfico de contribuyentes",
   "abt.cta.discord": "Escríbele al equipo por la comunidad",
-  "abt.cta.mail": "Para sumar tu participación al registro"
+  "abt.cta.mail": "Para sumar tu participación al registro",
+  "abt.inst.cenia.t": "Centro Nacional de Inteligencia Artificial",
+  "abt.inst.cenia.role": "Institución asociada",
+  "abt.inst.unholster.t": "Unholster",
+  "abt.inst.unholster.role": "Colaborador activo: pruebas y retroalimentación",
+  "abt.inst.anid.t": "Agencia Nacional de Investigación y Desarrollo",
+  "abt.inst.anid.role": "Financiamiento, Fondef IDeA"
 }
