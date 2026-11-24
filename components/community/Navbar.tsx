@@ -3,6 +3,9 @@
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { usePathname } from 'next/navigation'
+import { AppLink } from '@/components/community/AppLink'
+import { routeOf } from '@/lib/routes'
 import { useStats } from '@/lib/useStats'
 
 type Lang = 'es' | 'en' | 'pt' | 'de' | 'zh'
@@ -89,7 +92,7 @@ function fmtStars(n: number): string {
 function MenuItem({ item, route, onPick }: { item: Item; route: string; onPick: () => void }) {
   const current = item.route !== undefined && item.route === route
   return (
-    <a
+    <AppLink
       className="snav-item"
       href={item.href}
       aria-current={current ? 'page' : undefined}
@@ -101,7 +104,7 @@ function MenuItem({ item, route, onPick }: { item: Item; route: string; onPick: 
         <span className="snav-item-title">{item.title}</span>
         {item.desc && <span className="snav-item-desc">{item.desc}</span>}
       </span>
-    </a>
+    </AppLink>
   )
 }
 
@@ -114,7 +117,9 @@ function FooterLink({ item, onPick }: { item: Item; onPick: () => void }) {
   )
 }
 
-export function Navbar({ route }: { route: string }) {
+export function Navbar() {
+  const pathname = usePathname() ?? '/'
+  const route = routeOf(pathname)
   const { t, i18n } = useTranslation('navbar')
   const lang = (i18n.language as Lang) || 'es'
   const [open, setOpen] = useState<MenuKey | null>(null)
@@ -144,9 +149,9 @@ export function Navbar({ route }: { route: string }) {
       label: t('menu.resources'),
       width: 300,
       items: [
-        { href: '#download', title: t('res.download.title'), desc: t('res.download.desc'), route: 'download' },
-        { href: '#faq', title: t('res.faq.title'), desc: t('res.faq.desc'), route: 'faq' },
-        { href: '#labs', title: t('res.labs.title'), desc: t('res.labs.desc'), route: 'labs' },
+        { href: '/download', title: t('res.download.title'), desc: t('res.download.desc'), route: 'download' },
+        { href: '/faq', title: t('res.faq.title'), desc: t('res.faq.desc'), route: 'faq' },
+        { href: '/labs', title: t('res.labs.title'), desc: t('res.labs.desc'), route: 'labs' },
         { href: 'https://pypi.org/project/dashai/', title: t('res.pypi.title'), desc: t('res.pypi.desc') },
         { href: `${REPO}/blob/develop/CHANGELOG.rst`, title: t('res.changelog.title'), desc: t('res.changelog.desc') },
       ],
@@ -160,9 +165,9 @@ export function Navbar({ route }: { route: string }) {
       label: t('menu.community'),
       width: 300,
       items: [
-        { href: '#contribute', title: t('com.contribute.title'), desc: t('com.contribute.desc'), route: 'contribute' },
-        { href: '#about', title: t('com.about.title'), desc: t('com.about.desc'), route: 'about' },
-        { href: '#news', title: t('com.news.title'), desc: t('com.news.desc'), route: 'news' },
+        { href: '/contribute', title: t('com.contribute.title'), desc: t('com.contribute.desc'), route: 'contribute' },
+        { href: '/about', title: t('com.about.title'), desc: t('com.about.desc'), route: 'about' },
+        { href: '/news', title: t('com.news.title'), desc: t('com.news.desc'), route: 'news' },
       ],
       footer: [],
     },
@@ -180,7 +185,7 @@ export function Navbar({ route }: { route: string }) {
   useEffect(() => {
     setOpen(null)
     setDrawer(false)
-  }, [route])
+  }, [pathname])
 
   useEffect(() => {
     if (!drawer) return
@@ -241,14 +246,14 @@ export function Navbar({ route }: { route: string }) {
             </svg>
           </button>
 
-          <a href="#home" className="snav-logo" aria-label={t('a11y.home')}>
+          <AppLink href="/" className="snav-logo" aria-label={t('a11y.home')}>
             <svg className="snav-mark" viewBox="0 0 218.96 237.04" aria-hidden="true">
               <use href="#dashai-mark" />
             </svg>
             <svg className="snav-lockup" viewBox="0 0 854 237.04" aria-hidden="true">
               <use href="#dashai-lockup" />
             </svg>
-          </a>
+          </AppLink>
 
           <nav className="snav-menus" aria-label={t('a11y.mainNav')}>
             {groups.map((g) => (
@@ -318,11 +323,11 @@ export function Navbar({ route }: { route: string }) {
           <div className="snav-backdrop" onClick={() => setDrawer(false)} />
           <div className="snav-drawer" role="dialog" aria-modal="true" aria-label={t('a11y.mainNav')}>
             <div className="snav-drawer-head">
-              <a href="#home" className="snav-logo" aria-label={t('a11y.home')} onClick={() => setDrawer(false)}>
+              <AppLink href="/" className="snav-logo" aria-label={t('a11y.home')} onClick={() => setDrawer(false)}>
                 <svg className="snav-lockup" viewBox="0 0 854 237.04" aria-hidden="true">
                   <use href="#dashai-lockup" />
                 </svg>
-              </a>
+              </AppLink>
               <button className="snav-burger" type="button" aria-label={t('a11y.menuClose')} onClick={() => setDrawer(false)} autoFocus>
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
                   <path d="M6 6l12 12M18 6L6 18" />

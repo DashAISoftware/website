@@ -1,6 +1,6 @@
 {
   "plg.cs.badge": "COMING SOON",
-  "plg.cs.cta.p": "If you plan to develop a plugin, the packaging guide is available at <a href=\"#guide-plugin\" style=\"color:var(--brand-on);font-weight:500\">/contribute</a>. To coordinate early publications, contact the team by email or Discord.",
+  "plg.cs.cta.p": "If you plan to develop a plugin, the packaging guide is available at <a href=\"/contribute\" style=\"color:var(--brand-on);font-weight:500\">/contribute</a>. To coordinate early publications, contact the team by email or Discord.",
   "plg.cs.h": "Section in preparation.",
   "plg.cs.lead": "The public plugin catalog will be published alongside the first stable release of dashAI. This page will then list verified community packages, including their component type, authorship and compatibility with the current version.",
   "plg.cs.m1.l": "// ESTIMATED PUBLICATION",
@@ -12,7 +12,7 @@
   "plg.h": "Community plugins.",
   "plg.lead": "Plugins are Python packages published on PyPI that register new components. They install with one click from the UI, no restart, no external shell.",
   "plg.s.ey": "PROTOTYPE V3 | STUBBED SECTION",
-  "plg.s.f": "// These names are illustrative. Want to be the one who publishes the first? <a href=\"#contribute\" style=\"color:var(--brand-on);font-weight:500\">How to publish a plugin →</a>",
+  "plg.s.f": "// These names are illustrative. Want to be the one who publishes the first? <a href=\"/contribute\" style=\"color:var(--brand-on);font-weight:500\">How to publish a plugin →</a>",
   "plg.s.h": "Plugin marketplace",
   "plg.s.p": "The marketplace doesn't have third-party plugins yet; the project is pre first-release. This section will list all packages registering extensions of the 12 base abstractions.",
   "plg.s.v1": "ARIMA, Prophet, NeuralProphet models under BaseModel.",

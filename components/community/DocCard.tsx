@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { AppLink } from './AppLink'
 
 type Props = {
   title: string
@@ -45,8 +46,8 @@ export function DocCard({ title, desc, icon, tag, tags, kicker, href, external, 
 
   if (!href) return <div className={classes}>{body}</div>
   return (
-    <a className={classes} href={href} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+    <AppLink className={classes} href={href} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
       {body}
-    </a>
+    </AppLink>
   )
 }

@@ -52,17 +52,3 @@ export function formatSize(bytes: number, lang: string): string {
   }
   return `${new Intl.NumberFormat(lang, { maximumFractionDigits: 0 }).format(bytes / 1000)} KB`
 }
-
-// Reads the URL hash into the page route.
-// `#labs/<slug>` opens a lab page only when that lab has one; otherwise the catalog.
-export function parseHash(hash: string): { route: string; slug: string | null; isSubAnchor: boolean } {
-  const raw = (hash || '#home').replace(/^#/, '') || 'home'
-  if (raw.startsWith('faq-')) return { route: 'faq', slug: null, isSubAnchor: true }
-  if (raw === 'first-pr' || raw.startsWith('guide-') || raw.startsWith('contrib-')) return { route: 'contribute', slug: null, isSubAnchor: true }
-  if (raw.startsWith('hm-')) return { route: 'home', slug: null, isSubAnchor: true }
-  if (raw === 'labs' || raw.startsWith('labs/')) {
-    const slug = raw.slice('labs/'.length)
-    return { route: 'labs', slug: getLab(slug)?.hasDetail ? slug : null, isSubAnchor: false }
-  }
-  return { route: raw, slug: null, isSubAnchor: false }
-}

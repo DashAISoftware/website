@@ -2,10 +2,11 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import { SiteShell } from "@/components/community/SiteShell"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.dash-ai.com"),
-  title: "dashAI | Machine Learning Workbench",
+  title: { default: "dashAI | Machine Learning Workbench", template: "%s | dashAI" },
   description:
     "dashAI is an open-source desktop app for data analysis and Machine Learning model training. Local-first.",
   icons: {
@@ -38,7 +39,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {children}
+        <SiteShell>{children}</SiteShell>
         <Analytics />
       </body>
     </html>

@@ -2,6 +2,7 @@
 
 import { Trans, useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { AppLink } from '@/components/community/AppLink'
 
 const REPO = 'https://github.com/DashAISoftware/DashAI'
 
@@ -22,11 +23,11 @@ export function Footer() {
       </svg>
       <div className="sfoot-inner">
         <p className="sfoot-text">
-          <a className="sfoot-logo" href="#home" aria-label="dashAI">
+          <AppLink className="sfoot-logo" href="/" aria-label="dashAI">
             <svg viewBox="0 0 854 237.04" aria-hidden="true">
               <use href="#dashai-lockup" />
             </svg>
-          </a>
+          </AppLink>
           <span>
             <Trans
               t={t}
