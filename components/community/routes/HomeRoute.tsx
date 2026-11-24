@@ -159,7 +159,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
               />
             ))}
           </div>
-          <a className="hm-more" href={DOCS} target="_blank" rel="noopener noreferrer">
+          <a className="hm-more pg-guide" href={DOCS} target="_blank" rel="noopener noreferrer">
             {t('docs.cta')}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M7 17L17 7M9 7h8v8" />
