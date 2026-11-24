@@ -138,7 +138,7 @@ export function ContributeRoute({ ghVersion }: { ghVersion: string }) {
               <Steps id="extension" count={EXT_STEPS} />
 
               <p className="hm-p">{t('ct.extension.more')}</p>
-              <a className="hm-more ct-guide" href={pluginGuide} target="_blank" rel="noopener noreferrer">
+              <a className="hm-more pg-guide" href={pluginGuide} target="_blank" rel="noopener noreferrer">
                 {t('ct.extension.guide')}
                 <Arrow />
               </a>
@@ -185,7 +185,7 @@ export function ContributeRoute({ ghVersion }: { ghVersion: string }) {
               <pre className="dl-code">{SETUP_FRONT}</pre>
               <p className="hm-p hm-muted" dangerouslySetInnerHTML={th('ct.setup.cpu')} />
               <p className="hm-p hm-muted">{t('ct.setup.more')}</p>
-              <a className="hm-more ct-guide" href={`${docsBase}/build/dev-setup/`} target="_blank" rel="noopener noreferrer">
+              <a className="hm-more pg-guide" href={`${docsBase}/build/dev-setup/`} target="_blank" rel="noopener noreferrer">
                 {t('ct.setup.guide')}
                 <Arrow />
               </a>

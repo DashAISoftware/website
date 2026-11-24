@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Trans, useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
 import { formatBytes, getReleases, installers, type Platform, type Release } from '@/lib/github'
 
@@ -164,30 +164,20 @@ export function DownloadRoute() {
           <h2 id="dl-pip" className="hm-h2">{t('dl.pip.h')}</h2>
           <p className="hm-p">{t('dl.pip.p')}</p>
           <pre className="dl-code">{'pip install dashai\ndashai'}</pre>
-          <p className="hm-p hm-muted">
-            <Trans
-              t={t}
-              i18nKey="dl.pip.after"
-              components={{ anchor: <a className="dl-inline" href={`${REPO}#installation-pypi`} target="_blank" rel="noopener noreferrer" /> }}
-            />
-          </p>
-          <a className="hm-more" href="https://pypi.org/project/dashai/" target="_blank" rel="noopener noreferrer">
-            {t('dl.pip.pypi')}
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M7 17L17 7M9 7h8v8" />
-            </svg>
-          </a>
-        </section>
-
-        <section className="hm-sec" aria-labelledby="dl-help">
-          <div className="dl-help">
-            <h2 id="dl-help">{t('dl.help.h')}</h2>
-            <p>{t('dl.help.p')}</p>
-            <div className="dl-help-links">
-              <a className="hm-more" href="#faq">{t('dl.help.faq')}</a>
-              <a className="hm-more" href="https://docs.dash-ai.com" target="_blank" rel="noopener noreferrer">{t('dl.help.docs')}</a>
-              <a className="hm-more" href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener noreferrer">{t('dl.help.discord')}</a>
-            </div>
+          <p className="hm-p hm-muted">{t('dl.pip.after')}</p>
+          <div className="pg-guides">
+            <a className="hm-more pg-guide" href={`${REPO}#installation-pypi`} target="_blank" rel="noopener noreferrer">
+              {t('dl.pip.guide')}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </a>
+            <a className="hm-more pg-guide" href="https://pypi.org/project/dashai/" target="_blank" rel="noopener noreferrer">
+              {t('dl.pip.pypi')}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
+            </a>
           </div>
         </section>
 
@@ -253,6 +243,25 @@ export function DownloadRoute() {
               </div>
             </>
           )}
+        </section>
+
+        <section className="pg-cta" aria-labelledby="dl-help">
+          <h2 id="dl-help">{t('dl.help.h')}</h2>
+          <p>{t('dl.help.p')}</p>
+          <div className="pg-cta-links">
+            <a href="#faq">
+              <span>{t('dl.help.faq')}</span>
+              <span>{t('dl.help.faq.s')}</span>
+            </a>
+            <a href="https://docs.dash-ai.com" target="_blank" rel="noopener noreferrer">
+              <span>{t('dl.help.docs')}</span>
+              <span>{t('dl.help.docs.s')}</span>
+            </a>
+            <a href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener noreferrer">
+              <span>{t('dl.help.discord')}</span>
+              <span>{t('dl.help.discord.s')}</span>
+            </a>
+          </div>
         </section>
       </div>
     </main>
