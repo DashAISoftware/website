@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { CitationBox } from '../CitationBox'
 import { DemoEmbed } from '../DemoEmbed'
 import { TourCarousel } from '../TourCarousel'
 import { totalDownloads as sumDownloads } from '@/lib/stats'
@@ -53,26 +53,13 @@ function formatNum(n: number): string {
   return String(n)
 }
 
-function citation(version: string, year: number) {
-  return `@software{dashai_${year},
-  title   = {dashAI: A graphical toolbox for training, evaluating
-             and deploying state-of-the-art AI models},
-  author  = {dashAI Development Team},
-  year    = {${year}},
-  version = {${version.replace(/^v/, '')}},
-  url     = {${REPO}}
-}`
-}
-
 export function HomeRoute({ ghVersion }: { ghVersion: string }) {
   const { t, i18n } = useTranslation('home')
   const lang = i18n.language || 'es'
   const { stats, isLoading: statsLoading } = useStats()
-  const [copied, setCopied] = useState(false)
 
   const downloads = stats ? sumDownloads(stats) : null
   const stars = stats?.github.stars ?? null
-  const bib = citation(ghVersion, new Date().getFullYear())
 
   const institutions = [
     ...getInstitutions().map((inst) => ({
@@ -84,14 +71,6 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
       role: t(`abt.inst.${f.id}.r`, { ns: 'about' }),
     })),
   ]
-
-  async function copyCitation() {
-    try {
-      await navigator.clipboard.writeText(bib)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch {}
-  }
 
   const skeleton = <span className="stat-skeleton" style={{ width: '3em', height: '1em' }} aria-hidden="true" />
 
@@ -211,12 +190,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
         <section className="hm-sec" aria-labelledby="hm-cite">
           <h2 id="hm-cite" className="hm-h2">{t('cite.h')}</h2>
           <p className="hm-p hm-muted">{t('cite.p')}</p>
-          <div className="hm-cite">
-            <pre suppressHydrationWarning>{bib}</pre>
-            <button type="button" className="hm-cite-copy" onClick={copyCitation} aria-live="polite">
-              {copied ? t('cite.copied') : t('cite.copy')}
-            </button>
-          </div>
+          <CitationBox version={ghVersion} />
         </section>
 
         <section className="hm-sec hm-sec--last" aria-labelledby="hm-inst">

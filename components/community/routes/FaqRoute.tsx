@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useMemo, useState, type MouseEvent } from 'react'
+import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { useActiveSection } from '@/components/community/useActiveSection'
 
 type Category = { id: string; count: number }
 
@@ -38,22 +39,7 @@ export function FaqRoute() {
   const th = (key: string) => ({ __html: t(key) })
   const [query, setQuery] = useState('')
   const [open, setOpen] = useState<Set<string>>(new Set())
-  const [active, setActive] = useState(CATEGORIES[0].id)
-
-  // Mark the category being read in the side index.
-  useEffect(() => {
-    if (!('IntersectionObserver' in window)) return
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((en) => {
-        if (en.isIntersecting) setActive(en.target.id.replace(/^faq-/, ''))
-      })
-    }, { rootMargin: '-80px 0px -70% 0px' })
-    CATEGORIES.forEach((cat) => {
-      const el = document.getElementById(`faq-${cat.id}`)
-      if (el) obs.observe(el)
-    })
-    return () => obs.disconnect()
-  }, [])
+  const { active, jumpTo } = useActiveSection(CATEGORIES.map((c) => c.id), 'faq-')
 
   // Searchable text per question: question, answer and its category header,
   // so searching "privacidad" also finds every question in that block.
@@ -99,17 +85,6 @@ export function FaqRoute() {
     })
   }
 
-  // Scroll in place instead of going through the hash router; pushState keeps
-  // the URL shareable without firing a hashchange.
-  function handleCategoryClick(e: MouseEvent<HTMLAnchorElement>, id: string) {
-    const el = document.getElementById(`faq-${id}`)
-    if (!el) return
-    e.preventDefault()
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    history.pushState(null, '', `#faq-${id}`)
-    setActive(id)
-  }
-
   return (
     <main data-route="faq">
       <section className="pg-top" aria-labelledby="fq-title">
@@ -125,8 +100,8 @@ export function FaqRoute() {
       </section>
 
       <div className="pg-body">
-        <div className="fq-layout">
-        <nav className="fq-index" aria-label={t('faq.toc')}>
+        <div className="pg-layout">
+        <nav className="pg-index" aria-label={t('faq.toc')}>
           <ul>
             {CATEGORIES.map((cat) => {
               const n = shownIn(cat)
@@ -135,10 +110,11 @@ export function FaqRoute() {
                   <a
                     href={`#faq-${cat.id}`}
                     aria-disabled={n === 0 || undefined}
-                    onClick={(e) => (n === 0 ? e.preventDefault() : handleCategoryClick(e, cat.id))}
+                    aria-current={active === cat.id ? 'location' : undefined}
+                    onClick={(e) => (n === 0 ? e.preventDefault() : jumpTo(e, cat.id))}
                   >
                     {t(`faq.${cat.id}.nav`)}
-                    <span>{n}</span>
+                    <span className="pg-index-n">{n}</span>
                   </a>
                 </li>
               )
@@ -146,7 +122,7 @@ export function FaqRoute() {
           </ul>
         </nav>
 
-        <div className="fq-main">
+        <div className="pg-main">
         <div className="fq-tools">
           <label className="vn-search">
             <span className="sr-only">{t('faq.search.sr')}</span>

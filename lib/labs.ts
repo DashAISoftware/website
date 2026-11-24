@@ -58,7 +58,8 @@ export function formatSize(bytes: number, lang: string): string {
 export function parseHash(hash: string): { route: string; slug: string | null; isSubAnchor: boolean } {
   const raw = (hash || '#home').replace(/^#/, '') || 'home'
   if (raw.startsWith('faq-')) return { route: 'faq', slug: null, isSubAnchor: true }
-  if (raw === 'first-pr' || raw.startsWith('guide-')) return { route: 'contribute', slug: null, isSubAnchor: true }
+  if (raw === 'first-pr' || raw.startsWith('guide-') || raw.startsWith('contrib-')) return { route: 'contribute', slug: null, isSubAnchor: true }
+  if (raw.startsWith('hm-')) return { route: 'home', slug: null, isSubAnchor: true }
   if (raw === 'labs' || raw.startsWith('labs/')) {
     const slug = raw.slice('labs/'.length)
     return { route: 'labs', slug: getLab(slug)?.hasDetail ? slug : null, isSubAnchor: false }
