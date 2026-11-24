@@ -24,7 +24,7 @@ const EXT_STEPS = 4
 const CORE_STEPS = 5
 
 const CHANGES: { key: string; links: Link[] }[] = [
-  { key: 'bug', links: [{ key: 'bug', href: `${REPO}/issues?q=is%3Aissue+is%3Aopen+label%3Abug` }] },
+  { key: 'bug', links: [{ key: 'bug', href: `${REPO}/issues?q=is%3Aissue+is%3Aopen` }] },
   { key: 'infra', links: [{ key: 'infra', href: `${REPO}/issues/new` }] },
   { key: 'lang', links: [{ key: 'lang', href: `${REPO}/tree/develop/DashAI/front/src/utils/i18n/locales` }] },
 ]
@@ -193,6 +193,25 @@ export function ContributeRoute({ ghVersion }: { ghVersion: string }) {
 
           </div>
         </div>
+
+        <section className="pg-cta" aria-labelledby="ct-cta-h">
+          <h2 id="ct-cta-h">{t('ct.cta.h')}</h2>
+          <p>{t('ct.cta.p')}</p>
+          <div className="pg-cta-links">
+            <a href={DISCORD} target="_blank" rel="noopener noreferrer">
+              <span>Discord</span>
+              <span>{t('ct.cta.discord')}</span>
+            </a>
+            <a href={docsBase} target="_blank" rel="noopener noreferrer">
+              <span>{t('ct.cta.docs.t')}</span>
+              <span>{t('ct.cta.docs')}</span>
+            </a>
+            <a href={EMAIL}>
+              <span>contacto@dash-ai.com</span>
+              <span>{t('ct.cta.mail')}</span>
+            </a>
+          </div>
+        </section>
       </div>
     </main>
   )

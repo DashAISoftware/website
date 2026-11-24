@@ -184,10 +184,10 @@ export function FaqRoute() {
         </div>
         </div>
 
-        <section className="fq-cta" aria-labelledby="fq-cta-h">
-          <h2 id="fq-cta-h">{t('faq.cta.h')}</h2>
+        <section className="pg-cta" aria-labelledby="pg-cta-h">
+          <h2 id="pg-cta-h">{t('faq.cta.h')}</h2>
           <p>{t('faq.cta.p')}</p>
-          <div className="fq-cta-links">
+          <div className="pg-cta-links">
             <a href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener noreferrer">
               <span>Discord</span>
               <span>{t('faq.cta.discord.s')}</span>

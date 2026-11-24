@@ -379,15 +379,15 @@ h4{font-size:18px;line-height:1.3}
 .fq-os ol{margin:8px 0 0}
 .fq-os p{margin:8px 0 0;font-size:14px}
 .fq-note{margin-top:12px;padding:10px 14px;border-left:2px solid var(--brand);background:#F5F8FF;font-size:14px}
-.fq-cta{margin:48px 0 64px;padding:28px;border:1px solid var(--app-line);border-radius:var(--app-radius);background:#F5F8FF}
-.fq-cta h2{font-size:20px;font-weight:600;line-height:1.3;letter-spacing:0;color:var(--brand)}
-.fq-cta p{margin:8px 0 20px;color:var(--app-muted)}
-.fq-cta-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.fq-cta-links a{display:block;padding:16px;border:1px solid var(--app-line);border-radius:var(--app-radius);background:var(--bg);transition:border-color .15s}
-.fq-cta-links a:hover{border-color:var(--brand)}
-.fq-cta-links a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-.fq-cta-links span:first-child{display:block;font-weight:600;color:var(--brand);overflow-wrap:anywhere}
-.fq-cta-links span:last-child{display:block;font-size:13px;line-height:1.5;color:var(--app-muted)}
+.pg-cta{margin:48px 0 64px;padding:28px;border:1px solid var(--app-line);border-radius:var(--app-radius);background:#F5F8FF}
+.pg-cta h2{font-size:20px;font-weight:600;line-height:1.3;letter-spacing:0;color:var(--brand)}
+.pg-cta p{margin:8px 0 20px;color:var(--app-muted)}
+.pg-cta-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.pg-cta-links a{display:block;padding:16px;border:1px solid var(--app-line);border-radius:var(--app-radius);background:var(--bg);transition:border-color .15s}
+.pg-cta-links a:hover{border-color:var(--brand)}
+.pg-cta-links a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.pg-cta-links span:first-child{display:block;font-weight:600;color:var(--brand);overflow-wrap:anywhere}
+.pg-cta-links span:last-child{display:block;font-size:13px;line-height:1.5;color:var(--app-muted)}
 @media(max-width:860px){
   .pg-layout{grid-template-columns:1fr;gap:0}
   .pg-index{order:0;position:static;padding-top:32px}
@@ -560,7 +560,7 @@ h4{font-size:18px;line-height:1.3}
 .ct-steps li:not(:last-child)::after{content:"";position:absolute;left:14px;top:25px;bottom:-1px;width:1px;background:var(--app-line)}
 .ct-step-t{font-weight:600;color:var(--ink)}
 .ct-step-s{font-size:15px;line-height:1.55;color:var(--app-muted)}
-.ct-list{list-style:none;margin-top:12px;border-bottom:1px solid var(--app-line)}
+.ct-list{list-style:none;margin-top:12px}
 .ct-list li{display:flex;align-items:baseline;justify-content:space-between;gap:8px 32px;padding:16px 0;border-top:1px solid var(--app-line)}
 .ct-list--stack li{display:block;padding:20px 0}
 .ct-item-t{font-weight:600;color:var(--ink)}
