@@ -31,7 +31,7 @@ export function Footer() {
             <Trans
               t={t}
               i18nKey="ft.brand"
-              components={{ link: <a href={`${REPO}/blob/develop/LICENSE`} target="_blank" rel="noopener noreferrer" /> }}
+              components={{ anchor: <a href={`${REPO}/blob/develop/LICENSE`} target="_blank" rel="noopener noreferrer" /> }}
             />
           </span>
         </p>

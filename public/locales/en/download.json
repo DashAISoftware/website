@@ -28,7 +28,7 @@
   "dl.os.linux": "Linux, x64",
   "dl.os.mac_arm": "macOS, Apple Silicon",
   "dl.os.windows": "Windows",
-  "dl.pip.after": "The interface opens at http://localhost:8000. For GPU acceleration, follow the <link>installation guide</link>.",
+  "dl.pip.after": "The interface opens at http://localhost:8000. For GPU acceleration, follow the <anchor>installation guide</anchor>.",
   "dl.pip.h": "pip installation",
   "dl.pip.p": "An alternative for every system, including Intel Macs. Installing it inside a virtual environment is recommended.",
   "dl.pip.pypi": "See the package on PyPI",

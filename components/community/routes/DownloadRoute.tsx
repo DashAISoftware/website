@@ -168,7 +168,7 @@ export function DownloadRoute() {
             <Trans
               t={t}
               i18nKey="dl.pip.after"
-              components={{ link: <a className="dl-inline" href={`${REPO}#installation-pypi`} target="_blank" rel="noopener noreferrer" /> }}
+              components={{ anchor: <a className="dl-inline" href={`${REPO}#installation-pypi`} target="_blank" rel="noopener noreferrer" /> }}
             />
           </p>
           <a className="hm-more" href="https://pypi.org/project/dashai/" target="_blank" rel="noopener noreferrer">

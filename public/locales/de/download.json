@@ -28,7 +28,7 @@
   "dl.os.linux": "Linux, x64",
   "dl.os.mac_arm": "macOS, Apple Silicon",
   "dl.os.windows": "Windows",
-  "dl.pip.after": "Die Oberfläche öffnet sich unter http://localhost:8000. Für GPU-Beschleunigung folgen Sie der <link>Installationsanleitung</link>.",
+  "dl.pip.after": "Die Oberfläche öffnet sich unter http://localhost:8000. Für GPU-Beschleunigung folgen Sie der <anchor>Installationsanleitung</anchor>.",
   "dl.pip.h": "Installation mit pip",
   "dl.pip.p": "Eine Alternative für alle Systeme, auch für Macs mit Intel-Prozessor. Die Installation in einer virtuellen Umgebung wird empfohlen.",
   "dl.pip.pypi": "Paket auf PyPI ansehen",

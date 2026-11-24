@@ -28,7 +28,7 @@
   "dl.os.linux": "Linux（x64）",
   "dl.os.mac_arm": "macOS（Apple Silicon）",
   "dl.os.windows": "Windows",
-  "dl.pip.after": "界面将在 http://localhost:8000 打开。如需 GPU 加速，请参阅<link>安装指南</link>。",
+  "dl.pip.after": "界面将在 http://localhost:8000 打开。如需 GPU 加速，请参阅<anchor>安装指南</anchor>。",
   "dl.pip.h": "通过 pip 安装",
   "dl.pip.p": "适用于所有系统的替代方式，包括搭载 Intel 处理器的 Mac。建议在虚拟环境中安装。",
   "dl.pip.pypi": "在 PyPI 上查看软件包",
