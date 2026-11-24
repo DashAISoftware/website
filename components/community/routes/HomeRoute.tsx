@@ -5,14 +5,10 @@ import '@/app/i18n'
 import { CitationBox } from '../CitationBox'
 import { DemoEmbed } from '../DemoEmbed'
 import { DocCard } from '../DocCard'
+import { InstitutionsGrid } from '../InstitutionsGrid'
 import { TourCarousel } from '../TourCarousel'
 import { totalDownloads as sumDownloads } from '@/lib/stats'
 import { useStats } from '@/lib/useStats'
-import {
-  getFunderLogos,
-  getInstitutionRole,
-  getInstitutions,
-} from '@/lib/institutions'
 
 const DOCS = 'https://docs.dash-ai.com'
 const REPO = 'https://github.com/DashAISoftware/DashAI'
@@ -61,17 +57,6 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
 
   const downloads = stats ? sumDownloads(stats) : null
   const stars = stats?.github.stars ?? null
-
-  const institutions = [
-    ...getInstitutions().map((inst) => ({
-      id: inst.id, fullName: inst.fullName || inst.name, url: inst.url, logo: inst.logo,
-      role: getInstitutionRole(inst, lang),
-    })),
-    ...getFunderLogos().map((f) => ({
-      id: f.id, fullName: f.fullName, url: f.url, logo: f.logo,
-      role: t(`abt.inst.${f.id}.r`, { ns: 'about' }),
-    })),
-  ]
 
   const skeleton = <span className="stat-skeleton" style={{ width: '3em', height: '1em' }} aria-hidden="true" />
 
@@ -191,20 +176,7 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
         <section className="hm-sec hm-sec--last" aria-labelledby="hm-inst">
           <h2 id="hm-inst" className="hm-h2">{t('inst.h')}</h2>
           <p className="hm-p">{t('inst.lead')}</p>
-          <div className="hm-insts">
-            {institutions.map((inst) => (
-              <a key={inst.id} className="hm-inst" href={inst.url} target="_blank" rel="noopener noreferrer">
-                <span className="hm-inst-logo">
-                  <img src={`/${inst.logo}`} alt="" loading="lazy" />
-                </span>
-                <span className="hm-inst-name">
-                  <strong>{inst.id.toUpperCase()}</strong>
-                  <span>{inst.fullName}</span>
-                  <span>{inst.role}</span>
-                </span>
-              </a>
-            ))}
-          </div>
+          <InstitutionsGrid early={false} />
           <a className="hm-more" href="#about">
             {t('inst.more')}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

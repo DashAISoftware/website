@@ -13,7 +13,8 @@ const EARLY = [
   { id: 'usm', url: 'https://usm.cl/', logo: 'institutions/usm-logo.png' },
 ]
 
-export function InstitutionsGrid() {
+// `early` adds the row of institutions that collaborated in early phases.
+export function InstitutionsGrid({ early = true }: { early?: boolean }) {
   const { t, i18n } = useTranslation('about')
   const lang = i18n.language || 'en'
   const institutions = [
@@ -37,7 +38,7 @@ export function InstitutionsGrid() {
     <div className="abt-insts">
       {institutions.map((inst) => (
         <a key={inst.id} className="abt-inst" href={inst.url} target="_blank" rel="noopener noreferrer">
-          <span className="abt-inst-logo">
+          <span className={`abt-inst-logo abt-inst-logo--${inst.id}`}>
             <img
               src={`/${inst.logo}`}
               alt=""
@@ -55,6 +56,8 @@ export function InstitutionsGrid() {
       ))}
     </div>
 
+    {early && (
+    <>
     <h3 className="abt-early-h">{t('abt.early.h')}</h3>
     <ul className="abt-early">
       {EARLY.map((inst) => (
@@ -69,6 +72,8 @@ export function InstitutionsGrid() {
         </li>
       ))}
     </ul>
+    </>
+    )}
     </>
   )
 }
