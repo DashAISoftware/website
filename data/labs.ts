@@ -48,9 +48,9 @@ export interface Lab {
   files: LabFile[]
   // Detail page only
   models?: LabModelRow[]
-  learnCount?: number
-  moduleCount?: number
   minVersion?: string
+  // Items of "what you will learn" on its page
+  learnCount?: number
 }
 
 // `ready`: the file is in public/labs/<slug>/ (bytes must match its real size)
@@ -61,7 +61,7 @@ const file = (slug: string, kind: LabFileKind, name: string, bytes: number, read
 export const LABS: Lab[] = [
   {
     slug: 'tutorias', level: 1, tasks: ['Tabular Classification', 'Generative'], status: 'available',
-    minutes: [90, 120], hasDetail: true, minVersion: '0.11', learnCount: 6, moduleCount: 12,
+    minutes: [90, 120], hasDetail: true, minVersion: '0.11', learnCount: 7,
     files: [
       file('tutorias', 'lab', 'dashai-lab-tutorias.html', 2_571_534, true),
       file('tutorias', 'session', 'sesion-tutorias.dashai', 48_984, true),

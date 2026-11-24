@@ -107,7 +107,7 @@ export function LabsRoute() {
                   kicker={t(`${p}.code`)}
                   title={t(`${p}.title`)}
                   desc={t(`${p}.summary`)}
-                  tags={[t('labs.level', { n: lab.level }), t(`labs.task.${lab.tasks[0]}`)]}
+                  tags={[t('labs.level', { n: lab.level }), ...lab.tasks.map((k) => t(`labs.task.${k}`))]}
                 />
               )
             })}
