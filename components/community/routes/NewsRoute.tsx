@@ -1,164 +1,137 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import '@/app/i18n'
 import { PRESS, FEATURED_PRESS_ID, type PressItem, type PressType } from '@/data/press'
 
-const FILTERS: ('all' | PressType)[] = ['all', 'prensa', 'tv', 'radio', 'institucional']
+const TYPES: PressType[] = ['prensa', 'tv', 'radio', 'institucional']
 
-const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+const FEATURED = PRESS.find((p) => p.id === FEATURED_PRESS_ID) as PressItem
 
-// "2026-08-23" -> "23 AGO 2026"; "2026-08" (no day) -> "AGO 2026"
-function formatDate(date: string, lang: string) {
+// "2026-08-23" -> "23 ago 2026"; "2026-08" (no day) -> "ago 2026"
+function formatDate(date: string, lang: string, month: 'short' | 'long' = 'short') {
   const [y, m, d] = date.split('-').map(Number)
-  const opts: Intl.DateTimeFormatOptions = { month: 'short', year: 'numeric', timeZone: 'UTC' }
-  if (d) opts.day = 'numeric'
-  return new Intl.DateTimeFormat(lang, opts)
-    .format(new Date(Date.UTC(y, m - 1, d || 1)))
-    .replace('.', '')
-    .toUpperCase()
+  const opts: Intl.DateTimeFormatOptions = { month, year: 'numeric', timeZone: 'UTC' }
+  if (d && month === 'short') opts.day = 'numeric'
+  return new Intl.DateTimeFormat(lang, opts).format(new Date(Date.UTC(y, m - 1, d || 1))).replace('.', '')
 }
 
-const FEATURED = PRESS.find(p => p.id === FEATURED_PRESS_ID) as PressItem
-
-// Headlines are translated, but the linked articles aren't: flag the article's
-// language when it differs from the one the site is shown in.
-function LangTag({ item, lang }: { item: PressItem; lang: string }) {
-  const { t } = useTranslation('news')
-  const articleLang = item.lang ?? 'es'
-  if (lang.startsWith(articleLang)) return null
-  return <span className="tag">{t(`news.lang.${articleLang}`)}</span>
+function Arrow() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M7 17L17 7M9 7h8v8" />
+    </svg>
+  )
 }
 
 export function NewsRoute() {
   const { t, i18n } = useTranslation('news')
-  const th = (key: string) => ({ __html: t(key) })
   const lang = i18n.language
-
   const [filter, setFilter] = useState<'all' | PressType>('all')
-  const [query, setQuery] = useState('')
 
-  const q = norm(query.trim())
-  const shown = useMemo(() => PRESS.filter(p =>
-    (filter === 'all' || p.type === filter) &&
-    (!q || norm([p.outlet, t(`news.item.${p.id}.headline`), t(`news.item.${p.id}.desc`)].join(' ')).includes(q)),
-  ), [filter, q, t])
+  const shown = useMemo(() => PRESS.filter((p) => filter === 'all' || p.type === filter), [filter])
+  const countOf = (f: 'all' | PressType) => (f === 'all' ? PRESS.length : PRESS.filter((p) => p.type === f).length)
+
+  // PRESS is newest first.
+  const from = formatDate(PRESS[PRESS.length - 1].date.slice(0, 7), lang, 'long')
+  const to = formatDate(PRESS[0].date.slice(0, 7), lang, 'long')
+
+  // Headlines are translated, but the linked articles aren't: flag the
+  // article's language when it differs from the one the site is shown in.
+  const langNote = (item: PressItem) => {
+    const articleLang = item.lang ?? 'es'
+    return lang.startsWith(articleLang) ? null : <span className="md-lang">{t(`news.lang.${articleLang}`)}</span>
+  }
 
   return (
     <main data-route="news">
-
-      <section className="vn-hero">
-        <svg className="wm wm-cr wm-lg" style={{ top: '12%' }} viewBox="0 0 218.96 237.04" aria-hidden="true">
+      <section className="pg-top" aria-labelledby="md-title">
+        <svg className="hm-hero-mark" viewBox="0 0 218.96 237.04" aria-hidden="true">
           <use href="#dashai-mark" />
         </svg>
-        <div className="wrap">
-          <div className="eyebrow"><span className="num">[ {t('news.bracket')} ]</span> <span>{t('news.ey')}</span></div>
-          <h1 dangerouslySetInnerHTML={th('news.h')} />
-          <p className="lead">{t('news.lead')}</p>
+        <div className="pg-top-inner">
+          <div className="pg-top-copy">
+            <h1 id="md-title">{t('news.h')}</h1>
+            <p>
+              {t('news.lead')} {t('news.range', { count: PRESS.length, from, to })}
+            </p>
+          </div>
+
+          <figure className="md-quote">
+            <blockquote>{t('news.feat.quote')}</blockquote>
+            <figcaption>
+              <strong>Susana Mondschein</strong>
+              {t('news.feat.quote.role')}
+            </figcaption>
+          </figure>
         </div>
       </section>
 
-      <section className="section" style={{ padding: '64px 0 48px' }}>
-        <div className="wrap">
-          <div className="sec-head">
-            <div className="left">
-              <div className="eyebrow"><span className="num">[ 01 ]</span> <span>{t('news.feat.ey')}</span></div>
-              <h2 dangerouslySetInnerHTML={th('news.feat.h')} />
-              <p className="lead">{t('news.feat.lead')}</p>
-            </div>
-          </div>
-
-          <div className="press-feature">
-            <div className="press-feature-copy">
-              <div className="ey">{t('news.feat.card.ey')}</div>
+      <div className="pg-body">
+        <section className="hm-sec hm-sec--first" aria-labelledby="md-feat">
+          <h2 id="md-feat" className="hm-h2">{t('news.feat.h')}</h2>
+          <p className="hm-p hm-muted">{t('news.feat.lead')}</p>
+          <article className="md-feature">
+            <figure className="md-feature-img">
+              <img src="/images/media/lanzamiento-equipo.jpg" alt={t('news.feat.img.alt')} width={1400} height={700} loading="lazy" />
+              <figcaption>{t('news.feat.img.credit')}</figcaption>
+            </figure>
+            <div className="md-feature-copy">
+              <p className="md-feature-meta">
+                {FEATURED.outlet}, {formatDate(FEATURED.date, lang)}
+                {langNote(FEATURED)}
+              </p>
               <h3>{t(`news.item.${FEATURED.id}.headline`)}</h3>
               <p>{t('news.feat.card.p')}</p>
-              <div className="press-feature-meta">
-                <span className={`tag ${FEATURED.type}`}>{t(`news.type.${FEATURED.type}`)}</span>
-                <LangTag item={FEATURED} lang={lang} />
-                <span className="press-outlet-date">{formatDate(FEATURED.date, lang)}</span>
-                <a className="btn btn--sm" href={FEATURED.url} target="_blank" rel="noopener noreferrer">
-                  {t('news.feat.card.cta')} <svg style={{ width: 13, height: 13 }}><use href="#i-arrow" /></svg>
-                </a>
-              </div>
+              <a className="hm-btn hm-btn--solid" href={FEATURED.url} target="_blank" rel="noopener noreferrer">
+                {t('news.feat.card.cta')}
+                <Arrow />
+              </a>
             </div>
-            <div className="press-quote">
-              <blockquote>{t('news.feat.quote')}</blockquote>
-              <cite><b>Susana Mondschein</b>{t('news.feat.quote.role')}</cite>
-            </div>
-          </div>
-        </div>
-      </section>
+          </article>
+        </section>
 
-      <section className="section" style={{ padding: '56px 0 72px' }}>
-        <div className="wrap">
-          <div className="sec-head">
-            <div className="left">
-              <div className="eyebrow"><span className="num">[ 02 ]</span> <span>{t('news.list.ey')}</span></div>
-              <h2 dangerouslySetInnerHTML={th('news.list.h')} />
-              <p className="lead">{t('news.list.lead')}</p>
-            </div>
-          </div>
-
-          <div className="vn-tools" style={{ marginTop: 0, marginBottom: '28px' }}>
-            <label className="vn-search">
-              <span className="sr-only">{t('news.search.sr')}</span>
-              <svg className="vn-search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" aria-hidden="true">
-                <circle cx="11" cy="11" r="7" />
-                <path d="M20 20l-3.5-3.5" />
-              </svg>
-              <input
-                type="search"
-                placeholder={t('news.search.ph')}
-                autoComplete="off"
-                value={query}
-                onChange={e => setQuery(e.target.value)}
-              />
-            </label>
-            <div className="vn-chips">
-              {FILTERS.map(f => (
-                <button
-                  key={f}
-                  className={`vn-chip${filter === f ? ' is-on' : ''}`}
-                  type="button"
-                  aria-pressed={filter === f}
-                  onClick={() => setFilter(f)}
-                >
-                  {t(`news.type.${f}`)}
+        <section className="hm-sec hm-sec--last" aria-labelledby="md-list">
+          <div className="lab-cat-head">
+            <h2 id="md-list" className="hm-h2">{t('news.list.h')}</h2>
+            <div className="pg-filters" role="group" aria-label={t('news.filter')}>
+              {(['all', ...TYPES] as const).map((f) => (
+                <button key={f} type="button" aria-pressed={filter === f} onClick={() => setFilter(f)}>
+                  {t(`news.type.${f}`)} ({countOf(f)})
                 </button>
               ))}
             </div>
-            <span className="vn-count">{t('news.count', { shown: shown.length, total: PRESS.length })}</span>
           </div>
 
-          <div className="press-grid">
-            {shown.map(p => (
-              <a key={p.id} className="press-card" href={p.url} target="_blank" rel="noopener noreferrer">
-                <div className="press-outlet">
-                  <span className={`press-mark ${p.type}`}>{p.mark}</span>
-                  <span>
-                    <span className="press-outlet-name">{p.outlet}</span>
-                    <span className="press-outlet-date">{formatDate(p.date, lang)}</span>
-                  </span>
+          <ul className="md-list">
+            {shown.map((p) => (
+              <li key={p.id}>
+                <div className="md-src">
+                  <span className="md-outlet">{p.outlet}</span>
+                  <span className="md-date">{formatDate(p.date, lang)}</span>
+                  <span className={`hm-tag md-tag md-tag--${p.type}`}>{t(`news.type.${p.type}`)}</span>
                 </div>
-                <h3>{t(`news.item.${p.id}.headline`)}</h3>
-                <p>{t(`news.item.${p.id}.desc`)}</p>
-                <div className="press-card-foot">
-                  <span className="press-tags">
-                    <span className={`tag ${p.type}`}>{t(`news.type.${p.type}`)}</span>
-                    <LangTag item={p} lang={lang} />
-                  </span>
-                  <span className="press-link">{t(`news.action.${p.action}`)} <svg><use href="#i-arrow" /></svg></span>
+                <div className="md-body">
+                  <h3>
+                    <a href={p.url} target="_blank" rel="noopener noreferrer">{t(`news.item.${p.id}.headline`)}</a>
+                  </h3>
+                  <p>{t(`news.item.${p.id}.desc`)}</p>
+                  <a className="hm-more md-action" href={p.url} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">
+                    {t(`news.action.${p.action}`)}
+                    <Arrow />
+                  </a>
+                  {langNote(p)}
                 </div>
-              </a>
+              </li>
             ))}
-          </div>
+          </ul>
 
-          <div className="vn-empty" hidden={shown.length !== 0}>{t('news.empty')}</div>
-        </div>
-      </section>
-
+          <p className="md-contact">
+            <Trans t={t} i18nKey="news.contact" components={{ anchor: <a className="dl-inline" href="mailto:contacto@dash-ai.com" /> }} />
+          </p>
+        </section>
+      </div>
     </main>
   )
 }

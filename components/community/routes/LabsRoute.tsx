@@ -79,7 +79,7 @@ export function LabsRoute() {
         <section className="hm-sec hm-sec--last" id="labs-catalog" aria-labelledby="lab-cat">
           <div className="lab-cat-head">
             <h2 id="lab-cat" className="hm-h2">{t('labs.cat.h')}</h2>
-            <div className="lab-filters" role="group" aria-label={t('labs.cat.filter')}>
+            <div className="pg-filters" role="group" aria-label={t('labs.cat.filter')}>
               {(['all', ...LAB_TASKS] as const).map((f) => (
                 <button key={f} type="button" aria-pressed={task === f} onClick={() => setTask(f)}>
                   {f === 'all' ? t('labs.cat.all') : t(`labs.task.${f}`)}
