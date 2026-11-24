@@ -1,6 +1,6 @@
 {
   "labs.h": "Labs",
-  "labs.lead": "Guided cases to learn machine learning with dashAI. Each lab starts from a concrete problem, explains every decision in the workflow and includes a .dashai session ready to import, with the data, the split and the models already prepared.",
+  "labs.lead": "Guided cases to practice machine learning with dashAI. Each lab starts from a concrete problem, explains every decision in the workflow and includes a .dashai session ready to import, with the data, the split and the models already prepared.",
   "labs.how.h": "How it works",
   "labs.how.step.1.t": "Pick a lab",
   "labs.how.step.1.d": "By concept, level or task type. Each one starts from a concrete decision, not from an algorithm.",

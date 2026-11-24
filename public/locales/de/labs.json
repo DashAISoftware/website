@@ -1,6 +1,6 @@
 {
   "labs.h": "Labs",
-  "labs.lead": "Geführte Fallstudien, um maschinelles Lernen mit dashAI zu lernen. Jedes Lab geht von einem konkreten Problem aus, erklärt jede Entscheidung im Ablauf und enthält eine importierbare .dashai-Sitzung mit bereits vorbereiteten Daten, Aufteilung und Modellen.",
+  "labs.lead": "Geführte Fallstudien, um maschinelles Lernen mit dashAI zu üben. Jedes Lab geht von einem konkreten Problem aus, erklärt jede Entscheidung im Ablauf und enthält eine importierbare .dashai-Sitzung mit bereits vorbereiteten Daten, Aufteilung und Modellen.",
   "labs.how.h": "So funktioniert es",
   "labs.how.step.1.t": "Wähle ein Lab",
   "labs.how.step.1.d": "Nach Konzept, Niveau oder Aufgabentyp. Jedes geht von einer konkreten Entscheidung aus, nicht von einem Algorithmus.",

@@ -1,6 +1,6 @@
 {
   "labs.h": "Labs",
-  "labs.lead": "Casos guiados para aprender aprendizado de máquina com o dashAI. Cada lab parte de um problema concreto, explica cada decisão do fluxo e inclui uma sessão .dashai pronta para importar, com os dados, a partição e os modelos já preparados.",
+  "labs.lead": "Casos guiados para praticar aprendizado de máquina com o dashAI. Cada lab parte de um problema concreto, explica cada decisão do fluxo e inclui uma sessão .dashai pronta para importar, com os dados, a partição e os modelos já preparados.",
   "labs.how.h": "Como funciona",
   "labs.how.step.1.t": "Escolha um lab",
   "labs.how.step.1.d": "Por conceito, nível ou tipo de tarefa. Cada um parte de uma decisão concreta, não de um algoritmo.",
