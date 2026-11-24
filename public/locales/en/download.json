@@ -12,7 +12,6 @@
   "dl.lead": "Ready-to-use desktop installers, with Python and every dependency included.",
   "dl.old.arm": "Apple Silicon",
   "dl.old.col.date": "Date",
-  "dl.old.col.downloads": "Downloads",
   "dl.old.col.linux": "Linux",
   "dl.old.col.mac": "macOS",
   "dl.old.col.version": "Version",

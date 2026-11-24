@@ -41,10 +41,6 @@ function hasInstallers(r: Release) {
   return Object.keys(installers(r.assets)).length > 0
 }
 
-function downloadsOf(r: Release) {
-  return Object.values(installers(r.assets)).reduce((n, a) => n + (a?.download_count ?? 0), 0)
-}
-
 export function DownloadRoute() {
   const { t, i18n } = useTranslation('download')
   const lang = i18n.language || 'es'
@@ -69,7 +65,6 @@ export function DownloadRoute() {
 
   const fmtDate = (iso: string, month: 'long' | 'short') =>
     new Intl.DateTimeFormat(lang, { day: 'numeric', month, year: 'numeric' }).format(new Date(iso))
-  const fmtNum = (n: number) => new Intl.NumberFormat(lang).format(n)
   const version = (tag: string) => tag.replace(/^v/, '')
 
   const assetLink = (href: string | undefined, label: string, id: string) =>
@@ -81,12 +76,12 @@ export function DownloadRoute() {
 
   return (
     <main data-route="download">
-      <section className="dl-top" aria-labelledby="dl-title">
+      <section className="pg-top" aria-labelledby="dl-title">
         <svg className="hm-hero-mark" viewBox="0 0 218.96 237.04" aria-hidden="true">
           <use href="#dashai-mark" />
         </svg>
-        <div className="dl-top-inner">
-          <div className="dl-top-copy">
+        <div className="pg-top-inner pg-top-inner--stack">
+          <div className="pg-top-copy">
             <h1 id="dl-title">{t('dl.h')}</h1>
             <p>
               {t('dl.lead')}{' '}
@@ -136,7 +131,7 @@ export function DownloadRoute() {
         </div>
       </section>
 
-      <div className="hm-col dl-col">
+      <div className="pg-body">
         <section className="hm-sec hm-sec--first" aria-labelledby="dl-req">
           <h2 id="dl-req" className="hm-h2">{t('dl.req.h')}</h2>
           <div className="dl-table-wrap">
@@ -218,7 +213,6 @@ export function DownloadRoute() {
                       <th scope="col">{t('dl.old.col.windows')}</th>
                       <th scope="col">{t('dl.old.col.mac')}</th>
                       <th scope="col">{t('dl.old.col.linux')}</th>
-                      <th scope="col" className="dl-num">{t('dl.old.col.downloads')}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -243,7 +237,6 @@ export function DownloadRoute() {
                             )}
                           </td>
                           <td>{assetLink(a.linux?.browser_download_url, 'AppImage', `linux-${v}`)}</td>
-                          <td className="dl-num">{fmtNum(downloadsOf(r))}</td>
                         </tr>
                       )
                     })}
