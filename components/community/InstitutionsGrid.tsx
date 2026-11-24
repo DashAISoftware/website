@@ -4,13 +4,23 @@ import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
 import { getInstitutions, getFunderLogos, getInstitutionRole } from '@/lib/institutions'
 
+// Institutions that took part in early phases and no longer collaborate actively.
+const EARLY_IDS = ['imfd']
+// FCFM is shown together with the University of Chile and the DCC, in one card.
+const MERGED_IDS = ['fcfm']
+const EARLY = [
+  { id: 'imfd', url: 'https://imfd.cl/', logo: 'institutions/imfd-logo.png' },
+  { id: 'usm', url: 'https://usm.cl/', logo: 'institutions/usm-logo.png' },
+]
+
 export function InstitutionsGrid() {
   const { t, i18n } = useTranslation('about')
   const lang = i18n.language || 'en'
   const institutions = [
-    ...getInstitutions().map((inst) => ({
+    ...getInstitutions().filter((inst) => !EARLY_IDS.includes(inst.id) && !MERGED_IDS.includes(inst.id)).map((inst) => ({
       ...inst,
-      role: getInstitutionRole(inst, lang),
+      ...(inst.id === 'uchile' && { fullName: t('abt.inst.uchile.t') }),
+      role: inst.id === 'uchile' ? t('abt.inst.uchile.role') : getInstitutionRole(inst, lang),
     })),
     ...getFunderLogos().map((f) => ({
       id: f.id,
@@ -23,31 +33,42 @@ export function InstitutionsGrid() {
   ]
 
   return (
-    <div className="inst-grid">
+    <>
+    <div className="abt-insts">
       {institutions.map((inst) => (
-        <a
-          key={inst.id}
-          className="inst-big"
-          href={inst.url}
-          target="_blank"
-          rel="noopener"
-        >
-          <div className="logo-slot">
+        <a key={inst.id} className="abt-inst" href={inst.url} target="_blank" rel="noopener noreferrer">
+          <span className="abt-inst-logo">
             <img
               src={`/${inst.logo}`}
-              alt={inst.name}
-              style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '6px' }}
+              alt=""
+              loading="lazy"
               onError={(e) => {
-                // Fallback if image fails to load
                 e.currentTarget.style.display = 'none'
               }}
             />
-          </div>
-          <div className="acro">{inst.id.toUpperCase()}</div>
-          <div className="full">{inst.fullName || inst.name}</div>
-          <div className="role">{inst.role}</div>
+          </span>
+          <span className="abt-inst-name">
+            <strong>{inst.fullName || inst.name}</strong>
+            <span>{inst.role}</span>
+          </span>
         </a>
       ))}
     </div>
+
+    <h3 className="abt-early-h">{t('abt.early.h')}</h3>
+    <ul className="abt-early">
+      {EARLY.map((inst) => (
+        <li key={inst.id}>
+          <a href={inst.url} target="_blank" rel="noopener noreferrer">
+            <img src={`/${inst.logo}`} alt="" loading="lazy" />
+            <span className="abt-inst-name">
+              <strong>{t(`abt.early.${inst.id}.n`)}</strong>
+              <span>{t(`abt.early.${inst.id}.r`)}</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    </>
   )
 }

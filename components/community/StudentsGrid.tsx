@@ -11,7 +11,6 @@ export function StudentsGrid() {
     <div className="students-card">
       <div className="students-card-head">
         <h3>{t('abt.hist.alum.h')}</h3>
-        <p>{t('abt.hist.alum.p')}</p>
       </div>
       <div className="student-grid">
         {STUDENTS.map((s, i) => (
@@ -29,7 +28,7 @@ export function StudentsGrid() {
       </div>
       <div className="student-count">
         <span>{STUDENTS.length} {t('abt.hist.alum.count')}</span>
-        <a href="https://github.com/DashAISoftware/dashAI/graphs/contributors" target="_blank" rel="noopener" style={{ color: 'var(--brand-on)', fontWeight: 500 }}>contributors graph →</a>
+        <a href="https://github.com/DashAISoftware/dashAI/graphs/contributors" target="_blank" rel="noopener" style={{ color: 'var(--brand-on)', fontWeight: 500 }}>{t('abt.hist.alum.graph')} →</a>
       </div>
     </div>
   )
