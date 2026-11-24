@@ -282,6 +282,7 @@ h4{font-size:18px;line-height:1.3}
 .pg-body .hm-p{max-width:680px}
 .pg-top{position:relative;overflow:hidden;padding:56px 0 64px;border-bottom:1px solid var(--app-line);background-color:var(--bg);background-image:radial-gradient(1100px 440px at 82% -12%,rgba(44,122,255,.07),transparent 60%),radial-gradient(820px 360px at -5% 115%,rgba(44,122,255,.06),transparent 60%)}
 .pg-top .hm-hero-mark{top:-96px;right:-36px;width:260px}
+[data-route="download"] .pg-top .hm-hero-mark{top:-90px;right:-70px;width:460px}
 .pg-top-inner{position:relative;z-index:1;max-width:var(--page-max);margin:0 auto;padding:0 var(--col-pad);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:40px 48px}
 .pg-top-inner--stack{flex-direction:column;align-items:stretch;gap:32px}
 .pg-top-copy{flex:1.15 1 380px;min-width:0}
