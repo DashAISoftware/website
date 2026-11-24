@@ -34,5 +34,8 @@
   "res.labs.desc": "Geführte Fälle mit importierbaren Sitzungen.",
   "res.labs.title": "Labs",
   "res.pypi.desc": "Installation mit pip, inklusive GPU-Beschleunigung.",
-  "res.pypi.title": "Paket auf PyPI"
+  "res.pypi.title": "Paket auf PyPI",
+  "a11y.theme": "Design",
+  "a11y.themeDark": "Zum dunklen Modus wechseln",
+  "a11y.themeLight": "Zum hellen Modus wechseln"
 }

@@ -28,7 +28,7 @@ export function StudentsGrid() {
       </div>
       <div className="student-count">
         <span>{STUDENTS.length} {t('abt.hist.alum.count')}</span>
-        <a href="https://github.com/DashAISoftware/dashAI/graphs/contributors" target="_blank" rel="noopener" style={{ color: 'var(--brand-on)', fontWeight: 500 }}>{t('abt.hist.alum.graph')} →</a>
+        <a href="https://github.com/DashAISoftware/dashAI/graphs/contributors" target="_blank" rel="noopener" style={{ color: 'var(--brand)', fontWeight: 500 }}>{t('abt.hist.alum.graph')} →</a>
       </div>
     </div>
   )
