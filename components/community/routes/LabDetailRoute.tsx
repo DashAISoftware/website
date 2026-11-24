@@ -95,7 +95,7 @@ export function LabDetailRoute({ slug }: { slug: string }) {
           <section>
             <h2 className="lb-h3">{t('labs.detail.others.h')}</h2>
             <div className="lb-others">
-              {otherLabs(slug).map(o => <LabCard key={o.slug} lab={o} compact />)}
+              {otherLabs(slug).map(o => <LabCard key={o.slug} lab={o} />)}
             </div>
           </section>
         </div>

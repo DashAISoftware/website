@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
 import { CitationBox } from '../CitationBox'
 import { DemoEmbed } from '../DemoEmbed'
+import { DocCard } from '../DocCard'
 import { TourCarousel } from '../TourCarousel'
 import { totalDownloads as sumDownloads } from '@/lib/stats'
 import { useStats } from '@/lib/useStats'
@@ -156,27 +157,21 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
           <h2 id="hm-docs" className="hm-h2">{t('docs.h')}</h2>
           <div className="hm-docs">
             {DOC_CARDS.map((c) => (
-              <a key={c.id} className={`hm-doc hm-doc--${c.section}`} href={c.href} target="_blank" rel="noopener noreferrer">
-                <span className="hm-doc-top">
-                  <span className="hm-doc-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      {c.icon}
-                    </svg>
-                  </span>
-                  <span className="hm-tag">{t(`docs.level.${c.level}`)}</span>
-                </span>
-                <span className="hm-doc-title">{t(`docs.${c.id}.h`)}</span>
-                <span className="hm-doc-desc">{t(`docs.${c.id}.p`)}</span>
-                <span className="hm-doc-foot">
-                  <span className="hm-doc-tags">
-                    <span className="hm-tag hm-tag--sm">{t(`docs.${c.id}.t1`)}</span>
-                    <span className="hm-tag hm-tag--sm">{t(`docs.${c.id}.t2`)}</span>
-                  </span>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M13 6l6 6-6 6" />
+              <DocCard
+                key={c.id}
+                className={`hm-doc--${c.section}`}
+                href={c.href}
+                external
+                icon={
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    {c.icon}
                   </svg>
-                </span>
-              </a>
+                }
+                tag={t(`docs.level.${c.level}`)}
+                title={t(`docs.${c.id}.h`)}
+                desc={t(`docs.${c.id}.p`)}
+                tags={[t(`docs.${c.id}.t1`), t(`docs.${c.id}.t2`)]}
+              />
             ))}
           </div>
           <a className="hm-more" href={DOCS} target="_blank" rel="noopener noreferrer">
