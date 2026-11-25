@@ -63,7 +63,7 @@ export const LABS: Lab[] = [
     slug: 'tutorias', level: 1, tasks: ['Tabular Classification', 'Generative'], status: 'available',
     minutes: [90, 120], hasDetail: true, minVersion: '0.11', learnCount: 7,
     files: [
-      file('tutorias', 'lab', 'dashai-lab-tutorias.html', 2_571_534, true),
+      file('tutorias', 'lab', 'dashai-lab-tutorias.html', 2_571_521, true),
       file('tutorias', 'session', 'sesion-tutorias.dashai', 48_984, true),
       file('tutorias', 'dataset', 'historial_estadistica.csv', 38_642, true),
       file('tutorias', 'dataset', 'estudiantes_semestre_actual.csv', 5_262, true),
