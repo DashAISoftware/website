@@ -137,10 +137,10 @@
   color-scheme: dark;
 }
 
-/* Always-light components in the dark theme: institution cards (their logos
-   are dark artwork). */
-:root[data-theme="dark"] .abt-inst,:root[data-theme="dark"] .abt-early a{--ink:#191817;--ink-2:#4A4845;--ink-3:#6E6B66;--ink-4:#9A9794;--line:#E1E1DF;--line-2:#C9C9C6;--app-muted:rgba(25,24,23,.60);--app-line:rgba(0,28,52,.10);--app-line-2:rgba(0,28,52,.16);--card:#FFFFFF;--tint:#F5F8FF;--tint-2:#EEF4FF;--primary-line:#191817;--brand-on:#1E63D8;color-scheme:light;color:var(--ink)}
-:root[data-theme="dark"] .abt-inst,:root[data-theme="dark"] .abt-early a{background:#DCDBD8}
+/* Institution logos: dark-theme copies with black turned white (see InstitutionsGrid). */
+.logo-dark{display:none}
+:root[data-theme="dark"] .logo-dark{display:block}
+:root[data-theme="dark"] .logo-light{display:none}
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;height:100%}

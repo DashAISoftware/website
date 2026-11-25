@@ -1,5 +1,6 @@
 'use client'
 
+import type { SyntheticEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
 import { getInstitutions, getFunderLogos, getInstitutionRole } from '@/lib/institutions'
@@ -8,6 +9,22 @@ import { getInstitutions, getFunderLogos, getInstitutionRole } from '@/lib/insti
 const EARLY_IDS = ['imfd']
 // FCFM is shown together with the University of Chile and the DCC, in one card.
 const MERGED_IDS = ['fcfm']
+// Logos with a dark-theme copy in public/institutions/dark/ (black turned white,
+// colours kept). The others (ANID, CENIA) stay as they are.
+const DARK_LOGOS = ['dcc-logo.png', 'unholster-logo.png', 'imfd-logo.png', 'usm-logo.png']
+
+// The logo, plus its dark-theme copy when there is one; CSS shows one or the other.
+function Logo({ src, onError }: { src: string; onError?: (e: SyntheticEvent<HTMLImageElement>) => void }) {
+  const file = src.slice(src.lastIndexOf('/') + 1)
+  if (!DARK_LOGOS.includes(file)) return <img src={`/${src}`} alt="" loading="lazy" onError={onError} />
+  return (
+    <>
+      <img className="logo-light" src={`/${src}`} alt="" loading="lazy" onError={onError} />
+      <img className="logo-dark" src={`/institutions/dark/${file}`} alt="" loading="lazy" onError={onError} />
+    </>
+  )
+}
+
 const EARLY = [
   { id: 'imfd', url: 'https://imfd.cl/', logo: 'institutions/imfd-logo.png' },
   { id: 'usm', url: 'https://usm.cl/', logo: 'institutions/usm-logo.png' },
@@ -51,10 +68,8 @@ export function InstitutionsGrid({ early = true }: { early?: boolean }) {
       {institutions.map((inst) => (
         <a key={inst.id} className="abt-inst" href={inst.url} target="_blank" rel="noopener noreferrer">
           <span className={`abt-inst-logo abt-inst-logo--${inst.id}`}>
-            <img
-              src={`/${inst.logo}`}
-              alt=""
-              loading="lazy"
+            <Logo
+              src={inst.logo}
               onError={(e) => {
                 e.currentTarget.style.display = 'none'
               }}
@@ -75,7 +90,7 @@ export function InstitutionsGrid({ early = true }: { early?: boolean }) {
       {EARLY.map((inst) => (
         <li key={inst.id}>
           <a href={inst.url} target="_blank" rel="noopener noreferrer">
-            <img src={`/${inst.logo}`} alt="" loading="lazy" />
+            <Logo src={inst.logo} />
             <span className="abt-inst-name">
               <strong>{t(`abt.early.${inst.id}.n`)}</strong>
               <span>{t(`abt.early.${inst.id}.r`)}</span>
