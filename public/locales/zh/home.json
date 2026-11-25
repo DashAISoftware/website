@@ -1,7 +1,5 @@
 {
-  "about.demo.cap": "dashAI v0.10 演示：平台导览。",
   "about.demo.play": "播放 dashAI 演示",
-  "about.demo.src": "视频通过 YouTube 播放。",
   "about.h": "关于平台",
   "about.lead": "dashAI 是一款免费开源的应用，让您无需编程即可使用人工智能。它在同一界面中整合了三个领域，所有操作都在您自己的电脑上运行。",
   "area.data.h": "数据分析",

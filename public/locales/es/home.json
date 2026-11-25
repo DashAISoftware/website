@@ -1,7 +1,5 @@
 {
-  "about.demo.cap": "Demo de dashAI v0.10: un recorrido por la plataforma.",
   "about.demo.play": "Reproducir la demo de dashAI",
-  "about.demo.src": "Se reproduce desde YouTube.",
   "about.h": "Acerca de la plataforma",
   "about.lead": "dashAI es una aplicación libre y de código abierto para trabajar con inteligencia artificial sin programar. Reúne tres áreas en una sola interfaz y todo se ejecuta en tu propio equipo.",
   "area.data.h": "Análisis de datos",
