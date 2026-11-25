@@ -282,6 +282,10 @@ a.hm-doc:hover .hm-doc-foot svg{color:var(--c);transform:translateX(3px)}
 .pg-top-copy{flex:1.15 1 380px;min-width:0}
 .pg-top-inner--stack .pg-top-copy{flex:none}
 .pg-top-inner--stack .pg-top-copy p{max-width:760px}
+/* Wide header, like the home hero: frame width, copy beside a card (downloads) */
+.pg-top--wide .pg-top-inner{max-width:var(--frame-max);padding:0 var(--frame-pad);gap:48px}
+.pg-top--wide .pg-top-copy{flex:1 1 320px}
+.pg-top--wide .dl-card2{flex:1.2 1 460px;max-width:600px}
 .pg-top-copy h1{font-size:clamp(32px,4.4vw,44px);font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--brand)}
 .pg-top-copy p{margin-top:16px;max-width:560px;font-size:19px;font-weight:500;line-height:1.5;color:var(--app-muted)}
 .dl-card2{width:100%;max-width:640px;min-width:0;padding:32px;border:1px solid rgba(44,122,255,.25);border-radius:8px;background:linear-gradient(180deg,#EEF4FF,#fff 70%)}
