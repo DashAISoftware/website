@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { existsSync, statSync } from 'node:fs'
 import { LABS } from '../data/labs.ts'
-import { filterLabs, formatMetric, formatSize, fileHref, parseHash, getLab, sessionFile, otherLabs, labSearchText } from '../lib/labs.ts'
+import { filterLabs, formatMetric, formatSize, fileHref, getLab, sessionFile, otherLabs, labSearchText } from '../lib/labs.ts'
 
 test('LABS has 7 unique slugs, only tutorias has a detail page', () => {
   const slugs = LABS.map(l => l.slug)
@@ -57,21 +57,6 @@ test('fileHref only links ready files', () => {
   assert.equal(fileHref(f), null)
   assert.equal(fileHref({ ...f, ready: true }), '/labs/tutorias/a.csv')
   assert.equal(fileHref(undefined), null)
-})
-
-test('parseHash routes lab detail only for labs with a detail page', () => {
-  assert.deepEqual(parseHash('#labs/tutorias'), { route: 'labs', slug: 'tutorias', isSubAnchor: false })
-  assert.deepEqual(parseHash('#labs/caso-02'), { route: 'labs', slug: null, isSubAnchor: false })
-  assert.deepEqual(parseHash('#labs/nope'), { route: 'labs', slug: null, isSubAnchor: false })
-  assert.deepEqual(parseHash('#labs'), { route: 'labs', slug: null, isSubAnchor: false })
-})
-
-test('parseHash keeps existing routing behaviour', () => {
-  assert.deepEqual(parseHash(''), { route: 'home', slug: null, isSubAnchor: false })
-  assert.deepEqual(parseHash('#faq-x'), { route: 'faq', slug: null, isSubAnchor: true })
-  assert.deepEqual(parseHash('#guide-1'), { route: 'contribute', slug: null, isSubAnchor: true })
-  assert.deepEqual(parseHash('#first-pr'), { route: 'contribute', slug: null, isSubAnchor: true })
-  assert.deepEqual(parseHash('#models/knn'), { route: 'models/knn', slug: null, isSubAnchor: false })
 })
 
 test('otherLabs lists available labs first, skips the current one, max 2', () => {

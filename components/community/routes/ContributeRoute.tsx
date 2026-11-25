@@ -2,6 +2,7 @@
 
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { useGhVersion } from '@/lib/useGhVersion'
 import { CitationBox } from '@/components/community/CitationBox'
 import { useActiveSection } from '@/components/community/useActiveSection'
 
@@ -58,7 +59,8 @@ function Arrow() {
   )
 }
 
-export function ContributeRoute({ ghVersion }: { ghVersion: string }) {
+export function ContributeRoute() {
+  const ghVersion = useGhVersion()
   const { t, i18n } = useTranslation('contribute')
   // The docs are in Spanish and English only.
   const docsBase = i18n.language === 'es' ? 'https://docs.dash-ai.com/es' : 'https://docs.dash-ai.com'

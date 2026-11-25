@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { AppLink } from '@/components/community/AppLink'
 import { formatBytes, getReleases, installers, type Platform, type Release } from '@/lib/github'
 
 const REPO = 'https://github.com/DashAISoftware/DashAI'
@@ -249,10 +250,10 @@ export function DownloadRoute() {
           <h2 id="dl-help">{t('dl.help.h')}</h2>
           <p>{t('dl.help.p')}</p>
           <div className="pg-cta-links">
-            <a href="#faq">
+            <AppLink href="/faq">
               <span>{t('dl.help.faq')}</span>
               <span>{t('dl.help.faq.s')}</span>
-            </a>
+            </AppLink>
             <a href="https://docs.dash-ai.com" target="_blank" rel="noopener noreferrer">
               <span>{t('dl.help.docs')}</span>
               <span>{t('dl.help.docs.s')}</span>

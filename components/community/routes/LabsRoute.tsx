@@ -16,7 +16,7 @@ const n4 = [1, 2, 3, 4]
 // Where a catalog row leads: its page, the lab HTML file, or nowhere yet.
 function labHref(lab: Lab): string | null {
   if (lab.status === 'soon') return null
-  if (lab.hasDetail) return `#labs/${lab.slug}`
+  if (lab.hasDetail) return `/labs/${lab.slug}`
   return fileHref(lab.files.find((f) => f.kind === 'lab'))
 }
 

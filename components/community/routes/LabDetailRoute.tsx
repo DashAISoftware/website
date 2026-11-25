@@ -3,6 +3,7 @@
 import type { ReactNode } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { AppLink } from '@/components/community/AppLink'
 import type { LabFile } from '@/data/labs'
 import { fileHref, formatMetric, formatSize, getLab, sessionFile } from '@/lib/labs'
 
@@ -46,7 +47,7 @@ export function LabDetailRoute({ slug }: { slug: string }) {
         <div className="pg-top-inner">
           <div className="pg-top-copy">
             <nav className="lab-crumb" aria-label={t('labs.detail.crumbLabel')}>
-              <a href="#labs">{t('labs.detail.crumb')}</a> / {t(`${p}.code`)}
+              <AppLink href="/labs">{t('labs.detail.crumb')}</AppLink> / {t(`${p}.code`)}
             </nav>
             <h1 id="lab-title">
               {t(`${p}.title`)}

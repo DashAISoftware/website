@@ -2,6 +2,8 @@
 
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { useGhVersion } from '@/lib/useGhVersion'
+import { AppLink } from '@/components/community/AppLink'
 import { CitationBox } from '../CitationBox'
 import { DemoEmbed } from '../DemoEmbed'
 import { DocCard } from '../DocCard'
@@ -50,7 +52,8 @@ function formatNum(n: number): string {
   return String(n)
 }
 
-export function HomeRoute({ ghVersion }: { ghVersion: string }) {
+export function HomeRoute() {
+  const ghVersion = useGhVersion()
   const { t, i18n } = useTranslation('home')
   const lang = i18n.language || 'es'
   const { stats, isLoading: statsLoading } = useStats()
@@ -75,16 +78,16 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
             </h1>
             <p className="hm-hero-lead">{t('hero.lead')}</p>
             <div className="hm-hero-actions">
-              <a className="hm-btn hm-btn--solid" href="#download">{t('hero.cta.dl')}</a>
+              <AppLink className="hm-btn hm-btn--solid" href="/download">{t('hero.cta.dl')}</AppLink>
               <div className="hm-hero-stats">
-                <a href="#download">
+                <AppLink href="/download">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
                   </svg>
                   <span>
                     {statsLoading ? skeleton : <strong>{formatNum(downloads ?? 0)}<sup aria-hidden="true">*</sup></strong>} {t('hero.stat.dl')}
                   </span>
-                </a>
+                </AppLink>
                 <a href={`${REPO}/stargazers`} target="_blank" rel="noopener noreferrer">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z" />
@@ -176,12 +179,12 @@ export function HomeRoute({ ghVersion }: { ghVersion: string }) {
           <h2 id="hm-inst" className="hm-h2">{t('inst.h')}</h2>
           <p className="hm-p">{t('inst.lead')}</p>
           <InstitutionsGrid early={false} />
-          <a className="hm-more" href="#about">
+          <AppLink className="hm-more" href="/about">
             {t('inst.more')}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
-          </a>
+          </AppLink>
         </section>
       </div>
     </>
