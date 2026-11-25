@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
+import { applyTheme, currentTheme, type Theme } from '@/lib/theme'
 import { useStats } from '@/lib/useStats'
 
 type Lang = 'es' | 'en' | 'pt' | 'de' | 'zh'
@@ -111,6 +112,44 @@ function FooterLink({ item, onPick }: { item: Item; onPick: () => void }) {
       {item.title}
       {item.arrow && <ArrowOut />}
     </a>
+  )
+}
+
+// Light/dark switch. Shows the theme it will switch to, like the dashAI app.
+function ThemeToggle({ className = 'snav-theme' }: { className?: string }) {
+  const { t } = useTranslation('navbar')
+  const [theme, setTheme] = useState<Theme | null>(null)
+
+  useEffect(() => {
+    setTheme(currentTheme())
+  }, [])
+
+  const next: Theme = theme === 'dark' ? 'light' : 'dark'
+  const label = t(next === 'dark' ? 'a11y.themeDark' : 'a11y.themeLight')
+
+  return (
+    <button
+      type="button"
+      className={className}
+      aria-label={label}
+      title={label}
+      onClick={() => {
+        applyTheme(next)
+        setTheme(next)
+      }}
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        {theme === 'dark' ? (
+          <>
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </>
+        ) : (
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+        )}
+      </svg>
+      {className !== 'snav-theme' && <span>{label}</span>}
+    </button>
   )
 }
 
@@ -293,6 +332,8 @@ export function Navbar({ route }: { route: string }) {
               )}
             </div>
 
+            <ThemeToggle />
+
             <a className="snav-gh" href={REPO} target="_blank" rel="noopener noreferrer" aria-label={t('a11y.github')}>
               <svg width="14" height="14" aria-hidden="true">
                 <use href="#i-github" />
@@ -342,6 +383,9 @@ export function Navbar({ route }: { route: string }) {
               </section>
             ))}
 
+            <section className="snav-drawer-group" aria-label={t('a11y.theme')}>
+              <ThemeToggle className="snav-item snav-theme-row" />
+            </section>
             <section className="snav-drawer-group" aria-label={t('a11y.language')}>
               <h2>{t('a11y.language')}</h2>
               <LangList lang={lang} onPick={setLang} />
