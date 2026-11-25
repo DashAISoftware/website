@@ -1,119 +1,53 @@
 'use client'
 
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import '@/app/i18n'
+
+const REPO = 'https://github.com/DashAISoftware/DashAI'
+
+// Community channels: the footer is the only place on the site that links them.
+const CHANNELS = [
+  { key: 'discord', href: 'https://discord.gg/CQVqMBjeWP' },
+  { key: 'email', href: 'mailto:contacto@dash-ai.com' },
+  { key: 'list', href: 'https://groups.google.com/g/dashai-updates' },
+]
+
 export function Footer() {
-  const { t, i18n } = useTranslation('footer')
+  const { t } = useTranslation('footer')
 
   return (
-    <footer className="foot" style={{ position: 'relative', overflow: 'hidden' }}>
-      <svg className="wm wm-cr" viewBox="0 0 218.96 237.04" aria-hidden="true">
+    <footer className="sfoot">
+      <svg className="sfoot-mark" viewBox="0 0 218.96 237.04" aria-hidden="true">
         <use href="#dashai-mark" />
       </svg>
-
-      <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
-        <div className="foot-grid">
-
-          {/* Brand block */}
-          <div className="brand-block">
-            <svg
-              viewBox="0 0 854 237.04"
-              style={{ height: 26, width: 'auto', color: 'var(--ink-text)', marginBottom: 14 }}
-            >
+      <div className="sfoot-inner">
+        <p className="sfoot-text">
+          <a className="sfoot-logo" href="#home" aria-label="dashAI">
+            <svg viewBox="0 0 854 237.04" aria-hidden="true">
               <use href="#dashai-lockup" />
             </svg>
-            <p>{t('ft.brand')}</p>
-          </div>
+          </a>
+          <span>
+            <Trans
+              t={t}
+              i18nKey="ft.brand"
+              components={{ anchor: <a href={`${REPO}/blob/develop/LICENSE`} target="_blank" rel="noopener noreferrer" /> }}
+            />
+          </span>
+        </p>
 
-          {/* Column 1: PROJECT */}
-          <div>
-            <h5>{t('ft.c1.h')}</h5>
-            <ul>
-              <li>
-                <a href="https://github.com/DashAISoftware/dashAI" target="_blank" rel="noopener noreferrer">
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a href="https://docs.dash-ai.com" target="_blank" rel="noopener noreferrer">
-                  {t('ft.docs')}
-                </a>
-              </li>
-              <li>
-                <a href="https://pypi.org/project/dashai/" target="_blank" rel="noopener noreferrer">
-                  PyPI
-                </a>
-              </li>
-              <li>
-                <a href="#about">{t('ft.about')}</a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 2: RESOURCES */}
-          <div>
-            <h5>{t('ft.c2.h')}</h5>
-            <ul>
-              <li>
-                <a href="#models">{t('ft.models')}</a>
-              </li>
-              <li>
-                <a href="#labs">{t('ft.labs')}</a>
-              </li>
-              <li>
-                <a href="#download">{t('ft.dl')}</a>
-              </li>
-              <li>
-                <a href="#contribute">{t('ft.cont')}</a>
-              </li>
-              <li>
-                <a href="#faq">{t('ft.faq')}</a>
-              </li>
-              <li>
-                <a href="#news">{t('ft.news')}</a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/DashAISoftware/dashAI/blob/production/CHANGELOG.rst"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {t('ft.rn')}
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: COMMUNITY */}
-          <div>
-            <h5>{t('ft.c3.h')}</h5>
-            <ul>
-              <li>
-                <a href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener noreferrer">
-                  Discord
-                </a>
-              </li>
-              <li>
-                <a href="https://groups.google.com/g/dashai-updates" target="_blank" rel="noopener noreferrer">
-                  {t('ft.ml')}
-                </a>
-              </li>
-              <li>
-                <a href="mailto:contacto@dash-ai.com">{t('ft.em')}</a>
-              </li>
-              <li>
-                <a href="https://github.com/DashAISoftware/dashAI/issues" target="_blank" rel="noopener noreferrer">
-                  Issues
-                </a>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-
-        <div className="foot-bottom">
-          <div>{t('ft.copy')}</div>
-        </div>
+        <ul className="sfoot-channels" aria-label={t('ft.channels')}>
+          {CHANNELS.map((c) => (
+            <li key={c.key}>
+              <a
+                href={c.href}
+                {...(c.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
+                {t(`ft.${c.key}`)}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </footer>
   )

@@ -78,7 +78,7 @@ export default function Page() {
       <SvgDefs />
       <Navbar route={route} />
       {route === 'home'       && <HomeRoute ghVersion={ghVersion} />}
-      {route === 'contribute' && <ContributeRoute />}
+      {route === 'contribute' && <ContributeRoute ghVersion={ghVersion} />}
       {route === 'models'     && <ModelsRoute />}
       {route === 'download'   && <DownloadRoute />}
       {route === 'plugins'    && <PluginsRoute />}

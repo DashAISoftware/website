@@ -1,18 +1,7 @@
 {
-  "ft.about": "Über uns",
-  "ft.brand": "Open-Source-Projekt, entwickelt in Chile. Visual ML, Full Open | Full Extensible.",
-  "ft.c1.h": "// PROJEKT",
-  "ft.c2.h": "// RESSOURCEN",
-  "ft.c3.h": "// COMMUNITY",
-  "ft.cont": "Mitwirken",
-  "ft.copy": "© 2026 dashAI | Open Source | Chile",
-  "ft.dl": "Herunterladen",
-  "ft.docs": "Dokumentation",
-  "ft.em": "E-Mail",
-  "ft.faq": "Häufige Fragen",
-  "ft.labs": "dashAI Labs",
-  "ft.ml": "Mailingliste",
-  "ft.models": "Modellkatalog",
-  "ft.news": "dashAI in den Medien",
-  "ft.rn": "Release Notes"
+  "ft.brand": "Open-Source-Projekt, entwickelt in Chile und veröffentlicht unter der <anchor>MIT-Lizenz</anchor>.",
+  "ft.channels": "Community-Kanäle",
+  "ft.discord": "Discord",
+  "ft.email": "Kontakt",
+  "ft.list": "Mailingliste"
 }

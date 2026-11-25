@@ -1,658 +1,218 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
-import { getLatestRelease } from '@/lib/github'
-export function ContributeRoute() {
+import { CitationBox } from '@/components/community/CitationBox'
+import { useActiveSection } from '@/components/community/useActiveSection'
+
+const REPO = 'https://github.com/DashAISoftware/dashAI'
+const DISCORD = 'https://discord.gg/CQVqMBjeWP'
+const EMAIL = 'mailto:contacto@dash-ai.com'
+
+type Link = { key: string; href: string }
+
+// Page sections, in reading order. The first three are the ways to contribute
+// and carry the colour of the matching docs part.
+const SECTIONS: { id: string; dot?: string }[] = [
+  { id: 'extension', dot: 'learn' },
+  { id: 'core', dot: 'discover' },
+  { id: 'nocode', dot: 'build' },
+  { id: 'setup' },
+]
+
+const EXT_STEPS = 4
+const CORE_STEPS = 5
+
+const CHANGES: { key: string; links: Link[] }[] = [
+  { key: 'bug', links: [{ key: 'bug', href: `${REPO}/issues?q=is%3Aissue+is%3Aopen` }] },
+  { key: 'infra', links: [{ key: 'infra', href: `${REPO}/issues/new` }] },
+  { key: 'lang', links: [{ key: 'lang', href: `${REPO}/tree/develop/DashAI/front/src/utils/i18n/locales` }] },
+]
+
+const NOCODE: { key: string; links: Link[] }[] = [
+  { key: 'case', links: [{ key: 'discord', href: DISCORD }, { key: 'email', href: EMAIL }] },
+  { key: 'report', links: [{ key: 'issue', href: `${REPO}/issues/new` }] },
+  { key: 'cite', links: [] },
+]
+
+const SETUP_BACK = `git clone https://github.com/DashAISoftware/DashAI.git
+cd DashAI
+git checkout develop
+uv sync
+uv run pre-commit install
+uv run python -m DashAI --no-browser`
+
+const SETUP_FRONT = `cd DashAI/front
+yarn install
+yarn start`
+
+const range = (n: number) => Array.from({ length: n }, (_, i) => i + 1)
+const external = (href: string) =>
+  href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}
+
+function Arrow() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M7 17L17 7M9 7h8v8" />
+    </svg>
+  )
+}
+
+export function ContributeRoute({ ghVersion }: { ghVersion: string }) {
   const { t, i18n } = useTranslation('contribute')
+  // The docs are in Spanish and English only.
+  const docsBase = i18n.language === 'es' ? 'https://docs.dash-ai.com/es' : 'https://docs.dash-ai.com'
+  const pluginGuide = `${docsBase}/build/plugin-development/overview/`
   const th = (key: string) => ({ __html: t(key) })
+  const { active, jumpTo } = useActiveSection(SECTIONS.map((s) => s.id), 'contrib-')
 
-  const [version, setVersion] = useState('0.9.6')
+  const Steps = ({ id, count }: { id: string; count: number }) => (
+    <ol className="ct-steps">
+      {range(count).map((n) => (
+        <li key={n}>
+          <span className="ct-step-t">{t(`ct.${id}.s${n}.t`)}</span>
+          <span className="ct-step-s" dangerouslySetInnerHTML={th(`ct.${id}.s${n}.s`)} />
+        </li>
+      ))}
+    </ol>
+  )
 
-  useEffect(() => {
-    getLatestRelease().then((release) => {
-      if (!release) return
-      setVersion(release.tag_name.replace(/^v/, ''))
-    })
-  }, [])
+  const Via = ({ id, dot }: { id: string; dot: string }) => (
+    <p className="ct-via">
+      <span className={`ct-dot ct-dot--${dot}`} aria-hidden="true" />
+      {t(`ct.${id}.via`)}
+    </p>
+  )
+
+  const ItemLinks = ({ links }: { links: Link[] }) => (
+    <span className="ct-links">
+      {links.map((l) => (
+        <a key={l.key} className="hm-more" href={l.href} {...external(l.href)}>
+          {t(`ct.link.${l.key}`)}
+          {l.href.startsWith('http') && <Arrow />}
+        </a>
+      ))}
+    </span>
+  )
 
   return (
-    <>
-      {/* HERO */}
-      <section className="contrib-hero" style={{ position: 'relative', overflow: 'hidden' }}>
-        <svg className="wm wm-tr" viewBox="0 0 218.96 237.04" aria-hidden="true">
+    <main data-route="contribute">
+      <section className="pg-top" aria-labelledby="ct-title">
+        <svg className="hm-hero-mark" viewBox="0 0 218.96 237.04" aria-hidden="true">
           <use href="#dashai-mark" />
         </svg>
-        <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="eyebrow">
-            <span className="num">[ /contribute ]</span>
-            {' '}&nbsp;{' '}
-            <span>{t('cont.ey')}</span>
+        <div className="pg-top-inner">
+          <div className="pg-top-copy">
+            <h1 id="ct-title">{t('ct.h')}</h1>
+            <p>{t('ct.lead')}</p>
           </div>
-          <h1 style={{ marginTop: 18 }} dangerouslySetInnerHTML={th('cont.h')} />
-          <p className="lead" dangerouslySetInnerHTML={th('cont.lead')} />
         </div>
       </section>
 
-      {/* CONTRIBUTE BUCKETS */}
-      <section className="section section--tight" style={{ borderTop: 'none' }}>
-        <div className="wrap">
-
-          {/* A. VIA PLUGIN */}
-          <div className="contrib-bucket">
-            <div className="bucket-head">
-              <div className="bucket-chip plugin">
-                <span>{t('cont.a.chip')}</span>
-              </div>
-              <h2 dangerouslySetInnerHTML={th('cont.a.h')} />
-              <p className="bucket-lead" dangerouslySetInnerHTML={th('cont.a.lead')} />
-            </div>
-
-            <div className="contrib-grid">
-
-              <article className="contrib-card c-model">
-                <span className="num">{t('cont.c1.num')}</span>
-                <svg className="ic"><use href="#ic-model" /></svg>
-                <h3>{t('cont.c1.h')}</h3>
-                <p dangerouslySetInnerHTML={th('cont.c1.p')} />
-                <div className="footer">
-                  <span className="effort">
-                    <span className="dot" style={{ color: 'var(--brand)' }} />
-                    {' '}
-                    <span>{t('cont.c1.e')}</span>
-                  </span>
-                  <a href="#guide-model"><span>{t('cont.guide')}</span> →</a>
-                </div>
-              </article>
-
-              <article className="contrib-card c-data">
-                <span className="num">{t('cont.c2.num')}</span>
-                <svg className="ic"><use href="#ic-data" /></svg>
-                <h3>{t('cont.c2.h')}</h3>
-                <p dangerouslySetInnerHTML={th('cont.c2.p')} />
-                <div className="footer">
-                  <span className="effort">
-                    <span className="dot" style={{ color: 'var(--datasets-deep)' }} />
-                    {' '}
-                    <span>{t('cont.c2.e')}</span>
-                  </span>
-                  <a href="#guide-data"><span>{t('cont.guide')}</span> →</a>
-                </div>
-              </article>
-
-              <article className="contrib-card c-metric">
-                <span className="num">{t('cont.c4.num')}</span>
-                <svg className="ic"><use href="#ic-metric" /></svg>
-                <h3>{t('cont.c4.h')}</h3>
-                <p dangerouslySetInnerHTML={th('cont.c4.p')} />
-                <div className="footer">
-                  <span className="effort">
-                    <span className="dot" style={{ color: 'var(--ink-3)' }} />
-                    {' '}
-                    <span>{t('cont.c4.e')}</span>
-                  </span>
-                  <a href="#guide-metric"><span>{t('cont.guide')}</span> →</a>
-                </div>
-              </article>
-
-              <article className="contrib-card c-xai">
-                <span className="num">{t('cont.c5.num')}</span>
-                <svg className="ic"><use href="#ic-xai" /></svg>
-                <h3>{t('cont.c5.h')}</h3>
-                <p dangerouslySetInnerHTML={th('cont.c5.p')} />
-                <div className="footer">
-                  <span className="effort">
-                    <span className="dot" style={{ color: 'var(--generative-deep)' }} />
-                    {' '}
-                    <span>{t('cont.c5.e')}</span>
-                  </span>
-                  <a href="#guide-xai"><span>{t('cont.guide')}</span> →</a>
-                </div>
-              </article>
-
-              <article className="contrib-card c-hpo">
-                <span className="num">{t('cont.c6.num')}</span>
-                <svg className="ic"><use href="#ic-hpo" /></svg>
-                <h3>{t('cont.c6.h')}</h3>
-                <p dangerouslySetInnerHTML={th('cont.c6.p')} />
-                <div className="footer">
-                  <span className="effort">
-                    <span className="dot" style={{ color: 'var(--ink-3)' }} />
-                    {' '}
-                    <span>{t('cont.c6.e')}</span>
-                  </span>
-                  <a href="#guide-hpo"><span>{t('cont.guide')}</span> →</a>
-                </div>
-              </article>
-
-              <article className="contrib-card c-plugin">
-                <span className="num">{t('cont.c3.num')}</span>
-                <svg className="ic"><use href="#ic-plugin" /></svg>
-                <h3>{t('cont.c3.h')}</h3>
-                <p>{t('cont.c3.p')}</p>
-                <div className="footer">
-                  <span className="effort">
-                    <span className="dot" style={{ color: 'var(--plugins-deep)' }} />
-                    {' '}
-                    <span>{t('cont.c3.e')}</span>
-                  </span>
-                  <a href="#guide-plugin"><span>{t('cont.guide')}</span> →</a>
-                </div>
-              </article>
-
-            </div>
-          </div>
-
-          {/* B. VIA PULL REQUEST */}
-          <div className="contrib-bucket">
-            <div className="bucket-head">
-              <div className="bucket-chip pr">
-                <span>{t('cont.b.chip')}</span>
-              </div>
-              <h2 dangerouslySetInnerHTML={th('cont.b.h')} />
-              <p className="bucket-lead" dangerouslySetInnerHTML={th('cont.b.lead')} />
-            </div>
-
-            <div className="contrib-grid">
-
-              <article className="contrib-card c-bug">
-                <span className="num">{t('cont.c9.num')}</span>
-                <svg className="ic"><use href="#ic-bug" /></svg>
-                <h3>{t('cont.c9.h')}</h3>
-                <p>{t('cont.c9.p')}</p>
-                <div className="footer">
-                  <span className="effort">
-                    <span className="dot" style={{ color: 'var(--datasets-deep)' }} />
-                    {' '}
-                    <span>{t('cont.c9.e')}</span>
-                  </span>
-                  <a href="#guide-bug"><span>{t('cont.guide')}</span> →</a>
-                </div>
-              </article>
-
-              <article className="contrib-card c-refactor">
-                <span className="num">{t('cont.c10.num')}</span>
-                <svg className="ic"><use href="#ic-refactor" /></svg>
-                <h3>{t('cont.c10.h')}</h3>
-                <p>{t('cont.c10.p')}</p>
-                <div className="footer">
-                  <span className="effort">
-                    <span className="dot" style={{ color: 'var(--ink-3)' }} />
-                    {' '}
-                    <span>{t('cont.c10.e')}</span>
-                  </span>
-                  <a href="#guide-feature"><span>{t('cont.guide')}</span> →</a>
-                </div>
-              </article>
-
-              <article className="contrib-card c-lang">
-                <span className="num">{t('cont.c7.num')}</span>
-                <svg className="ic"><use href="#ic-lang" /></svg>
-                <h3>{t('cont.c7.h')}</h3>
-                <p>{t('cont.c7.p')}</p>
-                <div className="footer">
-                  <span className="effort">
-                    <span className="dot" style={{ color: 'var(--datasets-deep)' }} />
-                    {' '}
-                    <span>{t('cont.c7.e')}</span>
-                  </span>
-                  <a href="#guide-lang"><span>{t('cont.guide')}</span> →</a>
-                </div>
-              </article>
-
-            </div>
-          </div>
-
-          {/* C. SIN CODIGO */}
-          <div className="contrib-bucket">
-            <div className="bucket-head">
-              <div className="bucket-chip nocode">
-                <span>{t('cont.c.chip')}</span>
-              </div>
-              <h2 dangerouslySetInnerHTML={th('cont.c.h')} />
-              <p className="bucket-lead">{t('cont.c.lead')}</p>
-            </div>
-
-            <div className="contrib-grid">
-
-              <article className="contrib-card c-tutorial">
-                <span className="num">{t('cont.c8.num')}</span>
-                <svg className="ic"><use href="#ic-tutorial" /></svg>
-                <h3>{t('cont.c8.h')}</h3>
-                <p>{t('cont.c8.p')}</p>
-                <div className="footer">
-                  <span className="effort">
-                    <span className="dot" style={{ color: 'var(--brand)' }} />
-                    {' '}
-                    <span>{t('cont.c8.e')}</span>
-                  </span>
-                  <a href="#guide-tutorial"><span>{t('cont.guide')}</span> →</a>
-                </div>
-              </article>
-
-            </div>
-          </div>
-
-          {/* GUIDES SECTION */}
-          <div className="guides-section">
-            <div className="sec-eyebrow">
-              <span className="num">[ /contribute/guides ]</span>
-              {' '}&nbsp;{' '}
-              <span>{t('g.sec.ey')}</span>
-            </div>
-            <h2>{t('g.sec.h')}</h2>
-            <p className="sec-lead" dangerouslySetInnerHTML={th('g.sec.lead')} />
-
-            <div className="guides-grid">
-
-              {/* Guide 1 - Modelo */}
-              <article className="guide g-model" id="guide-model">
-                <div className="guide-head">
-                  <svg className="ic"><use href="#ic-model" /></svg>
-                  <div className="meta">
-                    <div className="gnum">{t('g.1.num')}</div>
-                    <h3>{t('g.1.h')}</h3>
-                  </div>
-                </div>
-                <p className="guide-ctx">{t('g.1.ctx')}</p>
-                <ol className="guide-steps">
-                  <li dangerouslySetInnerHTML={th('g.1.s1')} />
-                  <li dangerouslySetInnerHTML={th('g.1.s2')} />
-                  <li dangerouslySetInnerHTML={th('g.1.s3')} />
-                  <li dangerouslySetInnerHTML={th('g.1.s4')} />
-                  <li dangerouslySetInnerHTML={th('g.1.s5')} />
-                </ol>
-                <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/dashAI/tree/develop/DashAI/back/models" target="_blank" rel="noopener">
-                    <span>{t('g.lnk.repo')}</span> →
+      <div className="pg-body">
+        <div className="pg-layout">
+          <nav className="pg-index" aria-label={t('ct.toc')}>
+            <ul>
+              {SECTIONS.map((s) => (
+                <li key={s.id}>
+                  <a
+                    href={`#contrib-${s.id}`}
+                    aria-current={active === s.id ? 'location' : undefined}
+                    onClick={(e) => jumpTo(e, s.id)}
+                  >
+                    <span className="pg-index-label">
+                      {s.dot && <span className={`ct-dot ct-dot--${s.dot}`} aria-hidden="true" />}
+                      {t(`ct.${s.id}.h`)}
+                    </span>
                   </a>
-                  <a href="https://docs.dash-ai.com" target="_blank" rel="noopener">
-                    <span>{t('g.lnk.docs')}</span> →
-                  </a>
-                </div>
-              </article>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-              {/* Guide 2 - Loader */}
-              <article className="guide g-data" id="guide-data">
-                <div className="guide-head">
-                  <svg className="ic"><use href="#ic-data" /></svg>
-                  <div className="meta">
-                    <div className="gnum">{t('g.2.num')}</div>
-                    <h3>{t('g.2.h')}</h3>
-                  </div>
-                </div>
-                <p className="guide-ctx">{t('g.2.ctx')}</p>
-                <ol className="guide-steps">
-                  <li dangerouslySetInnerHTML={th('g.2.s1')} />
-                  <li dangerouslySetInnerHTML={th('g.2.s2')} />
-                  <li dangerouslySetInnerHTML={th('g.2.s3')} />
-                  <li dangerouslySetInnerHTML={th('g.2.s4')} />
-                  <li dangerouslySetInnerHTML={th('g.2.s5')} />
-                </ol>
-                <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/dashAI/tree/develop/DashAI/back/dataloaders" target="_blank" rel="noopener">
-                    <span>{t('g.lnk.repo2')}</span> →
-                  </a>
-                </div>
-              </article>
+          <div className="pg-main">
+            <section id="contrib-extension" className="hm-sec hm-sec--first" aria-labelledby="ct-extension-h">
+              <h2 id="ct-extension-h" className="hm-h2">{t('ct.extension.h')}</h2>
+              <Via id="extension" dot="learn" />
+              <p className="hm-p">{t('ct.extension.p')}</p>
+              <Steps id="extension" count={EXT_STEPS} />
 
-              {/* Guide 3 - Plugin */}
-              <article className="guide g-plugin" id="guide-plugin">
-                <div className="guide-head">
-                  <svg className="ic"><use href="#ic-plugin" /></svg>
-                  <div className="meta">
-                    <div className="gnum">{t('g.3.num')}</div>
-                    <h3>{t('g.3.h')}</h3>
-                  </div>
-                </div>
-                <p className="guide-ctx">{t('g.3.ctx')}</p>
-                <ol className="guide-steps">
-                  <li dangerouslySetInnerHTML={th('g.3.s1')} />
-                  <li dangerouslySetInnerHTML={th('g.3.s2')} />
-                  <li dangerouslySetInnerHTML={th('g.3.s3')} />
-                  <li dangerouslySetInnerHTML={th('g.3.s4')} />
-                </ol>
-                <div className="guide-footer">
-                  <a href="https://packaging.python.org/en/latest/tutorials/packaging-projects/" target="_blank" rel="noopener">
-                    <span>{t('g.lnk.pypi')}</span> →
-                  </a>
-                  <a href="https://github.com/DashAISoftware/dashAI" target="_blank" rel="noopener">
-                    <span>{t('g.lnk.repo3')}</span> →
-                  </a>
-                </div>
-              </article>
-
-              {/* Guide 4 - Metrica */}
-              <article className="guide g-metric" id="guide-metric">
-                <div className="guide-head">
-                  <svg className="ic"><use href="#ic-metric" /></svg>
-                  <div className="meta">
-                    <div className="gnum">{t('g.4.num')}</div>
-                    <h3>{t('g.4.h')}</h3>
-                  </div>
-                </div>
-                <p className="guide-ctx">{t('g.4.ctx')}</p>
-                <ol className="guide-steps">
-                  <li dangerouslySetInnerHTML={th('g.4.s1')} />
-                  <li dangerouslySetInnerHTML={th('g.4.s2')} />
-                  <li dangerouslySetInnerHTML={th('g.4.s3')} />
-                  <li dangerouslySetInnerHTML={th('g.4.s4')} />
-                </ol>
-                <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/dashAI/tree/develop/DashAI/back/metrics" target="_blank" rel="noopener">
-                    <span>{t('g.lnk.repo4')}</span> →
-                  </a>
-                </div>
-              </article>
-
-              {/* Guide 5 - XAI */}
-              <article className="guide g-xai" id="guide-xai">
-                <div className="guide-head">
-                  <svg className="ic"><use href="#ic-xai" /></svg>
-                  <div className="meta">
-                    <div className="gnum">{t('g.5.num')}</div>
-                    <h3>{t('g.5.h')}</h3>
-                  </div>
-                </div>
-                <p className="guide-ctx">{t('g.5.ctx')}</p>
-                <ol className="guide-steps">
-                  <li dangerouslySetInnerHTML={th('g.5.s1')} />
-                  <li dangerouslySetInnerHTML={th('g.5.s2')} />
-                  <li dangerouslySetInnerHTML={th('g.5.s3')} />
-                  <li dangerouslySetInnerHTML={th('g.5.s4')} />
-                </ol>
-                <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/dashAI/tree/develop/DashAI/back/explainability" target="_blank" rel="noopener">
-                    <span>{t('g.lnk.repo5')}</span> →
-                  </a>
-                </div>
-              </article>
-
-              {/* Guide 6 - HPO */}
-              <article className="guide g-hpo" id="guide-hpo">
-                <div className="guide-head">
-                  <svg className="ic"><use href="#ic-hpo" /></svg>
-                  <div className="meta">
-                    <div className="gnum">{t('g.6.num')}</div>
-                    <h3>{t('g.6.h')}</h3>
-                  </div>
-                </div>
-                <p className="guide-ctx">{t('g.6.ctx')}</p>
-                <ol className="guide-steps">
-                  <li dangerouslySetInnerHTML={th('g.6.s1')} />
-                  <li dangerouslySetInnerHTML={th('g.6.s2')} />
-                  <li dangerouslySetInnerHTML={th('g.6.s3')} />
-                  <li dangerouslySetInnerHTML={th('g.6.s4')} />
-                </ol>
-                <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/dashAI/tree/develop/DashAI/back/optimizers" target="_blank" rel="noopener">
-                    <span>{t('g.lnk.repo6')}</span> →
-                  </a>
-                </div>
-              </article>
-
-              {/* Guide B1 - Bug fix */}
-              <article className="guide g-bug" id="guide-bug">
-                <div className="guide-head">
-                  <svg className="ic"><use href="#ic-bug" /></svg>
-                  <div className="meta">
-                    <div className="gnum">{t('g.bug.num')}</div>
-                    <h3>{t('g.bug.h')}</h3>
-                  </div>
-                </div>
-                <p className="guide-ctx">{t('g.bug.ctx')}</p>
-                <ol className="guide-steps">
-                  <li dangerouslySetInnerHTML={th('g.bug.s1')} />
-                  <li dangerouslySetInnerHTML={th('g.bug.s2')} />
-                  <li dangerouslySetInnerHTML={th('g.bug.s3')} />
-                  <li dangerouslySetInnerHTML={th('g.bug.s4')} />
-                  <li dangerouslySetInnerHTML={th('g.bug.s5')} />
-                </ol>
-                <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/dashAI/issues?q=is%3Aissue+is%3Aopen+label%3Abug" target="_blank" rel="noopener">
-                    <span>{t('g.lnk.bugs')}</span> →
-                  </a>
-                  <a href="https://github.com/DashAISoftware/dashAI/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" target="_blank" rel="noopener">
-                    <span>{t('g.lnk.firstissue')}</span> →
-                  </a>
-                </div>
-              </article>
-
-              {/* Guide B2 - Refactor or core feature */}
-              <article className="guide g-refactor" id="guide-feature">
-                <div className="guide-head">
-                  <svg className="ic"><use href="#ic-refactor" /></svg>
-                  <div className="meta">
-                    <div className="gnum">{t('g.feat.num')}</div>
-                    <h3>{t('g.feat.h')}</h3>
-                  </div>
-                </div>
-                <p className="guide-ctx">{t('g.feat.ctx')}</p>
-                <ol className="guide-steps">
-                  <li dangerouslySetInnerHTML={th('g.feat.s1')} />
-                  <li dangerouslySetInnerHTML={th('g.feat.s2')} />
-                  <li dangerouslySetInnerHTML={th('g.feat.s3')} />
-                  <li dangerouslySetInnerHTML={th('g.feat.s4')} />
-                  <li dangerouslySetInnerHTML={th('g.feat.s5')} />
-                </ol>
-                <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/dashAI/issues" target="_blank" rel="noopener">
-                    <span>{t('g.lnk.issues')}</span> →
-                  </a>
-                  <a href="https://github.com/DashAISoftware/dashAI/blob/production/CONTRIBUTING.rst" target="_blank" rel="noopener">
-                    CONTRIBUTING.rst →
-                  </a>
-                </div>
-              </article>
-
-              {/* Guide 7 - Lang */}
-              <article className="guide g-lang" id="guide-lang">
-                <div className="guide-head">
-                  <svg className="ic"><use href="#ic-lang" /></svg>
-                  <div className="meta">
-                    <div className="gnum">{t('g.7.num')}</div>
-                    <h3>{t('g.7.h')}</h3>
-                  </div>
-                </div>
-                <p className="guide-ctx">{t('g.7.ctx')}</p>
-                <ol className="guide-steps">
-                  <li dangerouslySetInnerHTML={th('g.7.s1')} />
-                  <li dangerouslySetInnerHTML={th('g.7.s2')} />
-                  <li dangerouslySetInnerHTML={th('g.7.s3')} />
-                  <li dangerouslySetInnerHTML={th('g.7.s4')} />
-                  <li dangerouslySetInnerHTML={th('g.7.s5')} />
-                </ol>
-                <div className="guide-footer">
-                  <a href="https://github.com/DashAISoftware/dashAI/tree/develop/front/src/locales" target="_blank" rel="noopener">
-                    <span>{t('g.lnk.repo7')}</span> →
-                  </a>
-                </div>
-              </article>
-
-              {/* Guide 8 - Tutorial */}
-              <article className="guide g-tutorial" id="guide-tutorial">
-                <div className="guide-head">
-                  <svg className="ic"><use href="#ic-tutorial" /></svg>
-                  <div className="meta">
-                    <div className="gnum">{t('g.8.num')}</div>
-                    <h3>{t('g.8.h')}</h3>
-                  </div>
-                </div>
-                <p className="guide-ctx">{t('g.8.ctx')}</p>
-                <ol className="guide-steps">
-                  <li dangerouslySetInnerHTML={th('g.8.s1')} />
-                  <li dangerouslySetInnerHTML={th('g.8.s2')} />
-                  <li dangerouslySetInnerHTML={th('g.8.s3')} />
-                  <li dangerouslySetInnerHTML={th('g.8.s4')} />
-                </ol>
-                <div className="guide-footer">
-                  <a href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener">
-                    <span>{t('g.lnk.discord')}</span> →
-                  </a>
-                  <a href="mailto:contacto@dash-ai.com">
-                    <span>{t('g.lnk.email')}</span> →
-                  </a>
-                </div>
-              </article>
-
-            </div>
-          </div>
-
-          {/* ONBOARDING */}
-          <div className="first-pr" id="first-pr">
-            <div>
-              <div className="eyebrow on-dark">
-                <span className="num">{'// onboarding'}</span>
-                {' '}&nbsp;{' '}
-                <span>{t('cont.onb.ey')}</span>
-              </div>
-              <h2 dangerouslySetInnerHTML={th('cont.onb.h')} />
-              <p>{t('cont.onb.p')}</p>
-
-              <div className="steps">
-                <div className="step">
-                  <span className="n">01</span>
-                  <div className="t">
-                    <span>{t('cont.onb.s1.t')}</span>
-                    <span>{t('cont.onb.s1.s')}</span>
-                  </div>
-                </div>
-                <div className="step">
-                  <span className="n">02</span>
-                  <div className="t">
-                    <span>{t('cont.onb.s2.t')}</span>
-                    <span>{t('cont.onb.s2.s')}</span>
-                  </div>
-                </div>
-                <div className="step">
-                  <span className="n">03</span>
-                  <div className="t">
-                    <span>{t('cont.onb.s3.t')}</span>
-                    <span>{t('cont.onb.s3.s')}</span>
-                  </div>
-                </div>
-                <div className="step">
-                  <span className="n">04</span>
-                  <div className="t">
-                    <span>{t('cont.onb.s4.t')}</span>
-                    <span>{t('cont.onb.s4.s')}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <pre className="code">
-                <span className="c">{`# Un clasificador completo en dashAI`}</span>{'\n'}
-                <span className="k">from</span>{` dashai.base `}<span className="k">import</span>{` BaseModel
-`}
-                <span className="k">from</span>{` dashai.core.schema_fields `}<span className="k">import</span>{` (
-`}
-                {'    schema_field, optimizer_int_field,\n'}
-                {')\n'}
-                <span className="k">from</span>{` sklearn.ensemble `}<span className="k">import</span>{` RandomForestClassifier
-`}
-                {'\n'}
-                <span className="k">class</span>{' '}<span className="d">MyForestSchema</span>{`(BaseSchema):
-`}
-                {'    n_estimators: schema_field(\n'}
-                {'        optimizer_int_field(ge='}
-                <span className="s">1</span>
-                {'),\n'}
-                {'        placeholder={\n'}
-                {'            '}
-                <span className="s">{`"optimize"`}</span>
-                {': '}
-                <span className="k">False</span>
-                {',\n'}
-                {'            '}
-                <span className="s">{`"fixed_value"`}</span>
-                {': '}
-                <span className="s">100</span>
-                {',\n'}
-                {'            '}
-                <span className="s">{`"lower_bound"`}</span>
-                {': '}
-                <span className="s">50</span>
-                {',\n'}
-                {'            '}
-                <span className="s">{`"upper_bound"`}</span>
-                {': '}
-                <span className="s">200</span>
-                {',\n'}
-                {'        },\n'}
-                {'        description='}
-                <span className="s">{`"Number of trees"`}</span>
-                {',\n'}
-                {'    )\n'}
-                {'\n'}
-                <span className="k">class</span>{' '}<span className="d">MyForest</span>{`(BaseModel):
-`}
-                {'    SCHEMA = MyForestSchema\n'}
-                {'\n'}
-                {'    '}
-                <span className="k">def</span>{' '}<span className="d">train</span>
-                {'(self, X, y):\n'}
-                {'        self.model = RandomForestClassifier(\n'}
-                {'            **self.params\n'}
-                {'        ).fit(X, y)\n'}
-                {'\n'}
-                {'    '}
-                <span className="k">def</span>{' '}<span className="d">predict</span>
-                {'(self, X):\n'}
-                {'        '}
-                <span className="k">return</span>
-                {' self.model.predict(X)\n'}
-                <span className="c">{`# 24 líneas | UI auto-generada | python ≥ 3.10`}</span>
-              </pre>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* CITATION */}
-      <section className="section">
-        <div className="wrap">
-          <div className="sec-head">
-            <div className="left">
-              <div className="eyebrow">
-                <span className="num">[ /contribute/citation ]</span>
-              </div>
-              <h2>{t('cont.cit.h')}</h2>
-              <p className="lead">{t('cont.cit.lead')}</p>
-            </div>
-          </div>
-
-          <div className="citation-grid">
-            <pre className="code">{`@software{dashai_2026,
-  title  = {dashAI: a Full Open, Full Extensible
-            Visual ML platform},
-  author = {{dashAI Team}},
-  year   = {2026},
-  version = {${version}},
-  url    = {https://github.com/DashAISoftware/dashAI},
-  license = {open-source},
-  organization = {dashAI Community},
-}`}</pre>
-
-            <div className="coc-card" style={{ background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: 'var(--r-lg)', padding: 24 }}>
-              <h4 style={{ fontSize: 16, marginBottom: 10 }}>{t('cont.coc.h')}</h4>
-              <p style={{ fontSize: 14, color: 'var(--ink-2)', lineHeight: 1.5 }} dangerouslySetInnerHTML={th('cont.coc.p')} />
-              <a
-                className="btn btn--sm"
-                style={{ marginTop: 14 }}
-                href="https://github.com/DashAISoftware/dashAI/blob/production/CONTRIBUTING.rst"
-                target="_blank"
-                rel="noopener"
-              >
-                CONTRIBUTING.rst →
+              <p className="hm-p">{t('ct.extension.more')}</p>
+              <a className="hm-more pg-guide" href={pluginGuide} target="_blank" rel="noopener noreferrer">
+                {t('ct.extension.guide')}
+                <Arrow />
               </a>
-            </div>
+            </section>
+
+            <section id="contrib-core" className="hm-sec" aria-labelledby="ct-core-h">
+              <h2 id="ct-core-h" className="hm-h2">{t('ct.core.h')}</h2>
+              <Via id="core" dot="discover" />
+              <p className="hm-p">{t('ct.core.p')}</p>
+              <Steps id="core" count={CORE_STEPS} />
+
+              <h3 className="ct-h3">{t('ct.core.kinds')}</h3>
+              <ul className="ct-list ct-list--stack">
+                {CHANGES.map((c) => (
+                  <li key={c.key}>
+                    <p className="ct-item-t">{t(`ct.change.${c.key}.t`)}</p>
+                    <p className="ct-item-p" dangerouslySetInnerHTML={th(`ct.change.${c.key}.p`)} />
+                    <ItemLinks links={c.links} />
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section id="contrib-nocode" className="hm-sec" aria-labelledby="ct-nocode-h">
+              <h2 id="ct-nocode-h" className="hm-h2">{t('ct.nocode.h')}</h2>
+              <Via id="nocode" dot="build" />
+              <p className="hm-p">{t('ct.nocode.p')}</p>
+              <ul className="ct-list ct-list--stack">
+                {NOCODE.map((c) => (
+                  <li key={c.key}>
+                    <p className="ct-item-t">{t(`ct.free.${c.key}.t`)}</p>
+                    <p className="ct-item-p">{t(`ct.free.${c.key}.p`)}</p>
+                    {c.key === 'cite' ? <CitationBox version={ghVersion} /> : <ItemLinks links={c.links} />}
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section id="contrib-setup" className="hm-sec hm-sec--last" aria-labelledby="ct-setup-h">
+              <h2 id="ct-setup-h" className="hm-h2">{t('ct.setup.h')}</h2>
+              <p className="hm-p">{t('ct.setup.p')}</p>
+              <pre className="dl-code">{SETUP_BACK}</pre>
+              <p className="hm-p">{t('ct.setup.front')}</p>
+              <pre className="dl-code">{SETUP_FRONT}</pre>
+              <p className="hm-p hm-muted" dangerouslySetInnerHTML={th('ct.setup.cpu')} />
+              <p className="hm-p hm-muted">{t('ct.setup.more')}</p>
+              <a className="hm-more pg-guide" href={`${docsBase}/build/dev-setup/`} target="_blank" rel="noopener noreferrer">
+                {t('ct.setup.guide')}
+                <Arrow />
+              </a>
+            </section>
+
           </div>
         </div>
-      </section>
-    </>
+
+        <section className="pg-cta" aria-labelledby="ct-cta-h">
+          <h2 id="ct-cta-h">{t('ct.cta.h')}</h2>
+          <p>{t('ct.cta.p')}</p>
+          <div className="pg-cta-links">
+            <a href={DISCORD} target="_blank" rel="noopener noreferrer">
+              <span>Discord</span>
+              <span>{t('ct.cta.discord')}</span>
+            </a>
+            <a href={docsBase} target="_blank" rel="noopener noreferrer">
+              <span>{t('ct.cta.docs.t')}</span>
+              <span>{t('ct.cta.docs')}</span>
+            </a>
+            <a href={EMAIL}>
+              <span>contacto@dash-ai.com</span>
+              <span>{t('ct.cta.mail')}</span>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
   )
 }

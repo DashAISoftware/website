@@ -1,127 +1,72 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { InstitutionsGrid } from '../InstitutionsGrid'
 import { StudentsGrid } from '../StudentsGrid'
 import { TeamGrid } from '../TeamGrid'
-import { getAcknowledgmentsText } from '@/lib/institutions'
-import { getLatestRelease } from '@/lib/github'
 import '@/app/i18n'
+
 export function AboutRoute() {
-  const { t, i18n } = useTranslation('about')
-  const th = (key: string, options?: Record<string, string>) => ({ __html: t(key, options) })
-  const acknowledgment = getAcknowledgmentsText(i18n.language)
-
-  const [version, setVersion] = useState('0.9.6')
-
-  useEffect(() => {
-    getLatestRelease().then((release) => {
-      if (!release) return
-      setVersion(release.tag_name.replace(/^v/, ''))
-    })
-  }, [])
+  const { t } = useTranslation('about')
 
   return (
     <main data-route="about">
-      <div className="abt-hero">
-        <svg className="wm wm-tr" viewBox="0 0 218.96 237.04" aria-hidden="true">
+      <section className="pg-top" aria-labelledby="abt-title">
+        <svg className="hm-hero-mark" viewBox="0 0 218.96 237.04" aria-hidden="true">
           <use href="#dashai-mark" />
         </svg>
-        <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="eyebrow"><span className="num">[ /about ]</span></div>
-          <h2 style={{ margin: '16px 0' }}>{t('abt.h')}</h2>
-          <p className="lead">{t('abt.lead')}</p>
-
-          <div className="abt-mission-grid">
-            <div style={{
-              background: 'var(--surface)',
-              border: '1px solid var(--line)',
-              borderRadius: 'var(--r-lg)',
-              padding: '28px',
-            }}>
-              <h3 style={{ marginBottom: '14px', color: 'var(--ink)' }}>{t('abt.m.h')}</h3>
-              <p style={{ fontSize: '15px', color: 'var(--ink-2)', lineHeight: '1.55' }}>{t('abt.m.p')}</p>
-              <h3 style={{ margin: '24px 0 14px', color: 'var(--ink)' }}>{t('abt.v.h2')}</h3>
-              <p style={{ fontSize: '14px', color: 'var(--ink-2)', lineHeight: '1.55' }}>{t('abt.v.p2')}</p>
-            </div>
-            <div style={{
-              background: 'var(--ink-bg)',
-              color: 'var(--ink-text)',
-              borderRadius: 'var(--r-lg)',
-              padding: '28px',
-            }}>
-              <h3 style={{ marginBottom: '14px', color: 'var(--ink-text)' }}>{t('abt.v.h')}</h3>
-              <p
-                style={{ fontFamily: 'var(--mono)', fontSize: '14px', color: 'var(--ink-text-2)', lineHeight: '1.7' }}
-                dangerouslySetInnerHTML={th('abt.v.p', { version })}
-              />
-            </div>
+        <div className="pg-top-inner pg-top-inner--stack">
+          <div className="pg-top-copy">
+            <h1 id="abt-title">{t('abt.h')}</h1>
+            <p>{t('abt.lead')}</p>
           </div>
 
-          {/* Sub-section: Community */}
-          <section className="abt-sub" style={{ position: 'relative', overflow: 'hidden' }}>
-            <svg className="wm wm-tr wm-sm" viewBox="0 0 218.96 237.04" aria-hidden="true">
-              <use href="#dashai-mark" />
-            </svg>
-            <div className="ey">
-              <span className="num">[ /about/institutions ]</span>
-              {' '}&nbsp;{' '}
-              <span>{t('abt.inst.ey')}</span>
-            </div>
-            <h2 dangerouslySetInnerHTML={th('abt.inst.h')} />
-            <p className="lead">{acknowledgment}</p>
-
-            <InstitutionsGrid />
-          </section>
-
-          {/* Sub-section: Team */}
-          <section className="abt-sub" style={{ position: 'relative', overflow: 'hidden' }}>
-            <div className="ey">
-              <span className="num">[ /about/team ]</span>
-              {' '}&nbsp;{' '}
-              <span>{t('abt.team.ey')}</span>
-            </div>
-            <h2 dangerouslySetInnerHTML={th('abt.team.h')} />
-            <p className="lead">{t('abt.team.lead')}</p>
-
-            <TeamGrid />
-          </section>
-
-          {/* Sub-section: History */}
-          <section className="abt-sub" style={{ position: 'relative', overflow: 'hidden' }}>
-            <div className="ey">
-              <span className="num">[ /about/history ]</span>
-              {' '}&nbsp;{' '}
-              <span>{t('abt.hist.ey')}</span>
-            </div>
-            <h2 dangerouslySetInnerHTML={th('abt.hist.h')} />
-            <p className="lead">{t('abt.hist.lead')}</p>
-
-            <StudentsGrid />
-
-            <div style={{
-              marginTop: '32px',
-              background: 'var(--ink-bg)',
-              color: 'var(--ink-text)',
-              borderRadius: 'var(--r-lg)',
-              padding: '28px',
-              display: 'grid',
-              gridTemplateColumns: '1fr auto',
-              gap: '24px',
-              alignItems: 'center',
-            }}>
-              <div>
-                <h4 style={{ fontSize: '16px', color: 'var(--ink-text)', marginBottom: '8px' }}>{t('abt.hist.cta.h')}</h4>
-                <p style={{ fontSize: '14px', color: 'var(--ink-text-2)', lineHeight: '1.55' }}>{t('abt.hist.cta.p')}</p>
-              </div>
-              <a className="btn btn--blue" href="mailto:contacto@dash-ai.com">
-                <span>{t('abt.hist.cta.b')}</span> →
-              </a>
-            </div>
-          </section>
-
+          <div className="abt-mv">
+            <article>
+              <h2>{t('abt.m.h')}</h2>
+              <p>{t('abt.m.p')}</p>
+            </article>
+            <article>
+              <h2>{t('abt.v.h2')}</h2>
+              <p>{t('abt.v.p2')}</p>
+            </article>
+          </div>
         </div>
+      </section>
+
+      <div className="pg-body">
+        <section className="hm-sec hm-sec--first" aria-labelledby="abt-inst">
+          <h2 id="abt-inst" className="hm-h2">{t('abt.inst.t')}</h2>
+          <p className="hm-p hm-muted abt-p">{t('abt.inst.p')}</p>
+          <InstitutionsGrid />
+        </section>
+
+        <section className="hm-sec" aria-labelledby="abt-team">
+          <h2 id="abt-team" className="hm-h2">{t('abt.team.t')}</h2>
+          <p className="hm-p hm-muted abt-p">{t('abt.team.lead')}</p>
+          <TeamGrid />
+        </section>
+
+        <section className="hm-sec hm-sec--last" aria-labelledby="abt-hist">
+          <h2 id="abt-hist" className="hm-h2">{t('abt.hist.t')}</h2>
+          <p className="hm-p hm-muted abt-p">{t('abt.hist.lead')}</p>
+          <StudentsGrid />
+        </section>
+
+        <section className="pg-cta" aria-labelledby="abt-cta-h">
+          <h2 id="abt-cta-h">{t('abt.hist.cta.h')}</h2>
+          <p>{t('abt.hist.cta.p')}</p>
+          <div className="pg-cta-links">
+            <a href="https://discord.gg/CQVqMBjeWP" target="_blank" rel="noopener noreferrer">
+              <span>Discord</span>
+              <span>{t('abt.cta.discord')}</span>
+            </a>
+            <a href="mailto:contacto@dash-ai.com">
+              <span>contacto@dash-ai.com</span>
+              <span>{t('abt.cta.mail')}</span>
+            </a>
+          </div>
+        </section>
       </div>
     </main>
   )
