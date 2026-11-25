@@ -33,10 +33,6 @@ export function DemoEmbed() {
           </button>
         )}
       </div>
-      <figcaption className="hm-demo-cap">
-        <span>{t('about.demo.cap')}</span>
-        <span className="hm-demo-src">{t('about.demo.src')}</span>
-      </figcaption>
     </figure>
   )
 }

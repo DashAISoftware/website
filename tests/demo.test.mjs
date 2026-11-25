@@ -15,7 +15,7 @@ test('demo embed uses the privacy-enhanced domain, starts at 0:00 and autoplays 
 test('demo texts exist in all five languages', () => {
   for (const lang of ['es', 'en', 'pt', 'de', 'zh']) {
     const home = JSON.parse(readFileSync(new URL(`../public/locales/${lang}/home.json`, import.meta.url), 'utf8'))
-    for (const key of ['hero.demo.title', 'about.demo.play', 'about.demo.cap', 'about.demo.src']) {
+    for (const key of ['hero.demo.title', 'about.demo.play']) {
       assert.ok(home[key]?.trim(), `${lang}: ${key}`)
     }
   }
