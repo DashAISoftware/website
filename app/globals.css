@@ -119,7 +119,7 @@
   --sec-deep:     #E9A9EC;
   --sec-build:    #FFA578;
   --card:          #1F1E1D;
-  --tint:          #1B1A19;
+  --tint:          #232221;
   --tint-2:        rgba(44,122,255,.10);
   --nav-bg:        rgba(25,24,23,.94);
   --app-line-soft: rgba(254,254,255,.06);
@@ -739,6 +739,7 @@ a.hm-doc:hover .hm-doc-foot svg{color:var(--c);transform:translateX(3px)}
 .hm-docs + .pg-guide{margin-top:24px}
 .pg-guide:hover{border-color:var(--brand);background:var(--tint);text-decoration:none}
 .pg-guide:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.pg-main code{padding:1px 5px;border-radius:3px;background:var(--tint);font-family:var(--mono);font-size:.88em;color:var(--ink)}
 .ct-links{display:flex;flex-wrap:wrap;gap:4px 24px}
 .ct-links .hm-more{margin-top:10px}
 @media(max-width:640px){
