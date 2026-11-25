@@ -601,7 +601,7 @@ a.hm-doc:hover .hm-doc-foot svg{color:var(--c);transform:translateX(3px)}
 .md-quote blockquote{font-size:18px;line-height:1.55;color:var(--ink)}
 .md-quote figcaption{font-size:14px;line-height:1.5;color:var(--app-muted)}
 .md-quote strong{display:block;font-weight:600;color:var(--brand)}
-.md-feature{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);margin-top:24px;overflow:hidden;border:1px solid var(--app-line);border-radius:8px;background:linear-gradient(180deg,#EEF4FF,#fff 70%)}
+.md-feature{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);margin-top:24px;overflow:hidden;border:1px solid var(--app-line);border-radius:8px;background:var(--bg)}
 .md-feature-img{position:relative;margin:0;min-height:100%}
 .md-feature-img img{display:block;width:100%;height:100%;object-fit:cover}
 .md-feature-img figcaption{position:absolute;right:8px;bottom:8px;padding:2px 8px;border-radius:2px;background:rgba(25,24,23,.6);font-size:11px;color:#fff}
