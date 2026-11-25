@@ -1,14 +1,15 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '@/app/i18n'
 import { LABS, LAB_TASKS, type Lab, type LabTask } from '@/data/labs'
 import { fileHref, filterLabs } from '@/lib/labs'
 import { DocCard } from '@/components/community/DocCard'
 
-// Header animation. Placeholder until the recording of a lab being imported exists.
-const LAB_GIF = '/images/home/tour-modelos.gif'
+// Header recording: importing a lab session in dashAI. A muted looping video
+// instead of a GIF (6.6 MB as GIF, about 0.6 MB as video).
+const LAB_VIDEO = '/images/labs/importar-sesion'
 
 const n4 = [1, 2, 3, 4]
 
@@ -22,6 +23,12 @@ function labHref(lab: Lab): string | null {
 export function LabsRoute() {
   const { t } = useTranslation('labs')
   const [task, setTask] = useState<'all' | LabTask>('all')
+  const video = useRef<HTMLVideoElement>(null)
+
+  // Respect "reduce motion": show the first frame instead of the looping recording.
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) video.current?.pause()
+  }, [])
 
   const shown = useMemo(() => filterLabs(LABS, task, '', () => ''), [task])
 
@@ -38,7 +45,21 @@ export function LabsRoute() {
           </div>
 
           <figure className="lab-gif">
-            <img src={LAB_GIF} alt={t('labs.gif.alt')} width={960} height={600} />
+            <video
+              ref={video}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={`${LAB_VIDEO}.jpg`}
+              width={1356}
+              height={674}
+              aria-label={t('labs.gif.alt')}
+            >
+              <source src={`${LAB_VIDEO}.webm`} type="video/webm" />
+              <source src={`${LAB_VIDEO}.mp4`} type="video/mp4" />
+            </video>
           </figure>
         </div>
       </section>

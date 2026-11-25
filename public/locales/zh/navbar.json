@@ -34,5 +34,8 @@
   "res.labs.desc": "附带可直接导入会话的引导案例。",
   "res.labs.title": "实验室",
   "res.pypi.desc": "通过 pip 安装，支持 GPU 加速。",
-  "res.pypi.title": "PyPI 软件包"
+  "res.pypi.title": "PyPI 软件包",
+  "a11y.theme": "主题",
+  "a11y.themeDark": "切换到深色模式",
+  "a11y.themeLight": "切换到浅色模式"
 }

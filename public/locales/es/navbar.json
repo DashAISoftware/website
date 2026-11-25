@@ -34,5 +34,8 @@
   "res.labs.desc": "Casos guiados con sesiones listas para importar.",
   "res.labs.title": "Labs",
   "res.pypi.desc": "Instalación con pip, incluida la aceleración por GPU.",
-  "res.pypi.title": "Paquete en PyPI"
+  "res.pypi.title": "Paquete en PyPI",
+  "a11y.theme": "Tema",
+  "a11y.themeDark": "Cambiar a modo oscuro",
+  "a11y.themeLight": "Cambiar a modo claro"
 }

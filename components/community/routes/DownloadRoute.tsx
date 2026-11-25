@@ -77,11 +77,11 @@ export function DownloadRoute() {
 
   return (
     <main data-route="download">
-      <section className="pg-top" aria-labelledby="dl-title">
+      <section className="pg-top pg-top--wide" aria-labelledby="dl-title">
         <svg className="hm-hero-mark" viewBox="0 0 218.96 237.04" aria-hidden="true">
           <use href="#dashai-mark" />
         </svg>
-        <div className="pg-top-inner pg-top-inner--stack">
+        <div className="pg-top-inner">
           <div className="pg-top-copy">
             <h1 id="dl-title">{t('dl.h')}</h1>
             <p>

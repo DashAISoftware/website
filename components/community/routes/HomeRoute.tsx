@@ -158,7 +158,6 @@ export function HomeRoute() {
                 tag={t(`docs.level.${c.level}`)}
                 title={t(`docs.${c.id}.h`)}
                 desc={t(`docs.${c.id}.p`)}
-                tags={[t(`docs.${c.id}.t1`), t(`docs.${c.id}.t2`)]}
               />
             ))}
           </div>
