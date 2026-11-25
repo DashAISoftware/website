@@ -6,8 +6,8 @@ type Props = {
   icon: ReactNode
   // Chip in the top right corner (level on the home, status on Labs)
   tag: string
-  // Small tags in the footer
-  tags: string[]
+  // Small tags in the footer; without them the card has no footer or arrow
+  tags?: string[]
   // Small line above the title, e.g. "Caso 01"
   kicker?: string
   // Without href the card is plain text and shows no arrow
@@ -30,16 +30,18 @@ export function DocCard({ title, desc, icon, tag, tags, kicker, href, external, 
       {kicker && <span className="lab-code">{kicker}</span>}
       <span className="hm-doc-title">{title}</span>
       <span className="hm-doc-desc">{desc}</span>
-      <span className="hm-doc-foot">
-        <span className="hm-doc-tags">
-          {tags.map((tg) => <span key={tg} className="hm-tag hm-tag--sm">{tg}</span>)}
+      {tags && tags.length > 0 && (
+        <span className="hm-doc-foot">
+          <span className="hm-doc-tags">
+            {tags.map((tg) => <span key={tg} className="hm-tag hm-tag--sm">{tg}</span>)}
+          </span>
+          {href && (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          )}
         </span>
-        {href && (
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M5 12h14M13 6l6 6-6 6" />
-          </svg>
-        )}
-      </span>
+      )}
     </>
   )
 
