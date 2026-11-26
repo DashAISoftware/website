@@ -88,7 +88,7 @@ export function HomeRoute() {
                     {statsLoading ? skeleton : <strong>{formatNum(downloads ?? 0)}<sup aria-hidden="true">*</sup></strong>} {t('hero.stat.dl')}
                   </span>
                 </AppLink>
-                <a href={`${REPO}/stargazers`} target="_blank" rel="noopener noreferrer">
+                <a href={REPO} target="_blank" rel="noopener noreferrer">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z" />
                   </svg>
