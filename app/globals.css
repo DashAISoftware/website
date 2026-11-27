@@ -612,6 +612,22 @@ a.hm-doc:hover .hm-doc-foot svg{color:var(--c);transform:translateX(3px)}
 .abt-inst-logo--cenia img{max-height:40px}
 .abt-inst-logo--unholster img{max-height:26px}
 .abt-inst-logo--idia img{max-height:44px}
+.abt-inst--group{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;align-items:center;gap:20px 48px}
+.abt-inst--group:hover{border-color:var(--app-line)}
+.abt-inst--group .abt-inst-logo{height:auto}
+.abt-inst--group .abt-inst-logo img{max-height:72px}
+.abt-inst--group .abt-inst-logo--idia img{max-height:40px}
+.abt-inst-unit{display:flex;align-items:center;align-self:stretch;padding:4px 24px;border-radius:6px;transition:opacity .15s}
+.abt-inst-unit:first-child{padding-left:0}
+.abt-inst-unit:last-child{padding-right:0}
+.abt-inst-unit+.abt-inst-unit{border-left:1px solid var(--app-line);border-radius:0}
+@media(max-width:560px){
+  .abt-inst--group .abt-inst-logo img{max-height:52px}
+  .abt-inst--group .abt-inst-logo--idia img{max-height:30px}
+  .abt-inst-unit{padding:4px 14px}
+}
+.abt-inst-unit:hover{opacity:.7}
+.abt-inst-unit:focus-visible{outline:2px solid var(--brand);outline-offset:4px}
 .abt-inst-name{display:flex;flex-direction:column;gap:2px;line-height:1.4}
 .abt-inst-name strong{font-weight:600;color:var(--ink)}
 .abt-inst-name span{font-size:14px;color:var(--app-muted)}
