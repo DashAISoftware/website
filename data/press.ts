@@ -19,6 +19,10 @@ export interface PressItem {
 // Rendered in this order: keep it newest first.
 export const PRESS: PressItem[] = [
   {
+    id: 'imfd-futuria', type: 'institucional', outlet: 'IMFD', mark: 'IMFD', date: '2026-10-13', action: 'read',
+    url: 'https://imfd.cl/el-origen-de-dashai-la-plataforma-de-ia-no-code-de-modelos-de-aprendizaje-automatico-hecha-en-chile/',
+  },
+  {
     id: 'ilia', type: 'institucional', outlet: 'Índice Latinoamericano de IA (ILIA)', mark: 'ILIA', date: '2026-10-01', action: 'read',
     url: 'https://indicelatam.cl/presentan-dashai-plataforma-chilena-que-permite-trabajar-sin-entregar-datos/',
   },
@@ -133,6 +137,10 @@ export const PRESS: PressItem[] = [
   {
     id: 'idia', type: 'institucional', outlet: 'IDIA, U. de Chile', mark: 'IDIA', date: '2026-08', action: 'read',
     url: 'https://idia.uchile.cl/2026/08/u-de-chile-presento-dashai-plataforma-chilena-que-permite-trabajar-sin-entregar-datos/',
+  },
+  {
+    id: 'dcc', type: 'institucional', outlet: 'DCC, U. de Chile', mark: 'DCC', date: '2026-08', action: 'read',
+    url: 'https://comunicaciones.dcc.uchile.cl/news/1224-u-de-chile-presento-dashai-plataforma-chilena-que-permite-trabajar-sin-entregar-datos/',
   },
   {
     id: 'tvn-como-funciona', type: 'tv', outlet: 'TVN | Exponencial', mark: 'TVN', date: '2026-08-03', action: 'watch',
