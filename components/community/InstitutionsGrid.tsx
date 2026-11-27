@@ -14,10 +14,12 @@ const DARK_LOGOS = ['dcc-logo.png', 'unholster-logo.png', 'imfd-logo.png', 'usm-
 // the DCC's, so it opens the department's site.
 const URLS: Record<string, string> = { uchile: 'https://dcc.uchile.cl/' }
 // Shown before the rest, in this order; the others keep the data file's order.
-const FIRST = ['fcfm', 'uchile']
+const FIRST = ['fcfm', 'uchile', 'idia']
 const rank = (id: string) => (FIRST.includes(id) ? FIRST.indexOf(id) : FIRST.length)
-// Institutions shown here but not in the shared data file, each placed right
-// after the institution named in `after`. Name and role come from the site texts.
+// Institutions not yet in the shared data file, each placed right after the
+// institution named in `after`. An entry is skipped once the data file has its
+// id (IDIA: dashAI PR #1051), so it never shows twice; remove it after that.
+// Name and role come from the site texts.
 const LOCAL = [
   { after: 'uchile', id: 'idia', name: 'IDIA', url: 'https://idia.uchile.cl/', logo: 'institutions/idia-logo.png' },
 ]
@@ -53,8 +55,10 @@ export function InstitutionsGrid({ early = true }: { early?: boolean }) {
     const key = `abt.inst.${id}.role`
     return i18n.exists(key, { ns: 'about' }) ? t(key) : fallback
   }
+  const shared = getInstitutions()
+  const local = LOCAL.filter((l) => !shared.some((inst) => inst.id === l.id))
   const institutions = [
-    ...getInstitutions()
+    ...shared
       .filter((inst) => !EARLY_IDS.includes(inst.id))
       .sort((a, b) => rank(a.id) - rank(b.id))
       .flatMap((inst) => [
@@ -64,7 +68,7 @@ export function InstitutionsGrid({ early = true }: { early?: boolean }) {
           fullName: name(inst.id, inst.fullName || inst.name),
           role: role(inst.id, getInstitutionRole(inst, lang)),
         },
-        ...LOCAL.filter((l) => l.after === inst.id).map((l) => ({
+        ...local.filter((l) => l.after === inst.id).map((l) => ({
           id: l.id,
           name: l.name,
           fullName: name(l.id, l.name),
