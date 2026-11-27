@@ -10,19 +10,15 @@ const EARLY_IDS = ['imfd']
 // Logos with a dark-theme copy in public/institutions/dark/ (black turned white,
 // colours kept). The others (ANID, CENIA, IDIA) stay as they are.
 const DARK_LOGOS = ['dcc-logo.png', 'unholster-logo.png', 'imfd-logo.png', 'usm-logo.png', 'fcfm-logo.png']
-// Links that differ from the shared data file: the University of Chile card is
-// the DCC's, so it opens the department's site.
-const URLS: Record<string, string> = { uchile: 'https://dcc.uchile.cl/' }
-// Shown before the rest, in this order; the others keep the data file's order.
-const FIRST = ['fcfm', 'uchile', 'idia']
-const rank = (id: string) => (FIRST.includes(id) ? FIRST.indexOf(id) : FIRST.length)
-// Institutions not yet in the shared data file, each placed right after the
-// institution named in `after`. An entry is skipped once the data file has its
-// id (IDIA: dashAI PR #1051), so it never shows twice; remove it after that.
-// Name and role come from the site texts.
-const LOCAL = [
-  { after: 'uchile', id: 'idia', name: 'IDIA', url: 'https://idia.uchile.cl/', logo: 'institutions/idia-logo.png' },
+// The University of Chile units, shown together in one card, each logo linking
+// to its own site. They are left out of the shared data file's list (dashAI
+// PR #1051 adds IDIA there), so they never show twice.
+const UCHILE = [
+  { id: 'fcfm', name: 'FCFM', url: 'https://www.fcfm.uchile.cl/', logo: 'institutions/fcfm-logo.png' },
+  { id: 'dcc', name: 'DCC', url: 'https://dcc.uchile.cl/', logo: 'institutions/dcc-logo.png' },
+  { id: 'idia', name: 'IDIA', url: 'https://idia.uchile.cl/', logo: 'institutions/idia-logo.png' },
 ]
+const UCHILE_IDS = ['uchile', 'fcfm', 'idia']
 
 // The logo, plus its dark-theme copy when there is one; CSS shows one or the other.
 function Logo({ src, onError }: { src: string; onError?: (e: SyntheticEvent<HTMLImageElement>) => void }) {
@@ -55,28 +51,14 @@ export function InstitutionsGrid({ early = true }: { early?: boolean }) {
     const key = `abt.inst.${id}.role`
     return i18n.exists(key, { ns: 'about' }) ? t(key) : fallback
   }
-  const shared = getInstitutions()
-  const local = LOCAL.filter((l) => !shared.some((inst) => inst.id === l.id))
   const institutions = [
-    ...shared
-      .filter((inst) => !EARLY_IDS.includes(inst.id))
-      .sort((a, b) => rank(a.id) - rank(b.id))
-      .flatMap((inst) => [
-        {
-          ...inst,
-          url: URLS[inst.id] ?? inst.url,
-          fullName: name(inst.id, inst.fullName || inst.name),
-          role: role(inst.id, getInstitutionRole(inst, lang)),
-        },
-        ...local.filter((l) => l.after === inst.id).map((l) => ({
-          id: l.id,
-          name: l.name,
-          fullName: name(l.id, l.name),
-          url: l.url,
-          logo: l.logo,
-          role: role(l.id, ''),
-        })),
-      ]),
+    ...getInstitutions()
+      .filter((inst) => !EARLY_IDS.includes(inst.id) && !UCHILE_IDS.includes(inst.id))
+      .map((inst) => ({
+        ...inst,
+        fullName: name(inst.id, inst.fullName || inst.name),
+        role: role(inst.id, getInstitutionRole(inst, lang)),
+      })),
     ...getFunderLogos().map((f) => ({
       id: f.id,
       name: f.name,
@@ -90,6 +72,19 @@ export function InstitutionsGrid({ early = true }: { early?: boolean }) {
   return (
     <>
     <div className="abt-insts">
+      <div className="abt-inst abt-inst--group">
+        <span className="abt-inst-logo">
+          {UCHILE.map((u) => (
+            <a key={u.id} className={`abt-inst-unit abt-inst-logo--${u.id}`} href={u.url} target="_blank" rel="noopener noreferrer" aria-label={u.name}>
+              <Logo src={u.logo} />
+            </a>
+          ))}
+        </span>
+        <span className="abt-inst-name">
+          <strong>{t('abt.inst.uchile.t')}</strong>
+          <span>{t('abt.inst.uchile.role')}</span>
+        </span>
+      </div>
       {institutions.map((inst) => (
         <a key={inst.id} className="abt-inst" href={inst.url} target="_blank" rel="noopener noreferrer">
           <span className={`abt-inst-logo abt-inst-logo--${inst.id}`}>
